@@ -8,20 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		7EDC598A200E6C4100C33DFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDC5989200E6C4100C33DFC /* AppDelegate.swift */; };
-		7EDC598C200E6C4100C33DFC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDC598B200E6C4100C33DFC /* ViewController.swift */; };
 		7EDC598F200E6C4100C33DFC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EDC598D200E6C4100C33DFC /* Main.storyboard */; };
 		7EDC5991200E6C4100C33DFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7EDC5990200E6C4100C33DFC /* Assets.xcassets */; };
 		7EDC5994200E6C4100C33DFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EDC5992200E6C4100C33DFC /* LaunchScreen.storyboard */; };
+		7EDC599C200E75A400C33DFC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDC599B200E75A400C33DFC /* MainViewController.swift */; };
+		7EDC599F200E765C00C33DFC /* FeelingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDC599E200E765C00C33DFC /* FeelingCell.swift */; };
+		7EDC59A2200E76E100C33DFC /* Feeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDC59A1200E76E100C33DFC /* Feeling.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7EDC5986200E6C4100C33DFC /* Stayt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stayt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EDC5989200E6C4100C33DFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7EDC598B200E6C4100C33DFC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7EDC598E200E6C4100C33DFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7EDC5990200E6C4100C33DFC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7EDC5993200E6C4100C33DFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7EDC5995200E6C4100C33DFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7EDC599B200E75A400C33DFC /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		7EDC599E200E765C00C33DFC /* FeelingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeelingCell.swift; sourceTree = "<group>"; };
+		7EDC59A1200E76E100C33DFC /* Feeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feeling.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +58,32 @@
 		7EDC5988200E6C4100C33DFC /* Stayt */ = {
 			isa = PBXGroup;
 			children = (
+				7EDC59A0200E76D000C33DFC /* Models */,
 				7EDC5989200E6C4100C33DFC /* AppDelegate.swift */,
-				7EDC598B200E6C4100C33DFC /* ViewController.swift */,
 				7EDC598D200E6C4100C33DFC /* Main.storyboard */,
+				7EDC599D200E764100C33DFC /* MainScreen */,
 				7EDC5990200E6C4100C33DFC /* Assets.xcassets */,
 				7EDC5992200E6C4100C33DFC /* LaunchScreen.storyboard */,
 				7EDC5995200E6C4100C33DFC /* Info.plist */,
 			);
 			path = Stayt;
+			sourceTree = "<group>";
+		};
+		7EDC599D200E764100C33DFC /* MainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				7EDC599B200E75A400C33DFC /* MainViewController.swift */,
+				7EDC599E200E765C00C33DFC /* FeelingCell.swift */,
+			);
+			path = MainScreen;
+			sourceTree = "<group>";
+		};
+		7EDC59A0200E76D000C33DFC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7EDC59A1200E76E100C33DFC /* Feeling.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,8 +158,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7EDC598C200E6C4100C33DFC /* ViewController.swift in Sources */,
+				7EDC599F200E765C00C33DFC /* FeelingCell.swift in Sources */,
 				7EDC598A200E6C4100C33DFC /* AppDelegate.swift in Sources */,
+				7EDC59A2200E76E100C33DFC /* Feeling.swift in Sources */,
+				7EDC599C200E75A400C33DFC /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

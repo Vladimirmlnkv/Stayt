@@ -1,24 +1,105 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wcy-3I-cMs">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Navigation Controller-->
+        <scene sceneID="vaZ-k2-0iX">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <navigationController id="wcy-3I-cMs" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="8dK-uA-1vC">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="TIU-f5-PtJ" kind="relationship" relationship="rootViewController" id="ayE-j7-ZQS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3JN-ce-5th" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-727" y="-158"/>
+        </scene>
+        <!--Stayt-->
+        <scene sceneID="jcg-dM-KHb">
+            <objects>
+                <viewController storyboardIdentifier="MainViewController" id="TIU-f5-PtJ" customClass="MainViewController" customModule="Stayt" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9JA-DW-TYY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How do you want to feel right now?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nYv-Ru-Hyp">
+                                <rect key="frame" x="29.5" y="126" width="317" height="25.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="HJo-Ew-t8x">
+                                <rect key="frame" x="10" y="171.5" width="355" height="485.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="DoD-QH-AEA">
+                                    <size key="itemSize" width="118" height="58"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FeelingCell" id="Vma-Ua-MOA" customClass="FeelingCell" customModule="Stayt" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="118" height="58"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="118" height="58"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bGV-1P-3HP">
+                                                    <rect key="frame" x="16" y="16" width="86" height="26"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="bGV-1P-3HP" firstAttribute="leading" secondItem="Vma-Ua-MOA" secondAttribute="leadingMargin" constant="8" id="8G8-fh-3ge"/>
+                                            <constraint firstItem="bGV-1P-3HP" firstAttribute="top" secondItem="Vma-Ua-MOA" secondAttribute="topMargin" constant="8" id="VFP-fe-YCc"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="bGV-1P-3HP" secondAttribute="trailing" constant="8" id="qum-Es-7Vw"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="bGV-1P-3HP" secondAttribute="bottom" constant="8" id="r4G-G6-NrM"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="label" destination="bGV-1P-3HP" id="pXL-r1-QE6"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="nYv-Ru-Hyp" firstAttribute="centerX" secondItem="9JA-DW-TYY" secondAttribute="centerX" id="70A-ne-R3o"/>
+                            <constraint firstItem="nYv-Ru-Hyp" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ePG-Mu-XiW" secondAttribute="leading" constant="10" id="K0x-YS-Ll6"/>
+                            <constraint firstItem="nYv-Ru-Hyp" firstAttribute="top" secondItem="ePG-Mu-XiW" secondAttribute="top" constant="10" id="Pna-kW-a2o"/>
+                            <constraint firstItem="ePG-Mu-XiW" firstAttribute="bottom" secondItem="HJo-Ew-t8x" secondAttribute="bottom" constant="10" id="VIO-s8-2zT"/>
+                            <constraint firstItem="HJo-Ew-t8x" firstAttribute="top" secondItem="nYv-Ru-Hyp" secondAttribute="bottom" constant="20" id="f1N-aH-M9D"/>
+                            <constraint firstItem="HJo-Ew-t8x" firstAttribute="leading" secondItem="ePG-Mu-XiW" secondAttribute="leading" constant="10" id="qoN-J5-Vg8"/>
+                            <constraint firstItem="ePG-Mu-XiW" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="nYv-Ru-Hyp" secondAttribute="trailing" constant="10" id="wXh-fM-XYX"/>
+                            <constraint firstItem="ePG-Mu-XiW" firstAttribute="trailing" secondItem="HJo-Ew-t8x" secondAttribute="trailing" constant="10" id="ysw-Kc-5LZ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ePG-Mu-XiW"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Stayt" id="u2s-p1-BN9"/>
+                    <connections>
+                        <outlet property="collectionView" destination="HJo-Ew-t8x" id="gbR-cW-Ohj"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K6z-uI-TKe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="149.59999999999999" y="-159.67016491754123"/>
         </scene>
     </scenes>
 </document>
