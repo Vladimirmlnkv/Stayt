@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E3DAA27200F57C800E1B88C /* ExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3DAA26200F57C800E1B88C /* ExerciseViewController.swift */; };
+		7E3DAA29200F5A3D00E1B88C /* BorderedCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3DAA28200F5A3D00E1B88C /* BorderedCircleView.swift */; };
+		7E3DAA2C200F5D6700E1B88C /* DisclosureButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3DAA2B200F5D6700E1B88C /* DisclosureButton.swift */; };
+		7E3DAA2E200F5F9900E1B88C /* DropDownMenuHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3DAA2D200F5F9900E1B88C /* DropDownMenuHandler.swift */; };
 		7EDC598A200E6C4100C33DFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDC5989200E6C4100C33DFC /* AppDelegate.swift */; };
 		7EDC598F200E6C4100C33DFC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EDC598D200E6C4100C33DFC /* Main.storyboard */; };
 		7EDC5991200E6C4100C33DFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7EDC5990200E6C4100C33DFC /* Assets.xcassets */; };
@@ -17,6 +21,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7E3DAA26200F57C800E1B88C /* ExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewController.swift; sourceTree = "<group>"; };
+		7E3DAA28200F5A3D00E1B88C /* BorderedCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedCircleView.swift; sourceTree = "<group>"; };
+		7E3DAA2B200F5D6700E1B88C /* DisclosureButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclosureButton.swift; sourceTree = "<group>"; };
+		7E3DAA2D200F5F9900E1B88C /* DropDownMenuHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownMenuHandler.swift; sourceTree = "<group>"; };
 		7EDC5986200E6C4100C33DFC /* Stayt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stayt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EDC5989200E6C4100C33DFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7EDC598E200E6C4100C33DFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -39,6 +47,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7E3DAA25200F579000E1B88C /* ExerciseScreen */ = {
+			isa = PBXGroup;
+			children = (
+				7E3DAA26200F57C800E1B88C /* ExerciseViewController.swift */,
+				7E3DAA28200F5A3D00E1B88C /* BorderedCircleView.swift */,
+			);
+			path = ExerciseScreen;
+			sourceTree = "<group>";
+		};
+		7E3DAA2A200F5C8F00E1B88C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7E3DAA2B200F5D6700E1B88C /* DisclosureButton.swift */,
+				7E3DAA2D200F5F9900E1B88C /* DropDownMenuHandler.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		7EDC597D200E6C4100C33DFC = {
 			isa = PBXGroup;
 			children = (
@@ -58,11 +84,13 @@
 		7EDC5988200E6C4100C33DFC /* Stayt */ = {
 			isa = PBXGroup;
 			children = (
+				7E3DAA2A200F5C8F00E1B88C /* Views */,
+				7E3DAA25200F579000E1B88C /* ExerciseScreen */,
 				7EDC59A0200E76D000C33DFC /* Models */,
-				7EDC5989200E6C4100C33DFC /* AppDelegate.swift */,
 				7EDC598D200E6C4100C33DFC /* Main.storyboard */,
 				7EDC599D200E764100C33DFC /* MainScreen */,
 				7EDC5990200E6C4100C33DFC /* Assets.xcassets */,
+				7EDC5989200E6C4100C33DFC /* AppDelegate.swift */,
 				7EDC5992200E6C4100C33DFC /* LaunchScreen.storyboard */,
 				7EDC5995200E6C4100C33DFC /* Info.plist */,
 			);
@@ -158,7 +186,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E3DAA2C200F5D6700E1B88C /* DisclosureButton.swift in Sources */,
 				7EDC599F200E765C00C33DFC /* FeelingCell.swift in Sources */,
+				7E3DAA29200F5A3D00E1B88C /* BorderedCircleView.swift in Sources */,
+				7E3DAA27200F57C800E1B88C /* ExerciseViewController.swift in Sources */,
+				7E3DAA2E200F5F9900E1B88C /* DropDownMenuHandler.swift in Sources */,
 				7EDC598A200E6C4100C33DFC /* AppDelegate.swift in Sources */,
 				7EDC59A2200E76E100C33DFC /* Feeling.swift in Sources */,
 				7EDC599C200E75A400C33DFC /* MainViewController.swift in Sources */,

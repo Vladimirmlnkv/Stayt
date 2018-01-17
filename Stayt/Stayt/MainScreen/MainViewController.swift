@@ -41,6 +41,8 @@ extension MainViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
+        let vc = storyboard?.instantiateViewController(withIdentifier: "ExerciseViewController") as! ExerciseViewController
+        present(vc, animated: true, completion: nil)
     }
     
     func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
