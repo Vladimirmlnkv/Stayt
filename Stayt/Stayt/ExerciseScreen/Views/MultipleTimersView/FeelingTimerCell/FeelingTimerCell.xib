@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FeelingTimerCell" id="SJf-07-5tn" customClass="FeelingTimerCell" customModule="Stayt" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SJf-07-5tn" id="oyI-tP-GeX">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Motivation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xge-S8-vCy">
+                        <rect key="frame" x="46" y="11" width="80" height="22"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="f1m-PV-0s7">
+                        <rect key="frame" x="16" y="12" width="20" height="20"/>
+                    </activityIndicatorView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZKd-H0-Oeh" customClass="DisclosureButton" customModule="Stayt" customModuleProvider="target">
+                        <rect key="frame" x="326" y="7" width="39" height="30"/>
+                        <state key="normal" title="10:00">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Xge-S8-vCy" firstAttribute="leading" secondItem="f1m-PV-0s7" secondAttribute="trailing" constant="10" id="4HV-mf-qb8"/>
+                    <constraint firstItem="Xge-S8-vCy" firstAttribute="centerY" secondItem="ZKd-H0-Oeh" secondAttribute="centerY" id="8Jl-Ga-yLb"/>
+                    <constraint firstItem="ZKd-H0-Oeh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Xge-S8-vCy" secondAttribute="trailing" constant="10" id="B51-tH-HBg"/>
+                    <constraint firstAttribute="trailing" secondItem="ZKd-H0-Oeh" secondAttribute="trailing" constant="10" id="Bsp-7I-FGU"/>
+                    <constraint firstItem="f1m-PV-0s7" firstAttribute="leading" secondItem="oyI-tP-GeX" secondAttribute="leadingMargin" id="eVD-xN-ENS"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="Xge-S8-vCy" secondAttribute="bottom" id="hwh-af-6Hn"/>
+                    <constraint firstItem="Xge-S8-vCy" firstAttribute="top" secondItem="oyI-tP-GeX" secondAttribute="topMargin" id="l26-Oo-aEy"/>
+                    <constraint firstItem="f1m-PV-0s7" firstAttribute="centerY" secondItem="Xge-S8-vCy" secondAttribute="centerY" id="mmh-iG-Sgf"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="durationButton" destination="ZKd-H0-Oeh" id="xS8-PY-VsN"/>
+                <outlet property="label" destination="Xge-S8-vCy" id="N2y-Lx-LQD"/>
+                <outlet property="spinner" destination="f1m-PV-0s7" id="LOS-vO-pSE"/>
+            </connections>
+            <point key="canvasLocation" x="-11.5" y="5"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -19,12 +19,14 @@ class DropDownMenuHandler: NSObject, UITableViewDataSource, UITableViewDelegate,
     fileprivate var menuAlpha: CGFloat = 0.4
     
     fileprivate let superView: UIView
-    fileprivate let triggerButton: UIButton
+    fileprivate var triggerButtons: [UIButton]
     fileprivate let cellHeight: CGFloat = 44.0
     
-    init(superView: UIView, triggerButton: UIButton) {
+    fileprivate var lastTag: Int = 0
+    
+    init(superView: UIView, triggerButtons: [UIButton]) {
         self.superView = superView
-        self.triggerButton = triggerButton
+        self.triggerButtons = triggerButtons
         super.init()
         self.setupMenuView()
     }
@@ -45,18 +47,27 @@ class DropDownMenuHandler: NSObject, UITableViewDataSource, UITableViewDelegate,
         mainMenuView.backgroundColor = UIColor.black.withAlphaComponent(0)
         mainMenuView.addSubview(menuView)
         
-        triggerButton.addTarget(self, action: #selector(titleButtonAction), for: .touchUpInside)
+        for triggerButton in triggerButtons {
+            triggerButton.addTarget(self, action: #selector(titleButtonAction), for: .touchUpInside)
+        }
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(menuHandleTapGesture))
         tapGesture.delegate = self
         mainMenuView.addGestureRecognizer(tapGesture)
     }
     
+    func addButton(button: UIButton) {
+        if !triggerButtons.contains(button) {
+            triggerButtons.append(button)
+        }
+    }
+    
     @objc func menuHandleTapGesture() {
         hideMenu()
     }
     
-    @objc func titleButtonAction() {
+    @objc func titleButtonAction(button: UIButton) {
+        lastTag = button.tag
         if menuView.isHidden {
             addMenuToSuperView()
             menuView.isHidden = false
@@ -100,7 +111,7 @@ class DropDownMenuHandler: NSObject, UITableViewDataSource, UITableViewDelegate,
         cell.tintColor = UIColor.black
         cell.textLabel?.textAlignment = .center
         
-        if delegate.currentDuration == duration {
+        if delegate.currentDuration(for: lastTag) == duration {
             cell.accessoryType = .checkmark
         } else {
             cell.accessoryType = .none
@@ -115,13 +126,11 @@ class DropDownMenuHandler: NSObject, UITableViewDataSource, UITableViewDelegate,
         tableView.deselectRow(at: indexPath, animated: true)
         tableView.reloadData()
         let duration = durations[indexPath.row]
-        delegate.didChange(duration: duration)
+        delegate.didChange(duration: duration, at: lastTag)
     }
 }
 
 protocol MenuDelegate: class {
-    
-    var currentDuration: Int { get }
-    
-    func didChange(duration: Int)
+    func currentDuration(for tag: Int) -> Int
+    func didChange(duration: Int, at tag: Int)
 }

@@ -15,16 +15,28 @@ enum ExerciseState {
 class ExerciseViewController: UIViewController {
 
     @IBOutlet var playButton: UIButton!
-    @IBOutlet var durationButton: DisclosureButton!
+    @IBOutlet var circleButtonView: BorderedCircleView!
+    @IBOutlet var containerView: UIView!
     
     fileprivate var menuHandler: DropDownMenuHandler!
-    fileprivate var duration: Int = 10 {
-        didSet {
-            durationButton.setTitle("\(duration) min", for: .normal)
-        }
+    var feelings: [Feeling]!
+    fileprivate var isSingleTimer: Bool {
+        return feelings.count == 1
     }
+
     fileprivate var state: ExerciseState = .pause {
         didSet {
+            if let singleView = singleTimerView {
+                singleView.durationButton.isEnabled = false
+                singleView.durationButton.setTitleColor(UIColor.gray, for: .normal)
+                singleView.hideRemaining(false)
+                singleView.durationButton.isHidden = true
+                if state == .playing {
+                    singleView.spinner.startAnimating()
+                } else {
+                    singleView.spinner.stopAnimating()
+                }
+            }
             if state == .pause {
                 playButton.setImage(#imageLiteral(resourceName: "play"), for: .normal)
             } else if state == .playing {
@@ -33,9 +45,19 @@ class ExerciseViewController: UIViewController {
         }
     }
     
+    fileprivate var singleTimerView: SingleTimerView?
+    fileprivate var multipleTimersView: MultipleTimersView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        menuHandler = DropDownMenuHandler(superView: view, triggerButton: durationButton)
+        
+        if isSingleTimer {
+            singleTimerView = SingleTimerView(frame: containerView.bounds)
+            singleTimerView!.hideRemaining(true)
+            containerView.addSubview(singleTimerView!)
+            menuHandler = DropDownMenuHandler(superView: view, triggerButtons: [singleTimerView!.durationButton])
+        }
+        
         menuHandler.delegate = self
     }
 
@@ -55,12 +77,17 @@ class ExerciseViewController: UIViewController {
 
 extension ExerciseViewController: MenuDelegate {
     
-    var currentDuration: Int {
-        return duration
+    func currentDuration(for tag: Int) -> Int {
+        return feelings[tag].duration
     }
     
-    func didChange(duration: Int) {
-        self.duration = duration
+    func didChange(duration: Int, at tag: Int) {
+        if isSingleTimer {
+            feelings[0].duration = duration
+            singleTimerView!.durationButton.setTitle("\(duration) min", for: .normal)
+        } else {
+            
+        }
         menuHandler.hideMenu()
     }
     
