@@ -24,6 +24,6 @@ class MultipleTimersView: UIView {
     }
 
     fileprivate func registerCell() {
-        tableView.register(FeelingTimerCell.self, forCellReuseIdentifier: "FeelingTimerCell")
+        tableView.register(UINib(nibName: "FeelingTimerCell", bundle: nil), forCellReuseIdentifier: "FeelingTimerCell")
     }
 }

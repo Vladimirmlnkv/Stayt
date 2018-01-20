@@ -11,11 +11,18 @@ import UIKit
 class MainViewController: UIViewController {
 
     @IBOutlet var collectionView: UICollectionView!
-    fileprivate var feelings: [Feeling]!
+    
+    fileprivate var exercises: [Exercise]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        feelings = [Feeling(name: "Relaxed"), Feeling(name: "Energized"), Feeling(name: "Motivated"), Feeling(name: "Blissed"),]
+        
+        let ex1 = Exercise(name: "Relaxed", feelings: [Feeling(name: "Relaxed")])
+        let ex2 = Exercise(name: "Energized", feelings: [Feeling(name: "Energized")])
+        let ex3 = Exercise(name: "Motivated", feelings: [Feeling(name: "Motivated")])
+        let ex4 = Exercise(name: "Blissed", feelings: [Feeling(name: "Relaxed"), Feeling(name: "Energized"), Feeling(name: "Motivated")])
+        exercises = [ex1, ex2, ex3, ex4]
+        
         collectionView.delegate = self
         collectionView.dataSource = self
     }
@@ -42,7 +49,7 @@ extension MainViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         let vc = storyboard?.instantiateViewController(withIdentifier: "ExerciseViewController") as! ExerciseViewController
-        vc.feelings = [feelings[indexPath.row]]
+        vc.exercise = exercises[indexPath.row]
         present(vc, animated: true, completion: nil)
     }
     
@@ -54,13 +61,13 @@ extension MainViewController: UICollectionViewDelegate {
 extension MainViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return feelings.count
+        return exercises.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let feeling = feelings[indexPath.row]
+        let exercise = exercises[indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FeelingCell", for: indexPath) as! FeelingCell
-        cell.label.text = feeling.name
+        cell.label.text = exercise.name
         return cell
     }
     

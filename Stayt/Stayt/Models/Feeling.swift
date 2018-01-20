@@ -17,3 +17,4 @@ struct Feeling {
         self.duration = duration
     }
 }
+

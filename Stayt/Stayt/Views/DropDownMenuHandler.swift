@@ -59,6 +59,7 @@ class DropDownMenuHandler: NSObject, UITableViewDataSource, UITableViewDelegate,
     func addButton(button: UIButton) {
         if !triggerButtons.contains(button) {
             triggerButtons.append(button)
+            button.addTarget(self, action: #selector(titleButtonAction), for: .touchUpInside)
         }
     }
     
