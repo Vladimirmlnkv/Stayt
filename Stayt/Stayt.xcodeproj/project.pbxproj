@@ -19,6 +19,8 @@
 		7E3DAA3D200FC1E500E1B88C /* UIViewExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3DAA3C200FC1E500E1B88C /* UIViewExtentions.swift */; };
 		7E3DAA40200FC38000E1B88C /* SingleTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3DAA3F200FC38000E1B88C /* SingleTimerView.swift */; };
 		7E67E34820132BB1009E084F /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E67E34720132BB1009E084F /* Exercise.swift */; };
+		7EDB2E672014D16C00D77CB8 /* TimerDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDB2E662014D16C00D77CB8 /* TimerDisplay.swift */; };
+		7EDB2E6A2014D78F00D77CB8 /* meditationBell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7EDB2E692014D78F00D77CB8 /* meditationBell.mp3 */; };
 		7EDC598A200E6C4100C33DFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDC5989200E6C4100C33DFC /* AppDelegate.swift */; };
 		7EDC598F200E6C4100C33DFC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EDC598D200E6C4100C33DFC /* Main.storyboard */; };
 		7EDC5991200E6C4100C33DFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7EDC5990200E6C4100C33DFC /* Assets.xcassets */; };
@@ -41,6 +43,8 @@
 		7E3DAA3C200FC1E500E1B88C /* UIViewExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtentions.swift; sourceTree = "<group>"; };
 		7E3DAA3F200FC38000E1B88C /* SingleTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleTimerView.swift; sourceTree = "<group>"; };
 		7E67E34720132BB1009E084F /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
+		7EDB2E662014D16C00D77CB8 /* TimerDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerDisplay.swift; sourceTree = "<group>"; };
+		7EDB2E692014D78F00D77CB8 /* meditationBell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = meditationBell.mp3; sourceTree = "<group>"; };
 		7EDC5986200E6C4100C33DFC /* Stayt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stayt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EDC5989200E6C4100C33DFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7EDC598E200E6C4100C33DFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -120,6 +124,22 @@
 			path = SingleTimerView;
 			sourceTree = "<group>";
 		};
+		7EDB2E652014D13700D77CB8 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				7EDB2E662014D16C00D77CB8 /* TimerDisplay.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		7EDB2E682014D78700D77CB8 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				7EDB2E692014D78F00D77CB8 /* meditationBell.mp3 */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		7EDC597D200E6C4100C33DFC = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +159,8 @@
 		7EDC5988200E6C4100C33DFC /* Stayt */ = {
 			isa = PBXGroup;
 			children = (
+				7EDB2E682014D78700D77CB8 /* Sounds */,
+				7EDB2E652014D13700D77CB8 /* Helpers */,
 				7E3DAA2A200F5C8F00E1B88C /* Views */,
 				7E3DAA25200F579000E1B88C /* ExerciseScreen */,
 				7EDC59A0200E76D000C33DFC /* Models */,
@@ -230,6 +252,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7EDC5994200E6C4100C33DFC /* LaunchScreen.storyboard in Resources */,
+				7EDB2E6A2014D78F00D77CB8 /* meditationBell.mp3 in Resources */,
 				7E3DAA32200FBE6D00E1B88C /* MultipleTimersView.xib in Resources */,
 				7E3DAA36200FBF9F00E1B88C /* FeelingTimerCell.xib in Resources */,
 				7EDC5991200E6C4100C33DFC /* Assets.xcassets in Resources */,
@@ -252,6 +275,7 @@
 				7E3DAA3B200FC09F00E1B88C /* MultipleTimersView.swift in Sources */,
 				7E3DAA3D200FC1E500E1B88C /* UIViewExtentions.swift in Sources */,
 				7E3DAA27200F57C800E1B88C /* ExerciseViewController.swift in Sources */,
+				7EDB2E672014D16C00D77CB8 /* TimerDisplay.swift in Sources */,
 				7E3DAA2E200F5F9900E1B88C /* DropDownMenuHandler.swift in Sources */,
 				7EDC598A200E6C4100C33DFC /* AppDelegate.swift in Sources */,
 				7E67E34820132BB1009E084F /* Exercise.swift in Sources */,

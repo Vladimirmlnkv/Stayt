@@ -12,7 +12,11 @@ struct Feeling {
     let name: String
     var duration: Int
     
-    init(name: String, duration: Int=10) {
+    var durationString: String {
+        return "\(duration / 60)"
+    }
+    
+    init(name: String, duration: Int=600) {
         self.name = name
         self.duration = duration
     }

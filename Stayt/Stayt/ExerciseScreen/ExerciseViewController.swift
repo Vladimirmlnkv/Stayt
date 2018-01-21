@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import AVFoundation
 
 enum ExerciseState {
     case pause, playing, initial
 }
 
-class ExerciseViewController: UIViewController {
+class ExerciseViewController: UIViewController, TimerDisplay {
 
     @IBOutlet var playButton: UIButton!
     @IBOutlet var circleButtonView: BorderedCircleView!
@@ -21,10 +22,13 @@ class ExerciseViewController: UIViewController {
     fileprivate var menuHandler: DropDownMenuHandler!
     var exercise: Exercise!
     
+    fileprivate var timer = Timer()
     fileprivate var currentFeelingNumber: Int?
+    fileprivate var currentDuration: Int?
     fileprivate var isSingleTimer: Bool {
         return exercise.feelings.count == 1
     }
+    fileprivate var player: AVAudioPlayer!
 
     fileprivate var state: ExerciseState = .initial {
         didSet {
@@ -57,7 +61,6 @@ class ExerciseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         if isSingleTimer {
             singleTimerView = SingleTimerView(frame: containerView.bounds)
             singleTimerView!.hideRemaining(true)
@@ -79,8 +82,53 @@ class ExerciseViewController: UIViewController {
     @IBAction func playButtonAction(_ sender: Any) {
         if state == .playing {
             state = .pause
+            timer.invalidate()
         } else if state == .pause || state == .initial {
+            if currentDuration == nil {
+                currentDuration = exercise.feelings.first?.duration
+            }
+            timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
             state = .playing
+            updateCurrentLabel()
+        }
+    }
+    
+    @objc func updateTimer() {
+        if let _ = currentDuration {
+            currentDuration! -= 1
+            
+            if currentDuration == 0 {
+                let soundPath = Bundle.main.path(forResource: "meditationBell", ofType: "mp3")
+                player = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: soundPath!))
+                player.play()
+            }
+
+            if currentDuration == -1 {
+                if currentFeelingNumber! < exercise.feelings.count - 1 {
+                    currentFeelingNumber! += 1
+                    currentDuration = exercise.feelings[currentFeelingNumber!].duration
+                    multipleTimersView!.tableView.reloadRows(at: [IndexPath(row: currentFeelingNumber! - 1, section: 0)], with: .automatic)
+                    updateCurrentLabel()
+                } else {
+                    timer.invalidate()
+                    if let singleView = singleTimerView {
+                        singleView.spinner.isHidden = true
+                        singleView.label.text = "Done"
+                    }
+                }
+            } else {
+                updateCurrentLabel()
+            }
+        }
+    }
+    
+    fileprivate func updateCurrentLabel() {
+        if isSingleTimer {
+            singleTimerView!.label.text = "\(stringDuration(from: currentDuration!)) remaining"
+        } else {
+            multipleTimersView!.tableView.beginUpdates()
+            multipleTimersView!.tableView.reloadRows(at: [IndexPath(row: currentFeelingNumber!, section: 0)], with: .automatic)
+            multipleTimersView!.tableView.endUpdates()
         }
     }
     
@@ -98,7 +146,7 @@ extension ExerciseViewController: MenuDelegate {
     func didChange(duration: Int, at tag: Int) {
         exercise.feelings[tag].duration = duration
         if isSingleTimer {
-            singleTimerView!.durationButton.setTitle("\(duration) min", for: .normal)
+            singleTimerView!.durationButton.setTitle("\(duration / 60) min", for: .normal)
         } else {
             multipleTimersView!.tableView.reloadData()
         }
@@ -118,12 +166,19 @@ extension ExerciseViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FeelingTimerCell") as! FeelingTimerCell
         cell.durationButton.tag = indexPath.row
         cell.label.text = feeling.name
-        cell.durationButton.setTitle("\(feeling.duration) min", for: .normal)
+        if indexPath.row == currentFeelingNumber {
+            let duration = stringDuration(from: currentDuration!)
+            cell.durationButton.setTitle(duration, for: .normal)
+        } else {
+            cell.durationButton.setTitle("\(feeling.durationString) min", for: .normal)
+        }
         
         if state == .initial {
             cell.durationButton.setImage(#imageLiteral(resourceName: "down-arrow"), for: .normal)
+            cell.durationButton.isUserInteractionEnabled = true
         } else {
             cell.durationButton.setImage(nil, for: .normal)
+            cell.durationButton.isUserInteractionEnabled = false
         }
         
         if let currentFeelingNumber = currentFeelingNumber, indexPath.row < currentFeelingNumber {
