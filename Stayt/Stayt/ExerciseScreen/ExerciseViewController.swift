@@ -10,7 +10,11 @@ import UIKit
 import AVFoundation
 
 enum ExerciseState {
-    case pause, playing, initial
+    case pause, playing, initial, done
+}
+
+protocol ExerciseViewControllerDelegate {
+    func didFinishExercise()
 }
 
 class ExerciseViewController: UIViewController, TimerDisplay {
@@ -40,6 +44,16 @@ class ExerciseViewController: UIViewController, TimerDisplay {
                    currentFeelingNumber = 0
                 }
             }
+            
+            if state == .done {
+                singleTimerView?.removeFromSuperview()
+                singleTimerView = nil
+                multipleTimersView?.removeFromSuperview()
+                multipleTimersView = nil
+                playButton.setImage(#imageLiteral(resourceName: "play"), for: .normal)
+                playButton.isUserInteractionEnabled = false
+            }
+            
             if let singleView = singleTimerView {
                 singleView.durationButton.isEnabled = false
                 singleView.durationButton.setTitleColor(UIColor.gray, for: .normal)
@@ -58,6 +72,8 @@ class ExerciseViewController: UIViewController, TimerDisplay {
     
     fileprivate var singleTimerView: SingleTimerView?
     fileprivate var multipleTimersView: MultipleTimersView?
+    
+    var delegate: ExerciseViewControllerDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,6 +94,13 @@ class ExerciseViewController: UIViewController, TimerDisplay {
         }
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if player != nil {
+            player.stop()
+        }
+        timer.invalidate()
+    }
     
     @IBAction func playButtonAction(_ sender: Any) {
         if state == .playing {
@@ -100,6 +123,7 @@ class ExerciseViewController: UIViewController, TimerDisplay {
             if currentDuration == 0 {
                 let soundPath = Bundle.main.path(forResource: "meditationBell", ofType: "mp3")
                 player = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: soundPath!))
+                player.delegate = self
                 player.play()
             }
 
@@ -111,10 +135,7 @@ class ExerciseViewController: UIViewController, TimerDisplay {
                     updateCurrentLabel()
                 } else {
                     timer.invalidate()
-                    if let singleView = singleTimerView {
-                        singleView.spinner.isHidden = true
-                        singleView.label.text = "Done"
-                    }
+                    state = .done
                 }
             } else {
                 updateCurrentLabel()
@@ -206,6 +227,16 @@ extension ExerciseViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
         return false
+    }
+    
+}
+
+extension ExerciseViewController: AVAudioPlayerDelegate {
+    
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully: Bool) {
+        if state == .done {
+            delegate.didFinishExercise()
+        }
     }
     
 }

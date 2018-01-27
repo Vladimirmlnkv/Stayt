@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E2035E1201C7FD4005A6707 /* meditationBell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7E2035E0201C7FD4005A6707 /* meditationBell.mp3 */; };
+		7E2035E4201C841D005A6707 /* AfterExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2035E3201C841D005A6707 /* AfterExerciseViewController.swift */; };
+		7E2035E6201C8437005A6707 /* AfterExerciseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2035E5201C8437005A6707 /* AfterExerciseCell.swift */; };
+		7E2035E8201C8598005A6707 /* ExerciseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2035E7201C8598005A6707 /* ExerciseCoordinator.swift */; };
 		7E3DAA27200F57C800E1B88C /* ExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3DAA26200F57C800E1B88C /* ExerciseViewController.swift */; };
 		7E3DAA29200F5A3D00E1B88C /* BorderedCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3DAA28200F5A3D00E1B88C /* BorderedCircleView.swift */; };
 		7E3DAA2C200F5D6700E1B88C /* DisclosureButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3DAA2B200F5D6700E1B88C /* DisclosureButton.swift */; };
@@ -20,7 +24,6 @@
 		7E3DAA40200FC38000E1B88C /* SingleTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3DAA3F200FC38000E1B88C /* SingleTimerView.swift */; };
 		7E67E34820132BB1009E084F /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E67E34720132BB1009E084F /* Exercise.swift */; };
 		7EDB2E672014D16C00D77CB8 /* TimerDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDB2E662014D16C00D77CB8 /* TimerDisplay.swift */; };
-		7EDB2E6A2014D78F00D77CB8 /* meditationBell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7EDB2E692014D78F00D77CB8 /* meditationBell.mp3 */; };
 		7EDC598A200E6C4100C33DFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDC5989200E6C4100C33DFC /* AppDelegate.swift */; };
 		7EDC598F200E6C4100C33DFC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EDC598D200E6C4100C33DFC /* Main.storyboard */; };
 		7EDC5991200E6C4100C33DFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7EDC5990200E6C4100C33DFC /* Assets.xcassets */; };
@@ -31,6 +34,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7E2035E0201C7FD4005A6707 /* meditationBell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = meditationBell.mp3; sourceTree = "<group>"; };
+		7E2035E3201C841D005A6707 /* AfterExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterExerciseViewController.swift; sourceTree = "<group>"; };
+		7E2035E5201C8437005A6707 /* AfterExerciseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterExerciseCell.swift; sourceTree = "<group>"; };
+		7E2035E7201C8598005A6707 /* ExerciseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCoordinator.swift; sourceTree = "<group>"; };
 		7E3DAA26200F57C800E1B88C /* ExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewController.swift; sourceTree = "<group>"; };
 		7E3DAA28200F5A3D00E1B88C /* BorderedCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedCircleView.swift; sourceTree = "<group>"; };
 		7E3DAA2B200F5D6700E1B88C /* DisclosureButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclosureButton.swift; sourceTree = "<group>"; };
@@ -44,7 +51,6 @@
 		7E3DAA3F200FC38000E1B88C /* SingleTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleTimerView.swift; sourceTree = "<group>"; };
 		7E67E34720132BB1009E084F /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		7EDB2E662014D16C00D77CB8 /* TimerDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerDisplay.swift; sourceTree = "<group>"; };
-		7EDB2E692014D78F00D77CB8 /* meditationBell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = meditationBell.mp3; sourceTree = "<group>"; };
 		7EDC5986200E6C4100C33DFC /* Stayt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stayt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EDC5989200E6C4100C33DFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7EDC598E200E6C4100C33DFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -67,12 +73,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7E2035E2201C83F5005A6707 /* AfterExerciseScreen */ = {
+			isa = PBXGroup;
+			children = (
+				7E2035E3201C841D005A6707 /* AfterExerciseViewController.swift */,
+				7E2035E5201C8437005A6707 /* AfterExerciseCell.swift */,
+			);
+			path = AfterExerciseScreen;
+			sourceTree = "<group>";
+		};
 		7E3DAA25200F579000E1B88C /* ExerciseScreen */ = {
 			isa = PBXGroup;
 			children = (
+				7E2035E2201C83F5005A6707 /* AfterExerciseScreen */,
 				7E3DAA33200FBEFF00E1B88C /* Views */,
 				7E3DAA26200F57C800E1B88C /* ExerciseViewController.swift */,
 				7E3DAA28200F5A3D00E1B88C /* BorderedCircleView.swift */,
+				7E2035E7201C8598005A6707 /* ExerciseCoordinator.swift */,
 			);
 			path = ExerciseScreen;
 			sourceTree = "<group>";
@@ -135,7 +152,7 @@
 		7EDB2E682014D78700D77CB8 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				7EDB2E692014D78F00D77CB8 /* meditationBell.mp3 */,
+				7E2035E0201C7FD4005A6707 /* meditationBell.mp3 */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -252,8 +269,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7EDC5994200E6C4100C33DFC /* LaunchScreen.storyboard in Resources */,
-				7EDB2E6A2014D78F00D77CB8 /* meditationBell.mp3 in Resources */,
 				7E3DAA32200FBE6D00E1B88C /* MultipleTimersView.xib in Resources */,
+				7E2035E1201C7FD4005A6707 /* meditationBell.mp3 in Resources */,
 				7E3DAA36200FBF9F00E1B88C /* FeelingTimerCell.xib in Resources */,
 				7EDC5991200E6C4100C33DFC /* Assets.xcassets in Resources */,
 				7E3DAA30200FBB5700E1B88C /* SingleTimerView.xib in Resources */,
@@ -269,6 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E3DAA39200FC03A00E1B88C /* FeelingTimerCell.swift in Sources */,
+				7E2035E4201C841D005A6707 /* AfterExerciseViewController.swift in Sources */,
 				7E3DAA2C200F5D6700E1B88C /* DisclosureButton.swift in Sources */,
 				7EDC599F200E765C00C33DFC /* FeelingCell.swift in Sources */,
 				7E3DAA29200F5A3D00E1B88C /* BorderedCircleView.swift in Sources */,
@@ -277,8 +295,10 @@
 				7E3DAA27200F57C800E1B88C /* ExerciseViewController.swift in Sources */,
 				7EDB2E672014D16C00D77CB8 /* TimerDisplay.swift in Sources */,
 				7E3DAA2E200F5F9900E1B88C /* DropDownMenuHandler.swift in Sources */,
+				7E2035E8201C8598005A6707 /* ExerciseCoordinator.swift in Sources */,
 				7EDC598A200E6C4100C33DFC /* AppDelegate.swift in Sources */,
 				7E67E34820132BB1009E084F /* Exercise.swift in Sources */,
+				7E2035E6201C8437005A6707 /* AfterExerciseCell.swift in Sources */,
 				7EDC59A2200E76E100C33DFC /* Feeling.swift in Sources */,
 				7E3DAA40200FC38000E1B88C /* SingleTimerView.swift in Sources */,
 				7EDC599C200E75A400C33DFC /* MainViewController.swift in Sources */,
