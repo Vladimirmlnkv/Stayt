@@ -17,10 +17,10 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let ex1 = Exercise(name: "Relaxed", feelings: [Feeling(name: "Relaxed")])
-        let ex2 = Exercise(name: "Energized", feelings: [Feeling(name: "Energized")])
-        let ex3 = Exercise(name: "Motivated", feelings: [Feeling(name: "Motivated")])
-        let ex4 = Exercise(name: "Blissed", feelings: [Feeling(name: "Relaxed"), Feeling(name: "Energized"), Feeling(name: "Motivated")])
+        let ex1 = Exercise(name: "Relaxed", description: "Relax", feelings: [Feeling(name: "Relaxed")])
+        let ex2 = Exercise(name: "Energized", description: "Energize", feelings: [Feeling(name: "Energized")])
+        let ex3 = Exercise(name: "Motivated", description: "Motivate", feelings: [Feeling(name: "Motivated")])
+        let ex4 = Exercise(name: "Blissed", description: "Bliss", feelings: [Feeling(name: "Relaxed"), Feeling(name: "Energized"), Feeling(name: "Motivated")])
         exercises = [ex1, ex2, ex3, ex4]
         
         collectionView.delegate = self

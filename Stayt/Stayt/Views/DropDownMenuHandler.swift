@@ -10,7 +10,7 @@ import UIKit
 
 class DropDownMenuHandler: NSObject, UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate {
     
-    fileprivate let durations: [Int] = [2, 120, 300, 600]
+    fileprivate let durations: [Int] = [120, 300, 600]
     
     weak var delegate: MenuDelegate!
     

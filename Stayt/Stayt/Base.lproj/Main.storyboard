@@ -195,6 +195,7 @@
                         <outlet property="circleButtonView" destination="g6o-Bj-79D" id="2QU-9S-afD"/>
                         <outlet property="containerView" destination="EzD-a8-MPY" id="tDa-YC-1DF"/>
                         <outlet property="playButton" destination="qzS-cZ-4P7" id="6IN-YW-LhI"/>
+                        <outlet property="titleLabel" destination="chw-lu-XOF" id="cfl-LN-f2K"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eZ1-Yl-Um2" userLabel="First Responder" sceneMemberID="firstResponder"/>

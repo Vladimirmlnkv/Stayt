@@ -22,6 +22,7 @@ class ExerciseViewController: UIViewController, TimerDisplay {
     @IBOutlet var playButton: UIButton!
     @IBOutlet var circleButtonView: BorderedCircleView!
     @IBOutlet var containerView: UIView!
+    @IBOutlet var titleLabel: UILabel!
     
     fileprivate var menuHandler: DropDownMenuHandler!
     var exercise: Exercise!
@@ -37,8 +38,10 @@ class ExerciseViewController: UIViewController, TimerDisplay {
     fileprivate var state: ExerciseState = .initial {
         didSet {
             if state == .pause {
+                UIApplication.shared.isIdleTimerDisabled = false
                 playButton.setImage(#imageLiteral(resourceName: "play"), for: .normal)
             } else if state == .playing {
+                UIApplication.shared.isIdleTimerDisabled = true
                 playButton.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
                 if currentFeelingNumber == nil {
                    currentFeelingNumber = 0
@@ -77,6 +80,9 @@ class ExerciseViewController: UIViewController, TimerDisplay {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(appWillResingActive), name: Notification.Name.UIApplicationWillResignActive, object: nil)
+        titleLabel.text = exercise.description
         if isSingleTimer {
             singleTimerView = SingleTimerView(frame: containerView.bounds)
             singleTimerView!.hideRemaining(true)
@@ -99,13 +105,22 @@ class ExerciseViewController: UIViewController, TimerDisplay {
         if player != nil {
             player.stop()
         }
+        pause()
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc func appWillResingActive() {
+        pause()
+    }
+    
+    fileprivate func pause() {
+        state = .pause
         timer.invalidate()
     }
     
     @IBAction func playButtonAction(_ sender: Any) {
         if state == .playing {
-            state = .pause
-            timer.invalidate()
+            pause()
         } else if state == .pause || state == .initial {
             if currentDuration == nil {
                 currentDuration = exercise.feelings.first?.duration
@@ -123,6 +138,12 @@ class ExerciseViewController: UIViewController, TimerDisplay {
             if currentDuration == 0 {
                 let soundPath = Bundle.main.path(forResource: "meditationBell", ofType: "mp3")
                 player = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: soundPath!))
+                do {
+                    try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+                    try AVAudioSession.sharedInstance().setActive(true)
+                } catch {
+                    print(error)
+                }
                 player.delegate = self
                 player.play()
             }

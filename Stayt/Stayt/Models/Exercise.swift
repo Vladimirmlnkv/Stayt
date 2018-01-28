@@ -10,5 +10,6 @@ import Foundation
 
 struct Exercise {
     let name: String
+    let description: String
     var feelings: [Feeling]
 }
