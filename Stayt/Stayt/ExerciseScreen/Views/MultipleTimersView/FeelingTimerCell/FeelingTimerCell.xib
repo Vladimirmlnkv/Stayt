@@ -33,6 +33,9 @@
                         <state key="normal" title="10:00" image="down-arrow">
                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </state>
+                        <connections>
+                            <action selector="durationButtonAction:" destination="SJf-07-5tn" eventType="touchUpInside" id="cJ3-qK-y60"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>

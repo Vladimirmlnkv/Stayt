@@ -24,12 +24,11 @@ class ExerciseViewController: UIViewController, TimerDisplay {
     @IBOutlet var containerView: UIView!
     @IBOutlet var titleLabel: UILabel!
     
-    fileprivate var menuHandler: DropDownMenuHandler!
     var exercise: Exercise!
     
     fileprivate var timer = Timer()
     fileprivate var currentFeelingNumber: Int?
-    fileprivate var currentDuration: Int?
+    var currentDuration: Int!
     fileprivate var isSingleTimer: Bool {
         return exercise.feelings.count == 1
     }
@@ -83,15 +82,14 @@ class ExerciseViewController: UIViewController, TimerDisplay {
         
         NotificationCenter.default.addObserver(self, selector: #selector(appWillResingActive), name: Notification.Name.UIApplicationWillResignActive, object: nil)
         titleLabel.text = exercise.description
+        currentDuration = exercise.feelings.first!.duration
         if isSingleTimer {
             singleTimerView = SingleTimerView(frame: containerView.bounds)
+            singleTimerView?.durationButton.addTarget(self, action: #selector(singleDurationButtonAction), for: .allTouchEvents)
             singleTimerView!.hideRemaining(true)
+            singleTimerView!.durationButton.setTitle("\(exercise.feelings.first!.durationString) min", for: .normal)
             containerView.addSubview(singleTimerView!)
-            menuHandler = DropDownMenuHandler(superView: view, triggerButtons: [singleTimerView!.durationButton])
-            menuHandler.delegate = self
         } else {
-            menuHandler = DropDownMenuHandler(superView: view, triggerButtons: [])
-            menuHandler.delegate = self
             multipleTimersView = MultipleTimersView(frame: containerView.bounds)
             multipleTimersView?.tableView.tableFooterView = UIView()
             multipleTimersView!.tableView.delegate = self
@@ -102,11 +100,13 @@ class ExerciseViewController: UIViewController, TimerDisplay {
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        if player != nil {
-            player.stop()
+        if state != .initial {
+            if player != nil {
+                player.stop()
+            }
+            pause()
+            NotificationCenter.default.removeObserver(self)
         }
-        pause()
-        NotificationCenter.default.removeObserver(self)
     }
     
     @objc func appWillResingActive() {
@@ -116,6 +116,17 @@ class ExerciseViewController: UIViewController, TimerDisplay {
     fileprivate func pause() {
         state = .pause
         timer.invalidate()
+    }
+    
+    @objc func singleDurationButtonAction() {
+        selectDuration(for: exercise.feelings.first!)
+    }
+    
+    fileprivate func selectDuration(for feeling: Feeling) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "DurationPickerViewController") as! DurationPickerViewController
+        vc.delegate = self
+        vc.feeling = feeling
+        present(vc, animated: true, completion: nil)
     }
     
     @IBAction func playButtonAction(_ sender: Any) {
@@ -179,24 +190,6 @@ class ExerciseViewController: UIViewController, TimerDisplay {
     }
 }
 
-extension ExerciseViewController: MenuDelegate {
-    
-    func currentDuration(for tag: Int) -> Int {
-        return exercise.feelings[tag].duration
-    }
-    
-    func didChange(duration: Int, at tag: Int) {
-        exercise.feelings[tag].duration = duration
-        if isSingleTimer {
-            singleTimerView!.durationButton.setTitle("\(duration / 60) min", for: .normal)
-        } else {
-            multipleTimersView!.tableView.reloadData()
-        }
-        menuHandler.hideMenu()
-    }
-    
-}
-
 extension ExerciseViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -208,6 +201,7 @@ extension ExerciseViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FeelingTimerCell") as! FeelingTimerCell
         cell.durationButton.tag = indexPath.row
         cell.label.text = feeling.name
+        cell.delegate = self
         if indexPath.row == currentFeelingNumber {
             let duration = stringDuration(from: currentDuration!)
             cell.durationButton.setTitle(duration, for: .normal)
@@ -228,8 +222,6 @@ extension ExerciseViewController: UITableViewDataSource {
         } else {
             cell.accessoryType = .none
         }
-        
-        menuHandler.addButton(button: cell.durationButton)
         
         if state == .playing && indexPath.row == currentFeelingNumber {
             cell.spinner.isHidden = false
@@ -258,6 +250,30 @@ extension ExerciseViewController: AVAudioPlayerDelegate {
         if state == .done {
             delegate.didFinishExercise()
         }
+    }
+    
+}
+
+extension ExerciseViewController: DurationPickerViewControllerDelegate {
+    func didSelect(duration: Int, for feeling: Feeling) {
+        feeling.duration = duration
+        currentDuration = duration
+        if isSingleTimer {
+            singleTimerView?.durationButton.setTitle("\(feeling.durationString) min", for: .normal)
+        } else {
+            let rowNumber = exercise.feelings.index(where: {$0.name == feeling.name})!
+            multipleTimersView?.tableView.beginUpdates()
+            multipleTimersView?.tableView.reloadRows(at: [IndexPath(row: rowNumber, section: 0)], with: .automatic)
+            multipleTimersView?.tableView.endUpdates()
+        }
+    }
+}
+
+extension ExerciseViewController: FeelingTimerCellDelegate {
+    
+    func selectDuration(for cell: UITableViewCell) {
+        let indexPath = multipleTimersView!.tableView.indexPathForRow(at: cell.center)!
+        selectDuration(for: exercise.feelings[indexPath.row])
     }
     
 }

@@ -8,17 +8,18 @@
 
 import Foundation
 
-struct Feeling {
+class Feeling {
     let name: String
     var duration: Int
-    
+    let descriptionName: String
     var durationString: String {
         return "\(duration / 60)"
     }
     
-    init(name: String, duration: Int=600) {
+    init(name: String, duration: Int=600, descriptionName: String) {
         self.name = name
         self.duration = duration
+        self.descriptionName = descriptionName
     }
 }
 

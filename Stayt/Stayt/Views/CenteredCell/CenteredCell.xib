@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CenteredCell" rowHeight="189" id="pOT-Qw-c4F" customClass="CenteredCell" customModule="Stayt" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="189"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pOT-Qw-c4F" id="CPQ-g2-pP2">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="188.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 minutes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sBj-Gv-rTo">
+                        <rect key="frame" x="10" y="19" width="355" height="151"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottomMargin" secondItem="sBj-Gv-rTo" secondAttribute="bottom" constant="8" id="fa1-OA-biu"/>
+                    <constraint firstItem="sBj-Gv-rTo" firstAttribute="top" secondItem="CPQ-g2-pP2" secondAttribute="topMargin" constant="8" id="u5a-gG-o6Z"/>
+                </constraints>
+            </tableViewCellContentView>
+            <constraints>
+                <constraint firstItem="sBj-Gv-rTo" firstAttribute="leading" secondItem="pOT-Qw-c4F" secondAttribute="leading" constant="10" id="Phx-De-jE4"/>
+                <constraint firstAttribute="trailing" secondItem="sBj-Gv-rTo" secondAttribute="trailing" constant="10" id="ZZK-56-BLV"/>
+            </constraints>
+            <connections>
+                <outlet property="label" destination="sBj-Gv-rTo" id="iDa-ZN-ZfM"/>
+            </connections>
+            <point key="canvasLocation" x="42.5" y="56.5"/>
+        </tableViewCell>
+    </objects>
+</document>

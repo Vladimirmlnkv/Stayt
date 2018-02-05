@@ -8,8 +8,14 @@
 
 import Foundation
 
-struct Exercise {
+class Exercise {
     let name: String
     let description: String
     var feelings: [Feeling]
+    
+    init (name: String, description: String, feelings: [Feeling]) {
+        self.name = name
+        self.description = description
+        self.feelings = feelings
+    }
 }
