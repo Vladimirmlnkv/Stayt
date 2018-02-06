@@ -55,6 +55,7 @@
                 <outlet property="durationButton" destination="ZKd-H0-Oeh" id="xS8-PY-VsN"/>
                 <outlet property="label" destination="Xge-S8-vCy" id="N2y-Lx-LQD"/>
                 <outlet property="spinner" destination="f1m-PV-0s7" id="LOS-vO-pSE"/>
+                <outlet property="trailingConstraint" destination="akq-RH-Cwf" id="bOe-O1-pjx"/>
             </connections>
             <point key="canvasLocation" x="-11.5" y="5"/>
         </tableViewCell>

@@ -67,6 +67,9 @@ class ExerciseViewController: UIViewController, TimerDisplay {
                     singleView.spinner.stopAnimating()
                 }
             } else if let multipleView = multipleTimersView {
+                if multipleView.tableView.isEditing {
+                    multipleTimersView?.tableView.setEditing(false, animated: true)
+                }
                 multipleView.tableView.reloadData()
             }
         }
@@ -92,8 +95,10 @@ class ExerciseViewController: UIViewController, TimerDisplay {
         } else {
             multipleTimersView = MultipleTimersView(frame: containerView.bounds)
             multipleTimersView?.tableView.tableFooterView = UIView()
+            multipleTimersView?.tableView.rowHeight = 44.0
             multipleTimersView!.tableView.delegate = self
             multipleTimersView!.tableView.dataSource = self
+            multipleTimersView?.tableView.setEditing(true, animated: false)
             containerView.addSubview(multipleTimersView!)
         }
     }
@@ -230,8 +235,20 @@ extension ExerciseViewController: UITableViewDataSource {
             cell.spinner.isHidden = true
             cell.spinner.stopAnimating()
         }
-        
+        cell.updateConstaint(isInitialState: state == .initial)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        return .none
+    }
+    
+    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        exercise.feelings.swapAt(sourceIndexPath.row, destinationIndexPath.row)
     }
     
 }

@@ -18,10 +18,19 @@ class FeelingTimerCell: UITableViewCell {
     @IBOutlet var label: UILabel!
     @IBOutlet var durationButton: DisclosureButton!
     
+    @IBOutlet var trailingConstraint: NSLayoutConstraint!
     var delegate: FeelingTimerCellDelegate!
     
     @IBAction func durationButtonAction(_ sender: Any) {
         delegate.selectDuration(for: self)
+    }
+    
+    func updateConstaint(isInitialState: Bool) {
+        if isInitialState {
+            trailingConstraint.constant = 60
+        } else {
+            trailingConstraint.constant = 50
+        }
     }
     
 }
