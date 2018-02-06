@@ -77,12 +77,11 @@ class ExerciseViewController: UIViewController, TimerDisplay {
     
     fileprivate var singleTimerView: SingleTimerView?
     fileprivate var multipleTimersView: MultipleTimersView?
-    
+    fileprivate var holderHandler: HolderViewHandler?
     var delegate: ExerciseViewControllerDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         NotificationCenter.default.addObserver(self, selector: #selector(appWillResingActive), name: Notification.Name.UIApplicationWillResignActive, object: nil)
         titleLabel.text = exercise.description
         currentDuration = exercise.feelings.first!.duration
@@ -112,6 +111,11 @@ class ExerciseViewController: UIViewController, TimerDisplay {
             pause()
             NotificationCenter.default.removeObserver(self)
         }
+    }
+    
+    fileprivate func showHolder(for feeling: Feeling) {
+        holderHandler = HolderViewHandler(superView: view, delegate: self, feeling: feeling)
+        holderHandler!.start()
     }
     
     @objc func appWillResingActive() {
@@ -166,10 +170,8 @@ class ExerciseViewController: UIViewController, TimerDisplay {
 
             if currentDuration == -1 {
                 if currentFeelingNumber! < exercise.feelings.count - 1 {
-                    currentFeelingNumber! += 1
-                    currentDuration = exercise.feelings[currentFeelingNumber!].duration
-                    multipleTimersView!.tableView.reloadRows(at: [IndexPath(row: currentFeelingNumber! - 1, section: 0)], with: .automatic)
-                    updateCurrentLabel()
+                    self.showHolder(for: exercise.feelings[currentFeelingNumber! + 1])
+                    timer.invalidate()
                 } else {
                     timer.invalidate()
                     state = .done
@@ -291,6 +293,18 @@ extension ExerciseViewController: FeelingTimerCellDelegate {
     func selectDuration(for cell: UITableViewCell) {
         let indexPath = multipleTimersView!.tableView.indexPathForRow(at: cell.center)!
         selectDuration(for: exercise.feelings[indexPath.row])
+    }
+    
+}
+
+extension ExerciseViewController: HolderViewHandlerDelegate {
+    
+    func holderDidFinish() {
+        currentFeelingNumber! += 1
+        currentDuration = exercise.feelings[currentFeelingNumber!].duration
+        multipleTimersView?.tableView.reloadRows(at: [IndexPath(row: currentFeelingNumber! - 1, section: 0)], with: .automatic)
+        updateCurrentLabel()
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
     }
     
 }

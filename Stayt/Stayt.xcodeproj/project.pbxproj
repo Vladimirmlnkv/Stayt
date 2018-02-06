@@ -25,6 +25,9 @@
 		7E4BA0C920288B8A00C7C18A /* CenteredCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E4BA0C820288B8A00C7C18A /* CenteredCell.xib */; };
 		7E4BA0CB20288BEC00C7C18A /* CenteredCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4BA0CA20288BEC00C7C18A /* CenteredCell.swift */; };
 		7E4BA0CE20288DC000C7C18A /* DurationPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4BA0CD20288DC000C7C18A /* DurationPickerViewController.swift */; };
+		7E4BA0D12029E6E600C7C18A /* HolderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E4BA0D02029E6E600C7C18A /* HolderView.xib */; };
+		7E4BA0D32029EAA500C7C18A /* HolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4BA0D22029EAA500C7C18A /* HolderView.swift */; };
+		7E4BA0D52029F08200C7C18A /* HolderViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4BA0D42029F08200C7C18A /* HolderViewHandler.swift */; };
 		7E67E34820132BB1009E084F /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E67E34720132BB1009E084F /* Exercise.swift */; };
 		7EDB2E672014D16C00D77CB8 /* TimerDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDB2E662014D16C00D77CB8 /* TimerDisplay.swift */; };
 		7EDC598A200E6C4100C33DFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDC5989200E6C4100C33DFC /* AppDelegate.swift */; };
@@ -55,6 +58,9 @@
 		7E4BA0C820288B8A00C7C18A /* CenteredCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CenteredCell.xib; sourceTree = "<group>"; };
 		7E4BA0CA20288BEC00C7C18A /* CenteredCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenteredCell.swift; sourceTree = "<group>"; };
 		7E4BA0CD20288DC000C7C18A /* DurationPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationPickerViewController.swift; sourceTree = "<group>"; };
+		7E4BA0D02029E6E600C7C18A /* HolderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HolderView.xib; sourceTree = "<group>"; };
+		7E4BA0D22029EAA500C7C18A /* HolderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolderView.swift; sourceTree = "<group>"; };
+		7E4BA0D42029F08200C7C18A /* HolderViewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolderViewHandler.swift; sourceTree = "<group>"; };
 		7E67E34720132BB1009E084F /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		7EDB2E662014D16C00D77CB8 /* TimerDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerDisplay.swift; sourceTree = "<group>"; };
 		7EDC5986200E6C4100C33DFC /* Stayt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stayt.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,6 +97,7 @@
 		7E3DAA25200F579000E1B88C /* ExerciseScreen */ = {
 			isa = PBXGroup;
 			children = (
+				7E4BA0CF2029E6CC00C7C18A /* Holder */,
 				7E4BA0CC20288D0700C7C18A /* DurationPicker */,
 				7E2035E2201C83F5005A6707 /* AfterExerciseScreen */,
 				7E3DAA33200FBEFF00E1B88C /* Views */,
@@ -164,6 +171,16 @@
 				7E4BA0CD20288DC000C7C18A /* DurationPickerViewController.swift */,
 			);
 			path = DurationPicker;
+			sourceTree = "<group>";
+		};
+		7E4BA0CF2029E6CC00C7C18A /* Holder */ = {
+			isa = PBXGroup;
+			children = (
+				7E4BA0D02029E6E600C7C18A /* HolderView.xib */,
+				7E4BA0D22029EAA500C7C18A /* HolderView.swift */,
+				7E4BA0D42029F08200C7C18A /* HolderViewHandler.swift */,
+			);
+			path = Holder;
 			sourceTree = "<group>";
 		};
 		7EDB2E652014D13700D77CB8 /* Helpers */ = {
@@ -301,6 +318,7 @@
 				7EDC5991200E6C4100C33DFC /* Assets.xcassets in Resources */,
 				7E3DAA30200FBB5700E1B88C /* SingleTimerView.xib in Resources */,
 				7EDC598F200E6C4100C33DFC /* Main.storyboard in Resources */,
+				7E4BA0D12029E6E600C7C18A /* HolderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,12 +341,14 @@
 				7E3DAA27200F57C800E1B88C /* ExerciseViewController.swift in Sources */,
 				7EDB2E672014D16C00D77CB8 /* TimerDisplay.swift in Sources */,
 				7E3DAA2E200F5F9900E1B88C /* DropDownMenuHandler.swift in Sources */,
+				7E4BA0D32029EAA500C7C18A /* HolderView.swift in Sources */,
 				7E2035E8201C8598005A6707 /* ExerciseCoordinator.swift in Sources */,
 				7EDC598A200E6C4100C33DFC /* AppDelegate.swift in Sources */,
 				7E67E34820132BB1009E084F /* Exercise.swift in Sources */,
 				7E2035E6201C8437005A6707 /* AfterExerciseCell.swift in Sources */,
 				7EDC59A2200E76E100C33DFC /* Feeling.swift in Sources */,
 				7E3DAA40200FC38000E1B88C /* SingleTimerView.swift in Sources */,
+				7E4BA0D52029F08200C7C18A /* HolderViewHandler.swift in Sources */,
 				7EDC599C200E75A400C33DFC /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
