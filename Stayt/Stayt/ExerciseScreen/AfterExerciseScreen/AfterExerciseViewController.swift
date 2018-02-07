@@ -9,7 +9,7 @@
 import UIKit
 
 protocol AfterExerciseViewControllerDelegate {
-    func didPickFeeling()
+    func didPickFeeling(_ feeling: String?)
 }
 
 class AfterExerciseViewController: UIViewController {
@@ -47,7 +47,8 @@ extension AfterExerciseViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        delegate.didPickFeeling()
+        let feeling = indexPath.row < options.count - 1 ? options[indexPath.row] : nil
+        delegate.didPickFeeling(feeling)
     }
     
 }

@@ -11,11 +11,13 @@ import Foundation
 class Exercise {
     let name: String
     let description: String
+    let descriptionName: String
     var feelings: [Feeling]
     
-    init (name: String, description: String, feelings: [Feeling]) {
+    init (name: String, description: String, descriptionName: String, feelings: [Feeling]) {
         self.name = name
         self.description = description
         self.feelings = feelings
+        self.descriptionName = descriptionName
     }
 }

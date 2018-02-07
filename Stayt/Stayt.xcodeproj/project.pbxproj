@@ -7,10 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		39F373DC45736EB5C1570D0A /* Pods_Stayt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA5DB0E9332390829FAEE9FF /* Pods_Stayt.framework */; };
 		7E2035E1201C7FD4005A6707 /* meditationBell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7E2035E0201C7FD4005A6707 /* meditationBell.mp3 */; };
 		7E2035E4201C841D005A6707 /* AfterExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2035E3201C841D005A6707 /* AfterExerciseViewController.swift */; };
 		7E2035E6201C8437005A6707 /* AfterExerciseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2035E5201C8437005A6707 /* AfterExerciseCell.swift */; };
 		7E2035E8201C8598005A6707 /* ExerciseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2035E7201C8598005A6707 /* ExerciseCoordinator.swift */; };
+		7E242176202B298800C03126 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E242175202B298800C03126 /* HistoryViewController.swift */; };
+		7E242178202B2AC900C03126 /* EmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E242177202B2AC900C03126 /* EmptyView.xib */; };
+		7E24217B202B2B0C00C03126 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E24217A202B2B0C00C03126 /* EmptyView.swift */; };
+		7E24217D202B2FB000C03126 /* HistoryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E24217C202B2FB000C03126 /* HistoryDataSource.swift */; };
+		7E24217F202B2FC800C03126 /* HistoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E24217E202B2FC800C03126 /* HistoryItem.swift */; };
+		7E242181202B354100C03126 /* HistoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E242180202B354100C03126 /* HistoryManager.swift */; };
+		7E242183202B3E0D00C03126 /* HistoryItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E242182202B3E0D00C03126 /* HistoryItemCell.swift */; };
 		7E3DAA27200F57C800E1B88C /* ExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3DAA26200F57C800E1B88C /* ExerciseViewController.swift */; };
 		7E3DAA29200F5A3D00E1B88C /* BorderedCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3DAA28200F5A3D00E1B88C /* BorderedCircleView.swift */; };
 		7E3DAA2C200F5D6700E1B88C /* DisclosureButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3DAA2B200F5D6700E1B88C /* DisclosureButton.swift */; };
@@ -40,10 +48,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		229C7D958619E0AD4C165330 /* Pods-Stayt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stayt.release.xcconfig"; path = "Pods/Target Support Files/Pods-Stayt/Pods-Stayt.release.xcconfig"; sourceTree = "<group>"; };
 		7E2035E0201C7FD4005A6707 /* meditationBell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = meditationBell.mp3; sourceTree = "<group>"; };
 		7E2035E3201C841D005A6707 /* AfterExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterExerciseViewController.swift; sourceTree = "<group>"; };
 		7E2035E5201C8437005A6707 /* AfterExerciseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterExerciseCell.swift; sourceTree = "<group>"; };
 		7E2035E7201C8598005A6707 /* ExerciseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCoordinator.swift; sourceTree = "<group>"; };
+		7E242175202B298800C03126 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		7E242177202B2AC900C03126 /* EmptyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyView.xib; sourceTree = "<group>"; };
+		7E24217A202B2B0C00C03126 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+		7E24217C202B2FB000C03126 /* HistoryDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDataSource.swift; sourceTree = "<group>"; };
+		7E24217E202B2FC800C03126 /* HistoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryItem.swift; sourceTree = "<group>"; };
+		7E242180202B354100C03126 /* HistoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryManager.swift; sourceTree = "<group>"; };
+		7E242182202B3E0D00C03126 /* HistoryItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryItemCell.swift; sourceTree = "<group>"; };
 		7E3DAA26200F57C800E1B88C /* ExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewController.swift; sourceTree = "<group>"; };
 		7E3DAA28200F5A3D00E1B88C /* BorderedCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedCircleView.swift; sourceTree = "<group>"; };
 		7E3DAA2B200F5D6700E1B88C /* DisclosureButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclosureButton.swift; sourceTree = "<group>"; };
@@ -72,6 +88,8 @@
 		7EDC599B200E75A400C33DFC /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		7EDC599E200E765C00C33DFC /* FeelingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeelingCell.swift; sourceTree = "<group>"; };
 		7EDC59A1200E76E100C33DFC /* Feeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feeling.swift; sourceTree = "<group>"; };
+		8191440F744E825263B66C33 /* Pods-Stayt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stayt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Stayt/Pods-Stayt.debug.xcconfig"; sourceTree = "<group>"; };
+		EA5DB0E9332390829FAEE9FF /* Pods_Stayt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stayt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39F373DC45736EB5C1570D0A /* Pods_Stayt.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +113,26 @@
 			path = AfterExerciseScreen;
 			sourceTree = "<group>";
 		};
+		7E242174202B297200C03126 /* HistoryScreen */ = {
+			isa = PBXGroup;
+			children = (
+				7E242175202B298800C03126 /* HistoryViewController.swift */,
+				7E242182202B3E0D00C03126 /* HistoryItemCell.swift */,
+				7E24217E202B2FC800C03126 /* HistoryItem.swift */,
+				7E24217C202B2FB000C03126 /* HistoryDataSource.swift */,
+			);
+			path = HistoryScreen;
+			sourceTree = "<group>";
+		};
+		7E242179202B2AF900C03126 /* EmptyView */ = {
+			isa = PBXGroup;
+			children = (
+				7E242177202B2AC900C03126 /* EmptyView.xib */,
+				7E24217A202B2B0C00C03126 /* EmptyView.swift */,
+			);
+			path = EmptyView;
+			sourceTree = "<group>";
+		};
 		7E3DAA25200F579000E1B88C /* ExerciseScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +143,7 @@
 				7E3DAA26200F57C800E1B88C /* ExerciseViewController.swift */,
 				7E3DAA28200F5A3D00E1B88C /* BorderedCircleView.swift */,
 				7E2035E7201C8598005A6707 /* ExerciseCoordinator.swift */,
+				7E242180202B354100C03126 /* HistoryManager.swift */,
 			);
 			path = ExerciseScreen;
 			sourceTree = "<group>";
@@ -115,6 +155,7 @@
 				7E3DAA2B200F5D6700E1B88C /* DisclosureButton.swift */,
 				7E3DAA2D200F5F9900E1B88C /* DropDownMenuHandler.swift */,
 				7E3DAA3C200FC1E500E1B88C /* UIViewExtentions.swift */,
+				7E242179202B2AF900C03126 /* EmptyView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -204,6 +245,8 @@
 			children = (
 				7EDC5988200E6C4100C33DFC /* Stayt */,
 				7EDC5987200E6C4100C33DFC /* Products */,
+				D4671386C340782FF5ABE350 /* Pods */,
+				892D8F3F92C809DC2BDA48AF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -218,12 +261,13 @@
 		7EDC5988200E6C4100C33DFC /* Stayt */ = {
 			isa = PBXGroup;
 			children = (
+				7EDC598D200E6C4100C33DFC /* Main.storyboard */,
+				7E242174202B297200C03126 /* HistoryScreen */,
 				7EDB2E682014D78700D77CB8 /* Sounds */,
 				7EDB2E652014D13700D77CB8 /* Helpers */,
 				7E3DAA2A200F5C8F00E1B88C /* Views */,
 				7E3DAA25200F579000E1B88C /* ExerciseScreen */,
 				7EDC59A0200E76D000C33DFC /* Models */,
-				7EDC598D200E6C4100C33DFC /* Main.storyboard */,
 				7EDC599D200E764100C33DFC /* MainScreen */,
 				7EDC5990200E6C4100C33DFC /* Assets.xcassets */,
 				7EDC5989200E6C4100C33DFC /* AppDelegate.swift */,
@@ -251,6 +295,23 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		892D8F3F92C809DC2BDA48AF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EA5DB0E9332390829FAEE9FF /* Pods_Stayt.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D4671386C340782FF5ABE350 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8191440F744E825263B66C33 /* Pods-Stayt.debug.xcconfig */,
+				229C7D958619E0AD4C165330 /* Pods-Stayt.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -258,9 +319,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7EDC5998200E6C4100C33DFC /* Build configuration list for PBXNativeTarget "Stayt" */;
 			buildPhases = (
+				AA2F64054973A5B491194C01 /* [CP] Check Pods Manifest.lock */,
 				7EDC5982200E6C4100C33DFC /* Sources */,
 				7EDC5983200E6C4100C33DFC /* Frameworks */,
 				7EDC5984200E6C4100C33DFC /* Resources */,
+				70BB4618CCA824C2CF59CDEA /* [CP] Embed Pods Frameworks */,
+				B7170D8F31683C452400B244 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -314,6 +378,7 @@
 				7E3DAA32200FBE6D00E1B88C /* MultipleTimersView.xib in Resources */,
 				7E2035E1201C7FD4005A6707 /* meditationBell.mp3 in Resources */,
 				7E4BA0C920288B8A00C7C18A /* CenteredCell.xib in Resources */,
+				7E242178202B2AC900C03126 /* EmptyView.xib in Resources */,
 				7E3DAA36200FBF9F00E1B88C /* FeelingTimerCell.xib in Resources */,
 				7EDC5991200E6C4100C33DFC /* Assets.xcassets in Resources */,
 				7E3DAA30200FBB5700E1B88C /* SingleTimerView.xib in Resources */,
@@ -324,16 +389,76 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		70BB4618CCA824C2CF59CDEA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Stayt/Pods-Stayt-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Stayt/Pods-Stayt-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AA2F64054973A5B491194C01 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Stayt-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B7170D8F31683C452400B244 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Stayt/Pods-Stayt-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7EDC5982200E6C4100C33DFC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E242183202B3E0D00C03126 /* HistoryItemCell.swift in Sources */,
 				7E3DAA39200FC03A00E1B88C /* FeelingTimerCell.swift in Sources */,
 				7E2035E4201C841D005A6707 /* AfterExerciseViewController.swift in Sources */,
 				7E4BA0CE20288DC000C7C18A /* DurationPickerViewController.swift in Sources */,
 				7E3DAA2C200F5D6700E1B88C /* DisclosureButton.swift in Sources */,
+				7E24217B202B2B0C00C03126 /* EmptyView.swift in Sources */,
 				7E4BA0CB20288BEC00C7C18A /* CenteredCell.swift in Sources */,
+				7E242181202B354100C03126 /* HistoryManager.swift in Sources */,
+				7E242176202B298800C03126 /* HistoryViewController.swift in Sources */,
 				7EDC599F200E765C00C33DFC /* FeelingCell.swift in Sources */,
 				7E3DAA29200F5A3D00E1B88C /* BorderedCircleView.swift in Sources */,
 				7E3DAA3B200FC09F00E1B88C /* MultipleTimersView.swift in Sources */,
@@ -342,8 +467,10 @@
 				7EDB2E672014D16C00D77CB8 /* TimerDisplay.swift in Sources */,
 				7E3DAA2E200F5F9900E1B88C /* DropDownMenuHandler.swift in Sources */,
 				7E4BA0D32029EAA500C7C18A /* HolderView.swift in Sources */,
+				7E24217D202B2FB000C03126 /* HistoryDataSource.swift in Sources */,
 				7E2035E8201C8598005A6707 /* ExerciseCoordinator.swift in Sources */,
 				7EDC598A200E6C4100C33DFC /* AppDelegate.swift in Sources */,
+				7E24217F202B2FC800C03126 /* HistoryItem.swift in Sources */,
 				7E67E34820132BB1009E084F /* Exercise.swift in Sources */,
 				7E2035E6201C8437005A6707 /* AfterExerciseCell.swift in Sources */,
 				7EDC59A2200E76E100C33DFC /* Feeling.swift in Sources */,
@@ -484,6 +611,7 @@
 		};
 		7EDC5999200E6C4100C33DFC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8191440F744E825263B66C33 /* Pods-Stayt.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -499,6 +627,7 @@
 		};
 		7EDC599A200E6C4100C33DFC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 229C7D958619E0AD4C165330 /* Pods-Stayt.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

@@ -82,6 +82,7 @@ class ExerciseViewController: UIViewController, TimerDisplay {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Excersises"
         NotificationCenter.default.addObserver(self, selector: #selector(appWillResingActive), name: Notification.Name.UIApplicationWillResignActive, object: nil)
         titleLabel.text = exercise.description
         currentDuration = exercise.feelings.first!.duration

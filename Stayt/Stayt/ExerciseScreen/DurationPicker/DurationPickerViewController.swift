@@ -29,6 +29,7 @@ class DurationPickerViewController: UIViewController {
         for i in 1...10 {
             durations.append(i * 60)
         }
+        durations.append(2)
         tableView.register(UINib(nibName: "CenteredCell", bundle: nil), forCellReuseIdentifier: "CenteredCell")
         tableView.delegate = self
         tableView.dataSource = self
