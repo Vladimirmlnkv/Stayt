@@ -87,21 +87,25 @@ class ExerciseViewController: UIViewController, TimerDisplay {
         currentDuration = exercise.feelings.first!.duration
         if isSingleTimer {
             singleTimerView = SingleTimerView(frame: containerView.bounds)
+            singleTimerView?.translatesAutoresizingMaskIntoConstraints = false
             singleTimerView?.durationButton.addTarget(self, action: #selector(singleDurationButtonAction), for: .allTouchEvents)
             singleTimerView!.hideRemaining(true)
             singleTimerView!.durationButton.setTitle("\(exercise.feelings.first!.durationString) min", for: .normal)
             containerView.addSubview(singleTimerView!)
+            addConstraints(to: singleTimerView!)
         } else {
             multipleTimersView = MultipleTimersView(frame: containerView.bounds)
+            multipleTimersView?.translatesAutoresizingMaskIntoConstraints = false
             multipleTimersView?.tableView.tableFooterView = UIView()
             multipleTimersView?.tableView.rowHeight = 44.0
             multipleTimersView!.tableView.delegate = self
             multipleTimersView!.tableView.dataSource = self
             multipleTimersView?.tableView.setEditing(true, animated: false)
             containerView.addSubview(multipleTimersView!)
+            addConstraints(to: multipleTimersView!)
         }
     }
-
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         if state != .initial {
@@ -111,6 +115,14 @@ class ExerciseViewController: UIViewController, TimerDisplay {
             pause()
             NotificationCenter.default.removeObserver(self)
         }
+    }
+    
+    fileprivate func addConstraints(to timerView: UIView) {
+        let margins = containerView.layoutMarginsGuide
+        timerView.leadingAnchor.constraint(equalTo: margins.leadingAnchor).isActive = true
+        timerView.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
+        timerView.topAnchor.constraint(equalTo: margins.topAnchor).isActive = true
+        timerView.bottomAnchor.constraint(equalTo: margins.bottomAnchor).isActive = true
     }
     
     fileprivate func showHolder(for feeling: Feeling) {
