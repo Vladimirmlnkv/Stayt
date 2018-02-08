@@ -82,7 +82,6 @@ class ExerciseViewController: UIViewController, TimerDisplay {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Excersises"
         NotificationCenter.default.addObserver(self, selector: #selector(appWillResingActive), name: Notification.Name.UIApplicationWillResignActive, object: nil)
         titleLabel.text = exercise.description
         currentDuration = exercise.feelings.first!.duration
@@ -185,7 +184,7 @@ class ExerciseViewController: UIViewController, TimerDisplay {
     
     fileprivate func updateCurrentLabel() {
         if isSingleTimer {
-            singleTimerView!.label.text = "\(stringDuration(from: currentDuration!)) remaining"
+            singleTimerView!.label.text = "\(stringDuration(from: currentDuration!))"
         } else {
             multipleTimersView!.tableView.beginUpdates()
             multipleTimersView!.tableView.reloadRows(at: [IndexPath(row: currentFeelingNumber!, section: 0)], with: .automatic)
