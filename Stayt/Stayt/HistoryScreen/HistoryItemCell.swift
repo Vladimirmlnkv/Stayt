@@ -13,6 +13,6 @@ class HistoryItemCell: UITableViewCell {
     @IBOutlet var exerciseLabel: UILabel!
     @IBOutlet var durationLabel: UILabel!
     @IBOutlet var feelingLabel: UILabel!
-    @IBOutlet var feelingView: UIView!
+//    @IBOutlet var feelingView: UIView!
     
 }

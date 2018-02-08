@@ -23,13 +23,11 @@ class DurationPickerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         titleLabel.text = "Select duration of \(feeling.descriptionName.lowercased())"
         
         for i in 1...10 {
             durations.append(i * 60)
         }
-        durations.append(2)
         tableView.register(UINib(nibName: "CenteredCell", bundle: nil), forCellReuseIdentifier: "CenteredCell")
         tableView.delegate = self
         tableView.dataSource = self

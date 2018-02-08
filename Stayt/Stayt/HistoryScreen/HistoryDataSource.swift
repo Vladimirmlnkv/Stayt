@@ -14,7 +14,7 @@ class HistoryDataSource {
     let realm = mainRealm
     
     func getItems() -> [HistoryItem] {
-        let results = realm.objects(HistoryItem.self)
+        let results = realm.objects(HistoryItem.self).sorted(by: {$0.date > $1.date})
         return Array(results)
     }
 }
