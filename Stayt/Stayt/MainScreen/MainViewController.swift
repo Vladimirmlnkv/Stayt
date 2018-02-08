@@ -20,9 +20,9 @@ class MainViewController: UIViewController {
         let ex1 = Exercise(name: "Relaxed", description: "Relax", descriptionName: "Meditation", feelings: [Feeling(name: "Relaxed", descriptionName: "meditation")])
         let ex2 = Exercise(name: "Energized", description: "Energize", descriptionName: "Breathwork", feelings: [Feeling(name: "Energized", descriptionName: "breathwork")])
         let ex3 = Exercise(name: "Motivated", description: "Motivate", descriptionName: "Arm holding", feelings: [Feeling(name: "Motivated", descriptionName: "arm holding")])
-        let ex4 = Exercise(name: "Blissed", description: "Bliss", descriptionName: "Blessing", feelings: [Feeling(name: "Relaxed", descriptionName: "meditation"),
-                                                                             Feeling(name: "Energized", descriptionName: "breathwork"),
-                                                                             Feeling(name: "Motivated", descriptionName: "arm holding")])
+        let ex4 = Exercise(name: "Blissed", description: "Bliss", descriptionName: "Blessing", feelings: [Feeling(name: "Relaxed", descriptionName: "Meditation"),
+                                                                             Feeling(name: "Energized", descriptionName: "Breathwork"),
+                                                                             Feeling(name: "Motivated", descriptionName: "Arm holding")])
         exercises = [ex1, ex2, ex3, ex4]
         
         collectionView.delegate = self

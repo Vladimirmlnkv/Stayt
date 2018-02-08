@@ -95,12 +95,13 @@ class ExerciseViewController: UIViewController, TimerDisplay {
             addConstraints(to: singleTimerView!)
         } else {
             multipleTimersView = MultipleTimersView(frame: containerView.bounds)
-            multipleTimersView?.translatesAutoresizingMaskIntoConstraints = false
-            multipleTimersView?.tableView.tableFooterView = UIView()
-            multipleTimersView?.tableView.rowHeight = 44.0
+            multipleTimersView!.translatesAutoresizingMaskIntoConstraints = false
+            multipleTimersView!.tableView.tableFooterView = UIView()
+            multipleTimersView!.tableView.rowHeight = 44.0
             multipleTimersView!.tableView.delegate = self
             multipleTimersView!.tableView.dataSource = self
-            multipleTimersView?.tableView.setEditing(true, animated: false)
+            multipleTimersView!.tableView.setEditing(true, animated: false)
+            multipleTimersView!.tableView.bounces = false
             containerView.addSubview(multipleTimersView!)
             addConstraints(to: multipleTimersView!)
         }
@@ -219,7 +220,7 @@ extension ExerciseViewController: UITableViewDataSource {
         let feeling = exercise.feelings[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "FeelingTimerCell") as! FeelingTimerCell
         cell.durationButton.tag = indexPath.row
-        cell.label.text = feeling.name
+        cell.label.text = feeling.descriptionName
         cell.delegate = self
         if indexPath.row == currentFeelingNumber {
             let duration = stringDuration(from: currentDuration!)
