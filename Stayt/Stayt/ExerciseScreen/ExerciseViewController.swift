@@ -155,9 +155,8 @@ class ExerciseViewController: UIViewController, TimerDisplay {
         if state == .playing {
             pause()
         } else if state == .pause || state == .initial {
-            if currentDuration == nil {
-                currentDuration = exercise.feelings.first?.duration
-            }
+            let feelingNumber = currentFeelingNumber ?? 0
+            currentDuration = exercise.feelings[feelingNumber].duration
             timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
             state = .playing
             updateCurrentLabel()
