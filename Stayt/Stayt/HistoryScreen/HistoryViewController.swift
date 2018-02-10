@@ -54,16 +54,7 @@ extension HistoryViewController: UITableViewDelegate {
 }
 
 extension HistoryViewController: UITableViewDataSource {
-    
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        let experience = historyItems[indexPath.section].experiences[indexPath.row]
-//        if let _ = experience.feelingAfter {
-//            return 65.0
-//        } else {
-//            return 45.0
-//        }
-//    }
-    
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return historyItems.count
     }
@@ -79,7 +70,7 @@ extension HistoryViewController: UITableViewDataSource {
         cell.durationLabel.text = "\(experience.duration / 60) min"
         if let feeling = experience.feelingAfter {
             cell.feelingLabel.isHidden = false
-            cell.feelingLabel.text = "You felt \(feeling)."
+            cell.feelingLabel.text = "You felt: \(feeling)."
         } else {
             cell.feelingLabel.isHidden = true
         }

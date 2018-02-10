@@ -27,10 +27,10 @@ class HistoryManager {
             return components.day == itemComponents.day && components.month == components.month
         }.first
         let duration = exercise.feelings.reduce(0, {$0 + $1.duration})
-        newExperience = Experience(name: exercise.descriptionName, feeling: nil, duration: duration)
+        newExperience = Experience(name: exercise.descriptionName, feeling: nil, duration: duration, date: date)
         if let existingItem = item {
             try! realm.write {
-                existingItem.experiences.append(self.newExperience!)
+                existingItem.experiences.insert(self.newExperience!, at: 0)
             }
         } else {
             let item = HistoryItem(date: date, experiences: [self.newExperience!])

@@ -48,9 +48,27 @@ extension ExerciseCoodinator: AfterExerciseViewControllerDelegate {
     
     func didPickFeeling(_ feeling: String?) {
         if let f = feeling {
-            historyManager.addFeeling(f)
+            if f == "Write your own version" {
+                let vc = storyboard.instantiateViewController(withIdentifier: "CustomFeelingViewController") as! CustomFeelingViewController
+                vc.delegate = self
+                let navVC = UINavigationController(rootViewController: vc)
+                afterExerciseVC.present(navVC, animated: true, completion: nil)
+            } else {
+                historyManager.addFeeling(f)
+                presentingVC.dismiss(animated: true, completion: nil)
+            }
+        } else {
+            presentingVC.dismiss(animated: true, completion: nil)
         }
-        presentingVC.dismiss(animated: true, completion: nil)
     }
     
+}
+
+extension ExerciseCoodinator: CustomFeelingViewControllerDelegate {
+    
+    func didEnter(feeling: String) {
+        historyManager.addFeeling(feeling)
+        presentingVC.dismiss(animated: true, completion: nil)
+    }
+
 }

@@ -20,7 +20,7 @@ class AfterExerciseViewController: UIViewController {
     
     var delegate: AfterExerciseViewControllerDelegate!
     
-    fileprivate var options = ["Much better", "A bit better", "No different", "Worse", "Prefer not to say"]
+    fileprivate var options = ["Much better", "A bit better", "No different", "Worse", "Write your own version", "Prefer not to say"]
     
     override func viewDidLoad() {
         super.viewDidLoad()

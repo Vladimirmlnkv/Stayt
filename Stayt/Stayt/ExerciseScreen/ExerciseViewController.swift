@@ -83,7 +83,7 @@ class ExerciseViewController: UIViewController, TimerDisplay {
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(appWillResingActive), name: Notification.Name.UIApplicationWillResignActive, object: nil)
-        titleLabel.text = exercise.description
+        titleLabel.text = exercise.descriptionName
         currentDuration = exercise.feelings.first!.duration
         if isSingleTimer {
             singleTimerView = SingleTimerView(frame: containerView.bounds)
