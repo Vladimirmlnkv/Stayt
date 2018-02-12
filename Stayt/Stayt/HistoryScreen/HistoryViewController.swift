@@ -70,7 +70,7 @@ extension HistoryViewController: UITableViewDataSource {
         cell.durationLabel.text = "\(experience.duration / 60) min"
         if let feeling = experience.feelingAfter {
             cell.feelingLabel.isHidden = false
-            cell.feelingLabel.text = "You felt: \(feeling)."
+            cell.feelingLabel.text = "You felt: \(feeling)"
         } else {
             cell.feelingLabel.isHidden = true
         }

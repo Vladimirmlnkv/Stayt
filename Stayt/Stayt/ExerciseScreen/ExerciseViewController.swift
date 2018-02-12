@@ -155,8 +155,10 @@ class ExerciseViewController: UIViewController, TimerDisplay {
         if state == .playing {
             pause()
         } else if state == .pause || state == .initial {
-            let feelingNumber = currentFeelingNumber ?? 0
-            currentDuration = exercise.feelings[feelingNumber].duration
+            if currentFeelingNumber == nil {
+                let feelingNumber = currentFeelingNumber ?? 0
+                currentDuration = exercise.feelings[feelingNumber].duration
+            }
             timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
             state = .playing
             updateCurrentLabel()
@@ -202,7 +204,7 @@ class ExerciseViewController: UIViewController, TimerDisplay {
             multipleTimersView!.tableView.reloadRows(at: [IndexPath(row: currentFeelingNumber!, section: 0)], with: .automatic)
             multipleTimersView!.tableView.endUpdates()
         }
-    }
+    } 
     
     @IBAction func crossButtonAction(_ sender: Any) {
         dismiss(animated: true, completion: nil)
