@@ -155,6 +155,60 @@
             </objects>
             <point key="canvasLocation" x="149.59999999999999" y="568.06596701649175"/>
         </scene>
+        <!--Exercise Description View Controller-->
+        <scene sceneID="mCo-4u-fMn">
+            <objects>
+                <viewController storyboardIdentifier="ExerciseDescriptionViewController" id="ssa-O7-XpS" customClass="ExerciseDescriptionViewController" customModule="Stayt" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WAr-zA-Lyv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gf2-P1-24H">
+                                <rect key="frame" x="325" y="40" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="ZWc-Ya-fRs"/>
+                                    <constraint firstAttribute="height" constant="40" id="xOR-Nf-Lke"/>
+                                </constraints>
+                                <state key="normal" image="cross"/>
+                                <connections>
+                                    <action selector="dismissButtonAction:" destination="ssa-O7-XpS" eventType="touchUpInside" id="3Gk-6j-fyG"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meditation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UIq-nk-khB">
+                                <rect key="frame" x="134" y="100" width="108" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Description" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="9lu-tX-HZS">
+                                <rect key="frame" x="20" y="134" width="335" height="513"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="UIq-nk-khB" firstAttribute="top" secondItem="Gf2-P1-24H" secondAttribute="bottom" constant="20" id="D0o-K0-Tox"/>
+                            <constraint firstItem="Gf2-P1-24H" firstAttribute="top" secondItem="PhP-dO-eoi" secondAttribute="top" constant="20" id="Dg1-iW-djw"/>
+                            <constraint firstItem="PhP-dO-eoi" firstAttribute="bottom" secondItem="9lu-tX-HZS" secondAttribute="bottom" constant="20" id="KYL-fT-MTR"/>
+                            <constraint firstItem="9lu-tX-HZS" firstAttribute="top" secondItem="UIq-nk-khB" secondAttribute="bottom" constant="8" id="OFS-rx-jIx"/>
+                            <constraint firstItem="PhP-dO-eoi" firstAttribute="trailing" secondItem="9lu-tX-HZS" secondAttribute="trailing" constant="20" id="bcc-2Y-Rzx"/>
+                            <constraint firstItem="UIq-nk-khB" firstAttribute="centerX" secondItem="WAr-zA-Lyv" secondAttribute="centerX" id="p0z-Ne-EcY"/>
+                            <constraint firstItem="PhP-dO-eoi" firstAttribute="trailing" secondItem="Gf2-P1-24H" secondAttribute="trailing" constant="10" id="qg8-GS-dGl"/>
+                            <constraint firstItem="9lu-tX-HZS" firstAttribute="leading" secondItem="PhP-dO-eoi" secondAttribute="leading" constant="20" id="sW7-op-Rsy"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="PhP-dO-eoi"/>
+                    </view>
+                    <connections>
+                        <outlet property="textView" destination="9lu-tX-HZS" id="6yc-xa-Xp5"/>
+                        <outlet property="titleLabel" destination="UIq-nk-khB" id="7Hw-Db-re1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8rA-UE-lwN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1046" y="502"/>
+        </scene>
         <!--Stayt-->
         <scene sceneID="jcg-dM-KHb">
             <objects>
@@ -334,12 +388,25 @@
                                             <action selector="crossButtonAction:" destination="5Or-pQ-DAp" eventType="touchUpInside" id="WOl-cl-AXD"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g7A-AE-9jz">
+                                        <rect key="frame" x="15" y="5" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="SxJ-8c-ctb"/>
+                                            <constraint firstAttribute="height" constant="30" id="iAE-7C-FD4"/>
+                                        </constraints>
+                                        <state key="normal" image="info"/>
+                                        <connections>
+                                            <action selector="infoButtonAction:" destination="5Or-pQ-DAp" eventType="touchUpInside" id="uhL-yG-FkX"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="g7A-AE-9jz" firstAttribute="centerY" secondItem="1fo-hS-6Kb" secondAttribute="centerY" id="PQh-HG-bm1"/>
                                     <constraint firstItem="1fo-hS-6Kb" firstAttribute="top" secondItem="EZB-UQ-GjU" secondAttribute="top" id="aJt-rF-1mz"/>
                                     <constraint firstAttribute="bottom" secondItem="1fo-hS-6Kb" secondAttribute="bottom" id="aZI-Zg-14Q"/>
                                     <constraint firstAttribute="trailing" secondItem="1fo-hS-6Kb" secondAttribute="trailing" constant="10" id="nKE-Yq-TIk"/>
+                                    <constraint firstItem="g7A-AE-9jz" firstAttribute="leading" secondItem="EZB-UQ-GjU" secondAttribute="leading" constant="15" id="o3S-qa-Uob"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EzD-a8-MPY">
@@ -516,6 +583,7 @@
     </scenes>
     <resources>
         <image name="cross" width="50" height="50"/>
+        <image name="info" width="128" height="128"/>
         <image name="lotus" width="32" height="32"/>
         <image name="play" width="64" height="64"/>
     </resources>

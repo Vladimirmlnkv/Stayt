@@ -144,6 +144,14 @@ class ExerciseViewController: UIViewController, TimerDisplay {
         selectDuration(for: exercise.feelings.first!)
     }
     
+    @IBAction func infoButtonAction(_ sender: Any) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "ExerciseDescriptionViewController") as! ExerciseDescriptionViewController
+        vc.exerciseTitle = exercise.descriptionName
+        vc.exerciseDescription = exercise.description
+        present(vc, animated: true, completion: nil)
+    }
+    
+    
     fileprivate func selectDuration(for feeling: Feeling) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "DurationPickerViewController") as! DurationPickerViewController
         vc.delegate = self
