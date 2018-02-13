@@ -20,7 +20,7 @@ class HistoryDataSource {
     
     func add(afterFeeling: String, for experience: Experience) {
         try! realm.write {
-            experience.feelingAfter = afterFeeling
+            experience.afterFeeling = AfterFeeling(type: .custom, text: afterFeeling)
         }
     }
 }

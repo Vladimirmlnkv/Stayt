@@ -30,12 +30,27 @@ class CustomFeelingViewController: UIViewController {
         super.viewDidLoad()
         navigationItem.title = experience.dateString
         titleLabel.text = experience.exerciseName
-        textView.text = experience.feelingAfter
-        charactersLabel.text = "\(textView.text.count)/\(maxNumberOfCharacters)"
+        if experience.afterFeeling == nil || experience.afterFeeling?.type == .notSelected {
+            textView.becomeFirstResponder()
+            charactersLabel.text = "\(textView.text.count)/\(maxNumberOfCharacters)"
+            placeholderLabel.isHidden = textView.text.count > 0
+        } else if experience.afterFeeling?.type == .custom {
+            textView.text = experience.afterFeeling!.text
+            if textView.text.isEmpty {
+                textView.becomeFirstResponder()
+            }
+            charactersLabel.text = "\(textView.text.count)/\(maxNumberOfCharacters)"
+            placeholderLabel.isHidden = textView.text.count > 0
+        } else {
+            textView.text = experience.afterFeeling!.type.title
+            textView.isUserInteractionEnabled = false
+            charactersLabel.isHidden = true
+            placeholderLabel.isHidden = true
+        }
+
         if shouldAddCancelButton {
             navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .done, target: self, action: #selector(cancelAction))
         }
-        placeholderLabel.isHidden = textView.text.count > 0
 
         doneBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneAction))
         doneBarButtonItem.isEnabled = false
@@ -46,7 +61,6 @@ class CustomFeelingViewController: UIViewController {
         let tapGestureReconginzer = UITapGestureRecognizer(target: self, action: #selector(handleTapGesture))
         view.addGestureRecognizer(tapGestureReconginzer)
         textView.delegate = self
-        textView.becomeFirstResponder()
     }
     
     @objc func handleTapGesture() {

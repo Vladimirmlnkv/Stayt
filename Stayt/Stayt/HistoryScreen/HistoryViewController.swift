@@ -82,12 +82,21 @@ extension HistoryViewController: UITableViewDataSource {
         let experience = historyItems[indexPath.section].experiences[indexPath.row]
         cell.exerciseLabel.text = experience.exerciseName
         cell.durationLabel.text = "\(experience.duration / 60) min"
-        if let feeling = experience.feelingAfter {
-            cell.feelingLabel.isHidden = false
-            cell.feelingLabel.text = "You felt: \(feeling)"
+        
+        if let afterFeeling = experience.afterFeeling {
+            if afterFeeling.type == .notSelected {
+                cell.feelingLabel.isHidden = true
+            } else if afterFeeling.type == .custom {
+                cell.feelingLabel.isHidden = false
+                cell.feelingLabel.text = afterFeeling.text
+            } else {
+                cell.feelingLabel.isHidden = false
+                cell.feelingLabel.text = "You felt: \(afterFeeling.type.title)"
+            }
         } else {
             cell.feelingLabel.isHidden = true
         }
+        
         
         return cell
     }

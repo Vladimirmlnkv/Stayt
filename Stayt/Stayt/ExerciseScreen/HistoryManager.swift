@@ -40,10 +40,10 @@ class HistoryManager {
         }
     }
     
-    func addFeeling(_ feelingName: String) {
+    func addAfterFeeling(type: AfterFeelingType, text: String?) {
         if let experience = newExperience {
             try! realm.write {
-                experience.feelingAfter = feelingName
+                experience.afterFeeling = AfterFeeling(type: type, text: text)
             }
         }
     }

@@ -9,7 +9,7 @@
 import UIKit
 
 protocol AfterExerciseViewControllerDelegate {
-    func didPickFeeling(_ feeling: String?)
+    func didPickFeeling(_ feeling: AfterFeelingType)
 }
 
 class AfterExerciseViewController: UIViewController {
@@ -20,7 +20,7 @@ class AfterExerciseViewController: UIViewController {
     
     var delegate: AfterExerciseViewControllerDelegate!
     
-    fileprivate var options = ["Much better", "A bit better", "No different", "Worse", "Write your own version", "Prefer not to say"]
+    fileprivate var options: [AfterFeelingType] = [.muchBetter, .aBitBetter, .noDifferent, .worse, .custom, .notSelected]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +38,7 @@ extension AfterExerciseViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AfterExerciseCell") as! AfterExerciseCell
-        cell.label.text = options[indexPath.row]
+        cell.label.text = options[indexPath.row].title
         return cell
     }
 }
@@ -47,7 +47,7 @@ extension AfterExerciseViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let feeling = indexPath.row < options.count - 1 ? options[indexPath.row] : nil
+        let feeling = options[indexPath.row]
         delegate.didPickFeeling(feeling)
     }
     

@@ -39,6 +39,7 @@
 		7E5AD2AE202ED2A800C08D77 /* CustomFeelingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5AD2AD202ED2A800C08D77 /* CustomFeelingViewController.swift */; };
 		7E5AD2B12031FBEC00C08D77 /* ExerciseDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5AD2B02031FBEC00C08D77 /* ExerciseDescriptionViewController.swift */; };
 		7E67E34820132BB1009E084F /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E67E34720132BB1009E084F /* Exercise.swift */; };
+		7EC1BBF320335593008DDB68 /* AfterFeeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC1BBF220335593008DDB68 /* AfterFeeling.swift */; };
 		7EDB2E672014D16C00D77CB8 /* TimerDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDB2E662014D16C00D77CB8 /* TimerDisplay.swift */; };
 		7EDC598A200E6C4100C33DFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDC5989200E6C4100C33DFC /* AppDelegate.swift */; };
 		7EDC598F200E6C4100C33DFC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EDC598D200E6C4100C33DFC /* Main.storyboard */; };
@@ -82,6 +83,7 @@
 		7E5AD2AD202ED2A800C08D77 /* CustomFeelingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFeelingViewController.swift; sourceTree = "<group>"; };
 		7E5AD2B02031FBEC00C08D77 /* ExerciseDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDescriptionViewController.swift; sourceTree = "<group>"; };
 		7E67E34720132BB1009E084F /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
+		7EC1BBF220335593008DDB68 /* AfterFeeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterFeeling.swift; sourceTree = "<group>"; };
 		7EDB2E662014D16C00D77CB8 /* TimerDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerDisplay.swift; sourceTree = "<group>"; };
 		7EDC5986200E6C4100C33DFC /* Stayt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stayt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EDC5989200E6C4100C33DFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -305,6 +307,7 @@
 				7E24217E202B2FC800C03126 /* HistoryItem.swift */,
 				7EDC59A1200E76E100C33DFC /* Feeling.swift */,
 				7E67E34720132BB1009E084F /* Exercise.swift */,
+				7EC1BBF220335593008DDB68 /* AfterFeeling.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -475,6 +478,7 @@
 				7E5AD2AE202ED2A800C08D77 /* CustomFeelingViewController.swift in Sources */,
 				7E242176202B298800C03126 /* HistoryViewController.swift in Sources */,
 				7EDC599F200E765C00C33DFC /* FeelingCell.swift in Sources */,
+				7EC1BBF320335593008DDB68 /* AfterFeeling.swift in Sources */,
 				7E3DAA29200F5A3D00E1B88C /* BorderedCircleView.swift in Sources */,
 				7E5AD2B12031FBEC00C08D77 /* ExerciseDescriptionViewController.swift in Sources */,
 				7E3DAA3B200FC09F00E1B88C /* MultipleTimersView.swift in Sources */,

@@ -12,7 +12,7 @@ import RealmSwift
 class Experience: Object {
     
     @objc dynamic var exerciseName: String!
-    @objc dynamic var feelingAfter: String?
+    @objc dynamic var afterFeeling: AfterFeeling?
     @objc dynamic var duration: Int = 0
     @objc dynamic var date: Date!
     
@@ -22,10 +22,10 @@ class Experience: Object {
         return formatter.string(from: date)
     }
     
-    convenience init(name: String, feeling: String?, duration: Int, date: Date) {
+    convenience init(name: String, feeling: AfterFeeling?, duration: Int, date: Date) {
         self.init()
         self.exerciseName = name
-        self.feelingAfter = feeling
+        self.afterFeeling = feeling
         self.duration = duration
         self.date = date
     }
