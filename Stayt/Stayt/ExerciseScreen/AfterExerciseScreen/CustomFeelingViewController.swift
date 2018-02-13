@@ -9,7 +9,7 @@
 import UIKit
 
 protocol CustomFeelingViewControllerDelegate {
-    func didEnter(feeling: String)
+    func didEnter(feeling: String, for experiene: Experience)
 }
 
 class CustomFeelingViewController: UIViewController {
@@ -18,15 +18,25 @@ class CustomFeelingViewController: UIViewController {
     @IBOutlet var textView: UITextView!
     @IBOutlet var bottomConstraint: NSLayoutConstraint!
     @IBOutlet var charactersLabel: UILabel!
+    @IBOutlet var placeholderLabel: UILabel!
     
-    fileprivate let maxNumberOfCharacters = 250
+    fileprivate let maxNumberOfCharacters = 2500
     fileprivate var doneBarButtonItem: UIBarButtonItem!
     var delegate: CustomFeelingViewControllerDelegate!
-    
+    var experience: Experience!
+    var shouldAddCancelButton = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .done, target: self, action: #selector(cancelAction))
+        navigationItem.title = experience.dateString
+        titleLabel.text = experience.exerciseName
+        textView.text = experience.feelingAfter
+        charactersLabel.text = "\(textView.text.count)/\(maxNumberOfCharacters)"
+        if shouldAddCancelButton {
+            navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .done, target: self, action: #selector(cancelAction))
+        }
+        placeholderLabel.isHidden = textView.text.count > 0
+
         doneBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneAction))
         doneBarButtonItem.isEnabled = false
         navigationItem.rightBarButtonItem = doneBarButtonItem
@@ -48,15 +58,16 @@ class CustomFeelingViewController: UIViewController {
     }
     
     @objc func doneAction() {
-        delegate.didEnter(feeling: textView.text)
+        delegate.didEnter(feeling: textView.text, for: experience)
     }
     
     @objc func keyboardWillShow(_ notification: Notification) {
         if let userInfo = notification.userInfo {
             if let keyboardSize = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
                 let c = keyboardSize.height
+                let tabBarSize = tabBarController?.tabBar.frame.height ?? 0
                 UIView.animate(withDuration: 0.3, animations: {
-                    self.bottomConstraint.constant = c + self.charactersLabel.frame.height + 16
+                    self.bottomConstraint.constant = c + self.charactersLabel.frame.height + 16 - tabBarSize
                     self.view.layoutIfNeeded()
                 })
             }
@@ -81,6 +92,7 @@ extension CustomFeelingViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         charactersLabel.text = "\(textView.text.count)/\(maxNumberOfCharacters)"
         doneBarButtonItem.isEnabled = textView.text.count > 0
+        placeholderLabel.isHidden = textView.text.count > 0
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {

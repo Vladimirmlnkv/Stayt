@@ -48,6 +48,10 @@ class HistoryManager {
         }
     }
     
+    func currentExperience() -> Experience? {
+        return newExperience
+    }
+    
     fileprivate func components(from date: Date) -> DateComponents {
         return NSCalendar.current.dateComponents([.day, .month], from: date)
     }

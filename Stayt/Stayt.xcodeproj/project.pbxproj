@@ -123,7 +123,6 @@
 			children = (
 				7E242175202B298800C03126 /* HistoryViewController.swift */,
 				7E242182202B3E0D00C03126 /* HistoryItemCell.swift */,
-				7E24217E202B2FC800C03126 /* HistoryItem.swift */,
 				7E24217C202B2FB000C03126 /* HistoryDataSource.swift */,
 			);
 			path = HistoryScreen;
@@ -303,6 +302,7 @@
 		7EDC59A0200E76D000C33DFC /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				7E24217E202B2FC800C03126 /* HistoryItem.swift */,
 				7EDC59A1200E76E100C33DFC /* Feeling.swift */,
 				7E67E34720132BB1009E084F /* Exercise.swift */,
 			);

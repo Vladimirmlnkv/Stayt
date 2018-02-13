@@ -45,10 +45,24 @@ class HistoryViewController: UIViewController {
 
 }
 
+extension HistoryViewController: CustomFeelingViewControllerDelegate {
+    
+    func didEnter(feeling: String, for experience: Experience) {
+        dataSource.add(afterFeeling: feeling, for: experience)
+        navigationController?.popViewController(animated: true)
+    }
+    
+}
+
 extension HistoryViewController: UITableViewDelegate {
     
-    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
-        return false
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let vc = storyboard?.instantiateViewController(withIdentifier: "CustomFeelingViewController") as! CustomFeelingViewController
+        vc.experience = historyItems[indexPath.section].experiences[indexPath.row]
+        vc.shouldAddCancelButton = false
+        vc.delegate = self
+        navigationController?.pushViewController(vc, animated: true)
     }
     
 }
@@ -66,7 +80,7 @@ extension HistoryViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryItemCell") as! HistoryItemCell
         let experience = historyItems[indexPath.section].experiences[indexPath.row]
-        cell.exerciseLabel.text = experience.exsersiseName
+        cell.exerciseLabel.text = experience.exerciseName
         cell.durationLabel.text = "\(experience.duration / 60) min"
         if let feeling = experience.feelingAfter {
             cell.feelingLabel.isHidden = false
