@@ -21,6 +21,7 @@ class DisclosureButton: UIButton {
         titleLabel!.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         imageView!.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         imageEdgeInsets = UIEdgeInsets(top: 0, left: -20, bottom: 0, right: 0)
+        layoutIfNeeded()
     }
     
     func flipImage() {

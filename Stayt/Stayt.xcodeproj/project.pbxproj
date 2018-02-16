@@ -19,6 +19,7 @@
 		7E24217F202B2FC800C03126 /* HistoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E24217E202B2FC800C03126 /* HistoryItem.swift */; };
 		7E242181202B354100C03126 /* HistoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E242180202B354100C03126 /* HistoryManager.swift */; };
 		7E242183202B3E0D00C03126 /* HistoryItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E242182202B3E0D00C03126 /* HistoryItemCell.swift */; };
+		7E2C59FA203707B000018536 /* SingleExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2C59F9203707B000018536 /* SingleExerciseViewController.swift */; };
 		7E3DAA27200F57C800E1B88C /* ExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3DAA26200F57C800E1B88C /* ExerciseViewController.swift */; };
 		7E3DAA29200F5A3D00E1B88C /* BorderedCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3DAA28200F5A3D00E1B88C /* BorderedCircleView.swift */; };
 		7E3DAA2C200F5D6700E1B88C /* DisclosureButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3DAA2B200F5D6700E1B88C /* DisclosureButton.swift */; };
@@ -63,6 +64,7 @@
 		7E24217E202B2FC800C03126 /* HistoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryItem.swift; sourceTree = "<group>"; };
 		7E242180202B354100C03126 /* HistoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryManager.swift; sourceTree = "<group>"; };
 		7E242182202B3E0D00C03126 /* HistoryItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryItemCell.swift; sourceTree = "<group>"; };
+		7E2C59F9203707B000018536 /* SingleExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleExerciseViewController.swift; sourceTree = "<group>"; };
 		7E3DAA26200F57C800E1B88C /* ExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewController.swift; sourceTree = "<group>"; };
 		7E3DAA28200F5A3D00E1B88C /* BorderedCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedCircleView.swift; sourceTree = "<group>"; };
 		7E3DAA2B200F5D6700E1B88C /* DisclosureButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclosureButton.swift; sourceTree = "<group>"; };
@@ -139,9 +141,18 @@
 			path = EmptyView;
 			sourceTree = "<group>";
 		};
+		7E2C59F82037077700018536 /* SingleExerciseScreen */ = {
+			isa = PBXGroup;
+			children = (
+				7E2C59F9203707B000018536 /* SingleExerciseViewController.swift */,
+			);
+			path = SingleExerciseScreen;
+			sourceTree = "<group>";
+		};
 		7E3DAA25200F579000E1B88C /* ExerciseScreen */ = {
 			isa = PBXGroup;
 			children = (
+				7E2C59F82037077700018536 /* SingleExerciseScreen */,
 				7E5AD2AF2031FBD800C08D77 /* ExerciseDescriptionScreen */,
 				7E4BA0CF2029E6CC00C7C18A /* Holder */,
 				7E4BA0CC20288D0700C7C18A /* DurationPicker */,
@@ -471,6 +482,7 @@
 				7E3DAA39200FC03A00E1B88C /* FeelingTimerCell.swift in Sources */,
 				7E2035E4201C841D005A6707 /* AfterExerciseViewController.swift in Sources */,
 				7E4BA0CE20288DC000C7C18A /* DurationPickerViewController.swift in Sources */,
+				7E2C59FA203707B000018536 /* SingleExerciseViewController.swift in Sources */,
 				7E3DAA2C200F5D6700E1B88C /* DisclosureButton.swift in Sources */,
 				7E24217B202B2B0C00C03126 /* EmptyView.swift in Sources */,
 				7E4BA0CB20288BEC00C7C18A /* CenteredCell.swift in Sources */,

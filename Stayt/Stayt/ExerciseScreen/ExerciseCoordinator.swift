@@ -18,6 +18,8 @@ class ExerciseCoodinator {
     fileprivate var afterExerciseVC: AfterExerciseViewController!
     fileprivate let historyManager: HistoryManager!
     
+    fileprivate var singleExerciseVC: SingleExerciseViewController!
+    
     init(exercise: Exercise, presentingVC: UIViewController) {
         self.exercise = exercise
         self.presentingVC = presentingVC
@@ -25,10 +27,36 @@ class ExerciseCoodinator {
     }
     
     func start() {
-        exerciseVC = storyboard.instantiateViewController(withIdentifier: "ExerciseViewController") as! ExerciseViewController
-        exerciseVC.exercise = exercise
-        exerciseVC.delegate = self
-        presentingVC.present(exerciseVC!, animated: true, completion: nil)
+//        exerciseVC = storyboard.instantiateViewController(withIdentifier: "ExerciseViewController") as! ExerciseViewController
+//        exerciseVC.exercise = exercise
+//        exerciseVC.delegate = self
+//        presentingVC.present(exerciseVC!, animated: true, completion: nil)
+        singleExerciseVC = storyboard.instantiateViewController(withIdentifier: "SingleExerciseViewController") as! SingleExerciseViewController
+        let exerciseViewModel = ExerciseViewModel(exercise: exercise, coordinationDelegate: self, delegate: singleExerciseVC)
+        singleExerciseVC.viewModel = exerciseViewModel
+        presentingVC.present(singleExerciseVC, animated: true, completion: nil)
+    }
+    
+}
+
+extension ExerciseCoodinator: ExerciseViewModelCoordinationDelegate {
+    
+    func showInfoScreen() {
+        let vc = storyboard.instantiateViewController(withIdentifier: "ExerciseDescriptionViewController") as! ExerciseDescriptionViewController
+        vc.exerciseTitle = exercise.descriptionName
+        vc.exerciseDescription = exercise.description
+        singleExerciseVC.present(vc, animated: true, completion: nil)
+    }
+    
+    func dismiss() {
+        presentingVC.dismiss(animated: true, completion: nil)
+    }
+    
+    func showDurationPicker() {
+        let durationPicker = storyboard.instantiateViewController(withIdentifier: "DurationPickerViewController") as! DurationPickerViewController
+        durationPicker.delegate = singleExerciseVC.viewModel
+        durationPicker.feeling = exercise.feelings.first!
+        singleExerciseVC.present(durationPicker, animated: true, completion: nil)
     }
     
 }
