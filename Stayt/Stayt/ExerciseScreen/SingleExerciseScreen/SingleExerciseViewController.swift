@@ -10,7 +10,7 @@ import UIKit
 
 protocol ExerciseViewModelCoordinationDelegate: class {
     func showInfoScreen()
-    func dismiss()
+    func dismiss(shouldConfirm: Bool)
     func showDurationPicker()
 }
 
@@ -74,7 +74,7 @@ class ExerciseViewModel {
     }
     
     func dismiss() {
-        coordinationDelegate?.dismiss()
+        coordinationDelegate?.dismiss(shouldConfirm: state == .play)
     }
 }
 
@@ -91,7 +91,6 @@ class SingleExerciseViewController: UIViewController {
     @IBOutlet var playButton: UIButton!
     
     @IBOutlet var remainingLabel: UILabel!
-    @IBOutlet var spinner: UIActivityIndicatorView!
     
     @IBOutlet var durationButton: DisclosureButton!
     
@@ -106,7 +105,6 @@ class SingleExerciseViewController: UIViewController {
     
     fileprivate func setRemaining(hidden: Bool) {
         remainingLabel.isHidden = hidden
-        spinner.isHidden = hidden
     }
     
     @IBAction func crossButtonAction(_ sender: Any) {

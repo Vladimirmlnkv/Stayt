@@ -306,8 +306,8 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meditation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gGi-IJ-vB0">
-                                        <rect key="frame" x="15" y="5.5" width="117.5" height="29"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                        <rect key="frame" x="15" y="4.5" width="127" height="31.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -323,7 +323,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BbY-0Z-Wn4">
-                                <rect key="frame" x="15" y="617" width="30" height="30"/>
+                                <rect key="frame" x="325" y="617" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="OeQ-hB-gNd"/>
                                     <constraint firstAttribute="height" constant="30" id="iOd-dW-BUm"/>
@@ -366,31 +366,23 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HX6-9k-g98">
-                                <rect key="frame" x="162.5" y="424" width="50" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="cFB-Q0-oxq"/>
-                                </constraints>
+                                <rect key="frame" x="166" y="424" width="43.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="cRP-Jj-a1T">
-                                <rect key="frame" x="134" y="424" width="20" height="20"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Nhw-ni-5mT" firstAttribute="trailing" secondItem="6Ec-rT-cgG" secondAttribute="trailing" id="27t-Mu-86J"/>
-                            <constraint firstItem="cRP-Jj-a1T" firstAttribute="centerY" secondItem="HX6-9k-g98" secondAttribute="centerY" id="8dt-iI-rAY"/>
-                            <constraint firstItem="BbY-0Z-Wn4" firstAttribute="leading" secondItem="Nhw-ni-5mT" secondAttribute="leading" constant="15" id="BwX-wY-1KQ"/>
                             <constraint firstItem="HX6-9k-g98" firstAttribute="top" secondItem="7g0-WE-BfM" secondAttribute="bottom" constant="15" id="KfL-CC-Xbm"/>
                             <constraint firstItem="6Ec-rT-cgG" firstAttribute="leading" secondItem="tr2-7I-GWO" secondAttribute="leading" id="Qim-6m-mzx"/>
                             <constraint firstItem="6Ec-rT-cgG" firstAttribute="top" secondItem="Nhw-ni-5mT" secondAttribute="top" constant="20" id="R2H-p3-OlU"/>
                             <constraint firstItem="Nhw-ni-5mT" firstAttribute="bottom" secondItem="BbY-0Z-Wn4" secondAttribute="bottom" constant="20" id="SHT-0A-nFj"/>
                             <constraint firstItem="7g0-WE-BfM" firstAttribute="centerY" secondItem="tr2-7I-GWO" secondAttribute="centerY" id="U97-bd-OOJ"/>
                             <constraint firstItem="GCz-yb-wnI" firstAttribute="centerX" secondItem="tr2-7I-GWO" secondAttribute="centerX" id="XMm-ua-GqU"/>
+                            <constraint firstItem="Nhw-ni-5mT" firstAttribute="trailing" secondItem="BbY-0Z-Wn4" secondAttribute="trailing" constant="20" id="axs-Gw-5TB"/>
                             <constraint firstItem="7g0-WE-BfM" firstAttribute="centerX" secondItem="tr2-7I-GWO" secondAttribute="centerX" id="ehA-2n-adp"/>
-                            <constraint firstItem="HX6-9k-g98" firstAttribute="leading" secondItem="cRP-Jj-a1T" secondAttribute="trailing" constant="8" id="hLz-W2-52F"/>
                             <constraint firstItem="GCz-yb-wnI" firstAttribute="top" secondItem="HX6-9k-g98" secondAttribute="bottom" constant="40" id="yk3-wX-tVQ"/>
                             <constraint firstItem="HX6-9k-g98" firstAttribute="centerX" secondItem="tr2-7I-GWO" secondAttribute="centerX" id="yvi-8m-9ve"/>
                         </constraints>
@@ -400,7 +392,6 @@
                         <outlet property="durationButton" destination="GCz-yb-wnI" id="cn5-5r-cbK"/>
                         <outlet property="playButton" destination="wPQ-aC-44Y" id="Alq-rF-7mm"/>
                         <outlet property="remainingLabel" destination="HX6-9k-g98" id="W7N-cb-BfX"/>
-                        <outlet property="spinner" destination="cRP-Jj-a1T" id="4Xd-lH-88g"/>
                         <outlet property="titleLabel" destination="gGi-IJ-vB0" id="2fM-kw-eao"/>
                     </connections>
                 </viewController>
