@@ -17,7 +17,7 @@ class SingleExerciseViewController: UIViewController {
     
     @IBOutlet var durationButton: DisclosureButton!
     
-    var viewModel: ExerciseViewModel!
+    var viewModel: SingleExerciseViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +48,7 @@ class SingleExerciseViewController: UIViewController {
     
 }
 
-extension SingleExerciseViewController: ExerciseViewModelDelegate {
+extension SingleExerciseViewController: SingleExerciseViewModelDelegate {
     
     func update(remaining newRemaining: String) {
         remainingLabel.text = newRemaining

@@ -20,7 +20,11 @@
 		7E242181202B354100C03126 /* HistoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E242180202B354100C03126 /* HistoryManager.swift */; };
 		7E242183202B3E0D00C03126 /* HistoryItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E242182202B3E0D00C03126 /* HistoryItemCell.swift */; };
 		7E2C59FA203707B000018536 /* SingleExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2C59F9203707B000018536 /* SingleExerciseViewController.swift */; };
-		7E2C59FE2037FD6E00018536 /* ExerciseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2C59FD2037FD6E00018536 /* ExerciseViewModel.swift */; };
+		7E2C59FE2037FD6E00018536 /* SingleExerciseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2C59FD2037FD6E00018536 /* SingleExerciseViewModel.swift */; };
+		7E2C5A0120383EEA00018536 /* MultipleExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2C5A0020383EE900018536 /* MultipleExerciseViewController.swift */; };
+		7E2C5A0320383FE300018536 /* SingleActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2C5A0220383FE300018536 /* SingleActivityCell.swift */; };
+		7E2C5A052038426000018536 /* MultipleExerciseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2C5A042038426000018536 /* MultipleExerciseViewModel.swift */; };
+		7E2C5A07203867D300018536 /* ExerciseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2C5A06203867D300018536 /* ExerciseViewModel.swift */; };
 		7E3DAA27200F57C800E1B88C /* ExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3DAA26200F57C800E1B88C /* ExerciseViewController.swift */; };
 		7E3DAA29200F5A3D00E1B88C /* BorderedCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3DAA28200F5A3D00E1B88C /* BorderedCircleView.swift */; };
 		7E3DAA2C200F5D6700E1B88C /* DisclosureButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3DAA2B200F5D6700E1B88C /* DisclosureButton.swift */; };
@@ -66,7 +70,11 @@
 		7E242180202B354100C03126 /* HistoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryManager.swift; sourceTree = "<group>"; };
 		7E242182202B3E0D00C03126 /* HistoryItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryItemCell.swift; sourceTree = "<group>"; };
 		7E2C59F9203707B000018536 /* SingleExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleExerciseViewController.swift; sourceTree = "<group>"; };
-		7E2C59FD2037FD6E00018536 /* ExerciseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewModel.swift; sourceTree = "<group>"; };
+		7E2C59FD2037FD6E00018536 /* SingleExerciseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleExerciseViewModel.swift; sourceTree = "<group>"; };
+		7E2C5A0020383EE900018536 /* MultipleExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleExerciseViewController.swift; sourceTree = "<group>"; };
+		7E2C5A0220383FE300018536 /* SingleActivityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleActivityCell.swift; sourceTree = "<group>"; };
+		7E2C5A042038426000018536 /* MultipleExerciseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleExerciseViewModel.swift; sourceTree = "<group>"; };
+		7E2C5A06203867D300018536 /* ExerciseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewModel.swift; sourceTree = "<group>"; };
 		7E3DAA26200F57C800E1B88C /* ExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewController.swift; sourceTree = "<group>"; };
 		7E3DAA28200F5A3D00E1B88C /* BorderedCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedCircleView.swift; sourceTree = "<group>"; };
 		7E3DAA2B200F5D6700E1B88C /* DisclosureButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclosureButton.swift; sourceTree = "<group>"; };
@@ -146,15 +154,26 @@
 		7E2C59F82037077700018536 /* SingleExerciseScreen */ = {
 			isa = PBXGroup;
 			children = (
+				7E2C59FD2037FD6E00018536 /* SingleExerciseViewModel.swift */,
 				7E2C59F9203707B000018536 /* SingleExerciseViewController.swift */,
-				7E2C59FD2037FD6E00018536 /* ExerciseViewModel.swift */,
 			);
 			path = SingleExerciseScreen;
+			sourceTree = "<group>";
+		};
+		7E2C59FF20383ED100018536 /* MultipleExerciseScreen */ = {
+			isa = PBXGroup;
+			children = (
+				7E2C5A042038426000018536 /* MultipleExerciseViewModel.swift */,
+				7E2C5A0020383EE900018536 /* MultipleExerciseViewController.swift */,
+				7E2C5A0220383FE300018536 /* SingleActivityCell.swift */,
+			);
+			path = MultipleExerciseScreen;
 			sourceTree = "<group>";
 		};
 		7E3DAA25200F579000E1B88C /* ExerciseScreen */ = {
 			isa = PBXGroup;
 			children = (
+				7E2C59FF20383ED100018536 /* MultipleExerciseScreen */,
 				7E2C59F82037077700018536 /* SingleExerciseScreen */,
 				7E5AD2AF2031FBD800C08D77 /* ExerciseDescriptionScreen */,
 				7E4BA0CF2029E6CC00C7C18A /* Holder */,
@@ -165,6 +184,7 @@
 				7E3DAA28200F5A3D00E1B88C /* BorderedCircleView.swift */,
 				7E2035E7201C8598005A6707 /* ExerciseCoordinator.swift */,
 				7E242180202B354100C03126 /* HistoryManager.swift */,
+				7E2C5A06203867D300018536 /* ExerciseViewModel.swift */,
 			);
 			path = ExerciseScreen;
 			sourceTree = "<group>";
@@ -489,12 +509,15 @@
 				7E3DAA2C200F5D6700E1B88C /* DisclosureButton.swift in Sources */,
 				7E24217B202B2B0C00C03126 /* EmptyView.swift in Sources */,
 				7E4BA0CB20288BEC00C7C18A /* CenteredCell.swift in Sources */,
+				7E2C5A0320383FE300018536 /* SingleActivityCell.swift in Sources */,
 				7E242181202B354100C03126 /* HistoryManager.swift in Sources */,
 				7E5AD2AE202ED2A800C08D77 /* CustomFeelingViewController.swift in Sources */,
 				7E242176202B298800C03126 /* HistoryViewController.swift in Sources */,
 				7EDC599F200E765C00C33DFC /* FeelingCell.swift in Sources */,
 				7EC1BBF320335593008DDB68 /* AfterFeeling.swift in Sources */,
 				7E3DAA29200F5A3D00E1B88C /* BorderedCircleView.swift in Sources */,
+				7E2C5A0120383EEA00018536 /* MultipleExerciseViewController.swift in Sources */,
+				7E2C5A052038426000018536 /* MultipleExerciseViewModel.swift in Sources */,
 				7E5AD2B12031FBEC00C08D77 /* ExerciseDescriptionViewController.swift in Sources */,
 				7E3DAA3B200FC09F00E1B88C /* MultipleTimersView.swift in Sources */,
 				7E3DAA3D200FC1E500E1B88C /* UIViewExtentions.swift in Sources */,
@@ -503,11 +526,12 @@
 				7E3DAA2E200F5F9900E1B88C /* DropDownMenuHandler.swift in Sources */,
 				7E4BA0D32029EAA500C7C18A /* HolderView.swift in Sources */,
 				7E24217D202B2FB000C03126 /* HistoryDataSource.swift in Sources */,
-				7E2C59FE2037FD6E00018536 /* ExerciseViewModel.swift in Sources */,
+				7E2C59FE2037FD6E00018536 /* SingleExerciseViewModel.swift in Sources */,
 				7E2035E8201C8598005A6707 /* ExerciseCoordinator.swift in Sources */,
 				7EDC598A200E6C4100C33DFC /* AppDelegate.swift in Sources */,
 				7E24217F202B2FC800C03126 /* HistoryItem.swift in Sources */,
 				7E67E34820132BB1009E084F /* Exercise.swift in Sources */,
+				7E2C5A07203867D300018536 /* ExerciseViewModel.swift in Sources */,
 				7E2035E6201C8437005A6707 /* AfterExerciseCell.swift in Sources */,
 				7EDC59A2200E76E100C33DFC /* Feeling.swift in Sources */,
 				7E3DAA40200FC38000E1B88C /* SingleTimerView.swift in Sources */,

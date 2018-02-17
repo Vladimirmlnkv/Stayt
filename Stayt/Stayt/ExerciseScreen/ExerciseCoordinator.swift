@@ -32,7 +32,7 @@ class ExerciseCoodinator {
 //        exerciseVC.delegate = self
 //        presentingVC.present(exerciseVC!, animated: true, completion: nil)
         singleExerciseVC = storyboard.instantiateViewController(withIdentifier: "SingleExerciseViewController") as! SingleExerciseViewController
-        let exerciseViewModel = ExerciseViewModel(exercise: exercise, coordinationDelegate: self, delegate: singleExerciseVC)
+        let exerciseViewModel = SingleExerciseViewModel(exercise: exercise, coordinationDelegate: self, delegate: singleExerciseVC)
         singleExerciseVC.viewModel = exerciseViewModel
         presentingVC.present(singleExerciseVC, animated: true, completion: nil)
     }
@@ -62,10 +62,10 @@ extension ExerciseCoodinator: ExerciseViewModelCoordinationDelegate {
         }
     }
     
-    func showDurationPicker() {
+    func showDurationPicker(for activity: Feeling) {
         let durationPicker = storyboard.instantiateViewController(withIdentifier: "DurationPickerViewController") as! DurationPickerViewController
         durationPicker.delegate = singleExerciseVC.viewModel
-        durationPicker.feeling = exercise.feelings.first!
+        durationPicker.feeling = activity
         singleExerciseVC.present(durationPicker, animated: true, completion: nil)
     }
     

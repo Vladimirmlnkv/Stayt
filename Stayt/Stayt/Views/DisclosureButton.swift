@@ -16,12 +16,17 @@ class DisclosureButton: UIButton {
         updateTransform()
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        updateTransform()
+    }
+    
     func updateTransform() {
         transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         titleLabel!.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         imageView!.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         imageEdgeInsets = UIEdgeInsets(top: 0, left: -20, bottom: 0, right: 0)
-        layoutIfNeeded()
+        contentEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
     }
     
     func flipImage() {
