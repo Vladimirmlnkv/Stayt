@@ -48,10 +48,11 @@ extension ExerciseCoodinator: ExerciseViewModelCoordinationDelegate {
         singleExerciseVC.present(vc, animated: true, completion: nil)
     }
     
-    func dismiss(shouldConfirm: Bool) {
+    func dismiss(shouldConfirm: Bool, completion: @escaping () -> Void) {
         if shouldConfirm {
             let alert = UIAlertController(title: "You're in the middle of exersice", message: "Are you sure you want to stop it?", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { (action) in
+                completion()
                 self.presentingVC.dismiss(animated: true, completion: nil)
             }))
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
@@ -68,6 +69,12 @@ extension ExerciseCoodinator: ExerciseViewModelCoordinationDelegate {
         singleExerciseVC.present(durationPicker, animated: true, completion: nil)
     }
     
+    func exerciseFinished() {
+        historyManager.addExperience()
+        afterExerciseVC = storyboard.instantiateViewController(withIdentifier: "AfterExerciseViewController") as! AfterExerciseViewController
+        afterExerciseVC.delegate = self
+        singleExerciseVC.present(afterExerciseVC, animated: true, completion: nil)
+    }
 }
 
 extension ExerciseCoodinator: ExerciseViewControllerDelegate {
