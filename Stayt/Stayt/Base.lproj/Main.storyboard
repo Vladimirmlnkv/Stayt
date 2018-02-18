@@ -350,9 +350,19 @@
                                                         <action selector="durationButtonActionWithSender:" destination="bmJ-ga-se4" eventType="touchUpInside" id="arZ-LC-IEV"/>
                                                     </connections>
                                                 </button>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VPf-cR-Src">
+                                                    <rect key="frame" x="325" y="23" width="10" height="10"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="10" id="GOq-hD-f68"/>
+                                                        <constraint firstAttribute="width" constant="10" id="WaS-DS-Hul"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="xWo-IV-kFL" firstAttribute="centerY" secondItem="BeE-tp-ftf" secondAttribute="centerY" id="21D-G0-cGX"/>
+                                                <constraint firstItem="VPf-cR-Src" firstAttribute="centerY" secondItem="AkQ-yv-o6v" secondAttribute="centerY" id="Bw0-wi-2BJ"/>
+                                                <constraint firstAttribute="trailing" secondItem="VPf-cR-Src" secondAttribute="trailing" constant="20" id="Vhx-Aw-1wu"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="BeE-tp-ftf" secondAttribute="bottom" constant="8" id="cYJ-in-fut"/>
                                                 <constraint firstItem="BeE-tp-ftf" firstAttribute="top" secondItem="AkQ-yv-o6v" secondAttribute="topMargin" constant="8" id="dU5-b1-L5W"/>
                                                 <constraint firstItem="xWo-IV-kFL" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="BeE-tp-ftf" secondAttribute="trailing" constant="8" id="yTS-KR-kdC"/>
@@ -363,6 +373,7 @@
                                             <constraint firstAttribute="trailing" secondItem="xWo-IV-kFL" secondAttribute="trailing" constant="50" id="PID-ta-PFp"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="currentActivityView" destination="VPf-cR-Src" id="gD7-yS-2PX"/>
                                             <outlet property="durationButton" destination="xWo-IV-kFL" id="O74-s5-reB"/>
                                             <outlet property="titleLabel" destination="BeE-tp-ftf" id="Bx4-1d-yVb"/>
                                         </connections>

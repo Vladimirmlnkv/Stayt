@@ -71,7 +71,7 @@ extension MultipleExerciseViewController: MultipleExerciseViewModelDelegate {
     func realodRows(at indexes: [Int]) {
         let indexPaths = indexes.map { IndexPath(row: $0, section: 0) }
         tableView.beginUpdates()
-        tableView.reloadRows(at: indexPaths, with: .automatic)
+        tableView.reloadRows(at: indexPaths, with: .none)
         tableView.endUpdates()
     }
     

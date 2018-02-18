@@ -16,7 +16,8 @@ class SingleActivityCell: UITableViewCell {
 
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var durationButton: UIButton!
-
+    @IBOutlet var currentActivityView: UIView!
+    
     fileprivate var delegate: SingleActivityCellDelegate!
     fileprivate var viewModel: ActivityCellViewModel!
     
@@ -36,6 +37,12 @@ class SingleActivityCell: UITableViewCell {
         } else {
             durationButton.setImage(nil, for: .normal)
             durationButton.isUserInteractionEnabled = false
+        }
+        currentActivityView.layer.cornerRadius = currentActivityView.frame.width / 2
+        if viewModel.isCurrentActivity && currentActivityView.isHidden {
+            currentActivityView.isHidden = false
+        } else if !viewModel.isCurrentActivity {
+            currentActivityView.isHidden = true
         }
     }
 }

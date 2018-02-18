@@ -23,6 +23,7 @@ struct ActivityCellViewModel {
     let title: String
     let durationTitle: String
     let delegate: SingleActivityCellDelegate
+    let isCurrentActivity: Bool
 }
 
 class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
@@ -73,13 +74,15 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
         var isCompleted = false
         let activity = exercise.feelings[index]
         var durationTitle = "\(activity.durationString) min"
+        var isCurrentActivity = false
         if let currentAcitivityNumber = currentActivityNumber {
             isCompleted = currentAcitivityNumber > index
             if index == currentAcitivityNumber {
                 durationTitle = stringDuration(from: remainingDuration!)
+                isCurrentActivity = true
             }
         }
-        let viewModel = ActivityCellViewModel(isCompleted: isCompleted, allowsEditing: state == .initial, title: activity.descriptionName, durationTitle: durationTitle, delegate: self)
+        let viewModel = ActivityCellViewModel(isCompleted: isCompleted, allowsEditing: state == .initial, title: activity.descriptionName, durationTitle: durationTitle, delegate: self, isCurrentActivity: isCurrentActivity)
         
         return viewModel
     }
