@@ -25,17 +25,10 @@
 		7E2C5A0320383FE300018536 /* SingleActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2C5A0220383FE300018536 /* SingleActivityCell.swift */; };
 		7E2C5A052038426000018536 /* MultipleExerciseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2C5A042038426000018536 /* MultipleExerciseViewModel.swift */; };
 		7E2C5A07203867D300018536 /* ExerciseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2C5A06203867D300018536 /* ExerciseViewModel.swift */; };
-		7E3DAA27200F57C800E1B88C /* ExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3DAA26200F57C800E1B88C /* ExerciseViewController.swift */; };
 		7E3DAA29200F5A3D00E1B88C /* BorderedCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3DAA28200F5A3D00E1B88C /* BorderedCircleView.swift */; };
 		7E3DAA2C200F5D6700E1B88C /* DisclosureButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3DAA2B200F5D6700E1B88C /* DisclosureButton.swift */; };
 		7E3DAA2E200F5F9900E1B88C /* DropDownMenuHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3DAA2D200F5F9900E1B88C /* DropDownMenuHandler.swift */; };
-		7E3DAA30200FBB5700E1B88C /* SingleTimerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E3DAA2F200FBB5700E1B88C /* SingleTimerView.xib */; };
-		7E3DAA32200FBE6D00E1B88C /* MultipleTimersView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E3DAA31200FBE6D00E1B88C /* MultipleTimersView.xib */; };
-		7E3DAA36200FBF9F00E1B88C /* FeelingTimerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E3DAA35200FBF9F00E1B88C /* FeelingTimerCell.xib */; };
-		7E3DAA39200FC03A00E1B88C /* FeelingTimerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3DAA38200FC03A00E1B88C /* FeelingTimerCell.swift */; };
-		7E3DAA3B200FC09F00E1B88C /* MultipleTimersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3DAA3A200FC09F00E1B88C /* MultipleTimersView.swift */; };
 		7E3DAA3D200FC1E500E1B88C /* UIViewExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3DAA3C200FC1E500E1B88C /* UIViewExtentions.swift */; };
-		7E3DAA40200FC38000E1B88C /* SingleTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3DAA3F200FC38000E1B88C /* SingleTimerView.swift */; };
 		7E4BA0C920288B8A00C7C18A /* CenteredCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E4BA0C820288B8A00C7C18A /* CenteredCell.xib */; };
 		7E4BA0CB20288BEC00C7C18A /* CenteredCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4BA0CA20288BEC00C7C18A /* CenteredCell.swift */; };
 		7E4BA0CE20288DC000C7C18A /* DurationPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4BA0CD20288DC000C7C18A /* DurationPickerViewController.swift */; };
@@ -75,17 +68,10 @@
 		7E2C5A0220383FE300018536 /* SingleActivityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleActivityCell.swift; sourceTree = "<group>"; };
 		7E2C5A042038426000018536 /* MultipleExerciseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleExerciseViewModel.swift; sourceTree = "<group>"; };
 		7E2C5A06203867D300018536 /* ExerciseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewModel.swift; sourceTree = "<group>"; };
-		7E3DAA26200F57C800E1B88C /* ExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewController.swift; sourceTree = "<group>"; };
 		7E3DAA28200F5A3D00E1B88C /* BorderedCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedCircleView.swift; sourceTree = "<group>"; };
 		7E3DAA2B200F5D6700E1B88C /* DisclosureButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclosureButton.swift; sourceTree = "<group>"; };
 		7E3DAA2D200F5F9900E1B88C /* DropDownMenuHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownMenuHandler.swift; sourceTree = "<group>"; };
-		7E3DAA2F200FBB5700E1B88C /* SingleTimerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SingleTimerView.xib; sourceTree = "<group>"; };
-		7E3DAA31200FBE6D00E1B88C /* MultipleTimersView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MultipleTimersView.xib; sourceTree = "<group>"; };
-		7E3DAA35200FBF9F00E1B88C /* FeelingTimerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeelingTimerCell.xib; sourceTree = "<group>"; };
-		7E3DAA38200FC03A00E1B88C /* FeelingTimerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeelingTimerCell.swift; sourceTree = "<group>"; };
-		7E3DAA3A200FC09F00E1B88C /* MultipleTimersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleTimersView.swift; sourceTree = "<group>"; };
 		7E3DAA3C200FC1E500E1B88C /* UIViewExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtentions.swift; sourceTree = "<group>"; };
-		7E3DAA3F200FC38000E1B88C /* SingleTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleTimerView.swift; sourceTree = "<group>"; };
 		7E4BA0C820288B8A00C7C18A /* CenteredCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CenteredCell.xib; sourceTree = "<group>"; };
 		7E4BA0CA20288BEC00C7C18A /* CenteredCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenteredCell.swift; sourceTree = "<group>"; };
 		7E4BA0CD20288DC000C7C18A /* DurationPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationPickerViewController.swift; sourceTree = "<group>"; };
@@ -180,8 +166,6 @@
 				7E4BA0CC20288D0700C7C18A /* DurationPicker */,
 				7E2035E2201C83F5005A6707 /* AfterExerciseScreen */,
 				7E3DAA33200FBEFF00E1B88C /* Views */,
-				7E3DAA26200F57C800E1B88C /* ExerciseViewController.swift */,
-				7E3DAA28200F5A3D00E1B88C /* BorderedCircleView.swift */,
 				7E2035E7201C8598005A6707 /* ExerciseCoordinator.swift */,
 				7E242180202B354100C03126 /* HistoryManager.swift */,
 				7E2C5A06203867D300018536 /* ExerciseViewModel.swift */,
@@ -204,38 +188,9 @@
 		7E3DAA33200FBEFF00E1B88C /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				7E3DAA3E200FC36C00E1B88C /* SingleTimerView */,
-				7E3DAA34200FBF8200E1B88C /* MultipleTimersView */,
+				7E3DAA28200F5A3D00E1B88C /* BorderedCircleView.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		7E3DAA34200FBF8200E1B88C /* MultipleTimersView */ = {
-			isa = PBXGroup;
-			children = (
-				7E3DAA31200FBE6D00E1B88C /* MultipleTimersView.xib */,
-				7E3DAA3A200FC09F00E1B88C /* MultipleTimersView.swift */,
-				7E3DAA37200FC02400E1B88C /* FeelingTimerCell */,
-			);
-			path = MultipleTimersView;
-			sourceTree = "<group>";
-		};
-		7E3DAA37200FC02400E1B88C /* FeelingTimerCell */ = {
-			isa = PBXGroup;
-			children = (
-				7E3DAA35200FBF9F00E1B88C /* FeelingTimerCell.xib */,
-				7E3DAA38200FC03A00E1B88C /* FeelingTimerCell.swift */,
-			);
-			path = FeelingTimerCell;
-			sourceTree = "<group>";
-		};
-		7E3DAA3E200FC36C00E1B88C /* SingleTimerView */ = {
-			isa = PBXGroup;
-			children = (
-				7E3DAA2F200FBB5700E1B88C /* SingleTimerView.xib */,
-				7E3DAA3F200FC38000E1B88C /* SingleTimerView.swift */,
-			);
-			path = SingleTimerView;
 			sourceTree = "<group>";
 		};
 		7E4BA0C720288B7200C7C18A /* CenteredCell */ = {
@@ -426,13 +381,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7EDC5994200E6C4100C33DFC /* LaunchScreen.storyboard in Resources */,
-				7E3DAA32200FBE6D00E1B88C /* MultipleTimersView.xib in Resources */,
 				7E2035E1201C7FD4005A6707 /* meditationBell.mp3 in Resources */,
 				7E4BA0C920288B8A00C7C18A /* CenteredCell.xib in Resources */,
 				7E242178202B2AC900C03126 /* EmptyView.xib in Resources */,
-				7E3DAA36200FBF9F00E1B88C /* FeelingTimerCell.xib in Resources */,
 				7EDC5991200E6C4100C33DFC /* Assets.xcassets in Resources */,
-				7E3DAA30200FBB5700E1B88C /* SingleTimerView.xib in Resources */,
 				7EDC598F200E6C4100C33DFC /* Main.storyboard in Resources */,
 				7E4BA0D12029E6E600C7C18A /* HolderView.xib in Resources */,
 			);
@@ -502,7 +454,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E242183202B3E0D00C03126 /* HistoryItemCell.swift in Sources */,
-				7E3DAA39200FC03A00E1B88C /* FeelingTimerCell.swift in Sources */,
 				7E2035E4201C841D005A6707 /* AfterExerciseViewController.swift in Sources */,
 				7E4BA0CE20288DC000C7C18A /* DurationPickerViewController.swift in Sources */,
 				7E2C59FA203707B000018536 /* SingleExerciseViewController.swift in Sources */,
@@ -519,9 +470,7 @@
 				7E2C5A0120383EEA00018536 /* MultipleExerciseViewController.swift in Sources */,
 				7E2C5A052038426000018536 /* MultipleExerciseViewModel.swift in Sources */,
 				7E5AD2B12031FBEC00C08D77 /* ExerciseDescriptionViewController.swift in Sources */,
-				7E3DAA3B200FC09F00E1B88C /* MultipleTimersView.swift in Sources */,
 				7E3DAA3D200FC1E500E1B88C /* UIViewExtentions.swift in Sources */,
-				7E3DAA27200F57C800E1B88C /* ExerciseViewController.swift in Sources */,
 				7EDB2E672014D16C00D77CB8 /* TimerDisplay.swift in Sources */,
 				7E3DAA2E200F5F9900E1B88C /* DropDownMenuHandler.swift in Sources */,
 				7E4BA0D32029EAA500C7C18A /* HolderView.swift in Sources */,
@@ -534,7 +483,6 @@
 				7E2C5A07203867D300018536 /* ExerciseViewModel.swift in Sources */,
 				7E2035E6201C8437005A6707 /* AfterExerciseCell.swift in Sources */,
 				7EDC59A2200E76E100C33DFC /* Feeling.swift in Sources */,
-				7E3DAA40200FC38000E1B88C /* SingleTimerView.swift in Sources */,
 				7E4BA0D52029F08200C7C18A /* HolderViewHandler.swift in Sources */,
 				7EDC599C200E75A400C33DFC /* MainViewController.swift in Sources */,
 			);
