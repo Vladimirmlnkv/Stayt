@@ -9,7 +9,7 @@
 import UIKit
 
 protocol SingleActivityCellDelegate {
-    func changeDuration(for acitivity: Feeling)
+    func changeDuration(for viewModel: ActivityCellViewModel)
 }
 
 class SingleActivityCell: UITableViewCell {
@@ -18,19 +18,19 @@ class SingleActivityCell: UITableViewCell {
     @IBOutlet var durationButton: UIButton!
 
     fileprivate var delegate: SingleActivityCellDelegate!
-    fileprivate var activity: Feeling!
+    fileprivate var viewModel: ActivityCellViewModel!
     
     @IBAction func durationButtonAction(sender: Any) {
-        delegate.changeDuration(for: activity)
+        delegate.changeDuration(for: viewModel)
     }
 
-    func configure(with activity: Feeling, delegate: SingleActivityCellDelegate, isCompleted: Bool, allowsEditing: Bool) {
-        self.activity = activity
-        self.delegate = delegate
-        titleLabel.text = activity.descriptionName
-        durationButton.setTitle(activity.durationString, for: .normal)
-        accessoryType = isCompleted ? .checkmark : .none
-        if allowsEditing {
+    func configure(with viewModel: ActivityCellViewModel) {
+        self.viewModel = viewModel
+        self.delegate = viewModel.delegate
+        titleLabel.text = viewModel.title
+        durationButton.setTitle(viewModel.durationTitle, for: .normal)
+        accessoryType = viewModel.isCompleted ? .checkmark : .none
+        if viewModel.allowsEditing {
             durationButton.setImage(#imageLiteral(resourceName: "down-arrow"), for: .normal)
             durationButton.isUserInteractionEnabled = true
         } else {

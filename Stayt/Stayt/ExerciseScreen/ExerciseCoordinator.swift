@@ -14,11 +14,10 @@ class ExerciseCoodinator {
     fileprivate let presentingVC: UIViewController
     fileprivate let storyboard = UIStoryboard(name: "Main", bundle: nil)
     
-    fileprivate var exerciseVC: ExerciseViewController!
     fileprivate var afterExerciseVC: AfterExerciseViewController!
     fileprivate let historyManager: HistoryManager!
     
-    fileprivate var singleExerciseVC: SingleExerciseViewController!
+    fileprivate var exerciseVC: UIViewController!
     
     init(exercise: Exercise, presentingVC: UIViewController) {
         self.exercise = exercise
@@ -27,14 +26,18 @@ class ExerciseCoodinator {
     }
     
     func start() {
-//        exerciseVC = storyboard.instantiateViewController(withIdentifier: "ExerciseViewController") as! ExerciseViewController
-//        exerciseVC.exercise = exercise
-//        exerciseVC.delegate = self
-//        presentingVC.present(exerciseVC!, animated: true, completion: nil)
-        singleExerciseVC = storyboard.instantiateViewController(withIdentifier: "SingleExerciseViewController") as! SingleExerciseViewController
-        let exerciseViewModel = SingleExerciseViewModel(exercise: exercise, coordinationDelegate: self, delegate: singleExerciseVC)
-        singleExerciseVC.viewModel = exerciseViewModel
-        presentingVC.present(singleExerciseVC, animated: true, completion: nil)
+        if exercise.feelings.count > 1 {
+            let exerciseVC = storyboard.instantiateViewController(withIdentifier: "MultipleExerciseViewController") as! MultipleExerciseViewController
+            exerciseVC.viewModel = MultipleExerciseViewModel(exercise: exercise, coordinationDelegate: self, delegate: exerciseVC)
+            self.exerciseVC = exerciseVC
+            presentingVC.present(exerciseVC, animated: true, completion: nil)
+        } else {
+            let exerciseVC = storyboard.instantiateViewController(withIdentifier: "SingleExerciseViewController") as! SingleExerciseViewController
+            let exerciseViewModel = SingleExerciseViewModel(exercise: exercise, coordinationDelegate: self, delegate: exerciseVC)
+            exerciseVC.viewModel = exerciseViewModel
+            self.exerciseVC = exerciseVC
+            presentingVC.present(exerciseVC, animated: true, completion: nil)
+        }
     }
     
 }
@@ -45,7 +48,7 @@ extension ExerciseCoodinator: ExerciseViewModelCoordinationDelegate {
         let vc = storyboard.instantiateViewController(withIdentifier: "ExerciseDescriptionViewController") as! ExerciseDescriptionViewController
         vc.exerciseTitle = exercise.descriptionName
         vc.exerciseDescription = exercise.description
-        singleExerciseVC.present(vc, animated: true, completion: nil)
+        exerciseVC.present(vc, animated: true, completion: nil)
     }
     
     func dismiss(shouldConfirm: Bool, completion: @escaping () -> Void) {
@@ -56,7 +59,7 @@ extension ExerciseCoodinator: ExerciseViewModelCoordinationDelegate {
                 self.presentingVC.dismiss(animated: true, completion: nil)
             }))
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-            singleExerciseVC.present(alert, animated: true, completion: nil)
+            exerciseVC.present(alert, animated: true, completion: nil)
         } else {
             presentingVC.dismiss(animated: true, completion: nil)
         }
@@ -64,28 +67,21 @@ extension ExerciseCoodinator: ExerciseViewModelCoordinationDelegate {
     
     func showDurationPicker(for activity: Feeling) {
         let durationPicker = storyboard.instantiateViewController(withIdentifier: "DurationPickerViewController") as! DurationPickerViewController
-        durationPicker.delegate = singleExerciseVC.viewModel
         durationPicker.feeling = activity
-        singleExerciseVC.present(durationPicker, animated: true, completion: nil)
+        if let exerciseVC = exerciseVC as? SingleExerciseViewController {
+            durationPicker.delegate = exerciseVC.viewModel
+        } else if let exerciseVC = exerciseVC as? MultipleExerciseViewController {
+            durationPicker.delegate = exerciseVC.viewModel
+        }
+        exerciseVC.present(durationPicker, animated: true, completion: nil)
     }
     
     func exerciseFinished() {
         historyManager.addExperience()
         afterExerciseVC = storyboard.instantiateViewController(withIdentifier: "AfterExerciseViewController") as! AfterExerciseViewController
         afterExerciseVC.delegate = self
-        singleExerciseVC.present(afterExerciseVC, animated: true, completion: nil)
-    }
-}
-
-extension ExerciseCoodinator: ExerciseViewControllerDelegate {
-    
-    func didFinishExercise() {
-        historyManager.addExperience()
-        afterExerciseVC = storyboard.instantiateViewController(withIdentifier: "AfterExerciseViewController") as! AfterExerciseViewController
-        afterExerciseVC.delegate = self
         exerciseVC.present(afterExerciseVC, animated: true, completion: nil)
     }
-    
 }
 
 extension ExerciseCoodinator: AfterExerciseViewControllerDelegate {

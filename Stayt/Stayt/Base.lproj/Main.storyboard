@@ -340,7 +340,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xWo-IV-kFL" customClass="DisclosureButton" customModule="Stayt" customModuleProvider="target">
-                                                    <rect key="frame" x="241" y="17.5" width="79" height="22"/>
+                                                    <rect key="frame" x="226" y="17.5" width="79" height="22"/>
                                                     <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     <inset key="imageEdgeInsets" minX="-20" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     <state key="normal" title="10 min" image="down-arrow">
@@ -353,13 +353,15 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="xWo-IV-kFL" firstAttribute="centerY" secondItem="BeE-tp-ftf" secondAttribute="centerY" id="21D-G0-cGX"/>
-                                                <constraint firstItem="xWo-IV-kFL" firstAttribute="trailing" secondItem="AkQ-yv-o6v" secondAttribute="trailingMargin" constant="-20" id="XJf-Of-GOl"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="BeE-tp-ftf" secondAttribute="bottom" constant="8" id="cYJ-in-fut"/>
                                                 <constraint firstItem="BeE-tp-ftf" firstAttribute="top" secondItem="AkQ-yv-o6v" secondAttribute="topMargin" constant="8" id="dU5-b1-L5W"/>
                                                 <constraint firstItem="xWo-IV-kFL" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="BeE-tp-ftf" secondAttribute="trailing" constant="8" id="yTS-KR-kdC"/>
                                                 <constraint firstItem="BeE-tp-ftf" firstAttribute="leading" secondItem="AkQ-yv-o6v" secondAttribute="leadingMargin" id="zzS-C9-GTM"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="xWo-IV-kFL" secondAttribute="trailing" constant="50" id="PID-ta-PFp"/>
+                                        </constraints>
                                         <connections>
                                             <outlet property="durationButton" destination="xWo-IV-kFL" id="O74-s5-reB"/>
                                             <outlet property="titleLabel" destination="BeE-tp-ftf" id="Bx4-1d-yVb"/>

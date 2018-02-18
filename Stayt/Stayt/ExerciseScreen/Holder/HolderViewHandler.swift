@@ -20,7 +20,7 @@ class HolderViewHandler {
     fileprivate weak var delegate: HolderViewHandlerDelegate?
     fileprivate let feeling: Feeling
     
-    fileprivate var holdSeconds = 10 {
+    fileprivate var holdSeconds = 5 {
         didSet {
             holderView?.updateTime(holdSeconds)
         }

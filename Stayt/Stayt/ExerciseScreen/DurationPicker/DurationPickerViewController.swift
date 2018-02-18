@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol DurationPickerViewControllerDelegate {
+protocol DurationPickerViewControllerDelegate: class {
     func didSelect(duration: Int, for feeling: Feeling)
 }
 
