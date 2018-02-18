@@ -29,6 +29,7 @@ class ExerciseViewModel: NSObject, AVAudioPlayerDelegate {
     var player: AVAudioPlayer!
     let exercise: Exercise
     var coordinationDelegate: ExerciseViewModelCoordinationDelegate?
+    var currentActivityNumber: Int?
     
     var title: String {
         return exercise.descriptionName
@@ -41,7 +42,10 @@ class ExerciseViewModel: NSObject, AVAudioPlayerDelegate {
     
     func playButtonAction() {
         if state == .initial || state == .pause {
-            if remainingDuration == nil { remainingDuration = exercise.feelings.first!.duration }
+            if remainingDuration == nil {
+                currentActivityNumber = 0
+                remainingDuration = exercise.feelings.first!.duration
+            }
             state = .play
             timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
         } else if state == .play {

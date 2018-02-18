@@ -63,8 +63,6 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
         return state == .initial
     }
     
-    fileprivate var currentActivityNumber: Int?
-    
     init(exercise: Exercise, coordinationDelegate: ExerciseViewModelCoordinationDelegate, delegate: MultipleExerciseViewModelDelegate) {
         super.init(exercise: exercise, coordinationDelegate: coordinationDelegate)
         self.delegate = delegate
