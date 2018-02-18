@@ -22,7 +22,7 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 minutes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sBj-Gv-rTo">
                         <rect key="frame" x="10" y="19" width="355" height="151"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -31,6 +31,7 @@
                     <constraint firstItem="sBj-Gv-rTo" firstAttribute="top" secondItem="CPQ-g2-pP2" secondAttribute="topMargin" constant="8" id="u5a-gG-o6Z"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="sBj-Gv-rTo" firstAttribute="leading" secondItem="pOT-Qw-c4F" secondAttribute="leading" constant="10" id="Phx-De-jE4"/>
                 <constraint firstAttribute="trailing" secondItem="sBj-Gv-rTo" secondAttribute="trailing" constant="10" id="ZZK-56-BLV"/>

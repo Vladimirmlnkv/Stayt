@@ -13,7 +13,7 @@ class FeelingCell: UICollectionViewCell {
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)
-        layer.borderColor = UIColor.black.cgColor
+        layer.borderColor = UIColor.white.cgColor
         layer.borderWidth = 1.0
     }
 }

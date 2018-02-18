@@ -28,6 +28,13 @@ class CustomFeelingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationController?.navigationBar.barTintColor = UIColor.black
+        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        textView.textColor = UIColor.white
+        textView.keyboardAppearance = .dark
+        
         navigationItem.title = experience.dateString
         titleLabel.text = experience.exerciseName
         if experience.afterFeeling == nil || experience.afterFeeling?.type == .notSelected {
