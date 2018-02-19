@@ -41,18 +41,17 @@ class CustomFeelingViewController: UIViewController {
             textView.becomeFirstResponder()
             charactersLabel.text = "\(textView.text.count)/\(maxNumberOfCharacters)"
             placeholderLabel.isHidden = textView.text.count > 0
-        } else if experience.afterFeeling?.type == .custom {
-            textView.text = experience.afterFeeling!.text
+        } else {
+            if let text = experience.afterFeeling!.text {
+                textView.text = text
+            } else {
+                textView.text = experience.afterFeeling!.type.title
+            }
             if textView.text.isEmpty {
                 textView.becomeFirstResponder()
             }
             charactersLabel.text = "\(textView.text.count)/\(maxNumberOfCharacters)"
             placeholderLabel.isHidden = textView.text.count > 0
-        } else {
-            textView.text = experience.afterFeeling!.type.title
-            textView.isUserInteractionEnabled = false
-            charactersLabel.isHidden = true
-            placeholderLabel.isHidden = true
         }
 
         if shouldAddCancelButton {
