@@ -65,6 +65,22 @@ extension HistoryViewController: UITableViewDelegate {
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        cell!.contentView.backgroundColor = Colors.highlightedCellColor
+    }
+    
+    func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
+        let cell  = tableView.cellForRow(at: indexPath)
+        cell!.contentView.backgroundColor = UIColor.clear
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        view.tintColor = UIColor.darkGray
+        if let v = view as? UITableViewHeaderFooterView {
+            v.textLabel?.textColor = UIColor.white
+        }
+    }
 }
 
 extension HistoryViewController: UITableViewDataSource {
@@ -82,7 +98,7 @@ extension HistoryViewController: UITableViewDataSource {
         let experience = historyItems[indexPath.section].experiences[indexPath.row]
         cell.exerciseLabel.text = experience.exerciseName
         cell.durationLabel.text = "\(experience.duration / 60) min"
-        
+        cell.selectionStyle = .none
         if let afterFeeling = experience.afterFeeling {
             if afterFeeling.type == .notSelected {
                 cell.feelingLabel.isHidden = true

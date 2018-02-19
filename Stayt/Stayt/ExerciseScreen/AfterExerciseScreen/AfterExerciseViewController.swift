@@ -25,7 +25,8 @@ class AfterExerciseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView()
-        tableView.rowHeight = 44.0
+        tableView.estimatedRowHeight = 44.0
+        tableView.rowHeight = UITableViewAutomaticDimension
     }
 
 }
@@ -49,6 +50,16 @@ extension AfterExerciseViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         let feeling = options[indexPath.row]
         delegate.didPickFeeling(feeling)
+    }
+    
+    func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        cell!.contentView.backgroundColor = Colors.highlightedCellColor
+    }
+    
+    func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
+        let cell  = tableView.cellForRow(at: indexPath)
+        cell!.contentView.backgroundColor = UIColor.clear
     }
     
 }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		39F373DC45736EB5C1570D0A /* Pods_Stayt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA5DB0E9332390829FAEE9FF /* Pods_Stayt.framework */; };
+		7E10A533203AC6FA0059AEF9 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E10A532203AC6FA0059AEF9 /* Colors.swift */; };
 		7E2035E1201C7FD4005A6707 /* meditationBell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7E2035E0201C7FD4005A6707 /* meditationBell.mp3 */; };
 		7E2035E4201C841D005A6707 /* AfterExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2035E3201C841D005A6707 /* AfterExerciseViewController.swift */; };
 		7E2035E6201C8437005A6707 /* AfterExerciseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2035E5201C8437005A6707 /* AfterExerciseCell.swift */; };
@@ -51,6 +52,7 @@
 
 /* Begin PBXFileReference section */
 		229C7D958619E0AD4C165330 /* Pods-Stayt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stayt.release.xcconfig"; path = "Pods/Target Support Files/Pods-Stayt/Pods-Stayt.release.xcconfig"; sourceTree = "<group>"; };
+		7E10A532203AC6FA0059AEF9 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		7E2035E0201C7FD4005A6707 /* meditationBell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = meditationBell.mp3; sourceTree = "<group>"; };
 		7E2035E3201C841D005A6707 /* AfterExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterExerciseViewController.swift; sourceTree = "<group>"; };
 		7E2035E5201C8437005A6707 /* AfterExerciseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterExerciseCell.swift; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				7EDB2E662014D16C00D77CB8 /* TimerDisplay.swift */,
+				7E10A532203AC6FA0059AEF9 /* Colors.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -454,6 +457,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E242183202B3E0D00C03126 /* HistoryItemCell.swift in Sources */,
+				7E10A533203AC6FA0059AEF9 /* Colors.swift in Sources */,
 				7E2035E4201C841D005A6707 /* AfterExerciseViewController.swift in Sources */,
 				7E4BA0CE20288DC000C7C18A /* DurationPickerViewController.swift in Sources */,
 				7E2C59FA203707B000018536 /* SingleExerciseViewController.swift in Sources */,

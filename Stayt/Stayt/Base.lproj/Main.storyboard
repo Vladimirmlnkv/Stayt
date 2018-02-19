@@ -54,11 +54,11 @@
             </objects>
             <point key="canvasLocation" x="-727" y="-158"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--History-->
         <scene sceneID="IUu-c1-Waa">
             <objects>
                 <navigationController id="moC-dy-xZ3" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="history" id="9rc-lM-Rxg"/>
+                    <tabBarItem key="tabBarItem" title="History" image="history" id="9rc-lM-Rxg"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="7lg-UL-Pa0">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -155,7 +155,7 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Hyc-dl-u6n" firstAttribute="bottom" secondItem="ujW-xc-CL3" secondAttribute="bottom" id="CKh-kr-bbJ"/>
                             <constraint firstItem="ujW-xc-CL3" firstAttribute="top" secondItem="Hyc-dl-u6n" secondAttribute="top" id="LkO-nE-JMw"/>
@@ -435,7 +435,7 @@
                                     <constraint firstAttribute="height" constant="30" id="Cqi-XG-ut2"/>
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="info">
+                                <state key="normal" image="question-mark">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -516,7 +516,7 @@
                                     <constraint firstAttribute="height" constant="30" id="iOd-dW-BUm"/>
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="info"/>
+                                <state key="normal" image="question-mark"/>
                                 <connections>
                                     <action selector="infoButtonAction:" destination="ilz-OC-d85" eventType="touchUpInside" id="e9I-9E-KKc"/>
                                 </connections>
@@ -655,9 +655,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Good job on completing an exercise!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wGw-Jn-0wY">
-                                <rect key="frame" x="30.5" y="60" width="315" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Good job on completing an exercise!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wGw-Jn-0wY">
+                                <rect key="frame" x="26" y="60" width="324.5" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -668,30 +668,30 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="x8P-aE-h8f">
-                                <rect key="frame" x="10" y="148" width="355" height="509"/>
+                                <rect key="frame" x="10" y="158" width="355" height="499"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AfterExerciseCell" id="Qjh-Cc-LUN" customClass="AfterExerciseCell" customModule="Stayt" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="355" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AfterExerciseCell" rowHeight="54" id="Qjh-Cc-LUN" customClass="AfterExerciseCell" customModule="Stayt" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="355" height="54"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Qjh-Cc-LUN" id="Nkn-hT-Ypr">
-                                            <rect key="frame" x="0.0" y="0.0" width="355" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="355" height="53.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lFy-Vb-Pqf">
-                                                    <rect key="frame" x="156.5" y="11" width="42" height="22"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="155" y="19" width="45" height="16"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="lFy-Vb-Pqf" firstAttribute="top" secondItem="Nkn-hT-Ypr" secondAttribute="topMargin" id="Eqf-Ol-2CB"/>
+                                                <constraint firstItem="lFy-Vb-Pqf" firstAttribute="top" secondItem="Nkn-hT-Ypr" secondAttribute="topMargin" constant="8" id="Eqf-Ol-2CB"/>
                                                 <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="lFy-Vb-Pqf" secondAttribute="trailing" constant="10" id="Vk4-6C-NSA"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="lFy-Vb-Pqf" secondAttribute="bottom" constant="8" id="WSh-az-hjR"/>
                                                 <constraint firstItem="lFy-Vb-Pqf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Nkn-hT-Ypr" secondAttribute="leadingMargin" constant="10" id="sFa-kU-NcX"/>
                                                 <constraint firstItem="lFy-Vb-Pqf" firstAttribute="centerX" secondItem="Nkn-hT-Ypr" secondAttribute="centerX" id="tqi-L2-RMX"/>
-                                                <constraint firstItem="lFy-Vb-Pqf" firstAttribute="bottom" secondItem="Nkn-hT-Ypr" secondAttribute="bottomMargin" id="wwI-ld-1mI"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -715,7 +715,7 @@
                             <constraint firstItem="wGw-Jn-0wY" firstAttribute="centerX" secondItem="K7X-Wd-UUH" secondAttribute="centerX" id="SMR-vn-bjD"/>
                             <constraint firstItem="wGw-Jn-0wY" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Pwb-zy-Yki" secondAttribute="leading" constant="10" id="XyG-Xh-cI9"/>
                             <constraint firstItem="26t-NR-pfK" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Pwb-zy-Yki" secondAttribute="leading" constant="10" id="aL1-Ze-Mtt"/>
-                            <constraint firstItem="x8P-aE-h8f" firstAttribute="top" secondItem="26t-NR-pfK" secondAttribute="bottom" constant="20" id="bQ5-l8-XyZ"/>
+                            <constraint firstItem="x8P-aE-h8f" firstAttribute="top" secondItem="26t-NR-pfK" secondAttribute="bottom" constant="30" id="bQ5-l8-XyZ"/>
                             <constraint firstItem="26t-NR-pfK" firstAttribute="centerX" secondItem="K7X-Wd-UUH" secondAttribute="centerX" id="iXv-mP-CdX"/>
                             <constraint firstItem="Pwb-zy-Yki" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="26t-NR-pfK" secondAttribute="trailing" constant="10" id="nFW-hZ-FXJ"/>
                             <constraint firstItem="Pwb-zy-Yki" firstAttribute="trailing" secondItem="x8P-aE-h8f" secondAttribute="trailing" constant="10" id="p6o-Yg-1lW"/>
@@ -731,7 +731,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L1r-MD-4LS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2684" y="-158"/>
+            <point key="canvasLocation" x="2684" y="-158.77061469265368"/>
         </scene>
         <!--Custom Feeling View Controller-->
         <scene sceneID="SFf-y4-nJ5">
@@ -798,8 +798,9 @@
     <resources>
         <image name="cross" width="50" height="50"/>
         <image name="down-arrow" width="16" height="16"/>
-        <image name="info" width="128" height="128"/>
+        <image name="history" width="32" height="32"/>
         <image name="lotus" width="32" height="32"/>
         <image name="play" width="64" height="64"/>
+        <image name="question-mark" width="32" height="32"/>
     </resources>
 </document>
