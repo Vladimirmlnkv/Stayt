@@ -13,11 +13,13 @@ class Exercise {
     let description: String
     let descriptionName: String
     var feelings: [Feeling]
+    var isGuided: Bool
     
-    init (name: String, description: String, descriptionName: String, feelings: [Feeling]) {
+    init (name: String, description: String, descriptionName: String, isGuided: Bool, feelings: [Feeling]) {
         self.name = name
         self.description = description
         self.feelings = feelings
         self.descriptionName = descriptionName
+        self.isGuided = isGuided
     }
 }

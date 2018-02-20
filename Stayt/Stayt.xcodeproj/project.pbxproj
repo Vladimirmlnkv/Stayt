@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		39F373DC45736EB5C1570D0A /* Pods_Stayt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA5DB0E9332390829FAEE9FF /* Pods_Stayt.framework */; };
 		7E10A533203AC6FA0059AEF9 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E10A532203AC6FA0059AEF9 /* Colors.swift */; };
+		7E10A535203B02910059AEF9 /* ExerciseSectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E10A534203B02910059AEF9 /* ExerciseSectionView.xib */; };
+		7E10A537203B02E10059AEF9 /* ExerciseSectionCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E10A536203B02E10059AEF9 /* ExerciseSectionCollectionCell.xib */; };
+		7E10A53A203B06850059AEF9 /* ExerciseSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E10A539203B06850059AEF9 /* ExerciseSectionView.swift */; };
+		7E10A53D203B06E20059AEF9 /* ExerciseSectionCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E10A53C203B06E20059AEF9 /* ExerciseSectionCollectionCell.swift */; };
+		7E10A543203B09400059AEF9 /* ExerciseSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E10A542203B09400059AEF9 /* ExerciseSection.swift */; };
+		7E10A545203B0A5C0059AEF9 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E10A544203B0A5C0059AEF9 /* BaseViewController.swift */; };
 		7E2035E1201C7FD4005A6707 /* meditationBell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7E2035E0201C7FD4005A6707 /* meditationBell.mp3 */; };
 		7E2035E4201C841D005A6707 /* AfterExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2035E3201C841D005A6707 /* AfterExerciseViewController.swift */; };
 		7E2035E6201C8437005A6707 /* AfterExerciseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2035E5201C8437005A6707 /* AfterExerciseCell.swift */; };
@@ -39,6 +45,8 @@
 		7E5AD2AE202ED2A800C08D77 /* CustomFeelingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5AD2AD202ED2A800C08D77 /* CustomFeelingViewController.swift */; };
 		7E5AD2B12031FBEC00C08D77 /* ExerciseDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5AD2B02031FBEC00C08D77 /* ExerciseDescriptionViewController.swift */; };
 		7E67E34820132BB1009E084F /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E67E34720132BB1009E084F /* Exercise.swift */; };
+		7E85DE53203C40240052CFAA /* ExerciseDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E85DE52203C40240052CFAA /* ExerciseDescription.swift */; };
+		7E85DE55203C4EF60052CFAA /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E85DE54203C4EF60052CFAA /* UserSession.swift */; };
 		7EC1BBF320335593008DDB68 /* AfterFeeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC1BBF220335593008DDB68 /* AfterFeeling.swift */; };
 		7EDB2E672014D16C00D77CB8 /* TimerDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDB2E662014D16C00D77CB8 /* TimerDisplay.swift */; };
 		7EDC598A200E6C4100C33DFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDC5989200E6C4100C33DFC /* AppDelegate.swift */; };
@@ -53,6 +61,12 @@
 /* Begin PBXFileReference section */
 		229C7D958619E0AD4C165330 /* Pods-Stayt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stayt.release.xcconfig"; path = "Pods/Target Support Files/Pods-Stayt/Pods-Stayt.release.xcconfig"; sourceTree = "<group>"; };
 		7E10A532203AC6FA0059AEF9 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		7E10A534203B02910059AEF9 /* ExerciseSectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExerciseSectionView.xib; sourceTree = "<group>"; };
+		7E10A536203B02E10059AEF9 /* ExerciseSectionCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExerciseSectionCollectionCell.xib; sourceTree = "<group>"; };
+		7E10A539203B06850059AEF9 /* ExerciseSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseSectionView.swift; sourceTree = "<group>"; };
+		7E10A53C203B06E20059AEF9 /* ExerciseSectionCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseSectionCollectionCell.swift; sourceTree = "<group>"; };
+		7E10A542203B09400059AEF9 /* ExerciseSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseSection.swift; sourceTree = "<group>"; };
+		7E10A544203B0A5C0059AEF9 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		7E2035E0201C7FD4005A6707 /* meditationBell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = meditationBell.mp3; sourceTree = "<group>"; };
 		7E2035E3201C841D005A6707 /* AfterExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterExerciseViewController.swift; sourceTree = "<group>"; };
 		7E2035E5201C8437005A6707 /* AfterExerciseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterExerciseCell.swift; sourceTree = "<group>"; };
@@ -83,6 +97,8 @@
 		7E5AD2AD202ED2A800C08D77 /* CustomFeelingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFeelingViewController.swift; sourceTree = "<group>"; };
 		7E5AD2B02031FBEC00C08D77 /* ExerciseDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDescriptionViewController.swift; sourceTree = "<group>"; };
 		7E67E34720132BB1009E084F /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
+		7E85DE52203C40240052CFAA /* ExerciseDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDescription.swift; sourceTree = "<group>"; };
+		7E85DE54203C4EF60052CFAA /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 		7EC1BBF220335593008DDB68 /* AfterFeeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterFeeling.swift; sourceTree = "<group>"; };
 		7EDB2E662014D16C00D77CB8 /* TimerDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerDisplay.swift; sourceTree = "<group>"; };
 		7EDC5986200E6C4100C33DFC /* Stayt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stayt.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,6 +126,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7E10A538203B06760059AEF9 /* ExerciseSection */ = {
+			isa = PBXGroup;
+			children = (
+				7E10A53B203B06C80059AEF9 /* ExerciseSectionCollectionCell */,
+				7E10A541203B08C70059AEF9 /* ExerciseSectionView */,
+				7E10A542203B09400059AEF9 /* ExerciseSection.swift */,
+			);
+			path = ExerciseSection;
+			sourceTree = "<group>";
+		};
+		7E10A53B203B06C80059AEF9 /* ExerciseSectionCollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				7E10A536203B02E10059AEF9 /* ExerciseSectionCollectionCell.xib */,
+				7E10A53C203B06E20059AEF9 /* ExerciseSectionCollectionCell.swift */,
+			);
+			path = ExerciseSectionCollectionCell;
+			sourceTree = "<group>";
+		};
+		7E10A541203B08C70059AEF9 /* ExerciseSectionView */ = {
+			isa = PBXGroup;
+			children = (
+				7E10A534203B02910059AEF9 /* ExerciseSectionView.xib */,
+				7E10A539203B06850059AEF9 /* ExerciseSectionView.swift */,
+			);
+			path = ExerciseSectionView;
+			sourceTree = "<group>";
+		};
 		7E2035E2201C83F5005A6707 /* AfterExerciseScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -235,6 +279,7 @@
 			children = (
 				7EDB2E662014D16C00D77CB8 /* TimerDisplay.swift */,
 				7E10A532203AC6FA0059AEF9 /* Colors.swift */,
+				7E85DE52203C40240052CFAA /* ExerciseDescription.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -289,6 +334,8 @@
 			children = (
 				7EDC599B200E75A400C33DFC /* MainViewController.swift */,
 				7EDC599E200E765C00C33DFC /* FeelingCell.swift */,
+				7E10A538203B06760059AEF9 /* ExerciseSection */,
+				7E10A544203B0A5C0059AEF9 /* BaseViewController.swift */,
 			);
 			path = MainScreen;
 			sourceTree = "<group>";
@@ -300,6 +347,7 @@
 				7EDC59A1200E76E100C33DFC /* Feeling.swift */,
 				7E67E34720132BB1009E084F /* Exercise.swift */,
 				7EC1BBF220335593008DDB68 /* AfterFeeling.swift */,
+				7E85DE54203C4EF60052CFAA /* UserSession.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -387,8 +435,10 @@
 				7E2035E1201C7FD4005A6707 /* meditationBell.mp3 in Resources */,
 				7E4BA0C920288B8A00C7C18A /* CenteredCell.xib in Resources */,
 				7E242178202B2AC900C03126 /* EmptyView.xib in Resources */,
+				7E10A535203B02910059AEF9 /* ExerciseSectionView.xib in Resources */,
 				7EDC5991200E6C4100C33DFC /* Assets.xcassets in Resources */,
 				7EDC598F200E6C4100C33DFC /* Main.storyboard in Resources */,
+				7E10A537203B02E10059AEF9 /* ExerciseSectionCollectionCell.xib in Resources */,
 				7E4BA0D12029E6E600C7C18A /* HolderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -467,18 +517,24 @@
 				7E2C5A0320383FE300018536 /* SingleActivityCell.swift in Sources */,
 				7E242181202B354100C03126 /* HistoryManager.swift in Sources */,
 				7E5AD2AE202ED2A800C08D77 /* CustomFeelingViewController.swift in Sources */,
+				7E10A545203B0A5C0059AEF9 /* BaseViewController.swift in Sources */,
 				7E242176202B298800C03126 /* HistoryViewController.swift in Sources */,
 				7EDC599F200E765C00C33DFC /* FeelingCell.swift in Sources */,
 				7EC1BBF320335593008DDB68 /* AfterFeeling.swift in Sources */,
+				7E10A53A203B06850059AEF9 /* ExerciseSectionView.swift in Sources */,
 				7E3DAA29200F5A3D00E1B88C /* BorderedCircleView.swift in Sources */,
 				7E2C5A0120383EEA00018536 /* MultipleExerciseViewController.swift in Sources */,
 				7E2C5A052038426000018536 /* MultipleExerciseViewModel.swift in Sources */,
+				7E10A53D203B06E20059AEF9 /* ExerciseSectionCollectionCell.swift in Sources */,
 				7E5AD2B12031FBEC00C08D77 /* ExerciseDescriptionViewController.swift in Sources */,
 				7E3DAA3D200FC1E500E1B88C /* UIViewExtentions.swift in Sources */,
+				7E85DE53203C40240052CFAA /* ExerciseDescription.swift in Sources */,
 				7EDB2E672014D16C00D77CB8 /* TimerDisplay.swift in Sources */,
+				7E85DE55203C4EF60052CFAA /* UserSession.swift in Sources */,
 				7E3DAA2E200F5F9900E1B88C /* DropDownMenuHandler.swift in Sources */,
 				7E4BA0D32029EAA500C7C18A /* HolderView.swift in Sources */,
 				7E24217D202B2FB000C03126 /* HistoryDataSource.swift in Sources */,
+				7E10A543203B09400059AEF9 /* ExerciseSection.swift in Sources */,
 				7E2C59FE2037FD6E00018536 /* SingleExerciseViewModel.swift in Sources */,
 				7E2035E8201C8598005A6707 /* ExerciseCoordinator.swift in Sources */,
 				7EDC598A200E6C4100C33DFC /* AppDelegate.swift in Sources */,

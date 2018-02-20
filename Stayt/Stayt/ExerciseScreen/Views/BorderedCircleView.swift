@@ -10,11 +10,13 @@ import UIKit
 
 @IBDesignable
 class BorderedCircleView: UIView {
+    
+    @IBInspectable var borderColor: UIColor = UIColor.white
 
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         layer.cornerRadius = frame.size.width / 2
-        layer.borderColor = UIColor.white.cgColor
+        layer.borderColor = borderColor.cgColor
         layer.borderWidth = 1.0
     }
 
