@@ -20,6 +20,9 @@ class BaseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "question-mark"), style: .done, target: self, action: #selector(aboutAction))
+        navigationItem.leftBarButtonItem = leftBarButtonItem
+        navigationController?.navigationBar.tintColor = UIColor.white
         let ex1 = Exercise(name: ExerciseDescription.meditationFeelingName, description: ExerciseDescription.meditationDescription, descriptionName: ExerciseDescription.meditationName, isGuided: false, feelings: [Feeling(name: "Relaxed", descriptionName: "meditation")])
         let ex2 = Exercise(name: ExerciseDescription.breathWorkFeelingName, description: ExerciseDescription.breathWorkDescription, descriptionName: ExerciseDescription.breathWorkName, isGuided: false, feelings: [Feeling(name: "Energized", descriptionName: "breathwork")])
         let ex3 = Exercise(name: ExerciseDescription.armHoldFeelingName, description: ExerciseDescription.armHoldDescription, descriptionName: ExerciseDescription.armHoldName, isGuided: false, feelings: [Feeling(name: "Motivated", descriptionName: "arm holding")])
@@ -42,6 +45,11 @@ class BaseViewController: UIViewController {
         secondSection.layout(on: scrollViewContentView, topAnchor: firstSection.exerciseSectionView.bottomAnchor)
         sections.append(secondSection)
         
+    }
+    
+    @objc func aboutAction() {
+        let aboutVC = storyboard!.instantiateViewController(withIdentifier: "AboutViewController")
+        present(aboutVC, animated: true, completion: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {

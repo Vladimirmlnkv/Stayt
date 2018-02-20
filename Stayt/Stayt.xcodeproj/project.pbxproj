@@ -48,6 +48,8 @@
 		7E85DE53203C40240052CFAA /* ExerciseDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E85DE52203C40240052CFAA /* ExerciseDescription.swift */; };
 		7E85DE55203C4EF60052CFAA /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E85DE54203C4EF60052CFAA /* UserSession.swift */; };
 		7E85DE57203C6DD20052CFAA /* UserSessionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E85DE56203C6DD20052CFAA /* UserSessionHandler.swift */; };
+		7E85DE5A203C7C490052CFAA /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E85DE59203C7C490052CFAA /* AboutViewController.swift */; };
+		7E85DE5C203C80680052CFAA /* CopyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E85DE5B203C80680052CFAA /* CopyLabel.swift */; };
 		7EC1BBF320335593008DDB68 /* AfterFeeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC1BBF220335593008DDB68 /* AfterFeeling.swift */; };
 		7EDB2E672014D16C00D77CB8 /* TimerDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDB2E662014D16C00D77CB8 /* TimerDisplay.swift */; };
 		7EDC598A200E6C4100C33DFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDC5989200E6C4100C33DFC /* AppDelegate.swift */; };
@@ -101,6 +103,8 @@
 		7E85DE52203C40240052CFAA /* ExerciseDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDescription.swift; sourceTree = "<group>"; };
 		7E85DE54203C4EF60052CFAA /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 		7E85DE56203C6DD20052CFAA /* UserSessionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionHandler.swift; sourceTree = "<group>"; };
+		7E85DE59203C7C490052CFAA /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		7E85DE5B203C80680052CFAA /* CopyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyLabel.swift; sourceTree = "<group>"; };
 		7EC1BBF220335593008DDB68 /* AfterFeeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterFeeling.swift; sourceTree = "<group>"; };
 		7EDB2E662014D16C00D77CB8 /* TimerDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerDisplay.swift; sourceTree = "<group>"; };
 		7EDC5986200E6C4100C33DFC /* Stayt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stayt.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -226,6 +230,7 @@
 			children = (
 				7E4BA0C720288B7200C7C18A /* CenteredCell */,
 				7E3DAA2B200F5D6700E1B88C /* DisclosureButton.swift */,
+				7E85DE5B203C80680052CFAA /* CopyLabel.swift */,
 				7E3DAA2D200F5F9900E1B88C /* DropDownMenuHandler.swift */,
 				7E3DAA3C200FC1E500E1B88C /* UIViewExtentions.swift */,
 				7E242179202B2AF900C03126 /* EmptyView */,
@@ -274,6 +279,14 @@
 				7E5AD2B02031FBEC00C08D77 /* ExerciseDescriptionViewController.swift */,
 			);
 			path = ExerciseDescriptionScreen;
+			sourceTree = "<group>";
+		};
+		7E85DE58203C7C2D0052CFAA /* AboutScreen */ = {
+			isa = PBXGroup;
+			children = (
+				7E85DE59203C7C490052CFAA /* AboutViewController.swift */,
+			);
+			path = AboutScreen;
 			sourceTree = "<group>";
 		};
 		7EDB2E652014D13700D77CB8 /* Helpers */ = {
@@ -335,6 +348,7 @@
 		7EDC599D200E764100C33DFC /* MainScreen */ = {
 			isa = PBXGroup;
 			children = (
+				7E85DE58203C7C2D0052CFAA /* AboutScreen */,
 				7EDC599B200E75A400C33DFC /* MainViewController.swift */,
 				7EDC599E200E765C00C33DFC /* FeelingCell.swift */,
 				7E10A538203B06760059AEF9 /* ExerciseSection */,
@@ -522,6 +536,7 @@
 				7E242181202B354100C03126 /* HistoryManager.swift in Sources */,
 				7E5AD2AE202ED2A800C08D77 /* CustomFeelingViewController.swift in Sources */,
 				7E10A545203B0A5C0059AEF9 /* BaseViewController.swift in Sources */,
+				7E85DE5C203C80680052CFAA /* CopyLabel.swift in Sources */,
 				7E242176202B298800C03126 /* HistoryViewController.swift in Sources */,
 				7EDC599F200E765C00C33DFC /* FeelingCell.swift in Sources */,
 				7EC1BBF320335593008DDB68 /* AfterFeeling.swift in Sources */,
@@ -543,6 +558,7 @@
 				7E2035E8201C8598005A6707 /* ExerciseCoordinator.swift in Sources */,
 				7EDC598A200E6C4100C33DFC /* AppDelegate.swift in Sources */,
 				7E24217F202B2FC800C03126 /* HistoryItem.swift in Sources */,
+				7E85DE5A203C7C490052CFAA /* AboutViewController.swift in Sources */,
 				7E67E34820132BB1009E084F /* Exercise.swift in Sources */,
 				7E2C5A07203867D300018536 /* ExerciseViewModel.swift in Sources */,
 				7E2035E6201C8437005A6707 /* AfterExerciseCell.swift in Sources */,
