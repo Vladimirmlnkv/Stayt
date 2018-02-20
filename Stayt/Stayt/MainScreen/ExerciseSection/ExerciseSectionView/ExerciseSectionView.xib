@@ -39,7 +39,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="egG-AX-OiI">
-                    <rect key="frame" x="0.0" y="38" width="449" height="1"/>
+                    <rect key="frame" x="10" y="38" width="439" height="1"/>
                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="QER-rG-mBe"/>
@@ -49,7 +49,7 @@
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="dqN-P2-t86" secondAttribute="trailing" id="1UY-us-NBa"/>
-                <constraint firstItem="egG-AX-OiI" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="6j7-QR-GSd"/>
+                <constraint firstItem="egG-AX-OiI" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="6j7-QR-GSd"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="egG-AX-OiI" secondAttribute="trailing" id="HPS-fi-Qez"/>
                 <constraint firstItem="50n-UI-Rda" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="8" id="QZv-iY-QHz"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="50n-UI-Rda" secondAttribute="trailing" id="XGo-HT-laC"/>

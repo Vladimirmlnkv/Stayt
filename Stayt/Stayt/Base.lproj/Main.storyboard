@@ -638,6 +638,9 @@
                                                                 </constraints>
                                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <state key="normal" image="play"/>
+                                                                <connections>
+                                                                    <action selector="startRecentActivityAction:" destination="dwy-Cd-20K" eventType="touchUpInside" id="Eht-6e-Rty"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -702,6 +705,7 @@
                     <navigationItem key="navigationItem" title="Stayt" id="Zw2-Ux-bLP"/>
                     <connections>
                         <outlet property="mostRecentView" destination="LWo-Cj-ckE" id="2pI-Dx-ahv"/>
+                        <outlet property="recentActivityLabel" destination="5yF-Qh-fnZ" id="ll9-Vr-f6L"/>
                         <outlet property="recentViewHeightConstraint" destination="jGm-Cr-ZGT" id="rPg-6a-fDN"/>
                         <outlet property="scrollViewContentView" destination="sfD-N2-R4n" id="C4I-8D-GVD"/>
                     </connections>

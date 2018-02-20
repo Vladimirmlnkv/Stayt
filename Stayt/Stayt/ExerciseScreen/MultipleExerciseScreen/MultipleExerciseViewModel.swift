@@ -52,7 +52,7 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
     }
     
     var activities: [Feeling] {
-        return exercise.feelings
+        return Array(exercise.feelings)
     }
     
     var allowsReordering: Bool {
@@ -86,8 +86,9 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
     }
     
     func moveActivity(from index: Int, to destinationIndex: Int) {
-        let feelign = exercise.feelings.remove(at: index)
-        exercise.feelings.insert(feelign, at: destinationIndex)
+        try! mainRealm.write {
+            self.exercise.feelings.move(from: index, to: destinationIndex)
+        }
     }
     
     func isAcitivityCompleted(at index: Int) -> Bool {
@@ -146,7 +147,9 @@ extension MultipleExerciseViewModel: SingleActivityCellDelegate {
 extension MultipleExerciseViewModel: DurationPickerViewControllerDelegate {
     
     func didSelect(duration: Int, for feeling: Feeling) {
-        feeling.duration = duration
+        try! mainRealm.write {
+            feeling.duration = duration
+        }
         if let index = exercise.feelings.index(where: {$0.name == feeling.name}) {
             delegate?.realodRows(at: [index])
         }

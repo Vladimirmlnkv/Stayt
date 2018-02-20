@@ -47,6 +47,7 @@
 		7E67E34820132BB1009E084F /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E67E34720132BB1009E084F /* Exercise.swift */; };
 		7E85DE53203C40240052CFAA /* ExerciseDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E85DE52203C40240052CFAA /* ExerciseDescription.swift */; };
 		7E85DE55203C4EF60052CFAA /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E85DE54203C4EF60052CFAA /* UserSession.swift */; };
+		7E85DE57203C6DD20052CFAA /* UserSessionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E85DE56203C6DD20052CFAA /* UserSessionHandler.swift */; };
 		7EC1BBF320335593008DDB68 /* AfterFeeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC1BBF220335593008DDB68 /* AfterFeeling.swift */; };
 		7EDB2E672014D16C00D77CB8 /* TimerDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDB2E662014D16C00D77CB8 /* TimerDisplay.swift */; };
 		7EDC598A200E6C4100C33DFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDC5989200E6C4100C33DFC /* AppDelegate.swift */; };
@@ -99,6 +100,7 @@
 		7E67E34720132BB1009E084F /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		7E85DE52203C40240052CFAA /* ExerciseDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDescription.swift; sourceTree = "<group>"; };
 		7E85DE54203C4EF60052CFAA /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
+		7E85DE56203C6DD20052CFAA /* UserSessionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionHandler.swift; sourceTree = "<group>"; };
 		7EC1BBF220335593008DDB68 /* AfterFeeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterFeeling.swift; sourceTree = "<group>"; };
 		7EDB2E662014D16C00D77CB8 /* TimerDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerDisplay.swift; sourceTree = "<group>"; };
 		7EDC5986200E6C4100C33DFC /* Stayt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stayt.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -280,6 +282,7 @@
 				7EDB2E662014D16C00D77CB8 /* TimerDisplay.swift */,
 				7E10A532203AC6FA0059AEF9 /* Colors.swift */,
 				7E85DE52203C40240052CFAA /* ExerciseDescription.swift */,
+				7E85DE56203C6DD20052CFAA /* UserSessionHandler.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -510,6 +513,7 @@
 				7E10A533203AC6FA0059AEF9 /* Colors.swift in Sources */,
 				7E2035E4201C841D005A6707 /* AfterExerciseViewController.swift in Sources */,
 				7E4BA0CE20288DC000C7C18A /* DurationPickerViewController.swift in Sources */,
+				7E85DE57203C6DD20052CFAA /* UserSessionHandler.swift in Sources */,
 				7E2C59FA203707B000018536 /* SingleExerciseViewController.swift in Sources */,
 				7E3DAA2C200F5D6700E1B88C /* DisclosureButton.swift in Sources */,
 				7E24217B202B2B0C00C03126 /* EmptyView.swift in Sources */,

@@ -7,18 +7,20 @@
 //
 
 import Foundation
+import RealmSwift
 
-class Exercise {
-    let name: String
-    let description: String
-    let descriptionName: String
-    var feelings: [Feeling]
-    var isGuided: Bool
+class Exercise: Object {
+    @objc dynamic var name: String!
+    @objc dynamic var descriptionText: String!
+    @objc dynamic var descriptionName: String!
+    let feelings = List<Feeling>()
+    @objc dynamic var isGuided: Bool = false
     
-    init (name: String, description: String, descriptionName: String, isGuided: Bool, feelings: [Feeling]) {
+    convenience init (name: String, description: String, descriptionName: String, isGuided: Bool, feelings: [Feeling]) {
+        self.init()
         self.name = name
-        self.description = description
-        self.feelings = feelings
+        self.descriptionText = description
+        self.feelings.append(objectsIn: feelings)
         self.descriptionName = descriptionName
         self.isGuided = isGuided
     }

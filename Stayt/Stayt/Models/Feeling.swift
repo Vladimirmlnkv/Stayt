@@ -7,16 +7,18 @@
 //
 
 import Foundation
+import RealmSwift
 
-class Feeling {
-    let name: String
-    var duration: Int
-    let descriptionName: String
+class Feeling: Object {
+    @objc dynamic var name: String!
+    @objc dynamic var duration: Int = 0
+    @objc dynamic var descriptionName: String!
     var durationString: String {
         return "\(duration / 60)"
     }
     
-    init(name: String, duration: Int=600, descriptionName: String) {
+    convenience init(name: String, duration: Int=600, descriptionName: String) {
+        self.init()
         self.name = name
         self.duration = duration
         self.descriptionName = descriptionName

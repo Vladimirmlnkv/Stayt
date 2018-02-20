@@ -10,6 +10,6 @@ import RealmSwift
 
 class UserSession: Object {
     
-//    @objc dynamic var recentExercise: Exercise?
+    @objc dynamic var recentExercise: Exercise?
     
 }

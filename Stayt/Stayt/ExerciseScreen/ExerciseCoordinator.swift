@@ -47,7 +47,7 @@ extension ExerciseCoodinator: ExerciseViewModelCoordinationDelegate {
     func showInfoScreen() {
         let vc = storyboard.instantiateViewController(withIdentifier: "ExerciseDescriptionViewController") as! ExerciseDescriptionViewController
         vc.exerciseTitle = exercise.descriptionName
-        vc.exerciseDescription = exercise.description
+        vc.exerciseDescription = exercise.descriptionText
         exerciseVC.present(vc, animated: true, completion: nil)
     }
     
@@ -78,6 +78,7 @@ extension ExerciseCoodinator: ExerciseViewModelCoordinationDelegate {
     
     func exerciseFinished() {
         historyManager.addExperience()
+        UserSessionHandler.standart.setRecentExercise(exercise)
         afterExerciseVC = storyboard.instantiateViewController(withIdentifier: "AfterExerciseViewController") as! AfterExerciseViewController
         afterExerciseVC.delegate = self
         exerciseVC.present(afterExerciseVC, animated: true, completion: nil)

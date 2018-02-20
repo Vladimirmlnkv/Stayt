@@ -13,6 +13,8 @@ class BaseViewController: UIViewController {
     @IBOutlet var scrollViewContentView: UIView!
     @IBOutlet var mostRecentView: UIView!
     @IBOutlet var recentViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet var recentActivityLabel: UILabel!
+    fileprivate var recentExercise: Exercise?
     
     var sections = [ExerciseSection]()
     
@@ -44,9 +46,24 @@ class BaseViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        recentViewHeightConstraint.constant = 1/3 * view.frame.height
+        if let session = UserSessionHandler.standart.getSession(), let e = session.recentExercise {
+            recentExercise = e
+            let text = e.isGuided ? "Guided " : "Unguided "
+            recentActivityLabel.text = text + e.descriptionName.lowercased()
+            recentViewHeightConstraint.constant = 1/3 * view.frame.height
+        } else {
+            recentActivityLabel.text = nil
+            recentExercise = nil
+            recentViewHeightConstraint.constant = 0
+        }
     }
 
+    @IBAction func startRecentActivityAction(_ sender: Any) {
+        if let e = recentExercise {
+            let coordinator = ExerciseCoodinator(exercise: e, presentingVC: self)
+            coordinator.start()
+        }
+    }
 }
 
 extension BaseViewController: ExerciseSectionDelegate {
