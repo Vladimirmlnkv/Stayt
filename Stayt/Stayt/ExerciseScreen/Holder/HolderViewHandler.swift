@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVKit
 
 protocol HolderViewHandlerDelegate: class {
     func holderDidFinish()
@@ -16,15 +17,12 @@ class HolderViewHandler {
     
     fileprivate let superView: UIView
     fileprivate var holderView: HolderView?
-    fileprivate var timer: Timer?
+    fileprivate var player: AVPlayer?
     fileprivate weak var delegate: HolderViewHandlerDelegate?
     fileprivate let feeling: Feeling
     
-    fileprivate var holdSeconds = 5 {
-        didSet {
-            holderView?.updateTime(holdSeconds)
-        }
-    }
+    fileprivate var holdSeconds = 5
+    fileprivate var timeObserver: Any?
     
     init(superView: UIView, delegate: HolderViewHandlerDelegate, feeling: Feeling) {
         self.superView = superView
@@ -40,21 +38,28 @@ class HolderViewHandler {
         holderView!.spinner.startAnimating()
         superView.addSubview(holderView!)
         superView.bringSubview(toFront: holderView!)
-        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+        
+        let soundPath = Bundle.main.path(forResource: "empty", ofType: "mp3")
+        let interval = CMTime(seconds: 1, preferredTimescale: 1)
+        player = AVPlayer(url: URL(fileURLWithPath: soundPath!))
+        timeObserver = player!.addPeriodicTimeObserver(forInterval: interval, queue: DispatchQueue.main, using: { [weak self] time -> Void in
+            guard let strongSelf = self else { return }
+            let passedTime = Int64(time.value) / Int64(time.timescale)
+            let remainingTime = strongSelf.holdSeconds - Int(passedTime)
+            if remainingTime == 0 {
+                strongSelf.dismiss()
+                strongSelf.player?.removeTimeObserver(strongSelf.timeObserver)
+            } else {
+                strongSelf.holderView?.updateTime(remainingTime)
+            }
+        })
+        player!.play()
     }
     
     fileprivate func dismiss() {
-        timer?.invalidate()
+        player?.pause()
         holderView!.removeFromSuperview()
         delegate?.holderDidFinish()
-    }
-    
-    @objc func updateTimer() {
-        if holdSeconds == 0 {
-            dismiss()
-        } else {
-            holdSeconds -= 1
-        }
     }
 
     @objc func cancelButtonAction() {

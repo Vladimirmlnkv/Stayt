@@ -93,6 +93,7 @@ extension MultipleExerciseViewController: MultipleExerciseViewModelDelegate {
     }
     
     func showHolder(with delegate: HolderViewHandlerDelegate, activity: Feeling) {
+        //SHOW HOLDER JUST ONCE
         holderHandler = HolderViewHandler(superView: view, delegate: delegate, feeling: activity)
         holderHandler.start()
     }

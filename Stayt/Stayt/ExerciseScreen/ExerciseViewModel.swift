@@ -24,9 +24,9 @@ enum ExerciseViewModelState {
 class ExerciseViewModel: NSObject, AVAudioPlayerDelegate {
     
     var state = ExerciseViewModelState.initial
-    var timer = Timer()
-    var remainingDuration: Int?
-    var player: AVAudioPlayer!
+    var currentTimeDuration: Int?
+    var player: AVPlayer?
+    var endSoundPlayer: AVAudioPlayer!
     let exercise: Exercise
     var coordinationDelegate: ExerciseViewModelCoordinationDelegate?
     var currentActivityNumber: Int?
@@ -34,6 +34,9 @@ class ExerciseViewModel: NSObject, AVAudioPlayerDelegate {
     var title: String {
         return exercise.descriptionName
     }
+    
+    //Override
+    var updateBlock: ((CMTime) -> Void)!
     
     init(exercise: Exercise, coordinationDelegate: ExerciseViewModelCoordinationDelegate) {
         self.exercise = exercise
@@ -43,15 +46,25 @@ class ExerciseViewModel: NSObject, AVAudioPlayerDelegate {
     func playButtonAction() {
         if state == .initial || state == .pause {
             UIApplication.shared.isIdleTimerDisabled = true
-            if remainingDuration == nil {
+            if currentTimeDuration == nil {
                 currentActivityNumber = 0
-                remainingDuration = exercise.feelings.first!.duration
+                currentTimeDuration = exercise.feelings.first!.duration
             }
             state = .play
-            timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+            if let player = player {
+                player.play()
+            } else {
+                let soundPath = Bundle.main.path(forResource: "empty", ofType: "mp3")
+                let interval = CMTime(seconds: 1, preferredTimescale: 1)
+                try! AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+                try! AVAudioSession.sharedInstance().setActive(true)
+                player = AVPlayer(url: URL(fileURLWithPath: soundPath!))
+                player!.addPeriodicTimeObserver(forInterval: interval, queue: DispatchQueue.main, using: updateBlock)
+                player!.play()
+            }
         } else if state == .play {
             state = .pause
-            timer.invalidate()
+            player?.pause()
         }
     }
     
@@ -61,15 +74,9 @@ class ExerciseViewModel: NSObject, AVAudioPlayerDelegate {
     
     func playSound() {
         let soundPath = Bundle.main.path(forResource: "meditationBell", ofType: "mp3")
-        player = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: soundPath!))
-        do {
-            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
-            try AVAudioSession.sharedInstance().setActive(true)
-        } catch {
-            print(error)
-        }
-        player.delegate = self
-        player.play()
+        endSoundPlayer = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: soundPath!))
+        endSoundPlayer.delegate = self
+        endSoundPlayer.play()
     }
     
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully: Bool) {
@@ -78,13 +85,9 @@ class ExerciseViewModel: NSObject, AVAudioPlayerDelegate {
         }
     }
     
-    @objc func updateTimer() {
-        print("Override updateTimer")
-    }
-    
     func dismiss() {
         coordinationDelegate?.dismiss(shouldConfirm: state == .play) {
-            self.timer.invalidate()
+            self.player?.pause()
         }
     }
     

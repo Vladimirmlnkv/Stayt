@@ -22,7 +22,7 @@ class SingleExerciseViewModel: ExerciseViewModel, TimerDisplay {
     override var state: ExerciseViewModelState {
         didSet {
             if oldValue == .initial {
-                delegate?.showRemaining(with: stringDuration(from: remainingDuration!))
+                delegate?.showRemaining(with: stringDuration(from: currentTimeDuration!))
             }
             if state == .play {
                 delegate?.updatePlayButton(image: #imageLiteral(resourceName: "pause"))
@@ -44,20 +44,22 @@ class SingleExerciseViewModel: ExerciseViewModel, TimerDisplay {
     init(exercise: Exercise, coordinationDelegate: ExerciseViewModelCoordinationDelegate, delegate: SingleExerciseViewModelDelegate) {
         super.init(exercise: exercise, coordinationDelegate: coordinationDelegate)
         self.delegate = delegate
-    }
-    
-    @objc override func updateTimer() {
-        if let _ = remainingDuration {
-            remainingDuration! -= 1
-            
-            if remainingDuration == 0 {
-                playSound()
-            }
-            if remainingDuration == -1 {
-                timer.invalidate()
-                state = .done
-            } else {
-                delegate?.update(remaining: stringDuration(from: remainingDuration!))
+        
+        updateBlock = { [weak self] time -> Void in
+            guard let strongSelf = self else { return }
+            if let _ = strongSelf.currentTimeDuration {
+                let passedTime = Int64(time.value) / Int64(time.timescale)
+                let remainingTime = strongSelf.currentTimeDuration! - Int(passedTime)
+
+                if remainingTime == 0 {
+                    strongSelf.playSound()
+                }
+                if remainingTime == -1 {
+                    strongSelf.player?.pause()
+                    strongSelf.state = .done
+                } else {
+                    strongSelf.delegate?.update(remaining: strongSelf.stringDuration(from: remainingTime))
+                }
             }
         }
     }

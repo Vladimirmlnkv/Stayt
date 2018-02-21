@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVKit
 
 protocol MultipleExerciseViewModelDelegate: class {
     func setEditing(_ isEditing: Bool)
@@ -74,6 +75,8 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
         return state == .initial
     }
     
+    fileprivate var remainingDuration: Int?
+    
     fileprivate var currentRound = 1
     fileprivate var maxRoundsCount = 10
     var roundsCount: Int = 1 {
@@ -95,6 +98,33 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
     init(exercise: Exercise, coordinationDelegate: ExerciseViewModelCoordinationDelegate, delegate: MultipleExerciseViewModelDelegate) {
         super.init(exercise: exercise, coordinationDelegate: coordinationDelegate)
         self.delegate = delegate
+        
+        updateBlock = { [weak self] time -> Void in
+            guard let strongSelf = self else { return }
+            if strongSelf.currentActivityNumber == nil {
+                strongSelf.currentActivityNumber = 0
+                strongSelf.currentTimeDuration = exercise.feelings[strongSelf.currentActivityNumber!].duration
+            }
+            
+            let passedTime = Int64(time.value) / Int64(time.timescale)
+            let remainingTime = strongSelf.currentTimeDuration! - Int(passedTime)
+            strongSelf.remainingDuration = remainingTime
+            if remainingTime == 0 {
+                strongSelf.playSound()
+            }
+
+            if remainingTime == -1 {
+                strongSelf.player?.pause()
+                if strongSelf.currentActivityNumber! < exercise.feelings.count - 1 {
+                    strongSelf.delegate?.showHolder(with: strongSelf, activity: exercise.feelings[strongSelf.currentActivityNumber! + 1])
+                } else {
+                    strongSelf.state = .done
+                }
+            } else {
+                strongSelf.delegate?.realodRows(at: [strongSelf.currentActivityNumber!])
+            }
+        }
+
     }
     
     func activityCellViewModel(for index: Int) -> ActivityCellViewModel {
@@ -105,7 +135,11 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
         if let currentAcitivityNumber = currentActivityNumber {
             isCompleted = currentAcitivityNumber > index
             if index == currentAcitivityNumber {
-                durationTitle = stringDuration(from: remainingDuration!)
+                if let d = remainingDuration {
+                    durationTitle = stringDuration(from: d)
+                } else {
+                    durationTitle = stringDuration(from: currentTimeDuration!)
+                }
                 isCurrentActivity = true
             }
         }
@@ -133,41 +167,16 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
             roundsCount -= 1
         }
     }
-    
-    @objc override func updateTimer() {
-        if currentActivityNumber == nil {
-            currentActivityNumber = 0
-            remainingDuration = exercise.feelings[currentActivityNumber!].duration
-        }
-        
-        remainingDuration! -= 1
-        
-        if remainingDuration == 0 {
-            playSound()
-        }
-        
-        if remainingDuration == -1 {
-            if currentActivityNumber! < exercise.feelings.count - 1 {
-                delegate?.showHolder(with: self, activity: exercise.feelings[currentActivityNumber! + 1])
-                timer.invalidate()
-            } else {
-                timer.invalidate()
-                state = .done
-            }
-        } else {
-            delegate?.realodRows(at: [currentActivityNumber!])
-        }
-    }
-    
 }
 
 extension MultipleExerciseViewModel: HolderViewHandlerDelegate {
     
     func holderDidFinish() {
         currentActivityNumber! += 1
-        remainingDuration = exercise.feelings[currentActivityNumber!].duration
+        currentTimeDuration = exercise.feelings[currentActivityNumber!].duration
         delegate?.realodRows(at: [currentActivityNumber!, currentActivityNumber! - 1])
-        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+        player?.seek(to: kCMTimeZero)
+        player?.play()
     }
     
 }
