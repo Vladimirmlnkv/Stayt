@@ -34,7 +34,7 @@ class HolderViewHandler {
     
     func start() {
         holderView = HolderView(frame: superView.frame)
-        holderView!.messageLabel.text = "Get comfortable and preapare for \(feeling.descriptionName)"
+        holderView!.messageLabel.text = "Get comfortable and preapare for \(feeling.descriptionName!)"
         holderView!.updateTime(holdSeconds)
         holderView!.cancelButton.addTarget(self, action: #selector(cancelButtonAction), for: .touchUpInside)
         holderView!.spinner.startAnimating()

@@ -31,6 +31,7 @@ class SingleActivityCell: UITableViewCell {
         titleLabel.text = viewModel.title
         durationButton.setTitle(viewModel.durationTitle, for: .normal)
         accessoryType = viewModel.isCompleted ? .checkmark : .none
+        durationButton.isHidden = viewModel.isCompleted
         if viewModel.allowsEditing {
             durationButton.setImage(#imageLiteral(resourceName: "down-arrow"), for: .normal)
             durationButton.isUserInteractionEnabled = true

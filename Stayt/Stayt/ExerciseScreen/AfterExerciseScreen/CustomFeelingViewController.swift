@@ -31,6 +31,7 @@ class CustomFeelingViewController: UIViewController {
         
         navigationController?.navigationBar.barTintColor = UIColor.black
         navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.tintColor = Colors.mainActiveColor
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         textView.textColor = UIColor.white
         textView.keyboardAppearance = .dark
