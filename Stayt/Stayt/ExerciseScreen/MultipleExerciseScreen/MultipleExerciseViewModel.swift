@@ -19,6 +19,7 @@ protocol MultipleExerciseViewModelDelegate: class {
     func hideRoundsView()
     func setIncreaseButton(isHidden: Bool)
     func setDecreaseButton(isHidden: Bool)
+    func updateRoundsTitleLabel(_ newValue: String)
 }
 
 struct ActivityCellViewModel {
@@ -39,6 +40,12 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
             if oldValue == .initial {
                 delegate?.setEditing(false)
                 delegate?.reloadTableView()
+                delegate?.hideRoundsView()
+                if roundsCount > 1 {
+                    delegate?.updateRoundsTitleLabel("Round \(currentRound)/\(roundsCount)")
+                } else {
+                    delegate?.updateRoundsTitleLabel("")
+                }
             }
             if state == .play {
                 delegate?.updatePlayButton(image: #imageLiteral(resourceName: "pause"))
@@ -67,6 +74,7 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
         return state == .initial
     }
     
+    fileprivate var currentRound = 1
     fileprivate var maxRoundsCount = 10
     var roundsCount: Int = 1 {
         didSet {

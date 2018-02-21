@@ -534,6 +534,7 @@
                         <outlet property="increaseRoundsButton" destination="2YZ-oh-45L" id="woh-Lb-FLN"/>
                         <outlet property="playButton" destination="PdP-Xo-WRt" id="aFO-s8-G1I"/>
                         <outlet property="roundsCountLabel" destination="Rru-dD-Mvc" id="Sc9-Md-84p"/>
+                        <outlet property="roundsTitleLabel" destination="lnh-Hx-dRe" id="Cqh-nY-Ero"/>
                         <outlet property="roundsView" destination="3mt-G4-QNR" id="PMo-rM-R5h"/>
                         <outlet property="tableView" destination="CRh-RN-2Kk" id="hH3-6K-hEP"/>
                         <outlet property="titleLabel" destination="q6r-he-zAc" id="x38-cG-ZCn"/>

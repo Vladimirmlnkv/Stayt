@@ -18,6 +18,7 @@ class MultipleExerciseViewController: UIViewController {
     @IBOutlet var roundsCountLabel: UILabel!
     @IBOutlet var increaseRoundsButton: UIButton!
     @IBOutlet var decreaseRoundsButton: UIButton!
+    @IBOutlet var roundsTitleLabel: UILabel!
     
     
     var viewModel: MultipleExerciseViewModel!
@@ -101,7 +102,9 @@ extension MultipleExerciseViewController: MultipleExerciseViewModelDelegate {
     }
     
     func hideRoundsView() {
-        roundsView.isHidden = true
+        increaseRoundsButton.isHidden = true
+        decreaseRoundsButton.isHidden = true
+        roundsCountLabel.isHidden = true
     }
     
     func setIncreaseButton(isHidden: Bool) {
@@ -112,6 +115,9 @@ extension MultipleExerciseViewController: MultipleExerciseViewModelDelegate {
         decreaseRoundsButton.isHidden = isHidden
     }
     
+    func updateRoundsTitleLabel(_ newValue: String) {
+        roundsTitleLabel.text = newValue
+    }
 }
 
 extension MultipleExerciseViewController: UITableViewDataSource {
