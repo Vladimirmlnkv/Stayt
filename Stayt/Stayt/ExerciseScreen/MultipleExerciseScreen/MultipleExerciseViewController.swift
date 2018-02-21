@@ -14,12 +14,20 @@ class MultipleExerciseViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     @IBOutlet var playButton: UIButton!
     
+    @IBOutlet var roundsView: UIView!
+    @IBOutlet var roundsCountLabel: UILabel!
+    @IBOutlet var increaseRoundsButton: UIButton!
+    @IBOutlet var decreaseRoundsButton: UIButton!
+    
+    
     var viewModel: MultipleExerciseViewModel!
     fileprivate var holderHandler: HolderViewHandler!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         titleLabel.text = viewModel.title
+        roundsCountLabel.text = "\(viewModel.roundsCount)"
+        decreaseRoundsButton.isHidden = true
         configureTableView()
     }
     
@@ -41,6 +49,14 @@ class MultipleExerciseViewController: UIViewController {
     
     @IBAction func infoButtonAction(_ sender: Any) {
         viewModel.showInfo()
+    }
+    
+    @IBAction func increaseRoundsAction(_ sender: Any) {
+        viewModel.increaseRounds()
+    }
+    
+    @IBAction func decreaseRoundsAction(_ sender: Any) {
+        viewModel.decreaseRounds()
     }
 }
 
@@ -78,6 +94,22 @@ extension MultipleExerciseViewController: MultipleExerciseViewModelDelegate {
     func showHolder(with delegate: HolderViewHandlerDelegate, activity: Feeling) {
         holderHandler = HolderViewHandler(superView: view, delegate: delegate, feeling: activity)
         holderHandler.start()
+    }
+    
+    func updateRoundsLabel(_ newValue: Int) {
+        roundsCountLabel.text = "\(newValue)"
+    }
+    
+    func hideRoundsView() {
+        roundsView.isHidden = true
+    }
+    
+    func setIncreaseButton(isHidden: Bool) {
+        increaseRoundsButton.isHidden = isHidden
+    }
+    
+    func setDecreaseButton(isHidden: Bool) {
+        decreaseRoundsButton.isHidden = isHidden
     }
     
 }

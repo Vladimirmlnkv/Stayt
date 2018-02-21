@@ -15,6 +15,10 @@ protocol MultipleExerciseViewModelDelegate: class {
     func reloadTableView()
     func realodRows(at indexes: [Int])
     func showHolder(with delegate: HolderViewHandlerDelegate, activity: Feeling)
+    func updateRoundsLabel(_ newValue: Int)
+    func hideRoundsView()
+    func setIncreaseButton(isHidden: Bool)
+    func setDecreaseButton(isHidden: Bool)
 }
 
 struct ActivityCellViewModel {
@@ -63,6 +67,23 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
         return state == .initial
     }
     
+    fileprivate var maxRoundsCount = 10
+    var roundsCount: Int = 1 {
+        didSet {
+            if roundsCount == 1 {
+                delegate?.setDecreaseButton(isHidden: true)
+            } else if roundsCount == maxRoundsCount {
+                delegate?.setIncreaseButton(isHidden: true)
+            }
+            if oldValue == 1 {
+                delegate?.setDecreaseButton(isHidden: false)
+            } else if oldValue == maxRoundsCount {
+                delegate?.setIncreaseButton(isHidden: false)
+            }
+            delegate?.updateRoundsLabel(roundsCount)
+        }
+    }
+    
     init(exercise: Exercise, coordinationDelegate: ExerciseViewModelCoordinationDelegate, delegate: MultipleExerciseViewModelDelegate) {
         super.init(exercise: exercise, coordinationDelegate: coordinationDelegate)
         self.delegate = delegate
@@ -93,6 +114,18 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
     
     func isAcitivityCompleted(at index: Int) -> Bool {
         return false
+    }
+    
+    func increaseRounds() {
+        if roundsCount < maxRoundsCount {
+            roundsCount += 1
+        }
+    }
+    
+    func decreaseRounds() {
+        if roundsCount > 1 {
+            roundsCount -= 1
+        }
     }
     
     @objc override func updateTimer() {
