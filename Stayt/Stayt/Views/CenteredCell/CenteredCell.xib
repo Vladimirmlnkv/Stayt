@@ -32,6 +32,7 @@
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="tintColor" red="0.01176470588" green="0.95294117649999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="sBj-Gv-rTo" firstAttribute="leading" secondItem="pOT-Qw-c4F" secondAttribute="leading" constant="10" id="Phx-De-jE4"/>
                 <constraint firstAttribute="trailing" secondItem="sBj-Gv-rTo" secondAttribute="trailing" constant="10" id="ZZK-56-BLV"/>

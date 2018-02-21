@@ -42,6 +42,7 @@ class ExerciseViewModel: NSObject, AVAudioPlayerDelegate {
     
     func playButtonAction() {
         if state == .initial || state == .pause {
+            UIApplication.shared.isIdleTimerDisabled = true
             if remainingDuration == nil {
                 currentActivityNumber = 0
                 remainingDuration = exercise.feelings.first!.duration
@@ -52,6 +53,10 @@ class ExerciseViewModel: NSObject, AVAudioPlayerDelegate {
             state = .pause
             timer.invalidate()
         }
+    }
+    
+    deinit {
+        UIApplication.shared.isIdleTimerDisabled = false
     }
     
     func playSound() {

@@ -39,6 +39,15 @@ class SingleActivityCell: UITableViewCell {
             durationButton.isUserInteractionEnabled = false
         }
         currentActivityView.layer.cornerRadius = currentActivityView.frame.width / 2
+        
+        if viewModel.isCurrentActivity {
+            titleLabel.textColor = Colors.mainActiveColor
+            durationButton.setTitleColor(Colors.mainActiveColor, for: .normal)
+        } else {
+            titleLabel.textColor = UIColor.white
+            durationButton.setTitleColor(UIColor.white, for: .normal)
+        }
+        
         if viewModel.isCurrentActivity && currentActivityView.isHidden {
             currentActivityView.isHidden = false
         } else if !viewModel.isCurrentActivity {
