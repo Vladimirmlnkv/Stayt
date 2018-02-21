@@ -621,8 +621,8 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unguided meditation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5yF-Qh-fnZ">
-                                                        <rect key="frame" x="15" y="47.5" width="192" height="24"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                        <rect key="frame" x="15" y="54.5" width="210.5" height="26.5"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -642,7 +642,7 @@
                                                                     <constraint firstAttribute="width" constant="40" id="Ctw-f7-mi3"/>
                                                                     <constraint firstAttribute="height" constant="40" id="QJM-bd-INS"/>
                                                                 </constraints>
-                                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="tintColor" red="0.01176470588" green="0.95294117649999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <state key="normal" image="play"/>
                                                                 <connections>
                                                                     <action selector="startRecentActivityAction:" destination="dwy-Cd-20K" eventType="touchUpInside" id="Eht-6e-Rty"/>
@@ -658,7 +658,7 @@
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="value" red="0.01176470588" green="0.95294117649999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
@@ -674,7 +674,7 @@
                                                     <constraint firstItem="ONE-iq-RRQ" firstAttribute="top" secondItem="LWo-Cj-ckE" secondAttribute="top" constant="20" id="W5G-Mh-QBQ"/>
                                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ONE-iq-RRQ" secondAttribute="trailing" constant="10" id="Xhl-t0-3HE"/>
                                                     <constraint firstItem="ONE-iq-RRQ" firstAttribute="leading" secondItem="LWo-Cj-ckE" secondAttribute="leading" constant="15" id="Z5B-A4-GI8"/>
-                                                    <constraint firstItem="5yF-Qh-fnZ" firstAttribute="top" secondItem="ONE-iq-RRQ" secondAttribute="bottom" constant="8" id="dGp-l0-nEV"/>
+                                                    <constraint firstItem="5yF-Qh-fnZ" firstAttribute="top" secondItem="ONE-iq-RRQ" secondAttribute="bottom" constant="15" id="dGp-l0-nEV"/>
                                                     <constraint firstAttribute="height" constant="201" id="jGm-Cr-ZGT"/>
                                                     <constraint firstAttribute="trailing" secondItem="SGv-Kg-Gvr" secondAttribute="trailing" constant="20" id="owb-WQ-3V0"/>
                                                 </constraints>

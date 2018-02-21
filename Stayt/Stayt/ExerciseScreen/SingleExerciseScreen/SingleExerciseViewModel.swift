@@ -69,7 +69,9 @@ class SingleExerciseViewModel: ExerciseViewModel, TimerDisplay {
 
 extension SingleExerciseViewModel: DurationPickerViewControllerDelegate {
     func didSelect(duration: Int, for feeling: Feeling) {
-        feeling.duration = duration
+        try! mainRealm.write {
+            feeling.duration = duration
+        }
         delegate?.update(duration: currentDuration)
     }
 }
