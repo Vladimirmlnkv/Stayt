@@ -115,9 +115,7 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
     }
     
     func moveActivity(from index: Int, to destinationIndex: Int) {
-        try! mainRealm.write {
             self.exercise.feelings.move(from: index, to: destinationIndex)
-        }
     }
     
     func isAcitivityCompleted(at index: Int) -> Bool {
@@ -188,9 +186,7 @@ extension MultipleExerciseViewModel: SingleActivityCellDelegate {
 extension MultipleExerciseViewModel: DurationPickerViewControllerDelegate {
     
     func didSelect(duration: Int, for feeling: Feeling) {
-        try! mainRealm.write {
-            feeling.duration = duration
-        }
+        feeling.duration = duration
         if let index = exercise.feelings.index(where: {$0.name == feeling.name}) {
             delegate?.realodRows(at: [index])
         }

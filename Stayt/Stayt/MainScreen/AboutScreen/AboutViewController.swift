@@ -11,7 +11,7 @@ import UIKit
 class AboutViewController: UIViewController {
     
     @IBOutlet var emailButton: UIButton!
-    fileprivate let mailToString = "mailto:techsupport@staytapp.com"
+    fileprivate let mailToString = "mailto:hello@staytapp.com"
     
     override func viewDidLoad() {
         super.viewDidLoad()
