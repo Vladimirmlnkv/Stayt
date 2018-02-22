@@ -21,6 +21,8 @@ protocol MultipleExerciseViewModelDelegate: class {
     func setIncreaseButton(isHidden: Bool)
     func setDecreaseButton(isHidden: Bool)
     func updateRoundsTitleLabel(_ newValue: String)
+    func removeRestTimeRow()
+    func showRestTimeRow()
 }
 
 struct ActivityCellViewModel {
@@ -75,20 +77,40 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
         return state == .initial
     }
     
+    var numberOfSections: Int {
+        if shouldShowRestTime {
+            return 2
+        } else {
+            return 1
+        }
+    }
+    
     fileprivate var remainingDuration: Int?
     fileprivate var shouldShowHolder = true
     
     fileprivate var currentRound = 1
     fileprivate var maxRoundsCount = 10
+    
+    fileprivate var shouldShowRestTime = false {
+        didSet {
+            if shouldShowRestTime {
+                delegate?.showRestTimeRow()
+            } else {
+                delegate?.removeRestTimeRow()
+            }
+        }
+    }
     var roundsCount: Int = 1 {
         didSet {
             if roundsCount == 1 {
                 delegate?.setDecreaseButton(isHidden: true)
+                shouldShowRestTime = false
             } else if roundsCount == maxRoundsCount {
                 delegate?.setIncreaseButton(isHidden: true)
             }
             if oldValue == 1 {
                 delegate?.setDecreaseButton(isHidden: false)
+                shouldShowRestTime = true
             } else if oldValue == maxRoundsCount {
                 delegate?.setIncreaseButton(isHidden: false)
             }
@@ -131,25 +153,33 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
 
     }
     
-    func activityCellViewModel(for index: Int) -> ActivityCellViewModel {
-        var isCompleted = false
-        let activity = exercise.feelings[index]
-        var durationTitle = "\(activity.durationString) min"
-        var isCurrentActivity = false
-        if let currentAcitivityNumber = currentActivityNumber {
-            isCompleted = currentAcitivityNumber > index
-            if index == currentAcitivityNumber {
-                if let d = remainingDuration {
-                    durationTitle = stringDuration(from: d)
-                } else {
-                    durationTitle = stringDuration(from: currentTimeDuration!)
-                }
-                isCurrentActivity = true
-            }
-        }
-        let viewModel = ActivityCellViewModel(isCompleted: isCompleted, allowsEditing: state == .initial, title: activity.descriptionName, durationTitle: durationTitle, delegate: self, isCurrentActivity: isCurrentActivity)
+    func activityCellViewModel(for indexPath: IndexPath) -> ActivityCellViewModel {
         
-        return viewModel
+        if indexPath.section == 1 {
+            var durationTitle = "\(10) min"
+            let viewModel = ActivityCellViewModel(isCompleted: false, allowsEditing: state == .initial, title: "Rounds rest time", durationTitle: durationTitle, delegate: self, isCurrentActivity: false)
+            
+            return viewModel
+        } else {
+            var isCompleted = false
+            let activity = exercise.feelings[indexPath.row]
+            var durationTitle = "\(activity.durationString) min"
+            var isCurrentActivity = false
+            if let currentAcitivityNumber = currentActivityNumber {
+                isCompleted = currentAcitivityNumber > indexPath.row
+                if indexPath.row == currentAcitivityNumber {
+                    if let d = remainingDuration {
+                        durationTitle = stringDuration(from: d)
+                    } else {
+                        durationTitle = stringDuration(from: currentTimeDuration!)
+                    }
+                    isCurrentActivity = true
+                }
+            }
+            let viewModel = ActivityCellViewModel(isCompleted: isCompleted, allowsEditing: state == .initial, title: activity.descriptionName, durationTitle: durationTitle, delegate: self, isCurrentActivity: isCurrentActivity)
+            
+            return viewModel
+        }
     }
     
     func moveActivity(from index: Int, to destinationIndex: Int) {
@@ -192,6 +222,8 @@ extension MultipleExerciseViewModel: SingleActivityCellDelegate {
         if let index = exercise.feelings.index(where: {$0.descriptionName == viewModel.title}) {
             let activity = exercise.feelings[index]
             coordinationDelegate?.showDurationPicker(for: activity)
+        } else {
+            
         }
     }
 

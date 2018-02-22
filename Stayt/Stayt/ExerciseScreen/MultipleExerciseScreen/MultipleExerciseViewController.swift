@@ -119,17 +119,38 @@ extension MultipleExerciseViewController: MultipleExerciseViewModelDelegate {
     func updateRoundsTitleLabel(_ newValue: String) {
         roundsTitleLabel.text = newValue
     }
+    
+    func removeRestTimeRow() {
+        tableView.beginUpdates()
+        tableView.deleteRows(at: [IndexPath(row: 0, section: 1)], with: .automatic)
+        tableView.deleteSections([1], with: .automatic)
+        tableView.endUpdates()
+    }
+    
+    func showRestTimeRow() {
+        tableView.beginUpdates()
+        tableView.insertSections([1], with: .automatic)
+        tableView.endUpdates()
+    }
 }
 
 extension MultipleExerciseViewController: UITableViewDataSource {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return viewModel.numberOfSections
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.activitiesCount
+        if section == 0 {
+            return viewModel.activitiesCount
+        } else {
+            return 1
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SingleActivityCell") as! SingleActivityCell
-        cell.configure(with: viewModel.activityCellViewModel(for: indexPath.row))
+        cell.configure(with: viewModel.activityCellViewModel(for: indexPath))
         return cell
     }
     
@@ -143,6 +164,17 @@ extension MultipleExerciseViewController: UITableViewDataSource {
 }
 
 extension MultipleExerciseViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, targetIndexPathForMoveFromRowAt sourceIndexPath: IndexPath, toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath {
+        if sourceIndexPath.section != proposedDestinationIndexPath.section {
+            return sourceIndexPath
+        }
+        return proposedDestinationIndexPath
+    }
+    
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return indexPath.section == 0
+    }
     
     func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
         return false
