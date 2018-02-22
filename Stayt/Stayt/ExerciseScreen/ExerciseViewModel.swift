@@ -56,7 +56,7 @@ class ExerciseViewModel: NSObject, AVAudioPlayerDelegate {
             } else {
                 let soundPath = Bundle.main.path(forResource: "empty", ofType: "mp3")
                 let interval = CMTime(seconds: 1, preferredTimescale: 1)
-                try! AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+                try! AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, with: AVAudioSessionCategoryOptions.mixWithOthers)
                 try! AVAudioSession.sharedInstance().setActive(true)
                 player = AVPlayer(url: URL(fileURLWithPath: soundPath!))
                 player!.addPeriodicTimeObserver(forInterval: interval, queue: DispatchQueue.main, using: updateBlock)

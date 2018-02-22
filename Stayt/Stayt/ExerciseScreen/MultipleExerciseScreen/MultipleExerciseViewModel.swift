@@ -76,6 +76,7 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
     }
     
     fileprivate var remainingDuration: Int?
+    fileprivate var shouldShowHolder = true
     
     fileprivate var currentRound = 1
     fileprivate var maxRoundsCount = 10
@@ -112,12 +113,15 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
             if remainingTime == 0 {
                 strongSelf.playSound()
             }
-
             if remainingTime == -1 {
-                strongSelf.player?.pause()
                 if strongSelf.currentActivityNumber! < exercise.feelings.count - 1 {
-                    strongSelf.delegate?.showHolder(with: strongSelf, activity: exercise.feelings[strongSelf.currentActivityNumber! + 1])
+                    if strongSelf.shouldShowHolder {
+                        strongSelf.player?.pause()
+                        strongSelf.shouldShowHolder = false
+                        strongSelf.delegate?.showHolder(with: strongSelf, activity: exercise.feelings[strongSelf.currentActivityNumber! + 1])
+                    }
                 } else {
+                    strongSelf.player?.pause()
                     strongSelf.state = .done
                 }
             } else {
@@ -172,6 +176,7 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
 extension MultipleExerciseViewModel: HolderViewHandlerDelegate {
     
     func holderDidFinish() {
+        shouldShowHolder = true
         currentActivityNumber! += 1
         currentTimeDuration = exercise.feelings[currentActivityNumber!].duration
         delegate?.realodRows(at: [currentActivityNumber!, currentActivityNumber! - 1])
