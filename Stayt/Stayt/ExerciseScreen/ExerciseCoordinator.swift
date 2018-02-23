@@ -65,13 +65,13 @@ extension ExerciseCoodinator: ExerciseViewModelCoordinationDelegate {
         }
     }
     
-    func showDurationPicker(for activity: Feeling) {
+    func showDurationPicker(with title: String, currentDuration: Int?, allowedDurations: [Int]?, completion: @escaping (Int) -> Void) {
         let durationPicker = storyboard.instantiateViewController(withIdentifier: "DurationPickerViewController") as! DurationPickerViewController
-        durationPicker.feeling = activity
-        if let exerciseVC = exerciseVC as? SingleExerciseViewController {
-            durationPicker.delegate = exerciseVC.viewModel
-        } else if let exerciseVC = exerciseVC as? MultipleExerciseViewController {
-            durationPicker.delegate = exerciseVC.viewModel
+        durationPicker.labelTitle = title
+        durationPicker.currentDuration = currentDuration
+        durationPicker.completion = completion
+        if let d = allowedDurations {
+            durationPicker.durations = d
         }
         exerciseVC.present(durationPicker, animated: true, completion: nil)
     }

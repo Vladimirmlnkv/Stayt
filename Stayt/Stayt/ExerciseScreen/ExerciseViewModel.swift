@@ -13,7 +13,7 @@ import AVKit
 protocol ExerciseViewModelCoordinationDelegate: class {
     func showInfoScreen()
     func dismiss(shouldConfirm: Bool, completion: @escaping () -> Void)
-    func showDurationPicker(for activity: Feeling)
+    func showDurationPicker(with title: String, currentDuration: Int?, allowedDurations: [Int]?, completion: @escaping (Int) -> Void)
     func exerciseFinished()
 }
 
@@ -45,7 +45,6 @@ class ExerciseViewModel: NSObject, AVAudioPlayerDelegate {
     
     func playButtonAction() {
         if state == .initial || state == .pause {
-            UIApplication.shared.isIdleTimerDisabled = true
             if currentTimeDuration == nil {
                 currentActivityNumber = 0
                 currentTimeDuration = exercise.feelings.first!.duration
@@ -68,8 +67,8 @@ class ExerciseViewModel: NSObject, AVAudioPlayerDelegate {
         }
     }
     
-    deinit {
-        UIApplication.shared.isIdleTimerDisabled = false
+    func titleForActivityDuration(from activity: Feeling) -> String {
+        return "Select duration of \(activity.descriptionName.lowercased())"
     }
     
     func playSound() {

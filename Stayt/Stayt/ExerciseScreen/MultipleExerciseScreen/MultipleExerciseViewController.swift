@@ -28,7 +28,7 @@ class MultipleExerciseViewController: UIViewController {
         super.viewDidLoad()
         titleLabel.text = viewModel.title
         roundsCountLabel.text = "\(viewModel.roundsCount)"
-        decreaseRoundsButton.isHidden = true
+        decreaseRoundsButton.isEnabled = false
         configureTableView()
     }
     
@@ -76,13 +76,7 @@ extension MultipleExerciseViewController: MultipleExerciseViewModelDelegate {
     }
     
     func reloadTableView() {
-        if let indexPaths = tableView.indexPathsForVisibleRows {
-            tableView.beginUpdates()
-            tableView.reloadRows(at: indexPaths, with: .automatic)
-            tableView.endUpdates()
-        } else {
-            tableView.reloadData()
-        }
+        tableView.reloadData()
     }
     
     func realodRows(at indexes: [Int]) {
@@ -109,11 +103,11 @@ extension MultipleExerciseViewController: MultipleExerciseViewModelDelegate {
     }
     
     func setIncreaseButton(isHidden: Bool) {
-        increaseRoundsButton.isHidden = isHidden
+        increaseRoundsButton.isEnabled = !isHidden
     }
     
     func setDecreaseButton(isHidden: Bool) {
-        decreaseRoundsButton.isHidden = isHidden
+        decreaseRoundsButton.isEnabled = !isHidden
     }
     
     func updateRoundsTitleLabel(_ newValue: String) {
@@ -130,6 +124,12 @@ extension MultipleExerciseViewController: MultipleExerciseViewModelDelegate {
     func showRestTimeRow() {
         tableView.beginUpdates()
         tableView.insertSections([1], with: .automatic)
+        tableView.endUpdates()
+    }
+    
+    func reloadRestTime() {
+        tableView.beginUpdates()
+        tableView.reloadRows(at: [IndexPath(row: 0, section: 1)], with: .automatic)
         tableView.endUpdates()
     }
 }

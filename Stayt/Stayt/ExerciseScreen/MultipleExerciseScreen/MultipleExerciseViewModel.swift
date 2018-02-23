@@ -23,6 +23,7 @@ protocol MultipleExerciseViewModelDelegate: class {
     func updateRoundsTitleLabel(_ newValue: String)
     func removeRestTimeRow()
     func showRestTimeRow()
+    func reloadRestTime()
 }
 
 struct ActivityCellViewModel {
@@ -78,7 +79,8 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
     }
     
     var numberOfSections: Int {
-        if shouldShowRestTime {
+        let showRestTime = (state != .initial && shouldShowRestTime && roundsRestTime != 0) || (state == .initial && shouldShowRestTime)
+        if showRestTime  {
             return 2
         } else {
             return 1
@@ -88,6 +90,7 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
     fileprivate var remainingDuration: Int?
     fileprivate var shouldShowHolder = true
     
+    fileprivate var roundsRestTime = 60
     fileprivate var currentRound = 1
     fileprivate var maxRoundsCount = 10
     
@@ -156,7 +159,7 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
     func activityCellViewModel(for indexPath: IndexPath) -> ActivityCellViewModel {
         
         if indexPath.section == 1 {
-            var durationTitle = "\(10) min"
+            let durationTitle = "\(roundsRestTime / 60) min"
             let viewModel = ActivityCellViewModel(isCompleted: false, allowsEditing: state == .initial, title: "Rounds rest time", durationTitle: durationTitle, delegate: self, isCurrentActivity: false)
             
             return viewModel
@@ -221,21 +224,22 @@ extension MultipleExerciseViewModel: SingleActivityCellDelegate {
     func changeDuration(for viewModel: ActivityCellViewModel) {
         if let index = exercise.feelings.index(where: {$0.descriptionName == viewModel.title}) {
             let activity = exercise.feelings[index]
-            coordinationDelegate?.showDurationPicker(for: activity)
+            coordinationDelegate?.showDurationPicker(with: titleForActivityDuration(from: activity), currentDuration: activity.duration, allowedDurations: nil, completion: { duration in
+                activity.duration = duration
+                if let index = self.exercise.feelings.index(where: {$0.name == activity.name}) {
+                    self.delegate?.realodRows(at: [index])
+                }
+            })
         } else {
-            
+            var allowedDurations = [Int]()
+            for i in 0...5 {
+                allowedDurations.append(i * 60)
+            }
+            coordinationDelegate?.showDurationPicker(with: "Select duration for rest between sets", currentDuration: roundsRestTime, allowedDurations: allowedDurations, completion: { (duration) in
+                self.roundsRestTime = duration
+                self.delegate?.reloadRestTime()
+            })
         }
     }
 
-}
-
-extension MultipleExerciseViewModel: DurationPickerViewControllerDelegate {
-    
-    func didSelect(duration: Int, for feeling: Feeling) {
-        feeling.duration = duration
-        if let index = exercise.feelings.index(where: {$0.name == feeling.name}) {
-            delegate?.realodRows(at: [index])
-        }
-    }
-    
 }

@@ -65,13 +65,10 @@ class SingleExerciseViewModel: ExerciseViewModel, TimerDisplay {
     }
     
     func changeDuration() {
-        coordinationDelegate?.showDurationPicker(for: exercise.feelings.first!)
-    }
-}
-
-extension SingleExerciseViewModel: DurationPickerViewControllerDelegate {
-    func didSelect(duration: Int, for feeling: Feeling) {
-        feeling.duration = duration
-        delegate?.update(duration: currentDuration)
+        let activity = exercise.feelings.first!
+        coordinationDelegate?.showDurationPicker(with: titleForActivityDuration(from: activity), currentDuration: activity.duration, allowedDurations: nil, completion: { duration in
+            activity.duration = duration
+            self.delegate?.update(duration: self.currentDuration)
+        })
     }
 }

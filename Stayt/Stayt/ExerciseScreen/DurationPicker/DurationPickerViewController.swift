@@ -8,25 +8,25 @@
 
 import UIKit
 
-protocol DurationPickerViewControllerDelegate: class {
-    func didSelect(duration: Int, for feeling: Feeling)
-}
-
 class DurationPickerViewController: UIViewController {
 
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var tableView: UITableView!
     
     var durations = [Int]()
-    var delegate: DurationPickerViewControllerDelegate!
-    var feeling: Feeling!
+    
+    var labelTitle: String!
+    var completion: ((Int) -> Void)!
+    var currentDuration: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        titleLabel.text = "Select duration of \(feeling.descriptionName.lowercased())"
-        
-        for i in 1...10 {
-            durations.append(i * 60)
+//        titleLabel.text = "Select duration of \(feeling.descriptionName.lowercased())"
+        titleLabel.text = labelTitle
+        if durations.isEmpty {
+            for i in 1...10 {
+                durations.append(i * 60)
+            }
         }
         durations.append(1)
         tableView.register(UINib(nibName: "CenteredCell", bundle: nil), forCellReuseIdentifier: "CenteredCell")
@@ -45,7 +45,7 @@ extension DurationPickerViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        delegate.didSelect(duration: durations[indexPath.row], for: feeling)
+        completion(durations[indexPath.row])
         dismiss(animated: true, completion: nil)
     }
     
@@ -71,7 +71,7 @@ extension DurationPickerViewController: UITableViewDataSource {
         let duration = durations[indexPath.row] / 60
         let text = duration == 1 ? "minute" : "minutes"
         cell.label.text = "\(duration) \(text)"
-        if duration * 60 == feeling.duration {
+        if duration * 60 == currentDuration {
             cell.accessoryType = .checkmark
         } else {
             cell.accessoryType = .none
