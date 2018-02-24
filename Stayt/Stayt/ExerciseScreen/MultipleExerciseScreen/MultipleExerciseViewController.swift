@@ -23,6 +23,7 @@ class MultipleExerciseViewController: UIViewController {
     
     var viewModel: MultipleExerciseViewModel!
     fileprivate var holderHandler: HolderViewHandler!
+    fileprivate var restViewHandler: RestViewHandler!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,9 +88,13 @@ extension MultipleExerciseViewController: MultipleExerciseViewModelDelegate {
     }
     
     func showHolder(with delegate: HolderViewHandlerDelegate, activity: Feeling) {
-        //SHOW HOLDER JUST ONCE
         holderHandler = HolderViewHandler(superView: view, delegate: delegate, feeling: activity)
         holderHandler.start()
+    }
+    
+    func showRestView(with restTime: Int, delegate: RestViewHandlerDelegate) {
+        restViewHandler = RestViewHandler(superView: view, delegate: delegate, restTime: restTime)
+        restViewHandler.start()
     }
     
     func updateRoundsLabel(_ newValue: Int) {

@@ -32,7 +32,7 @@ class HolderViewHandler {
     
     func start() {
         holderView = HolderView(frame: superView.frame)
-        holderView!.messageLabel.text = "Get comfortable and preapare for \(feeling.descriptionName!)"
+        holderView!.messageLabel.text = "Get comfortable and prepapare for \(feeling.descriptionName!)"
         holderView!.updateTime(holdSeconds)
         holderView!.cancelButton.addTarget(self, action: #selector(cancelButtonAction), for: .touchUpInside)
         holderView!.spinner.startAnimating()
@@ -48,7 +48,9 @@ class HolderViewHandler {
             let remainingTime = strongSelf.holdSeconds - Int(passedTime)
             if remainingTime == 0 {
                 strongSelf.dismiss()
-                strongSelf.player?.removeTimeObserver(strongSelf.timeObserver)
+                if let observer = strongSelf.timeObserver {
+                    strongSelf.player?.removeTimeObserver(observer)
+                }
             } else {
                 strongSelf.holderView?.updateTime(remainingTime)
             }

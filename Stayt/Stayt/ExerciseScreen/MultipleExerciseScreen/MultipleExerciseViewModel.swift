@@ -16,6 +16,7 @@ protocol MultipleExerciseViewModelDelegate: class {
     func reloadTableView()
     func realodRows(at indexes: [Int])
     func showHolder(with delegate: HolderViewHandlerDelegate, activity: Feeling)
+    func showRestView(with restTime: Int, delegate: RestViewHandlerDelegate)
     func updateRoundsLabel(_ newValue: Int)
     func hideRoundsView()
     func setIncreaseButton(isHidden: Bool)
@@ -89,6 +90,7 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
     
     fileprivate var remainingDuration: Int?
     fileprivate var shouldShowHolder = true
+    fileprivate var shouldShowRestView = true
     
     fileprivate var roundsRestTime = 60
     fileprivate var currentRound = 1
@@ -146,8 +148,16 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
                         strongSelf.delegate?.showHolder(with: strongSelf, activity: exercise.feelings[strongSelf.currentActivityNumber! + 1])
                     }
                 } else {
-                    strongSelf.player?.pause()
-                    strongSelf.state = .done
+                    if strongSelf.currentRound < strongSelf.roundsCount {
+                        if strongSelf.shouldShowRestView {
+                            strongSelf.player?.pause()
+                            strongSelf.shouldShowRestView = false
+                            strongSelf.delegate?.showRestView(with: strongSelf.roundsRestTime, delegate: strongSelf)
+                        }
+                    } else {
+                        strongSelf.player?.pause()
+                        strongSelf.state = .done
+                    }
                 }
             } else {
                 strongSelf.delegate?.realodRows(at: [strongSelf.currentActivityNumber!])
@@ -217,6 +227,17 @@ extension MultipleExerciseViewModel: HolderViewHandlerDelegate {
         player?.play()
     }
     
+}
+
+extension MultipleExerciseViewModel: RestViewHandlerDelegate {
+    
+    func didResume() {
+        
+    }
+    
+    func didStop() {
+        
+    }
 }
 
 extension MultipleExerciseViewModel: SingleActivityCellDelegate {
