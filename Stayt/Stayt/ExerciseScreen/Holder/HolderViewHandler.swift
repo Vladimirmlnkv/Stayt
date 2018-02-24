@@ -46,7 +46,7 @@ class HolderViewHandler {
             guard let strongSelf = self else { return }
             let passedTime = Int64(time.value) / Int64(time.timescale)
             let remainingTime = strongSelf.holdSeconds - Int(passedTime)
-            if remainingTime == 0 {
+            if remainingTime == -1 {
                 strongSelf.dismiss()
                 if let observer = strongSelf.timeObserver {
                     strongSelf.player?.removeTimeObserver(observer)

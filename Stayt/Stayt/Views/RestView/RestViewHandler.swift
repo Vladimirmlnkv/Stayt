@@ -29,17 +29,21 @@ class RestViewHandler {
         self.restTime = restTime
     }
     
-    func dismiss() {
+    func dismiss(isStoped: Bool) {
         restView.removeFromSuperview()
-        delegate?.didResume()
+        if isStoped {
+            delegate?.didStop()
+        } else {
+            delegate?.didResume()
+        }
     }
     
     @objc func stop() {
-        delegate?.didStop()
+        dismiss(isStoped: true)
     }
     
     @objc func resume() {
-        delegate?.didResume()
+        dismiss(isStoped: false)
     }
     
     func start() {
@@ -59,7 +63,7 @@ class RestViewHandler {
             let passedTime = Int64(time.value) / Int64(time.timescale)
             let remainingTime = strongSelf.restTime - Int(passedTime)
             if remainingTime == 0 {
-                strongSelf.dismiss()
+                strongSelf.dismiss(isStoped: false)
                 if let observer = strongSelf.timeObserver {
                     strongSelf.player?.removeTimeObserver(observer)
                 }

@@ -93,7 +93,11 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
     fileprivate var shouldShowRestView = true
     
     fileprivate var roundsRestTime = 60
-    fileprivate var currentRound = 1
+    fileprivate var currentRound = 1 {
+        didSet {
+            delegate?.updateRoundsTitleLabel("Round \(currentRound)/\(roundsCount)")
+        }
+    }
     fileprivate var maxRoundsCount = 10
     
     fileprivate var shouldShowRestTime = false {
@@ -148,6 +152,8 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
                         strongSelf.delegate?.showHolder(with: strongSelf, activity: exercise.feelings[strongSelf.currentActivityNumber! + 1])
                     }
                 } else {
+                    strongSelf.currentActivityNumber = strongSelf.exercise.feelings.count
+                    strongSelf.delegate?.realodRows(at: [strongSelf.currentActivityNumber! - 1])
                     if strongSelf.currentRound < strongSelf.roundsCount {
                         if strongSelf.shouldShowRestView {
                             strongSelf.player?.pause()
@@ -232,7 +238,16 @@ extension MultipleExerciseViewModel: HolderViewHandlerDelegate {
 extension MultipleExerciseViewModel: RestViewHandlerDelegate {
     
     func didResume() {
-        
+        shouldShowRestView = true
+        currentActivityNumber = 0
+        currentRound += 1
+        if currentRound == roundsCount {
+            shouldShowRestTime = false
+        }
+        currentTimeDuration = exercise.feelings[currentActivityNumber!].duration
+        delegate?.reloadTableView()
+        player?.seek(to: kCMTimeZero)
+        player?.play()
     }
     
     func didStop() {
