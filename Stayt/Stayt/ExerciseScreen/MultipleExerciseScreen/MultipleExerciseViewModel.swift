@@ -276,9 +276,9 @@ extension MultipleExerciseViewModel: RestViewHandlerDelegate {
     }
     
     func didStop(completion: @escaping () -> Void) {
-        coordinationDelegate?.dismiss(shouldConfirm: true) {
+        coordinationDelegate?.endExecrise(with: currentRound, completion: {
             completion()
-        }
+        })
     }
 }
 

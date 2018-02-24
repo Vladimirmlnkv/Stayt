@@ -89,6 +89,16 @@ extension ExerciseCoodinator: ExerciseViewModelCoordinationDelegate {
         afterExerciseVC.delegate = self
         exerciseVC.present(afterExerciseVC, animated: true, completion: nil)
     }
+    
+    func endExecrise(with roundsCount: Int, completion: @escaping () -> Void) {
+        let alert = UIAlertController(title: "You've not completed all rounds", message: "Are you sure you want to stop exercise?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { (action) in
+            completion()
+            self.exerciseFinished(roundsCount: roundsCount)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        exerciseVC.present(alert, animated: true, completion: nil)
+    }
 }
 
 extension ExerciseCoodinator: AfterExerciseViewControllerDelegate {
