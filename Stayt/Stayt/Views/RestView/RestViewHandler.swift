@@ -11,7 +11,7 @@ import AVKit
 
 protocol RestViewHandlerDelegate: class {
     func didResume()
-    func didStop()
+    func didStop(completion: @escaping () -> Void)
 }
 
 class RestViewHandler {
@@ -30,16 +30,16 @@ class RestViewHandler {
     }
     
     func dismiss(isStoped: Bool) {
+        player.pause()
         restView.removeFromSuperview()
-        if isStoped {
-            delegate?.didStop()
-        } else {
-            delegate?.didResume()
-        }
+        delegate?.didResume()
     }
     
     @objc func stop() {
-        dismiss(isStoped: true)
+        delegate?.didStop {
+            self.player.pause()
+            self.restView.removeFromSuperview()
+        }
     }
     
     @objc func resume() {

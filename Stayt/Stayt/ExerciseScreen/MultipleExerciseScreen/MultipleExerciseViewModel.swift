@@ -269,8 +269,10 @@ extension MultipleExerciseViewModel: RestViewHandlerDelegate {
         player?.play()
     }
     
-    func didStop() {
-        
+    func didStop(completion: @escaping () -> Void) {
+        coordinationDelegate?.dismiss(shouldConfirm: true) {
+            completion()
+        }
     }
 }
 
