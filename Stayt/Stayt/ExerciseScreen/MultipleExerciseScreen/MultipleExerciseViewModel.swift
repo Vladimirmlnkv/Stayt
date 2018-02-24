@@ -251,7 +251,6 @@ extension MultipleExerciseViewModel: HolderViewHandlerDelegate {
             currentTimeDuration = exercise.feelings[currentActivityNumber!].duration
             delegate?.realodRows(at: [currentActivityNumber!, currentActivityNumber! - 1])
         }
-
         player?.seek(to: kCMTimeZero)
         player?.play()
     }

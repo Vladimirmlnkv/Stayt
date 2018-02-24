@@ -40,6 +40,12 @@ class ExerciseCoodinator {
         }
     }
     
+    fileprivate func dismiss() {
+        self.presentingVC.dismiss(animated: true, completion: {
+            self.exerciseVC = nil
+        })
+    }
+    
 }
 
 extension ExerciseCoodinator: ExerciseViewModelCoordinationDelegate {
@@ -56,12 +62,12 @@ extension ExerciseCoodinator: ExerciseViewModelCoordinationDelegate {
             let alert = UIAlertController(title: "You're in the middle of exersice", message: "Are you sure you want to stop it?", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { (action) in
                 completion()
-                self.presentingVC.dismiss(animated: true, completion: nil)
+                self.dismiss()
             }))
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
             exerciseVC.present(alert, animated: true, completion: nil)
         } else {
-            presentingVC.dismiss(animated: true, completion: nil)
+            self.dismiss()
         }
     }
     
@@ -91,7 +97,7 @@ extension ExerciseCoodinator: AfterExerciseViewControllerDelegate {
         
         if feeling == .notSelected {
             historyManager.addAfterFeeling(type: .notSelected, text: nil)
-            presentingVC.dismiss(animated: true, completion: nil)
+            dismiss()
         } else {
             if feeling == .custom {
                 let vc = storyboard.instantiateViewController(withIdentifier: "CustomFeelingViewController") as! CustomFeelingViewController
@@ -101,7 +107,7 @@ extension ExerciseCoodinator: AfterExerciseViewControllerDelegate {
                 afterExerciseVC.present(navVC, animated: true, completion: nil)
             } else {
                 historyManager.addAfterFeeling(type: feeling, text: nil)
-                presentingVC.dismiss(animated: true, completion: nil)
+                dismiss()
             }
         }
     }
@@ -112,7 +118,7 @@ extension ExerciseCoodinator: CustomFeelingViewControllerDelegate {
     
     func didEnter(feeling: String, for experience: Experience) {
         historyManager.addAfterFeeling(type: .custom, text: feeling)
-        presentingVC.dismiss(animated: true, completion: nil)
+        dismiss()
     }
 
 }
