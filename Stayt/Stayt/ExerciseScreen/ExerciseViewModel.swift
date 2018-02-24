@@ -14,7 +14,7 @@ protocol ExerciseViewModelCoordinationDelegate: class {
     func showInfoScreen()
     func dismiss(shouldConfirm: Bool, completion: @escaping () -> Void)
     func showDurationPicker(with title: String, currentDuration: Int?, allowedDurations: [Int]?, completion: @escaping (Int) -> Void)
-    func exerciseFinished()
+    func exerciseFinished(roundsCount: Int)
 }
 
 enum ExerciseViewModelState {
@@ -80,7 +80,7 @@ class ExerciseViewModel: NSObject, AVAudioPlayerDelegate {
     
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully: Bool) {
         if state == .done {
-            coordinationDelegate?.exerciseFinished()
+            coordinationDelegate?.exerciseFinished(roundsCount: 1)
         }
     }
     

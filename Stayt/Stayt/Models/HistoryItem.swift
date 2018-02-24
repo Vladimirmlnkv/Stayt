@@ -15,6 +15,7 @@ class Experience: Object {
     @objc dynamic var afterFeeling: AfterFeeling?
     @objc dynamic var duration: Int = 0
     @objc dynamic var date: Date!
+    @objc dynamic var roundsCount: Int = 1
     
     var dateString: String {
         let formatter = DateFormatter()
@@ -22,12 +23,13 @@ class Experience: Object {
         return formatter.string(from: date)
     }
     
-    convenience init(name: String, feeling: AfterFeeling?, duration: Int, date: Date) {
+    convenience init(name: String, feeling: AfterFeeling?, duration: Int, date: Date, roundsCount: Int) {
         self.init()
         self.exerciseName = name
         self.afterFeeling = feeling
         self.duration = duration
         self.date = date
+        self.roundsCount = roundsCount
     }
 }
 

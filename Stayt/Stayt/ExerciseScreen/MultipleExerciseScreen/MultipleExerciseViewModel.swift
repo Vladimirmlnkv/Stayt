@@ -229,6 +229,12 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
         }
     }
     
+    override func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully: Bool) {
+        if state == .done {
+            coordinationDelegate?.exerciseFinished(roundsCount: currentRound)
+        }
+    }
+    
     fileprivate func incrementCurrentRound() {
         currentRound += 1
         if currentRound == roundsCount && numberOfSections == 2 {

@@ -82,8 +82,8 @@ extension ExerciseCoodinator: ExerciseViewModelCoordinationDelegate {
         exerciseVC.present(durationPicker, animated: true, completion: nil)
     }
     
-    func exerciseFinished() {
-        historyManager.addExperience()
+    func exerciseFinished(roundsCount: Int) {
+        historyManager.addExperience(roundsCount: roundsCount)
         UserSessionHandler.standart.setRecentExercise(exercise)
         afterExerciseVC = storyboard.instantiateViewController(withIdentifier: "AfterExerciseViewController") as! AfterExerciseViewController
         afterExerciseVC.delegate = self

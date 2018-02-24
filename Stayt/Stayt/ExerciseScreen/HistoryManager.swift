@@ -19,7 +19,7 @@ class HistoryManager {
         self.exercise = exercise
     }
     
-    func addExperience() {
+    func addExperience(roundsCount: Int) {
         let date = Date(timeIntervalSinceNow: 0)
         let components = self.components(from: date)
         let item = realm.objects(HistoryItem.self).filter { i -> Bool in
@@ -27,7 +27,7 @@ class HistoryManager {
             return components.day == itemComponents.day && components.month == components.month
         }.first
         let duration = exercise.feelings.reduce(0, {$0 + $1.duration})
-        newExperience = Experience(name: exercise.descriptionName, feeling: nil, duration: duration, date: date)
+        newExperience = Experience(name: exercise.descriptionName, feeling: nil, duration: duration, date: date, roundsCount: roundsCount)
         if let existingItem = item {
             try! realm.write {
                 existingItem.experiences.insert(self.newExperience!, at: 0)

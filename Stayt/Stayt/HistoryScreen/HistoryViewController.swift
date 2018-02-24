@@ -98,6 +98,9 @@ extension HistoryViewController: UITableViewDataSource {
         let experience = historyItems[indexPath.section].experiences[indexPath.row]
         cell.exerciseLabel.text = experience.exerciseName
         cell.durationLabel.text = "\(experience.duration / 60) min"
+        if experience.roundsCount > 1 {
+            cell.exerciseLabel.text = cell.exerciseLabel.text! + " (\(experience.roundsCount) rounds)"
+        }
         cell.selectionStyle = .none
         if let afterFeeling = experience.afterFeeling {
             if afterFeeling.type == .notSelected {
