@@ -38,6 +38,9 @@ class CustomFeelingViewController: UIViewController {
         
         navigationItem.title = experience.dateString
         titleLabel.text = experience.exerciseName
+        if experience.roundsCount > 1 {
+            titleLabel.text = titleLabel.text! + " (\(experience.roundsCount) rounds)"
+        }
         if experience.afterFeeling == nil || experience.afterFeeling?.type == .notSelected {
             textView.becomeFirstResponder()
             charactersLabel.text = "\(textView.text.count)/\(maxNumberOfCharacters)"
