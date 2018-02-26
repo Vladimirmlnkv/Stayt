@@ -37,6 +37,11 @@ class HistoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.tintColor = Colors.mainActiveColor
+        searchController.delegate = self
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.searchBar.keyboardAppearance = .dark
+        searchController.searchBar.tintColor = UIColor.white
         historyItems = dataSource.getItems()
         tableView.dataSource = self
         tableView.delegate = self
@@ -53,11 +58,6 @@ class HistoryViewController: UIViewController {
                 if navigationItem.searchController == nil {
                     navigationItem.searchController = searchController
                     navigationItem.hidesSearchBarWhenScrolling = false
-                    searchController.delegate = self
-                    searchController.searchResultsUpdater = self
-                    searchController.dimsBackgroundDuringPresentation = false
-                    searchController.searchBar.keyboardAppearance = .dark
-                    searchController.searchBar.tintColor = UIColor.white
                     definesPresentationContext = true
                     UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes = [NSAttributedStringKey.foregroundColor.rawValue: UIColor.white]
                 }
