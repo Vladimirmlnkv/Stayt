@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class Feeling: Object {
+class Activity: Object {
     @objc dynamic var name: String!
     @objc dynamic var duration: Int = 0
     @objc dynamic var descriptionName: String!

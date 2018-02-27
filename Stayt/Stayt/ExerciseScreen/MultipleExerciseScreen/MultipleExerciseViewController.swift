@@ -87,8 +87,8 @@ extension MultipleExerciseViewController: MultipleExerciseViewModelDelegate {
         tableView.endUpdates()
     }
     
-    func showHolder(with delegate: HolderViewHandlerDelegate, activity: Feeling) {
-        holderHandler = HolderViewHandler(superView: view, delegate: delegate, feeling: activity)
+    func showHolder(with delegate: HolderViewHandlerDelegate, activity: Activity) {
+        holderHandler = HolderViewHandler(superView: view, delegate: delegate, activity: activity)
         holderHandler.start()
     }
     

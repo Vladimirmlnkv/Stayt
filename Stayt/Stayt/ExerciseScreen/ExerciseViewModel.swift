@@ -48,7 +48,7 @@ class ExerciseViewModel: NSObject, AVAudioPlayerDelegate {
         if state == .initial || state == .pause {
             if currentTimeDuration == nil {
                 currentActivityNumber = 0
-                currentTimeDuration = exercise.feelings.first!.duration
+                currentTimeDuration = exercise.activities.first!.duration
             }
             state = .play
             if let player = player {
@@ -68,7 +68,7 @@ class ExerciseViewModel: NSObject, AVAudioPlayerDelegate {
         }
     }
     
-    func titleForActivityDuration(from activity: Feeling) -> String {
+    func titleForActivityDuration(from activity: Activity) -> String {
         return "Select duration of \(activity.descriptionName.lowercased())"
     }
     

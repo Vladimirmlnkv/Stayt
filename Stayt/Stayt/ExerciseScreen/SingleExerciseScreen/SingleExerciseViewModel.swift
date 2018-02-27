@@ -38,7 +38,7 @@ class SingleExerciseViewModel: ExerciseViewModel, TimerDisplay {
     fileprivate weak var delegate: SingleExerciseViewModelDelegate?
 
     var currentDuration: String {
-        return "\(exercise.feelings.first!.durationString) min"
+        return "\(exercise.activities.first!.durationString) min"
     }
     
     init(exercise: Exercise, coordinationDelegate: ExerciseViewModelCoordinationDelegate, delegate: SingleExerciseViewModelDelegate) {
@@ -65,7 +65,7 @@ class SingleExerciseViewModel: ExerciseViewModel, TimerDisplay {
     }
     
     func changeDuration() {
-        let activity = exercise.feelings.first!
+        let activity = exercise.activities.first!
         coordinationDelegate?.showDurationPicker(with: titleForActivityDuration(from: activity), currentDuration: activity.duration, allowedDurations: nil, completion: { duration in
             activity.duration = duration
             self.delegate?.update(duration: self.currentDuration)

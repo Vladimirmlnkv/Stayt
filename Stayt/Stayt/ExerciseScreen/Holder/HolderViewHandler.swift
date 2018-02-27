@@ -19,20 +19,20 @@ class HolderViewHandler {
     fileprivate var holderView: HolderView?
     fileprivate var player: AVPlayer?
     fileprivate weak var delegate: HolderViewHandlerDelegate?
-    fileprivate let feeling: Feeling
+    fileprivate let activity: Activity
     
     fileprivate var holdSeconds = 5
     fileprivate var timeObserver: Any?
     
-    init(superView: UIView, delegate: HolderViewHandlerDelegate, feeling: Feeling) {
+    init(superView: UIView, delegate: HolderViewHandlerDelegate, activity: Activity) {
         self.superView = superView
         self.delegate = delegate
-        self.feeling = feeling
+        self.activity = activity
     }
     
     func start() {
         holderView = HolderView(frame: superView.frame)
-        holderView!.messageLabel.text = "Get comfortable and prepapare for \(feeling.descriptionName!)"
+        holderView!.messageLabel.text = "Get comfortable and prepapare for \(activity.descriptionName!)"
         holderView!.updateTime(holdSeconds)
         holderView!.cancelButton.addTarget(self, action: #selector(cancelButtonAction), for: .touchUpInside)
         holderView!.spinner.startAnimating()

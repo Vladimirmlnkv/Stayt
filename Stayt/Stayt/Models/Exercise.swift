@@ -13,14 +13,14 @@ class Exercise: Object {
     @objc dynamic var name: String!
     @objc dynamic var descriptionText: String!
     @objc dynamic var descriptionName: String!
-    let feelings = List<Feeling>()
+    let activities = List<Activity>()
     @objc dynamic var isGuided: Bool = false
     
-    convenience init (name: String, description: String, descriptionName: String, isGuided: Bool, feelings: [Feeling]) {
+    convenience init (name: String, description: String, descriptionName: String, isGuided: Bool, activities: [Activity]) {
         self.init()
         self.name = name
         self.descriptionText = description
-        self.feelings.append(objectsIn: feelings)
+        self.activities.append(objectsIn: activities)
         self.descriptionName = descriptionName
         self.isGuided = isGuided
     }

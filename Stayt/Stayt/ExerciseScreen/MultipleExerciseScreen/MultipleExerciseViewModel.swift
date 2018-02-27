@@ -15,7 +15,7 @@ protocol MultipleExerciseViewModelDelegate: class {
     func disableUI()
     func reloadTableView()
     func realodRows(at indexes: [Int])
-    func showHolder(with delegate: HolderViewHandlerDelegate, activity: Feeling)
+    func showHolder(with delegate: HolderViewHandlerDelegate, activity: Activity)
     func showRestView(with restTime: Int, delegate: RestViewHandlerDelegate)
     func updateRoundsLabel(_ newValue: Int)
     func hideRoundsView()
@@ -64,11 +64,11 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
     }
     
     var activitiesCount: Int {
-        return exercise.feelings.count
+        return exercise.activities.count
     }
     
-    var activities: [Feeling] {
-        return Array(exercise.feelings)
+    var activities: [Activity] {
+        return Array(exercise.activities)
     }
     
     var allowsReordering: Bool {
@@ -135,7 +135,7 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
             guard let strongSelf = self else { return }
             if strongSelf.currentActivityNumber == nil {
                 strongSelf.currentActivityNumber = 0
-                strongSelf.currentTimeDuration = exercise.feelings[strongSelf.currentActivityNumber!].duration
+                strongSelf.currentTimeDuration = exercise.activities[strongSelf.currentActivityNumber!].duration
             }
             
             let passedTime = Int64(time.value) / Int64(time.timescale)
@@ -145,21 +145,21 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
                 strongSelf.playSound()
             }
             if remainingTime == -1 {
-                if strongSelf.currentActivityNumber! < exercise.feelings.count - 1 {
+                if strongSelf.currentActivityNumber! < exercise.activities.count - 1 {
                     if strongSelf.shouldShowHolder {
                         strongSelf.player?.pause()
                         strongSelf.shouldShowHolder = false
-                        strongSelf.delegate?.showHolder(with: strongSelf, activity: exercise.feelings[strongSelf.currentActivityNumber! + 1])
+                        strongSelf.delegate?.showHolder(with: strongSelf, activity: exercise.activities[strongSelf.currentActivityNumber! + 1])
                     }
                 } else {
-                    strongSelf.currentActivityNumber = strongSelf.exercise.feelings.count
+                    strongSelf.currentActivityNumber = strongSelf.exercise.activities.count
                     strongSelf.delegate?.realodRows(at: [strongSelf.currentActivityNumber! - 1])
                     if strongSelf.currentRound < strongSelf.roundsCount {
                         if strongSelf.roundsRestTime == 0 {
                             if strongSelf.shouldShowHolder {
                                 strongSelf.player?.pause()
                                 strongSelf.shouldShowHolder = false
-                                strongSelf.delegate?.showHolder(with: strongSelf, activity: exercise.feelings[0])
+                                strongSelf.delegate?.showHolder(with: strongSelf, activity: exercise.activities[0])
                             }
                         } else {
                             if strongSelf.shouldShowRestView {
@@ -189,7 +189,7 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
             return viewModel
         } else {
             var isCompleted = false
-            let activity = exercise.feelings[indexPath.row]
+            let activity = exercise.activities[indexPath.row]
             var durationTitle = "\(activity.durationString) min"
             var isCurrentActivity = false
             if let currentAcitivityNumber = currentActivityNumber {
@@ -210,7 +210,7 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
     }
     
     func moveActivity(from index: Int, to destinationIndex: Int) {
-            self.exercise.feelings.move(from: index, to: destinationIndex)
+            self.exercise.activities.move(from: index, to: destinationIndex)
     }
     
     func isAcitivityCompleted(at index: Int) -> Bool {
@@ -247,14 +247,14 @@ extension MultipleExerciseViewModel: HolderViewHandlerDelegate {
     
     func holderDidFinish() {
         shouldShowHolder = true
-        if currentActivityNumber == exercise.feelings.count {
+        if currentActivityNumber == exercise.activities.count {
             currentActivityNumber = 0
             incrementCurrentRound()
-            currentTimeDuration = exercise.feelings[currentActivityNumber!].duration
+            currentTimeDuration = exercise.activities[currentActivityNumber!].duration
             delegate?.reloadTableView()
         } else {
             currentActivityNumber! += 1
-            currentTimeDuration = exercise.feelings[currentActivityNumber!].duration
+            currentTimeDuration = exercise.activities[currentActivityNumber!].duration
             delegate?.realodRows(at: [currentActivityNumber!, currentActivityNumber! - 1])
         }
         player?.seek(to: kCMTimeZero)
@@ -269,7 +269,7 @@ extension MultipleExerciseViewModel: RestViewHandlerDelegate {
         shouldShowRestView = true
         currentActivityNumber = 0
         incrementCurrentRound()
-        currentTimeDuration = exercise.feelings[currentActivityNumber!].duration
+        currentTimeDuration = exercise.activities[currentActivityNumber!].duration
         delegate?.reloadTableView()
         player?.seek(to: kCMTimeZero)
         player?.play()
@@ -285,11 +285,11 @@ extension MultipleExerciseViewModel: RestViewHandlerDelegate {
 extension MultipleExerciseViewModel: SingleActivityCellDelegate {
     
     func changeDuration(for viewModel: ActivityCellViewModel) {
-        if let index = exercise.feelings.index(where: {$0.descriptionName == viewModel.title}) {
-            let activity = exercise.feelings[index]
+        if let index = exercise.activities.index(where: {$0.descriptionName == viewModel.title}) {
+            let activity = exercise.activities[index]
             coordinationDelegate?.showDurationPicker(with: titleForActivityDuration(from: activity), currentDuration: activity.duration, allowedDurations: nil, completion: { duration in
                 activity.duration = duration
-                if let index = self.exercise.feelings.index(where: {$0.name == activity.name}) {
+                if let index = self.exercise.activities.index(where: {$0.name == activity.name}) {
                     self.delegate?.realodRows(at: [index])
                 }
             })

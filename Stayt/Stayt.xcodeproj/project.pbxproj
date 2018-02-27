@@ -62,7 +62,7 @@
 		7EDC5994200E6C4100C33DFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EDC5992200E6C4100C33DFC /* LaunchScreen.storyboard */; };
 		7EDC599C200E75A400C33DFC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDC599B200E75A400C33DFC /* MainViewController.swift */; };
 		7EDC599F200E765C00C33DFC /* FeelingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDC599E200E765C00C33DFC /* FeelingCell.swift */; };
-		7EDC59A2200E76E100C33DFC /* Feeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDC59A1200E76E100C33DFC /* Feeling.swift */; };
+		7EDC59A2200E76E100C33DFC /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDC59A1200E76E100C33DFC /* Activity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -123,7 +123,7 @@
 		7EDC5995200E6C4100C33DFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7EDC599B200E75A400C33DFC /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		7EDC599E200E765C00C33DFC /* FeelingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeelingCell.swift; sourceTree = "<group>"; };
-		7EDC59A1200E76E100C33DFC /* Feeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feeling.swift; sourceTree = "<group>"; };
+		7EDC59A1200E76E100C33DFC /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		8191440F744E825263B66C33 /* Pods-Stayt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stayt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Stayt/Pods-Stayt.debug.xcconfig"; sourceTree = "<group>"; };
 		EA5DB0E9332390829FAEE9FF /* Pods_Stayt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stayt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -381,7 +381,7 @@
 			isa = PBXGroup;
 			children = (
 				7E24217E202B2FC800C03126 /* HistoryItem.swift */,
-				7EDC59A1200E76E100C33DFC /* Feeling.swift */,
+				7EDC59A1200E76E100C33DFC /* Activity.swift */,
 				7E67E34720132BB1009E084F /* Exercise.swift */,
 				7EC1BBF220335593008DDB68 /* AfterFeeling.swift */,
 				7E85DE54203C4EF60052CFAA /* UserSession.swift */,
@@ -590,7 +590,7 @@
 				7E67E34820132BB1009E084F /* Exercise.swift in Sources */,
 				7E2C5A07203867D300018536 /* ExerciseViewModel.swift in Sources */,
 				7E2035E6201C8437005A6707 /* AfterExerciseCell.swift in Sources */,
-				7EDC59A2200E76E100C33DFC /* Feeling.swift in Sources */,
+				7EDC59A2200E76E100C33DFC /* Activity.swift in Sources */,
 				7E4BA0D52029F08200C7C18A /* HolderViewHandler.swift in Sources */,
 				7EDC599C200E75A400C33DFC /* MainViewController.swift in Sources */,
 				7E2894A22041327F005D2F22 /* RestViewHandler.swift in Sources */,
