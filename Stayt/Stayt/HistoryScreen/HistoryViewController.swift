@@ -24,7 +24,7 @@ class HistoryViewController: UIViewController {
         didSet {
             if historyItems.isEmpty {
                 let emptyView = EmptyView()
-                emptyView.messageLabel.text = "You haven't done any exercises yet. You'll see something here once you complete at least 1 exercise. Good luck!"
+                emptyView.messageLabel.text = "You haven't done any exercises yet. You'll see something here once you complete at least one exercise. Good luck!"
                 tableView.backgroundView = emptyView
             } else {
                 tableView.backgroundView = nil
