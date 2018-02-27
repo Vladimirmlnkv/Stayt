@@ -288,7 +288,9 @@ extension MultipleExerciseViewModel: SingleActivityCellDelegate {
         if let index = exercise.activities.index(where: {$0.descriptionName == viewModel.title}) {
             let activity = exercise.activities[index]
             coordinationDelegate?.showDurationPicker(with: titleForActivityDuration(from: activity), currentDuration: activity.duration, allowedDurations: nil, completion: { duration in
-                activity.duration = duration
+                try! mainRealm.write {
+                    activity.duration = duration
+                }
                 if let index = self.exercise.activities.index(where: {$0.name == activity.name}) {
                     self.delegate?.realodRows(at: [index])
                 }

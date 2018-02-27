@@ -67,7 +67,9 @@ class SingleExerciseViewModel: ExerciseViewModel, TimerDisplay {
     func changeDuration() {
         let activity = exercise.activities.first!
         coordinationDelegate?.showDurationPicker(with: titleForActivityDuration(from: activity), currentDuration: activity.duration, allowedDurations: nil, completion: { duration in
-            activity.duration = duration
+            try! mainRealm.write {
+                activity.duration = duration
+            }
             self.delegate?.update(duration: self.currentDuration)
         })
     }

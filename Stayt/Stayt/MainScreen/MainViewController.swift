@@ -13,19 +13,14 @@ class MainViewController: UIViewController {
     @IBOutlet var collectionView: UICollectionView!
     
     fileprivate var exercises: [Exercise]!
+    fileprivate let exerciseDataSource = ExerciseDataSource()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "question-mark"), style: .done, target: self, action: #selector(aboutAction))
+        let leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "small_question-mark"), style: .done, target: self, action: #selector(aboutAction))
         navigationItem.leftBarButtonItem = leftBarButtonItem
         navigationController?.navigationBar.tintColor = UIColor.white
-        let ex1 = Exercise(name: ExerciseDescription.meditationFeelingName, description: ExerciseDescription.meditationDescription, descriptionName: ExerciseDescription.meditationName, isGuided: false, activities: [Activity(name: "Relaxed", descriptionName: "meditation")])
-        let ex2 = Exercise(name: ExerciseDescription.breathWorkFeelingName, description: ExerciseDescription.breathWorkDescription, descriptionName: ExerciseDescription.breathWorkName, isGuided: false, activities: [Activity(name: "Energized", descriptionName: "breathwork")])
-        let ex3 = Exercise(name: ExerciseDescription.armHoldFeelingName, description: ExerciseDescription.armHoldDescription, descriptionName: ExerciseDescription.armHoldName, isGuided: false, activities: [Activity(name: "Motivated", descriptionName: "arm holding")])
-        let ex4 = Exercise(name: ExerciseDescription.blessingFeelingName, description: ExerciseDescription.blessingDescription, descriptionName: ExerciseDescription.blessingName, isGuided: false, activities: [Activity(name: "Relaxed", descriptionName: "Meditation"),
-                                                                                                                                                                                                               Activity(name: "Energized", descriptionName: "Breathwork"),
-                                                                                                                                                                                                               Activity(name: "Motivated", descriptionName: "Arm holding")])
-        exercises = [ex1, ex2, ex3, ex4]
+        exercises = exerciseDataSource.getExercises()
         
         collectionView.delegate = self
         collectionView.dataSource = self
