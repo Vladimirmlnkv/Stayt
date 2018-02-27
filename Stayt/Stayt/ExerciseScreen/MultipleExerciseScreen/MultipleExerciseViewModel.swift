@@ -98,7 +98,7 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
             delegate?.updateRoundsTitleLabel("Round \(currentRound)/\(roundsCount)")
         }
     }
-    fileprivate var maxRoundsCount = 10
+    fileprivate var maxRoundsCount = 12
     
     fileprivate var shouldShowRestTime = false {
         didSet {
