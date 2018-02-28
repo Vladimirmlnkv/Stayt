@@ -203,7 +203,7 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
                     isCurrentActivity = true
                 }
             }
-            let viewModel = ActivityCellViewModel(isCompleted: isCompleted, allowsEditing: state == .initial, title: activity.descriptionName, durationTitle: durationTitle, delegate: self, isCurrentActivity: isCurrentActivity)
+            let viewModel = ActivityCellViewModel(isCompleted: isCompleted, allowsEditing: state == .initial, title: activity.descriptionName!, durationTitle: durationTitle, delegate: self, isCurrentActivity: isCurrentActivity)
             
             return viewModel
         }
@@ -287,14 +287,18 @@ extension MultipleExerciseViewModel: SingleActivityCellDelegate {
     func changeDuration(for viewModel: ActivityCellViewModel) {
         if let index = exercise.activities.index(where: {$0.descriptionName == viewModel.title}) {
             let activity = exercise.activities[index]
-            coordinationDelegate?.showDurationPicker(with: titleForActivityDuration(from: activity), currentDuration: activity.duration, allowedDurations: nil, completion: { duration in
-                try! mainRealm.write {
-                    activity.duration = duration
-                }
-                if let index = self.exercise.activities.index(where: {$0.name == activity.name}) {
-                    self.delegate?.realodRows(at: [index])
-                }
-            })
+            if activity.stages.isEmpty {
+                coordinationDelegate?.showDurationPicker(with: titleForActivityDuration(from: activity), currentDuration: activity.duration, allowedDurations: nil, completion: { duration in
+                    try! mainRealm.write {
+                        activity.duration = duration
+                    }
+                    if let index = self.exercise.activities.index(where: {$0.name == activity.name}) {
+                        self.delegate?.realodRows(at: [index])
+                    }
+                })
+            } else {
+                coordinationDelegate?.showStagesScreen(for: activity)
+            }
         } else {
             var allowedDurations = [Int]()
             for i in 0...5 {
@@ -307,4 +311,11 @@ extension MultipleExerciseViewModel: SingleActivityCellDelegate {
         }
     }
 
+}
+
+extension MultipleExerciseViewModel: ExerciseCoodinatorDelegate {
+    
+    func durationsUpdated() {
+        delegate?.reloadTableView()
+    }
 }

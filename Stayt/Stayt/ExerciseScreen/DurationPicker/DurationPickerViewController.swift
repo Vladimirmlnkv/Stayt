@@ -21,7 +21,6 @@ class DurationPickerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        titleLabel.text = "Select duration of \(feeling.descriptionName.lowercased())"
         titleLabel.text = labelTitle
         if durations.isEmpty {
             for i in 1...10 {
@@ -68,10 +67,10 @@ extension DurationPickerViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CenteredCell") as! CenteredCell
-        let duration = durations[indexPath.row] / 60
-        let text = duration == 1 ? "minute" : "minutes"
-        cell.label.text = "\(duration) \(text)"
-        if duration * 60 == currentDuration {
+        let duration = durations[indexPath.row]
+        let text = duration / 60 == 1 ? "minute" : "minutes"
+        cell.label.text = "\(duration / 60) \(text)"
+        if duration == currentDuration {
             cell.accessoryType = .checkmark
         } else {
             cell.accessoryType = .none

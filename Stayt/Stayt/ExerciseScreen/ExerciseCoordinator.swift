@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol ExerciseCoodinatorDelegate {
+    func durationsUpdated()
+}
+
 class ExerciseCoodinator {
     
     fileprivate let exercise: Exercise
@@ -16,7 +20,8 @@ class ExerciseCoodinator {
     
     fileprivate var afterExerciseVC: AfterExerciseViewController!
     fileprivate let historyManager: HistoryManager!
-    
+    fileprivate var coordinators = [String: Any]()
+    fileprivate var delegate: ExerciseCoodinatorDelegate?
     fileprivate var exerciseVC: UIViewController!
     
     init(exercise: Exercise, presentingVC: UIViewController) {
@@ -29,6 +34,7 @@ class ExerciseCoodinator {
         if exercise.activities.count > 1 {
             let exerciseVC = storyboard.instantiateViewController(withIdentifier: "MultipleExerciseViewController") as! MultipleExerciseViewController
             exerciseVC.viewModel = MultipleExerciseViewModel(exercise: exercise, coordinationDelegate: self, delegate: exerciseVC)
+            delegate = exerciseVC.viewModel
             self.exerciseVC = exerciseVC
             presentingVC.present(exerciseVC, animated: true, completion: nil)
         } else {
@@ -82,6 +88,12 @@ extension ExerciseCoodinator: ExerciseViewModelCoordinationDelegate {
         exerciseVC.present(durationPicker, animated: true, completion: nil)
     }
     
+    func showStagesScreen(for activity: Activity) {
+        let stagesCoordinator = StagesCoordinator(activity: activity, presentingVC: exerciseVC, delegate: self)
+        coordinators[StagesCoordinator.coordinatorKey] = stagesCoordinator
+        stagesCoordinator.start()
+    }
+    
     func exerciseFinished(roundsCount: Int) {
         historyManager.addExperience(roundsCount: roundsCount)
         UserSessionHandler.standart.setRecentExercise(exercise)
@@ -131,4 +143,13 @@ extension ExerciseCoodinator: CustomFeelingViewControllerDelegate {
         dismiss()
     }
 
+}
+
+extension ExerciseCoodinator: StagesCoordinatorDelegate {
+    
+    func stagesCoordinatorDidFinish() {
+        coordinators[StagesCoordinator.coordinatorKey] = nil
+        delegate?.durationsUpdated()
+        exerciseVC.dismiss(animated: true, completion: nil)
+    }
 }

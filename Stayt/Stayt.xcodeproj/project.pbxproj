@@ -36,6 +36,8 @@
 		7E2C5A052038426000018536 /* MultipleExerciseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2C5A042038426000018536 /* MultipleExerciseViewModel.swift */; };
 		7E2C5A07203867D300018536 /* ExerciseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2C5A06203867D300018536 /* ExerciseViewModel.swift */; };
 		7E363FEA204586DB000F25A3 /* ExerciseDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E363FE9204586DB000F25A3 /* ExerciseDataSource.swift */; };
+		7E363FEC2045958C000F25A3 /* StagesDurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E363FEB2045958C000F25A3 /* StagesDurationViewController.swift */; };
+		7E363FEF20459807000F25A3 /* StageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E363FEE20459807000F25A3 /* StageCell.swift */; };
 		7E366B8E203DD9CF00A2297F /* empty.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7E366B8D203DD9CE00A2297F /* empty.mp3 */; };
 		7E3DAA29200F5A3D00E1B88C /* BorderedCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3DAA28200F5A3D00E1B88C /* BorderedCircleView.swift */; };
 		7E3DAA2C200F5D6700E1B88C /* DisclosureButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3DAA2B200F5D6700E1B88C /* DisclosureButton.swift */; };
@@ -64,6 +66,7 @@
 		7EDC599C200E75A400C33DFC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDC599B200E75A400C33DFC /* MainViewController.swift */; };
 		7EDC599F200E765C00C33DFC /* FeelingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDC599E200E765C00C33DFC /* FeelingCell.swift */; };
 		7EDC59A2200E76E100C33DFC /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDC59A1200E76E100C33DFC /* Activity.swift */; };
+		7EF969102046CF8900EF146D /* StagesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF9690F2046CF8900EF146D /* StagesCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,6 +99,8 @@
 		7E2C5A042038426000018536 /* MultipleExerciseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleExerciseViewModel.swift; sourceTree = "<group>"; };
 		7E2C5A06203867D300018536 /* ExerciseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewModel.swift; sourceTree = "<group>"; };
 		7E363FE9204586DB000F25A3 /* ExerciseDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDataSource.swift; sourceTree = "<group>"; };
+		7E363FEB2045958C000F25A3 /* StagesDurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StagesDurationViewController.swift; sourceTree = "<group>"; };
+		7E363FEE20459807000F25A3 /* StageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageCell.swift; sourceTree = "<group>"; };
 		7E366B8D203DD9CE00A2297F /* empty.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = empty.mp3; sourceTree = "<group>"; };
 		7E3DAA28200F5A3D00E1B88C /* BorderedCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedCircleView.swift; sourceTree = "<group>"; };
 		7E3DAA2B200F5D6700E1B88C /* DisclosureButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclosureButton.swift; sourceTree = "<group>"; };
@@ -126,6 +131,7 @@
 		7EDC599B200E75A400C33DFC /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		7EDC599E200E765C00C33DFC /* FeelingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeelingCell.swift; sourceTree = "<group>"; };
 		7EDC59A1200E76E100C33DFC /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		7EF9690F2046CF8900EF146D /* StagesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StagesCoordinator.swift; sourceTree = "<group>"; };
 		8191440F744E825263B66C33 /* Pods-Stayt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stayt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Stayt/Pods-Stayt.debug.xcconfig"; sourceTree = "<group>"; };
 		EA5DB0E9332390829FAEE9FF /* Pods_Stayt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stayt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -228,6 +234,16 @@
 			path = MultipleExerciseScreen;
 			sourceTree = "<group>";
 		};
+		7E363FED204597E0000F25A3 /* StagesPicker */ = {
+			isa = PBXGroup;
+			children = (
+				7E363FEB2045958C000F25A3 /* StagesDurationViewController.swift */,
+				7E363FEE20459807000F25A3 /* StageCell.swift */,
+				7EF9690F2046CF8900EF146D /* StagesCoordinator.swift */,
+			);
+			path = StagesPicker;
+			sourceTree = "<group>";
+		};
 		7E3DAA25200F579000E1B88C /* ExerciseScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -280,6 +296,7 @@
 			isa = PBXGroup;
 			children = (
 				7E4BA0CD20288DC000C7C18A /* DurationPickerViewController.swift */,
+				7E363FED204597E0000F25A3 /* StagesPicker */,
 			);
 			path = DurationPicker;
 			sourceTree = "<group>";
@@ -574,6 +591,7 @@
 				7E10A53A203B06850059AEF9 /* ExerciseSectionView.swift in Sources */,
 				7E3DAA29200F5A3D00E1B88C /* BorderedCircleView.swift in Sources */,
 				7E2C5A0120383EEA00018536 /* MultipleExerciseViewController.swift in Sources */,
+				7E363FEF20459807000F25A3 /* StageCell.swift in Sources */,
 				7E2C5A052038426000018536 /* MultipleExerciseViewModel.swift in Sources */,
 				7E10A53D203B06E20059AEF9 /* ExerciseSectionCollectionCell.swift in Sources */,
 				7E5AD2B12031FBEC00C08D77 /* ExerciseDescriptionViewController.swift in Sources */,
@@ -584,6 +602,7 @@
 				7E3DAA2E200F5F9900E1B88C /* DropDownMenuHandler.swift in Sources */,
 				7E4BA0D32029EAA500C7C18A /* HolderView.swift in Sources */,
 				7E24217D202B2FB000C03126 /* HistoryDataSource.swift in Sources */,
+				7E363FEC2045958C000F25A3 /* StagesDurationViewController.swift in Sources */,
 				7E2894A020412A93005D2F22 /* RestView.swift in Sources */,
 				7E10A543203B09400059AEF9 /* ExerciseSection.swift in Sources */,
 				7E2C59FE2037FD6E00018536 /* SingleExerciseViewModel.swift in Sources */,
@@ -596,6 +615,7 @@
 				7E2035E6201C8437005A6707 /* AfterExerciseCell.swift in Sources */,
 				7EDC59A2200E76E100C33DFC /* Activity.swift in Sources */,
 				7E4BA0D52029F08200C7C18A /* HolderViewHandler.swift in Sources */,
+				7EF969102046CF8900EF146D /* StagesCoordinator.swift in Sources */,
 				7EDC599C200E75A400C33DFC /* MainViewController.swift in Sources */,
 				7E2894A22041327F005D2F22 /* RestViewHandler.swift in Sources */,
 			);
