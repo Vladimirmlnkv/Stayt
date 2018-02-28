@@ -10,6 +10,7 @@ import Foundation
 
 protocol TimerDisplay {}
 extension TimerDisplay {
+    
     func stringDuration(from totalSeconds: Int) -> String {
         let hours = totalSeconds / 3600
         let minutes = (totalSeconds - hours * 3600) / 60
@@ -28,6 +29,28 @@ extension TimerDisplay {
             result += getStringNumber(from: seconds)
         }
         return result
+    }
+    
+    func passiveStringDuration(from totalSeconds: Int, forcedInSeconds: Bool=false) -> String {
+        
+        let hours = totalSeconds / 3600
+        let minutes = (totalSeconds - hours * 3600) / 60
+        let seconds = totalSeconds - hours * 3600 - minutes * 60
+        
+        if forcedInSeconds {
+            return "\(totalSeconds) sec"
+        }
+        
+        if minutes > 0 {
+            if seconds > 0 {
+                return "\(minutes):\(getStringNumber(from: seconds)) min"
+            } else {
+               return "\(minutes) min"
+            }
+        } else {
+            return "\(seconds) sec"
+        }
+        
     }
     
     private func getStringNumber(from number: Int) -> String {

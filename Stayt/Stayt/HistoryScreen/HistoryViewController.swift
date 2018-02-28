@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HistoryViewController: UIViewController {
+class HistoryViewController: UIViewController, TimerDisplay {
     
     @IBOutlet var tableView: UITableView!
     
@@ -162,7 +162,7 @@ extension HistoryViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryItemCell") as! HistoryItemCell
         let experience = items[indexPath.section].experiences[indexPath.row]
         cell.exerciseLabel.text = experience.exerciseName
-        cell.durationLabel.text = "\(experience.duration / 60) min"
+        cell.durationLabel.text = passiveStringDuration(from: experience.duration)
         cell.selectionStyle = .none
         if let afterFeeling = experience.afterFeeling {
             if afterFeeling.type == .notSelected {

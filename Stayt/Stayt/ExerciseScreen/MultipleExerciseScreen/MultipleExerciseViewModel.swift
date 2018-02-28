@@ -183,14 +183,14 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
     func activityCellViewModel(for indexPath: IndexPath) -> ActivityCellViewModel {
         
         if indexPath.section == 1 {
-            let durationTitle = "\(roundsRestTime / 60) min"
+            let durationTitle = passiveStringDuration(from: roundsRestTime)
             let viewModel = ActivityCellViewModel(isCompleted: false, allowsEditing: state == .initial, title: "Rounds rest time", durationTitle: durationTitle, delegate: self, isCurrentActivity: false)
             
             return viewModel
         } else {
             var isCompleted = false
             let activity = exercise.activities[indexPath.row]
-            var durationTitle = "\(activity.durationString) min"
+            var durationTitle = passiveStringDuration(from: activity.duration)
             var isCurrentActivity = false
             if let currentAcitivityNumber = currentActivityNumber {
                 isCompleted = currentAcitivityNumber > indexPath.row

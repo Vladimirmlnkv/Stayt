@@ -38,7 +38,7 @@ class SingleExerciseViewModel: ExerciseViewModel, TimerDisplay {
     fileprivate weak var delegate: SingleExerciseViewModelDelegate?
 
     var currentDuration: String {
-        return "\(exercise.activities.first!.durationString) min"
+        return passiveStringDuration(from: exercise.activities.first!.duration)
     }
     
     init(exercise: Exercise, coordinationDelegate: ExerciseViewModelCoordinationDelegate, delegate: SingleExerciseViewModelDelegate) {

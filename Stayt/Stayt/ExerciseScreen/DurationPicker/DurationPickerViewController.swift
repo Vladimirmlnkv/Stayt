@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DurationPickerViewController: UIViewController {
+class DurationPickerViewController: UIViewController, TimerDisplay {
 
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var tableView: UITableView!
@@ -68,8 +68,7 @@ extension DurationPickerViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CenteredCell") as! CenteredCell
         let duration = durations[indexPath.row]
-        let text = duration / 60 == 1 ? "minute" : "minutes"
-        cell.label.text = "\(duration / 60) \(text)"
+        cell.label.text = passiveStringDuration(from: duration)
         if duration == currentDuration {
             cell.accessoryType = .checkmark
         } else {

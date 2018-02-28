@@ -13,7 +13,7 @@ protocol StagesDurationViewControllerDelegate: class {
     func didPressDoneButton()
 }
 
-class StagesDurationViewController: UIViewController {
+class StagesDurationViewController: UIViewController, TimerDisplay {
     
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var tableView: UITableView!
@@ -55,7 +55,7 @@ extension StagesDurationViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "StageCell") as! StageCell
         let stage = stages[indexPath.row]
         cell.nameLabel.text = stage.name
-        cell.durationLabel.text = "\(stage.duration) sec"
+        cell.durationLabel.text = passiveStringDuration(from: stage.duration)
         cell.accessoryType = .disclosureIndicator
         
         return cell

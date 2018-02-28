@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DropDownMenuHandler: NSObject, UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate {
+class DropDownMenuHandler: NSObject, UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate, TimerDisplay {
     
     fileprivate let durations: [Int] = [120, 300, 600]
     
@@ -108,7 +108,7 @@ class DropDownMenuHandler: NSObject, UITableViewDataSource, UITableViewDelegate,
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let duration = durations[indexPath.row]
         let cell = UITableViewCell()
-        cell.textLabel?.text = "\(duration / 60) minutes"
+        cell.textLabel?.text = passiveStringDuration(from: duration)
         cell.tintColor = UIColor.black
         cell.textLabel?.textAlignment = .center
         
