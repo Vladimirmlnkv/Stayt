@@ -839,7 +839,7 @@
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Breathwork contains different stages. You can change duration for each stage" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zUe-Qy-Gdq">
-                                <rect key="frame" x="10.5" y="40" width="354.5" height="41"/>
+                                <rect key="frame" x="26.5" y="40" width="323" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -849,12 +849,12 @@
                         <constraints>
                             <constraint firstItem="zUe-Qy-Gdq" firstAttribute="centerX" secondItem="Cyh-ap-LCb" secondAttribute="centerX" id="9kK-oB-S6s"/>
                             <constraint firstItem="zUe-Qy-Gdq" firstAttribute="top" secondItem="WlG-8S-Ucy" secondAttribute="top" constant="20" id="CzM-bb-eg8"/>
-                            <constraint firstItem="WlG-8S-Ucy" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="zUe-Qy-Gdq" secondAttribute="trailing" constant="10" id="DJh-QA-C6C"/>
+                            <constraint firstItem="WlG-8S-Ucy" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="zUe-Qy-Gdq" secondAttribute="trailing" constant="15" id="DJh-QA-C6C"/>
                             <constraint firstItem="WlG-8S-Ucy" firstAttribute="bottom" secondItem="sEd-hA-ju6" secondAttribute="bottom" id="M7I-pi-Lta"/>
                             <constraint firstItem="sEd-hA-ju6" firstAttribute="leading" secondItem="WlG-8S-Ucy" secondAttribute="leading" id="b3B-jC-bF4"/>
                             <constraint firstItem="sEd-hA-ju6" firstAttribute="top" secondItem="zUe-Qy-Gdq" secondAttribute="bottom" constant="10" id="kFJ-Gf-qt6"/>
                             <constraint firstItem="WlG-8S-Ucy" firstAttribute="trailing" secondItem="sEd-hA-ju6" secondAttribute="trailing" id="pKk-CY-SBr"/>
-                            <constraint firstItem="zUe-Qy-Gdq" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="WlG-8S-Ucy" secondAttribute="leading" constant="10" id="pvp-Ob-JPo"/>
+                            <constraint firstItem="zUe-Qy-Gdq" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="WlG-8S-Ucy" secondAttribute="leading" constant="15" id="pvp-Ob-JPo"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WlG-8S-Ucy"/>
                     </view>

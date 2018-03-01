@@ -32,7 +32,6 @@ extension TimerDisplay {
     }
     
     func passiveStringDuration(from totalSeconds: Int, forcedInSeconds: Bool=false) -> String {
-        
         let hours = totalSeconds / 3600
         let minutes = (totalSeconds - hours * 3600) / 60
         let seconds = totalSeconds - hours * 3600 - minutes * 60
@@ -50,7 +49,6 @@ extension TimerDisplay {
         } else {
             return "\(seconds) sec"
         }
-        
     }
     
     private func getStringNumber(from number: Int) -> String {
