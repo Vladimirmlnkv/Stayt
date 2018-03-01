@@ -210,7 +210,9 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
     }
     
     func moveActivity(from index: Int, to destinationIndex: Int) {
+        try! mainRealm.write {
             self.exercise.activities.move(from: index, to: destinationIndex)
+        }
     }
     
     func isAcitivityCompleted(at index: Int) -> Bool {
