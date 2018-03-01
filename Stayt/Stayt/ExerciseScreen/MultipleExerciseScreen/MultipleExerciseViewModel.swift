@@ -79,7 +79,7 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
             return 1
         }
     }
-    
+
     fileprivate var remainingDuration: Int?
     fileprivate var shouldShowHolder = true
     fileprivate var shouldShowRestView = true
@@ -125,10 +125,6 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
         
         updateBlock = { [weak self] time -> Void in
             guard let strongSelf = self else { return }
-            if strongSelf.currentActivityNumber == nil {
-                strongSelf.currentActivityNumber = 0
-                strongSelf.currentTimeDuration = exercise.activities[strongSelf.currentActivityNumber!].duration
-            }
             
             let passedTime = Int64(time.value) / Int64(time.timescale)
             let remainingTime = strongSelf.currentTimeDuration! - Int(passedTime)
@@ -137,32 +133,44 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
                 strongSelf.playSound()
             }
             if remainingTime == -1 {
-                if strongSelf.currentActivityNumber! < exercise.activities.count - 1 {
-                    if strongSelf.shouldShowHolder {
-                        strongSelf.player?.pause()
-                        strongSelf.shouldShowHolder = false
-                        strongSelf.delegate?.showHolder(with: strongSelf, activity: exercise.activities[strongSelf.currentActivityNumber! + 1])
-                    }
+                if let currentStageNumber = strongSelf.currentStage,
+                        strongSelf.currentActivityNumber! < exercise.activities.count - 1,
+                        currentStageNumber < exercise.activities[strongSelf.currentActivityNumber!].stages.count - 1
+                {
+                    strongSelf.currentStage! += 1
+                    strongSelf.currentTimeDuration = exercise.activities[strongSelf.currentActivityNumber!].stages[strongSelf.currentStage!].duration
+                    strongSelf.player?.pause()
+                    strongSelf.player?.seek(to: kCMTimeZero)
+                    strongSelf.player?.play()
                 } else {
-                    strongSelf.currentActivityNumber = strongSelf.exercise.activities.count
-                    strongSelf.delegate?.realodRows(at: [strongSelf.currentActivityNumber! - 1])
-                    if strongSelf.currentRound < strongSelf.roundsCount {
-                        if strongSelf.roundsRestTime == 0 {
-                            if strongSelf.shouldShowHolder {
-                                strongSelf.player?.pause()
-                                strongSelf.shouldShowHolder = false
-                                strongSelf.delegate?.showHolder(with: strongSelf, activity: exercise.activities[0])
-                            }
-                        } else {
-                            if strongSelf.shouldShowRestView {
-                                strongSelf.player?.pause()
-                                strongSelf.shouldShowRestView = false
-                                strongSelf.delegate?.showRestView(with: strongSelf.roundsRestTime, delegate: strongSelf)
-                            }
+                    strongSelf.currentStage = nil
+                    if strongSelf.currentActivityNumber! < exercise.activities.count - 1 {
+                        if strongSelf.shouldShowHolder {
+                            strongSelf.player?.pause()
+                            strongSelf.shouldShowHolder = false
+                            strongSelf.delegate?.showHolder(with: strongSelf, activity: exercise.activities[strongSelf.currentActivityNumber! + 1])
                         }
                     } else {
-                        strongSelf.player?.pause()
-                        strongSelf.state = .done
+                        strongSelf.currentActivityNumber = strongSelf.exercise.activities.count
+                        strongSelf.delegate?.realodRows(at: [strongSelf.currentActivityNumber! - 1])
+                        if strongSelf.currentRound < strongSelf.roundsCount {
+                            if strongSelf.roundsRestTime == 0 {
+                                if strongSelf.shouldShowHolder {
+                                    strongSelf.player?.pause()
+                                    strongSelf.shouldShowHolder = false
+                                    strongSelf.delegate?.showHolder(with: strongSelf, activity: exercise.activities[0])
+                                }
+                            } else {
+                                if strongSelf.shouldShowRestView {
+                                    strongSelf.player?.pause()
+                                    strongSelf.shouldShowRestView = false
+                                    strongSelf.delegate?.showRestView(with: strongSelf.roundsRestTime, delegate: strongSelf)
+                                }
+                            }
+                        } else {
+                            strongSelf.player?.pause()
+                            strongSelf.state = .done
+                        }
                     }
                 }
             } else {
@@ -184,6 +192,7 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
             let activity = exercise.activities[indexPath.row]
             var durationTitle = passiveStringDuration(from: activity.duration)
             var isCurrentActivity = false
+            var title = activity.descriptionName!
             if let currentAcitivityNumber = currentActivityNumber {
                 isCompleted = currentAcitivityNumber > indexPath.row
                 if indexPath.row == currentAcitivityNumber {
@@ -193,9 +202,13 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
                         durationTitle = stringDuration(from: currentTimeDuration!)
                     }
                     isCurrentActivity = true
+                    if let stage = currentStage, !exercise.activities[currentAcitivityNumber].stages.isEmpty {
+                        let stageName = exercise.activities[currentAcitivityNumber].stages[stage].name!
+                        title = stageName + " \(stage+1)/\(exercise.activities[currentAcitivityNumber].stages.count)"
+                    }
                 }
             }
-            let viewModel = ActivityCellViewModel(isCompleted: isCompleted, allowsEditing: state == .initial, title: activity.descriptionName!, durationTitle: durationTitle, delegate: self, isCurrentActivity: isCurrentActivity)
+            let viewModel = ActivityCellViewModel(isCompleted: isCompleted, allowsEditing: state == .initial, title: title, durationTitle: durationTitle, delegate: self, isCurrentActivity: isCurrentActivity)
             
             return viewModel
         }
@@ -241,14 +254,23 @@ extension MultipleExerciseViewModel: HolderViewHandlerDelegate {
             currentActivityNumber = 0
             incrementCurrentRound()
             currentTimeDuration = exercise.activities[currentActivityNumber!].duration
+            checkStages()
             delegate?.reloadTableView()
         } else {
             currentActivityNumber! += 1
             currentTimeDuration = exercise.activities[currentActivityNumber!].duration
+            checkStages()
             delegate?.realodRows(at: [currentActivityNumber!, currentActivityNumber! - 1])
         }
         player?.seek(to: kCMTimeZero)
         player?.play()
+    }
+    
+    fileprivate func checkStages() {
+        if !exercise.activities[currentActivityNumber!].stages.isEmpty {
+            currentStage = 0
+            currentTimeDuration = exercise.activities[currentActivityNumber!].stages.first!.duration
+        }
     }
     
 }

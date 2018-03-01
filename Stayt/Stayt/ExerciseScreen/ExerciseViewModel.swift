@@ -32,6 +32,7 @@ class ExerciseViewModel: NSObject, AVAudioPlayerDelegate {
     let exercise: Exercise
     var coordinationDelegate: ExerciseViewModelCoordinationDelegate?
     var currentActivityNumber: Int?
+    var currentStage: Int?
     
     var title: String {
         return exercise.descriptionName
@@ -49,7 +50,12 @@ class ExerciseViewModel: NSObject, AVAudioPlayerDelegate {
         if state == .initial || state == .pause {
             if currentTimeDuration == nil {
                 currentActivityNumber = 0
-                currentTimeDuration = exercise.activities.first!.duration
+                if !exercise.activities.first!.stages.isEmpty {
+                    currentStage = 0
+                    currentTimeDuration = exercise.activities.first!.stages.first!.duration
+                } else {
+                    currentTimeDuration = exercise.activities.first!.duration
+                }
             }
             state = .play
             if let player = player {
