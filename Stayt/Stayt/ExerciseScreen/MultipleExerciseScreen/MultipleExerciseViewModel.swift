@@ -63,6 +63,10 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
         }
     }
     
+    var allowsReordering: Bool {
+        return exercise.activities.count > 1
+    }
+    
     var activitiesCount: Int {
         return exercise.activities.count
     }
@@ -134,7 +138,7 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
             }
             if remainingTime == -1 {
                 if let currentStageNumber = strongSelf.currentStage,
-                        strongSelf.currentActivityNumber! < exercise.activities.count - 1,
+                        strongSelf.currentActivityNumber! <= exercise.activities.count - 1,
                         currentStageNumber < exercise.activities[strongSelf.currentActivityNumber!].stages.count - 1
                 {
                     strongSelf.currentStage! += 1

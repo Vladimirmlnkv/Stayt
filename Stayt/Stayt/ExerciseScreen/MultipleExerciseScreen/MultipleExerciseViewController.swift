@@ -38,7 +38,7 @@ class MultipleExerciseViewController: UIViewController {
         tableView.delegate = self
         tableView.bounces = false
         tableView.tableFooterView = UIView()
-        tableView.setEditing(true, animated: false)
+        tableView.setEditing(viewModel.allowsReordering, animated: false)
     }
 
     @IBAction func crossButtonAction(_ sender: Any) {
