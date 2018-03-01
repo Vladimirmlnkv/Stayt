@@ -71,14 +71,6 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
         return Array(exercise.activities)
     }
     
-    var allowsReordering: Bool {
-        return state == .initial
-    }
-    
-    var allowsEditingDuration: Bool {
-        return state == .initial
-    }
-    
     var numberOfSections: Int {
         let showRestTime = (state != .initial && shouldShowRestTime && roundsRestTime != 0) || (state == .initial && shouldShowRestTime)
         if showRestTime  {
@@ -213,10 +205,6 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
         try! mainRealm.write {
             self.exercise.activities.move(from: index, to: destinationIndex)
         }
-    }
-    
-    func isAcitivityCompleted(at index: Int) -> Bool {
-        return false
     }
     
     func increaseRounds() {
