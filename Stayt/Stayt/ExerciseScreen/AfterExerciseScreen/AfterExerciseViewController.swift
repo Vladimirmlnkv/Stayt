@@ -54,12 +54,12 @@ extension AfterExerciseViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
-        cell!.contentView.backgroundColor = Colors.highlightedCellColor
+        cell!.backgroundColor = Colors.highlightedCellColor
     }
     
     func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
         let cell  = tableView.cellForRow(at: indexPath)
-        cell!.contentView.backgroundColor = UIColor.clear
+        cell!.backgroundColor = UIColor.clear
     }
     
 }
