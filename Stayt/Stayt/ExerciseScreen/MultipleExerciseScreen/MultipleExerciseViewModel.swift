@@ -88,7 +88,7 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
     fileprivate var shouldShowHolder = true
     fileprivate var shouldShowRestView = true
     
-    fileprivate var roundsRestTime = 60
+    fileprivate var roundsRestTime = 0
     fileprivate var currentRound = 1 {
         didSet {
             delegate?.updateRoundsTitleLabel("Round \(currentRound)/\(roundsCount)")
@@ -286,6 +286,7 @@ extension MultipleExerciseViewModel: RestViewHandlerDelegate {
         currentActivityNumber = 0
         incrementCurrentRound()
         currentTimeDuration = exercise.activities[currentActivityNumber!].duration
+        checkStages()
         delegate?.reloadTableView()
         player?.seek(to: kCMTimeZero)
         player?.play()
