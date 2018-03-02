@@ -23,23 +23,25 @@ class ExerciseCoodinator {
     fileprivate var coordinators = [String: Any]()
     fileprivate var delegate: ExerciseCoodinatorDelegate?
     fileprivate var exerciseVC: UIViewController!
+    fileprivate let exercisePack: ExercisePack?
     
-    init(exercise: Exercise, presentingVC: UIViewController) {
+    init(exercise: Exercise, presentingVC: UIViewController, exercisePack: ExercisePack?=nil) {
         self.exercise = exercise
         self.presentingVC = presentingVC
         self.historyManager = HistoryManager(exercise: exercise)
+        self.exercisePack = exercisePack
     }
     
     func start() {
         if exercise.activities.count > 1 || !exercise.activities.first!.stages.isEmpty {
             let exerciseVC = storyboard.instantiateViewController(withIdentifier: "MultipleExerciseViewController") as! MultipleExerciseViewController
-            exerciseVC.viewModel = MultipleExerciseViewModel(exercise: exercise, coordinationDelegate: self, delegate: exerciseVC)
+            exerciseVC.viewModel = MultipleExerciseViewModel(exercise: exercise, coordinationDelegate: self, delegate: exerciseVC, exercisePack: exercisePack)
             delegate = exerciseVC.viewModel
             self.exerciseVC = exerciseVC
             presentingVC.present(exerciseVC, animated: true, completion: nil)
         } else {
             let exerciseVC = storyboard.instantiateViewController(withIdentifier: "SingleExerciseViewController") as! SingleExerciseViewController
-            let exerciseViewModel = SingleExerciseViewModel(exercise: exercise, coordinationDelegate: self, delegate: exerciseVC)
+            let exerciseViewModel = SingleExerciseViewModel(exercise: exercise, coordinationDelegate: self, delegate: exerciseVC, exercisePack: exercisePack)
             exerciseVC.viewModel = exerciseViewModel
             self.exerciseVC = exerciseVC
             presentingVC.present(exerciseVC, animated: true, completion: nil)

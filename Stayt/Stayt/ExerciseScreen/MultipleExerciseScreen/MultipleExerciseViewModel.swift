@@ -123,8 +123,8 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
         }
     }
     
-    init(exercise: Exercise, coordinationDelegate: ExerciseViewModelCoordinationDelegate, delegate: MultipleExerciseViewModelDelegate) {
-        super.init(exercise: exercise, coordinationDelegate: coordinationDelegate)
+    init(exercise: Exercise, coordinationDelegate: ExerciseViewModelCoordinationDelegate, delegate: MultipleExerciseViewModelDelegate, exercisePack: ExercisePack?) {
+        super.init(exercise: exercise, coordinationDelegate: coordinationDelegate, exercisePack: exercisePack)
         self.delegate = delegate
         
         updateBlock = { [weak self] time -> Void in
@@ -238,6 +238,7 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
     
     override func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully: Bool) {
         if state == .done {
+            incrementCurrentExerciseInPack()
             coordinationDelegate?.exerciseFinished(roundsCount: currentRound)
         }
     }

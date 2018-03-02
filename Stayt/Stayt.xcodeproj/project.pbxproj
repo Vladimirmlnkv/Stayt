@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		39F373DC45736EB5C1570D0A /* Pods_Stayt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA5DB0E9332390829FAEE9FF /* Pods_Stayt.framework */; };
+		7E05A5F620498CB1002F5648 /* CurrentPackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E05A5F520498CB1002F5648 /* CurrentPackViewController.swift */; };
+		7E05A5F8204990F0002F5648 /* ExercisePack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E05A5F7204990F0002F5648 /* ExercisePack.swift */; };
 		7E10A533203AC6FA0059AEF9 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E10A532203AC6FA0059AEF9 /* Colors.swift */; };
 		7E10A535203B02910059AEF9 /* ExerciseSectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E10A534203B02910059AEF9 /* ExerciseSectionView.xib */; };
 		7E10A537203B02E10059AEF9 /* ExerciseSectionCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E10A536203B02E10059AEF9 /* ExerciseSectionCollectionCell.xib */; };
@@ -71,6 +73,8 @@
 
 /* Begin PBXFileReference section */
 		229C7D958619E0AD4C165330 /* Pods-Stayt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stayt.release.xcconfig"; path = "Pods/Target Support Files/Pods-Stayt/Pods-Stayt.release.xcconfig"; sourceTree = "<group>"; };
+		7E05A5F520498CB1002F5648 /* CurrentPackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentPackViewController.swift; sourceTree = "<group>"; };
+		7E05A5F7204990F0002F5648 /* ExercisePack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisePack.swift; sourceTree = "<group>"; };
 		7E10A532203AC6FA0059AEF9 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		7E10A534203B02910059AEF9 /* ExerciseSectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExerciseSectionView.xib; sourceTree = "<group>"; };
 		7E10A536203B02E10059AEF9 /* ExerciseSectionCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExerciseSectionCollectionCell.xib; sourceTree = "<group>"; };
@@ -148,6 +152,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7E05A5F420498BFF002F5648 /* CurrentPackScreen */ = {
+			isa = PBXGroup;
+			children = (
+				7E05A5F520498CB1002F5648 /* CurrentPackViewController.swift */,
+			);
+			path = CurrentPackScreen;
+			sourceTree = "<group>";
+		};
 		7E10A538203B06760059AEF9 /* ExerciseSection */ = {
 			isa = PBXGroup;
 			children = (
@@ -376,6 +388,7 @@
 				7E3DAA25200F579000E1B88C /* ExerciseScreen */,
 				7EDC59A0200E76D000C33DFC /* Models */,
 				7EDC599D200E764100C33DFC /* MainScreen */,
+				7E05A5F420498BFF002F5648 /* CurrentPackScreen */,
 				7EDC5990200E6C4100C33DFC /* Assets.xcassets */,
 				7EDC5989200E6C4100C33DFC /* AppDelegate.swift */,
 				7EDC5992200E6C4100C33DFC /* LaunchScreen.storyboard */,
@@ -405,6 +418,7 @@
 				7E67E34720132BB1009E084F /* Exercise.swift */,
 				7EC1BBF220335593008DDB68 /* AfterFeeling.swift */,
 				7E85DE54203C4EF60052CFAA /* UserSession.swift */,
+				7E05A5F7204990F0002F5648 /* ExercisePack.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -586,6 +600,7 @@
 				7E10A545203B0A5C0059AEF9 /* BaseViewController.swift in Sources */,
 				7E85DE5C203C80680052CFAA /* CopyLabel.swift in Sources */,
 				7E242176202B298800C03126 /* HistoryViewController.swift in Sources */,
+				7E05A5F620498CB1002F5648 /* CurrentPackViewController.swift in Sources */,
 				7EDC599F200E765C00C33DFC /* FeelingCell.swift in Sources */,
 				7EC1BBF320335593008DDB68 /* AfterFeeling.swift in Sources */,
 				7E10A53A203B06850059AEF9 /* ExerciseSectionView.swift in Sources */,
@@ -607,6 +622,7 @@
 				7E10A543203B09400059AEF9 /* ExerciseSection.swift in Sources */,
 				7E2C59FE2037FD6E00018536 /* SingleExerciseViewModel.swift in Sources */,
 				7E2035E8201C8598005A6707 /* ExerciseCoordinator.swift in Sources */,
+				7E05A5F8204990F0002F5648 /* ExercisePack.swift in Sources */,
 				7EDC598A200E6C4100C33DFC /* AppDelegate.swift in Sources */,
 				7E24217F202B2FC800C03126 /* HistoryItem.swift in Sources */,
 				7E85DE5A203C7C490052CFAA /* AboutViewController.swift in Sources */,

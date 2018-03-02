@@ -41,8 +41,8 @@ class SingleExerciseViewModel: ExerciseViewModel, TimerDisplay {
         return passiveStringDuration(from: exercise.activities.first!.duration)
     }
     
-    init(exercise: Exercise, coordinationDelegate: ExerciseViewModelCoordinationDelegate, delegate: SingleExerciseViewModelDelegate) {
-        super.init(exercise: exercise, coordinationDelegate: coordinationDelegate)
+    init(exercise: Exercise, coordinationDelegate: ExerciseViewModelCoordinationDelegate, delegate: SingleExerciseViewModelDelegate, exercisePack: ExercisePack?) {
+        super.init(exercise: exercise, coordinationDelegate: coordinationDelegate, exercisePack: exercisePack)
         self.delegate = delegate
         
         updateBlock = { [weak self] time -> Void in

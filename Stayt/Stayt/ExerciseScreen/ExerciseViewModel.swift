@@ -33,6 +33,7 @@ class ExerciseViewModel: NSObject, AVAudioPlayerDelegate {
     var coordinationDelegate: ExerciseViewModelCoordinationDelegate?
     var currentActivityNumber: Int?
     var currentStage: Int?
+    let exercisePack: ExercisePack?
     
     var title: String {
         return exercise.descriptionName
@@ -41,9 +42,10 @@ class ExerciseViewModel: NSObject, AVAudioPlayerDelegate {
     //Override
     var updateBlock: ((CMTime) -> Void)!
     
-    init(exercise: Exercise, coordinationDelegate: ExerciseViewModelCoordinationDelegate) {
+    init(exercise: Exercise, coordinationDelegate: ExerciseViewModelCoordinationDelegate, exercisePack: ExercisePack?) {
         self.exercise = exercise
         self.coordinationDelegate = coordinationDelegate
+        self.exercisePack = exercisePack
     }
     
     func playButtonAction() {
@@ -88,6 +90,7 @@ class ExerciseViewModel: NSObject, AVAudioPlayerDelegate {
     
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully: Bool) {
         if state == .done {
+            incrementCurrentExerciseInPack()
             coordinationDelegate?.exerciseFinished(roundsCount: 1)
         }
     }
@@ -100,5 +103,15 @@ class ExerciseViewModel: NSObject, AVAudioPlayerDelegate {
     
     func showInfo() {
         coordinationDelegate?.showInfoScreen()
+    }
+    
+    func incrementCurrentExerciseInPack() {
+        if exercisePack != nil {
+            try! mainRealm.write {
+                if exercisePack!.currentExerciseNumber < exercisePack!.exercises.count - 1 {
+                    exercisePack!.currentExerciseNumber += 1
+                }
+            }
+        }
     }
 }

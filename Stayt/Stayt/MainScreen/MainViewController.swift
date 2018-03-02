@@ -20,10 +20,17 @@ class MainViewController: UIViewController {
         let leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "small_question-mark"), style: .done, target: self, action: #selector(aboutAction))
         navigationItem.leftBarButtonItem = leftBarButtonItem
         navigationController?.navigationBar.tintColor = UIColor.white
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "CP", style: .done, target: self, action: #selector(currentPackScreenAction))
         exercises = exerciseDataSource.getExercises()
         
         collectionView.delegate = self
         collectionView.dataSource = self
+    }
+    
+    @objc func currentPackScreenAction() {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "CurrentPackViewController") as! CurrentPackViewController
+        vc.exercisePack = exerciseDataSource.getBeginnerPack()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func aboutAction() {
