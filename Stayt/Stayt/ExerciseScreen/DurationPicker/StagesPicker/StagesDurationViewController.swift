@@ -32,7 +32,6 @@ class StagesDurationViewController: UIViewController, TimerDisplay {
         
         navigationController?.navigationBar.tintColor = Colors.mainActiveColor
         navigationController?.navigationBar.barTintColor = UIColor.black
-        navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonAction))

@@ -43,6 +43,7 @@ class HistoryViewController: UIViewController, TimerDisplay {
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchBar.keyboardAppearance = .dark
         searchController.searchBar.tintColor = UIColor.white
+        definesPresentationContext = true
         historyItems = dataSource.getItems()
         tableView.dataSource = self
         tableView.delegate = self
@@ -50,6 +51,8 @@ class HistoryViewController: UIViewController, TimerDisplay {
         tableView.estimatedRowHeight = 65.0
         tableView.rowHeight = UITableViewAutomaticDimension
         navigationItem.title = "History"
+        automaticallyAdjustsScrollViewInsets = false
+        navigationController?.navigationBar.isTranslucent = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,22 +62,17 @@ class HistoryViewController: UIViewController, TimerDisplay {
                 if navigationItem.searchController == nil {
                     navigationItem.searchController = searchController
                     navigationItem.hidesSearchBarWhenScrolling = false
-                    definesPresentationContext = true
                     UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes = [NSAttributedStringKey.foregroundColor.rawValue: UIColor.white]
                 }
             } else if tableView.tableHeaderView == nil {
+                searchController.searchBar.barTintColor = UIColor.black
+                searchController.hidesNavigationBarDuringPresentation = false
                 tableView.tableHeaderView = searchController.searchBar
             }
         }
         historyItems = dataSource.getItems()
         tableView.reloadData()
     }
-    
-//    override func viewDidAppear(_ animated: Bool) {
-//        if #available(iOS 11, *) {
-//            navigationItem.hidesSearchBarWhenScrolling = true
-//        }
-//    }
     
     fileprivate func filterContentForSearchText(_ text: String) {
         var newItems = [HistoryItem]()
