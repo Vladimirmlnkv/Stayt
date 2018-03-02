@@ -15,13 +15,29 @@ class CurrentPackViewController: UIViewController {
     @IBOutlet var dayLabel: UILabel!
     
     var exercisePack: ExercisePack!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+    fileprivate var completedPackView: CompletedPackView?
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        if exercisePack.isCompleted {
+            if completedPackView == nil {
+                completedPackView = CompletedPackView(frame: view.frame)
+                completedPackView!.delegate = self
+                view.addSubview(completedPackView!)
+                NSLayoutConstraint.activate([
+                    completedPackView!.topAnchor.constraint(equalTo: view.topAnchor),
+                    completedPackView!.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                    completedPackView!.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+                    completedPackView!.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+                    ])
+            }
+        } else {
+            setupUI()
+        }
+    }
+    
+    fileprivate func setupUI() {
         packNameLabel.text = exercisePack.name
         currentExerciseLabel.text = exercisePack.exercises[exercisePack.currentExerciseNumber].descriptionName
         dayLabel.text = "Day \(exercisePack.currentExerciseNumber + 1) \\ \(exercisePack.exercises.count)"
@@ -37,6 +53,19 @@ class CurrentPackViewController: UIViewController {
         vc.exerciseTitle = exercisePack.name
         vc.exerciseDescription = exercisePack.exerciseDescription
         present(vc, animated: true, completion: nil)
+    }
+    
+}
+
+extension CurrentPackViewController: CompletedPackViewDelegate {
+    
+    func startOver() {
+        try! mainRealm.write {
+            exercisePack.currentExerciseNumber = 0
+            exercisePack.isCompleted = false
+        }
+        setupUI()
+        completedPackView!.removeFromSuperview()
     }
     
 }

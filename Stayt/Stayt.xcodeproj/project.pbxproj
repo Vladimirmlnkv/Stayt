@@ -10,6 +10,8 @@
 		39F373DC45736EB5C1570D0A /* Pods_Stayt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA5DB0E9332390829FAEE9FF /* Pods_Stayt.framework */; };
 		7E05A5F620498CB1002F5648 /* CurrentPackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E05A5F520498CB1002F5648 /* CurrentPackViewController.swift */; };
 		7E05A5F8204990F0002F5648 /* ExercisePack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E05A5F7204990F0002F5648 /* ExercisePack.swift */; };
+		7E05A5FA2049B1C3002F5648 /* CompletedPackView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E05A5F92049B1C3002F5648 /* CompletedPackView.xib */; };
+		7E05A5FD2049B3B1002F5648 /* CompletedPackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E05A5FC2049B3B1002F5648 /* CompletedPackView.swift */; };
 		7E10A533203AC6FA0059AEF9 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E10A532203AC6FA0059AEF9 /* Colors.swift */; };
 		7E10A535203B02910059AEF9 /* ExerciseSectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E10A534203B02910059AEF9 /* ExerciseSectionView.xib */; };
 		7E10A537203B02E10059AEF9 /* ExerciseSectionCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E10A536203B02E10059AEF9 /* ExerciseSectionCollectionCell.xib */; };
@@ -75,6 +77,8 @@
 		229C7D958619E0AD4C165330 /* Pods-Stayt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stayt.release.xcconfig"; path = "Pods/Target Support Files/Pods-Stayt/Pods-Stayt.release.xcconfig"; sourceTree = "<group>"; };
 		7E05A5F520498CB1002F5648 /* CurrentPackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentPackViewController.swift; sourceTree = "<group>"; };
 		7E05A5F7204990F0002F5648 /* ExercisePack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisePack.swift; sourceTree = "<group>"; };
+		7E05A5F92049B1C3002F5648 /* CompletedPackView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompletedPackView.xib; sourceTree = "<group>"; };
+		7E05A5FC2049B3B1002F5648 /* CompletedPackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedPackView.swift; sourceTree = "<group>"; };
 		7E10A532203AC6FA0059AEF9 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		7E10A534203B02910059AEF9 /* ExerciseSectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExerciseSectionView.xib; sourceTree = "<group>"; };
 		7E10A536203B02E10059AEF9 /* ExerciseSectionCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExerciseSectionCollectionCell.xib; sourceTree = "<group>"; };
@@ -156,8 +160,18 @@
 			isa = PBXGroup;
 			children = (
 				7E05A5F520498CB1002F5648 /* CurrentPackViewController.swift */,
+				7E05A5FB2049B3A2002F5648 /* CompletedPackView */,
 			);
 			path = CurrentPackScreen;
+			sourceTree = "<group>";
+		};
+		7E05A5FB2049B3A2002F5648 /* CompletedPackView */ = {
+			isa = PBXGroup;
+			children = (
+				7E05A5F92049B1C3002F5648 /* CompletedPackView.xib */,
+				7E05A5FC2049B3B1002F5648 /* CompletedPackView.swift */,
+			);
+			path = CompletedPackView;
 			sourceTree = "<group>";
 		};
 		7E10A538203B06760059AEF9 /* ExerciseSection */ = {
@@ -511,6 +525,7 @@
 				7E2035E1201C7FD4005A6707 /* meditationBell.mp3 in Resources */,
 				7E4BA0C920288B8A00C7C18A /* CenteredCell.xib in Resources */,
 				7E242178202B2AC900C03126 /* EmptyView.xib in Resources */,
+				7E05A5FA2049B1C3002F5648 /* CompletedPackView.xib in Resources */,
 				7E10A535203B02910059AEF9 /* ExerciseSectionView.xib in Resources */,
 				7EDC5991200E6C4100C33DFC /* Assets.xcassets in Resources */,
 				7E28949E204127C2005D2F22 /* RestView.xib in Resources */,
@@ -607,6 +622,7 @@
 				7E3DAA29200F5A3D00E1B88C /* BorderedCircleView.swift in Sources */,
 				7E2C5A0120383EEA00018536 /* MultipleExerciseViewController.swift in Sources */,
 				7E363FEF20459807000F25A3 /* StageCell.swift in Sources */,
+				7E05A5FD2049B3B1002F5648 /* CompletedPackView.swift in Sources */,
 				7E2C5A052038426000018536 /* MultipleExerciseViewModel.swift in Sources */,
 				7E10A53D203B06E20059AEF9 /* ExerciseSectionCollectionCell.swift in Sources */,
 				7E5AD2B12031FBEC00C08D77 /* ExerciseDescriptionViewController.swift in Sources */,

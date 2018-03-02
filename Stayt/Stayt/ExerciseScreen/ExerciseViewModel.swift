@@ -110,6 +110,8 @@ class ExerciseViewModel: NSObject, AVAudioPlayerDelegate {
             try! mainRealm.write {
                 if exercisePack!.currentExerciseNumber < exercisePack!.exercises.count - 1 {
                     exercisePack!.currentExerciseNumber += 1
+                } else {
+                    exercisePack!.isCompleted = true
                 }
             }
         }

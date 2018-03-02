@@ -15,6 +15,7 @@ class ExercisePack: Object {
     let exercises = List<Exercise>()
     
     @objc dynamic var currentExerciseNumber = 0
+    @objc dynamic var isCompleted = false
     
     convenience init(name: String, exercises: [Exercise], exerciseDescription: String) {
         self.init()
