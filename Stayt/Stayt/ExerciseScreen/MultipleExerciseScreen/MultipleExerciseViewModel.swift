@@ -318,11 +318,8 @@ extension MultipleExerciseViewModel: SingleActivityCellDelegate {
                 coordinationDelegate?.showStagesScreen(for: activity)
             }
         } else {
-            var allowedDurations = [Int]()
-            for i in 0...5 {
-                allowedDurations.append(i * 60)
-            }
-            coordinationDelegate?.showDurationPicker(with: "Select duration for rest between sets", currentDuration: roundsRestTime, allowedDurations: allowedDurations, completion: { (duration) in
+            let allowedDurations = [0, 60, 120, 180]
+            coordinationDelegate?.showDurationPicker(with: "Rest time", currentDuration: roundsRestTime, allowedDurations: allowedDurations, completion: { (duration) in
                 self.roundsRestTime = duration
                 self.delegate?.reloadRestTime()
             })

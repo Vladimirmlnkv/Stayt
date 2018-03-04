@@ -25,19 +25,23 @@ class ActivityStage: Object {
 class Activity: Object {
     @objc dynamic var name: String!
     @objc dynamic var duration: Int = 0
+    let avaliableDurations = List<Int>()
     @objc dynamic var descriptionName: String!
     let stages = List<ActivityStage>()
     var durationString: String {
         return "\(duration / 60)"
     }
     
-    convenience init(name: String, duration: Int=600, descriptionName: String, stages: [ActivityStage]?=nil) {
+    convenience init(name: String, duration: Int=600, descriptionName: String, stages: [ActivityStage]?=nil, avaliableDurations: [Int]?=nil) {
         self.init()
         self.name = name
         self.duration = duration
         self.descriptionName = descriptionName
         if let s = stages {
             self.stages.append(objectsIn: s)
+        }
+        if let durations = avaliableDurations {
+            self.avaliableDurations.append(objectsIn: durations)
         }
     }
 }

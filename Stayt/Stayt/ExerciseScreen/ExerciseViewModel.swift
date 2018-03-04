@@ -78,7 +78,7 @@ class ExerciseViewModel: NSObject, AVAudioPlayerDelegate {
     }
     
     func titleForActivityDuration(from activity: Activity) -> String {
-        return "Select duration of \(activity.descriptionName.lowercased())"
+        return "\(activity.descriptionName!) duration"
     }
     
     func playSound() {

@@ -24,6 +24,7 @@ class ExerciseCoodinator {
     fileprivate var delegate: ExerciseCoodinatorDelegate?
     fileprivate var exerciseVC: UIViewController!
     fileprivate let exercisePack: ExercisePack?
+    fileprivate var menuHandler: DurationsOptionsMenuHandler?
     
     init(exercise: Exercise, presentingVC: UIViewController, exercisePack: ExercisePack?=nil) {
         self.exercise = exercise
@@ -80,14 +81,21 @@ extension ExerciseCoodinator: ExerciseViewModelCoordinationDelegate {
     }
     
     func showDurationPicker(with title: String, currentDuration: Int?, allowedDurations: [Int]?, completion: @escaping (Int) -> Void) {
-        let durationPicker = storyboard.instantiateViewController(withIdentifier: "DurationPickerViewController") as! DurationPickerViewController
-        durationPicker.labelTitle = title
-        durationPicker.currentDuration = currentDuration
-        durationPicker.completion = completion
-        if let d = allowedDurations {
-            durationPicker.durations = d
+        if let durations = allowedDurations, durations.count <= 4 {
+            menuHandler = DurationsOptionsMenuHandler(superView: exerciseVC.view, title: title, durations: allowedDurations)
+            menuHandler!.currentDuration = currentDuration
+            menuHandler!.completion = completion
+            menuHandler!.showMenu()
+        } else {
+            let durationPicker = storyboard.instantiateViewController(withIdentifier: "DurationPickerViewController") as! DurationPickerViewController
+            durationPicker.labelTitle = title
+            durationPicker.currentDuration = currentDuration
+            durationPicker.completion = completion
+            if let d = allowedDurations {
+                durationPicker.durations = d
+            }
+            exerciseVC.present(durationPicker, animated: true, completion: nil)
         }
-        exerciseVC.present(durationPicker, animated: true, completion: nil)
     }
     
     func showStagesScreen(for activity: Activity) {

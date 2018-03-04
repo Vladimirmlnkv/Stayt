@@ -21,6 +21,7 @@ class StagesCoordinator {
     fileprivate let presentingVC: UIViewController
     fileprivate weak var delegate: StagesCoordinatorDelegate?
     fileprivate var stagesVC: StagesDurationViewController!
+    fileprivate var menuHandler: DurationsOptionsMenuHandler?
     
     init(activity: Activity, presentingVC: UIViewController, delegate: StagesCoordinatorDelegate) {
         self.activity = activity
@@ -42,19 +43,32 @@ class StagesCoordinator {
 extension StagesCoordinator: StagesDurationViewControllerDelegate {
     
     func didSelect(stage: ActivityStage) {
-        let durationPicker = storyboard.instantiateViewController(withIdentifier: "DurationPickerViewController") as! DurationPickerViewController
-        durationPicker.durations = Array(stage.avaliableDurations)
-        durationPicker.labelTitle = "Select duration of \(stage.name!) stage"
-        durationPicker.currentDuration = stage.duration
-        durationPicker.completion = { (duration: Int) in
+        
+        let title = "\(stage.name!) stage duration"
+        let completion = { (duration: Int) in
             try! mainRealm.write {
                 stage.duration = duration
                 self.activity.duration = self.activity.stages.reduce(into: 0) { $0 += $1.duration}
             }
             self.stagesVC.tableView.reloadData()
-            self.stagesVC.dismiss(animated: true, completion: nil)
         }
-        stagesVC.present(durationPicker, animated: true, completion: nil)
+        
+        if !stage.avaliableDurations.isEmpty && stage.avaliableDurations.count <= 4 {
+            menuHandler = DurationsOptionsMenuHandler(superView: stagesVC.navigationController!.view, title: title, durations: Array(stage.avaliableDurations))
+            menuHandler!.currentDuration = stage.duration
+            menuHandler!.completion = completion
+            menuHandler!.showMenu()
+        } else {
+            let durationPicker = storyboard.instantiateViewController(withIdentifier: "DurationPickerViewController") as! DurationPickerViewController
+            durationPicker.durations = Array(stage.avaliableDurations)
+            durationPicker.labelTitle = title
+            durationPicker.currentDuration = stage.duration
+            durationPicker.completion = { (duration: Int) in
+                completion(duration)
+                self.stagesVC.dismiss(animated: true, completion: nil)
+            }
+            stagesVC.present(durationPicker, animated: true, completion: nil)
+        }
     }
     
     func didPressDoneButton() {

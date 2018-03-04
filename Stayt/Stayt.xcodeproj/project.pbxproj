@@ -45,7 +45,6 @@
 		7E366B8E203DD9CF00A2297F /* empty.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7E366B8D203DD9CE00A2297F /* empty.mp3 */; };
 		7E3DAA29200F5A3D00E1B88C /* BorderedCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3DAA28200F5A3D00E1B88C /* BorderedCircleView.swift */; };
 		7E3DAA2C200F5D6700E1B88C /* DisclosureButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3DAA2B200F5D6700E1B88C /* DisclosureButton.swift */; };
-		7E3DAA2E200F5F9900E1B88C /* DropDownMenuHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3DAA2D200F5F9900E1B88C /* DropDownMenuHandler.swift */; };
 		7E3DAA3D200FC1E500E1B88C /* UIViewExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3DAA3C200FC1E500E1B88C /* UIViewExtentions.swift */; };
 		7E4BA0C920288B8A00C7C18A /* CenteredCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E4BA0C820288B8A00C7C18A /* CenteredCell.xib */; };
 		7E4BA0CB20288BEC00C7C18A /* CenteredCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4BA0CA20288BEC00C7C18A /* CenteredCell.swift */; };
@@ -62,6 +61,9 @@
 		7E85DE5A203C7C490052CFAA /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E85DE59203C7C490052CFAA /* AboutViewController.swift */; };
 		7E85DE5C203C80680052CFAA /* CopyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E85DE5B203C80680052CFAA /* CopyLabel.swift */; };
 		7EC1BBF320335593008DDB68 /* AfterFeeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC1BBF220335593008DDB68 /* AfterFeeling.swift */; };
+		7ED867AF204BCE5F00340051 /* DropDownDurationPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7ED867AE204BCE5F00340051 /* DropDownDurationPicker.xib */; };
+		7ED867B1204BCF2400340051 /* DropDownDurationPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED867B0204BCF2400340051 /* DropDownDurationPicker.swift */; };
+		7ED867B3204BD5E000340051 /* DurationsOptionsMenuHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED867B2204BD5E000340051 /* DurationsOptionsMenuHandler.swift */; };
 		7EDB2E672014D16C00D77CB8 /* TimerDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDB2E662014D16C00D77CB8 /* TimerDisplay.swift */; };
 		7EDC598A200E6C4100C33DFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDC5989200E6C4100C33DFC /* AppDelegate.swift */; };
 		7EDC598F200E6C4100C33DFC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EDC598D200E6C4100C33DFC /* Main.storyboard */; };
@@ -112,7 +114,6 @@
 		7E366B8D203DD9CE00A2297F /* empty.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = empty.mp3; sourceTree = "<group>"; };
 		7E3DAA28200F5A3D00E1B88C /* BorderedCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedCircleView.swift; sourceTree = "<group>"; };
 		7E3DAA2B200F5D6700E1B88C /* DisclosureButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclosureButton.swift; sourceTree = "<group>"; };
-		7E3DAA2D200F5F9900E1B88C /* DropDownMenuHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownMenuHandler.swift; sourceTree = "<group>"; };
 		7E3DAA3C200FC1E500E1B88C /* UIViewExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtentions.swift; sourceTree = "<group>"; };
 		7E4BA0C820288B8A00C7C18A /* CenteredCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CenteredCell.xib; sourceTree = "<group>"; };
 		7E4BA0CA20288BEC00C7C18A /* CenteredCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenteredCell.swift; sourceTree = "<group>"; };
@@ -129,6 +130,9 @@
 		7E85DE59203C7C490052CFAA /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		7E85DE5B203C80680052CFAA /* CopyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyLabel.swift; sourceTree = "<group>"; };
 		7EC1BBF220335593008DDB68 /* AfterFeeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterFeeling.swift; sourceTree = "<group>"; };
+		7ED867AE204BCE5F00340051 /* DropDownDurationPicker.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DropDownDurationPicker.xib; sourceTree = "<group>"; };
+		7ED867B0204BCF2400340051 /* DropDownDurationPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownDurationPicker.swift; sourceTree = "<group>"; };
+		7ED867B2204BD5E000340051 /* DurationsOptionsMenuHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationsOptionsMenuHandler.swift; sourceTree = "<group>"; };
 		7EDB2E662014D16C00D77CB8 /* TimerDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerDisplay.swift; sourceTree = "<group>"; };
 		7EDC5986200E6C4100C33DFC /* Stayt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stayt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EDC5989200E6C4100C33DFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -294,7 +298,7 @@
 				7E4BA0C720288B7200C7C18A /* CenteredCell */,
 				7E3DAA2B200F5D6700E1B88C /* DisclosureButton.swift */,
 				7E85DE5B203C80680052CFAA /* CopyLabel.swift */,
-				7E3DAA2D200F5F9900E1B88C /* DropDownMenuHandler.swift */,
+				7ED867AD204BCE3B00340051 /* DropDownDurationPicker */,
 				7E3DAA3C200FC1E500E1B88C /* UIViewExtentions.swift */,
 				7E242179202B2AF900C03126 /* EmptyView */,
 			);
@@ -351,6 +355,16 @@
 				7E85DE59203C7C490052CFAA /* AboutViewController.swift */,
 			);
 			path = AboutScreen;
+			sourceTree = "<group>";
+		};
+		7ED867AD204BCE3B00340051 /* DropDownDurationPicker */ = {
+			isa = PBXGroup;
+			children = (
+				7ED867AE204BCE5F00340051 /* DropDownDurationPicker.xib */,
+				7ED867B0204BCF2400340051 /* DropDownDurationPicker.swift */,
+				7ED867B2204BD5E000340051 /* DurationsOptionsMenuHandler.swift */,
+			);
+			path = DropDownDurationPicker;
 			sourceTree = "<group>";
 		};
 		7EDB2E652014D13700D77CB8 /* Helpers */ = {
@@ -530,6 +544,7 @@
 				7EDC5991200E6C4100C33DFC /* Assets.xcassets in Resources */,
 				7E28949E204127C2005D2F22 /* RestView.xib in Resources */,
 				7EDC598F200E6C4100C33DFC /* Main.storyboard in Resources */,
+				7ED867AF204BCE5F00340051 /* DropDownDurationPicker.xib in Resources */,
 				7E10A537203B02E10059AEF9 /* ExerciseSectionCollectionCell.xib in Resources */,
 				7E4BA0D12029E6E600C7C18A /* HolderView.xib in Resources */,
 				7E366B8E203DD9CF00A2297F /* empty.mp3 in Resources */,
@@ -603,6 +618,7 @@
 				7E10A533203AC6FA0059AEF9 /* Colors.swift in Sources */,
 				7E2035E4201C841D005A6707 /* AfterExerciseViewController.swift in Sources */,
 				7E4BA0CE20288DC000C7C18A /* DurationPickerViewController.swift in Sources */,
+				7ED867B1204BCF2400340051 /* DropDownDurationPicker.swift in Sources */,
 				7E363FEA204586DB000F25A3 /* ExerciseDataSource.swift in Sources */,
 				7E85DE57203C6DD20052CFAA /* UserSessionHandler.swift in Sources */,
 				7E2C59FA203707B000018536 /* SingleExerciseViewController.swift in Sources */,
@@ -630,7 +646,7 @@
 				7E85DE53203C40240052CFAA /* ExerciseDescription.swift in Sources */,
 				7EDB2E672014D16C00D77CB8 /* TimerDisplay.swift in Sources */,
 				7E85DE55203C4EF60052CFAA /* UserSession.swift in Sources */,
-				7E3DAA2E200F5F9900E1B88C /* DropDownMenuHandler.swift in Sources */,
+				7ED867B3204BD5E000340051 /* DurationsOptionsMenuHandler.swift in Sources */,
 				7E4BA0D32029EAA500C7C18A /* HolderView.swift in Sources */,
 				7E24217D202B2FB000C03126 /* HistoryDataSource.swift in Sources */,
 				7E363FEC2045958C000F25A3 /* StagesDurationViewController.swift in Sources */,
