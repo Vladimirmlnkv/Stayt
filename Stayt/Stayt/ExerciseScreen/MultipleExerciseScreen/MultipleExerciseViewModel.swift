@@ -306,7 +306,7 @@ extension MultipleExerciseViewModel: SingleActivityCellDelegate {
         if let index = exercise.activities.index(where: {$0.descriptionName == viewModel.title}) {
             let activity = exercise.activities[index]
             if activity.stages.isEmpty {
-                coordinationDelegate?.showDurationPicker(with: titleForActivityDuration(from: activity), currentDuration: activity.duration, allowedDurations: nil, completion: { duration in
+                coordinationDelegate?.showDurationPicker(with: titleForActivityDuration(from: activity), currentDuration: activity.duration, allowedDurations: Array(activity.avaliableDurations), completion: { duration in
                     try! mainRealm.write {
                         activity.duration = duration
                     }
