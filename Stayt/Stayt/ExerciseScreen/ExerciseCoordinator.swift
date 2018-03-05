@@ -81,7 +81,7 @@ extension ExerciseCoodinator: ExerciseViewModelCoordinationDelegate {
     }
     
     func showDurationPicker(with title: String, currentDuration: Int?, allowedDurations: [Int]?, completion: @escaping (Int) -> Void) {
-        if let durations = allowedDurations, durations.count <= 4 {
+        if let durations = allowedDurations, durations.count <= 4, !durations.isEmpty {
             menuHandler = DurationsOptionsMenuHandler(superView: exerciseVC.view, title: title, durations: allowedDurations)
             menuHandler!.currentDuration = currentDuration
             menuHandler!.completion = completion
