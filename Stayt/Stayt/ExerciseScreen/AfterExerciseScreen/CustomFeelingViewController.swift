@@ -16,6 +16,7 @@ class CustomFeelingViewController: UIViewController {
 
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var textView: UITextView!
+    @IBOutlet var feelingLabel: UILabel!
     @IBOutlet var bottomConstraint: NSLayoutConstraint!
     @IBOutlet var charactersLabel: UILabel!
     @IBOutlet var placeholderLabel: UILabel!
@@ -43,20 +44,20 @@ class CustomFeelingViewController: UIViewController {
         }
         
         if experience.afterFeeling == nil || experience.afterFeeling?.type == .notSelected {
-            textView.becomeFirstResponder()
+            feelingLabel.text = ""
         } else {
-            if let text = experience.afterFeeling!.text {
+            feelingLabel.text = "You felt: \(experience.afterFeeling!.type.title)"
+            if let text = experience.afterFeeling?.text {
                 textView.text = text
-            } else {
-                textView.text = experience.afterFeeling!.type.title
-            }
-            if textView.text.isEmpty {
-                textView.becomeFirstResponder()
             }
         }
         
         if let note = tmpNote {
             textView.text = note
+        }
+        
+        if textView.text.isEmpty {
+            textView.becomeFirstResponder()
         }
         
         charactersLabel.text = "\(textView.text.count)/\(maxNumberOfCharacters)"

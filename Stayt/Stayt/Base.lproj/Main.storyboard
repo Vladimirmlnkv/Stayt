@@ -1055,7 +1055,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Ql4-fX-B8A">
-                                <rect key="frame" x="20" y="68" width="335" height="559"/>
+                                <rect key="frame" x="20" y="99" width="335" height="528"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
@@ -1067,9 +1067,15 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What did you experince?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dp7-Wf-7kX">
-                                <rect key="frame" x="28" y="76" width="179" height="19.5"/>
+                                <rect key="frame" x="28" y="107" width="179" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You felt good" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dVl-9O-0jX">
+                                <rect key="frame" x="20" y="68" width="101.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -1080,9 +1086,11 @@
                             <constraint firstItem="YPH-gx-LCa" firstAttribute="bottom" secondItem="Ql4-fX-B8A" secondAttribute="bottom" constant="40" id="7Xc-lx-ZCt"/>
                             <constraint firstItem="YPH-gx-LCa" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="4Cm-px-tTs" secondAttribute="trailing" constant="20" id="8PM-m6-7vb"/>
                             <constraint firstItem="YPH-gx-LCa" firstAttribute="trailing" secondItem="Ql4-fX-B8A" secondAttribute="trailing" constant="20" id="B8f-6M-wml"/>
-                            <constraint firstItem="Ql4-fX-B8A" firstAttribute="top" secondItem="4Cm-px-tTs" secondAttribute="bottom" constant="10" id="HGt-42-6bW"/>
+                            <constraint firstItem="dVl-9O-0jX" firstAttribute="leading" secondItem="4Cm-px-tTs" secondAttribute="leading" id="F4l-1X-93Y"/>
                             <constraint firstItem="Fbd-ny-Ss7" firstAttribute="trailing" secondItem="Ql4-fX-B8A" secondAttribute="trailing" id="Mqa-AR-Uir"/>
+                            <constraint firstItem="Ql4-fX-B8A" firstAttribute="top" secondItem="dVl-9O-0jX" secondAttribute="bottom" constant="10" id="cWK-X5-PXS"/>
                             <constraint firstItem="dp7-Wf-7kX" firstAttribute="top" secondItem="Ql4-fX-B8A" secondAttribute="top" constant="8" id="hHf-Xi-Ahp"/>
+                            <constraint firstItem="dVl-9O-0jX" firstAttribute="top" secondItem="4Cm-px-tTs" secondAttribute="bottom" constant="10" id="iAW-gI-A6q"/>
                             <constraint firstItem="dp7-Wf-7kX" firstAttribute="leading" secondItem="Ql4-fX-B8A" secondAttribute="leading" constant="8" id="q82-OU-fqn"/>
                             <constraint firstItem="YPH-gx-LCa" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="dp7-Wf-7kX" secondAttribute="trailing" constant="10" id="qjB-g0-bDb"/>
                             <constraint firstItem="Ql4-fX-B8A" firstAttribute="leading" secondItem="YPH-gx-LCa" secondAttribute="leading" constant="20" id="x6h-PM-nhO"/>
@@ -1093,6 +1101,7 @@
                     <connections>
                         <outlet property="bottomConstraint" destination="7Xc-lx-ZCt" id="EGN-hS-Vj4"/>
                         <outlet property="charactersLabel" destination="Fbd-ny-Ss7" id="Lr9-vx-DHW"/>
+                        <outlet property="feelingLabel" destination="dVl-9O-0jX" id="TSI-cc-E2r"/>
                         <outlet property="placeholderLabel" destination="dp7-Wf-7kX" id="c3Z-MD-xUi"/>
                         <outlet property="textView" destination="Ql4-fX-B8A" id="zAL-Fh-SHL"/>
                         <outlet property="titleLabel" destination="4Cm-px-tTs" id="dfX-kx-UiS"/>
@@ -1100,7 +1109,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bkG-nN-a11" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2006" y="-923"/>
+            <point key="canvasLocation" x="2005.5999999999999" y="-923.38830584707648"/>
         </scene>
         <!--Current Pack View Controller-->
         <scene sceneID="59v-XE-bUq">

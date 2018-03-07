@@ -85,9 +85,10 @@ class HistoryViewController: UIViewController, TimerDisplay {
                     if experience.exerciseName.lowercased().contains(text.lowercased()) {
                         return true
                     }
-                    if let afterFeelingText = experience.afterFeeling?.text {
-                        return afterFeelingText.lowercased().contains(text.lowercased())
-                    } else if experience.afterFeeling!.type != .notSelected {
+                    if let afterFeelingText = experience.afterFeeling?.text, afterFeelingText.lowercased().contains(text.lowercased()) {
+                        return true
+                    }
+                    if experience.afterFeeling!.type != .notSelected {
                         return experience.afterFeeling!.type.title.lowercased().contains(text.lowercased())
                     }
                     return false
@@ -163,15 +164,11 @@ extension HistoryViewController: UITableViewDataSource {
         cell.exerciseLabel.text = experience.exerciseName
         cell.durationLabel.text = passiveStringDuration(from: experience.duration)
         cell.selectionStyle = .none
-        if let afterFeeling = experience.afterFeeling {
-            if afterFeeling.type == .notSelected {
-                cell.feelingLabel.isHidden = true
-            } else if afterFeeling.type == .custom {
-                cell.feelingLabel.isHidden = false
-                cell.feelingLabel.text = afterFeeling.text
-            } else {
-                cell.feelingLabel.isHidden = false
-                cell.feelingLabel.text = "You felt: \(afterFeeling.type.title)"
+        if let afterFeeling = experience.afterFeeling, afterFeeling.type != .notSelected {
+            cell.feelingLabel.isHidden = false
+            cell.feelingLabel.text = "You felt: \(afterFeeling.type.title)"
+            if let text = afterFeeling.text {
+                cell.feelingLabel.text = cell.feelingLabel.text! + "\n\(text)"
             }
         } else {
             cell.feelingLabel.isHidden = true
