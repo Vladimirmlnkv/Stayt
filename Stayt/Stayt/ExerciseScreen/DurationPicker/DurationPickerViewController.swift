@@ -27,7 +27,7 @@ class DurationPickerViewController: UIViewController, TimerDisplay {
                 durations.append(i * 60)
             }
         }
-//        durations.append(1)
+        durations.append(1)
         tableView.register(UINib(nibName: "CenteredCell", bundle: nil), forCellReuseIdentifier: "CenteredCell")
         tableView.delegate = self
         tableView.dataSource = self

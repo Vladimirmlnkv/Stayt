@@ -108,8 +108,9 @@ extension ExerciseCoodinator: ExerciseViewModelCoordinationDelegate {
         historyManager.addExperience(roundsCount: roundsCount)
         UserSessionHandler.standart.setRecentExercise(exercise)
         afterExerciseVC = storyboard.instantiateViewController(withIdentifier: "AfterExerciseViewController") as! AfterExerciseViewController
+        let navC = UINavigationController(rootViewController: afterExerciseVC)
         afterExerciseVC.delegate = self
-        exerciseVC.present(afterExerciseVC, animated: true, completion: nil)
+        exerciseVC.present(navC, animated: true, completion: nil)
     }
     
     func endExecrise(with roundsCount: Int, completion: @escaping () -> Void) {
@@ -125,32 +126,32 @@ extension ExerciseCoodinator: ExerciseViewModelCoordinationDelegate {
 
 extension ExerciseCoodinator: AfterExerciseViewControllerDelegate {
     
-    func didPickFeeling(_ feeling: AfterFeelingType) {
-        
-        if feeling == .notSelected {
-            historyManager.addAfterFeeling(type: .notSelected, text: nil)
-            dismiss()
-        } else {
-            if feeling == .custom {
-                let vc = storyboard.instantiateViewController(withIdentifier: "CustomFeelingViewController") as! CustomFeelingViewController
-                vc.delegate = self
-                vc.experience = historyManager.currentExperience()!
-                let navVC = UINavigationController(rootViewController: vc)
-                afterExerciseVC.present(navVC, animated: true, completion: nil)
-            } else {
-                historyManager.addAfterFeeling(type: feeling, text: nil)
-                dismiss()
-            }
-        }
+    func didPickFeeling(_ feeling: AfterFeelingType, note: String?) {
+        historyManager.addAfterFeeling(type: feeling, text: note)
+        dismiss()
     }
     
+    func addNoteAction() {
+        let vc = storyboard.instantiateViewController(withIdentifier: "CustomFeelingViewController") as! CustomFeelingViewController
+        vc.delegate = self
+        vc.experience = historyManager.currentExperience()!
+        vc.tmpNote = afterExerciseVC.note
+        let navVC = UINavigationController(rootViewController: vc)
+        afterExerciseVC.present(navVC, animated: true, completion: nil)
+    }
+    
+    func skip() {
+        dismiss()
+    }
 }
 
 extension ExerciseCoodinator: CustomFeelingViewControllerDelegate {
     
     func didEnter(feeling: String, for experience: Experience) {
-        historyManager.addAfterFeeling(type: .custom, text: feeling)
-        dismiss()
+        afterExerciseVC.note = feeling
+        afterExerciseVC.dismiss(animated: true, completion: nil)
+//        historyManager.addAfterFeeling(type: .custom, text: feeling)
+//        dismiss()
     }
 
 }

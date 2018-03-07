@@ -9,7 +9,9 @@
 import UIKit
 
 protocol AfterExerciseViewControllerDelegate {
-    func didPickFeeling(_ feeling: AfterFeelingType)
+    func didPickFeeling(_ feeling: AfterFeelingType, note: String?)
+    func addNoteAction()
+    func skip()
 }
 
 class AfterExerciseViewController: UIViewController {
@@ -17,18 +19,55 @@ class AfterExerciseViewController: UIViewController {
     @IBOutlet var firstMessageLabel: UILabel!
     @IBOutlet var secondMessageLabel: UILabel!
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var addNoteButton: UIButton!
+    
+    fileprivate var doneBarButtonItem: UIBarButtonItem!
     
     var delegate: AfterExerciseViewControllerDelegate!
+    fileprivate var selectedFeeling: AfterFeelingType?
+    var note: String? {
+        didSet {
+            if let n = note, !n.isEmpty {
+                addNoteButton.setTitle("Edit note", for: .normal)
+                doneBarButtonItem.isEnabled = true
+            } else {
+                addNoteButton.setTitle("Add note", for: .normal)
+                if selectedFeeling == nil {
+                    doneBarButtonItem.isEnabled = false
+                }
+            }
+        }
+    }
     
     fileprivate var options: [AfterFeelingType] = [.muchBetter, .aBitBetter, .noDifferent, .worse, .custom, .notSelected]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.barTintColor = UIColor.black
+        navigationController?.navigationBar.tintColor = Colors.mainActiveColor
+
+        doneBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonAction))
+        navigationItem.rightBarButtonItem = doneBarButtonItem
+        doneBarButtonItem.isEnabled = false
+        
         tableView.tableFooterView = UIView()
         tableView.estimatedRowHeight = 44.0
         tableView.rowHeight = UITableViewAutomaticDimension
     }
-
+    
+    @objc func doneButtonAction() {
+        let feeling = selectedFeeling ?? .notSelected
+        delegate.didPickFeeling(feeling, note: note)
+    }
+    
+    @IBAction func addNoteAction(_ sender: Any) {
+        delegate.addNoteAction()
+    }
+    
+    @IBAction func skipAction(_ sender: Any) {
+        delegate.skip()
+    }
+    
 }
 
 extension AfterExerciseViewController: UITableViewDataSource {
@@ -39,6 +78,12 @@ extension AfterExerciseViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AfterExerciseCell") as! AfterExerciseCell
+        cell.tintColor = Colors.mainActiveColor
+        if let f = selectedFeeling, options[indexPath.row] == f {
+            cell.accessoryType = .checkmark
+        } else {
+            cell.accessoryType = .none
+        }
         cell.label.text = options[indexPath.row].title
         return cell
     }
@@ -48,8 +93,22 @@ extension AfterExerciseViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let feeling = options[indexPath.row]
-        delegate.didPickFeeling(feeling)
+        var indexPathsToReload = [indexPath]
+        if let selected = selectedFeeling, let index = options.index(of: selected) {
+            indexPathsToReload.append(IndexPath(row: index, section: 0))
+        }
+        if selectedFeeling == options[indexPath.row] {
+            selectedFeeling = nil
+            if note == nil {
+                doneBarButtonItem.isEnabled = false
+            }
+        } else {
+            selectedFeeling = options[indexPath.row]
+            doneBarButtonItem.isEnabled = true
+        }
+        tableView.beginUpdates()
+        tableView.reloadRows(at: indexPathsToReload, with: .automatic)
+        tableView.endUpdates()
     }
     
     func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {

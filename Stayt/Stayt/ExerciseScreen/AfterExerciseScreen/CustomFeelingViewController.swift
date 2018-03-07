@@ -24,6 +24,7 @@ class CustomFeelingViewController: UIViewController {
     fileprivate var doneBarButtonItem: UIBarButtonItem!
     var delegate: CustomFeelingViewControllerDelegate!
     var experience: Experience!
+    var tmpNote: String?
     var shouldAddCancelButton = true
     
     override func viewDidLoad() {
@@ -40,10 +41,9 @@ class CustomFeelingViewController: UIViewController {
         if experience.roundsCount > 1 {
             titleLabel.text = titleLabel.text! + " (\(experience.roundsCount) rounds)"
         }
+        
         if experience.afterFeeling == nil || experience.afterFeeling?.type == .notSelected {
             textView.becomeFirstResponder()
-            charactersLabel.text = "\(textView.text.count)/\(maxNumberOfCharacters)"
-            placeholderLabel.isHidden = textView.text.count > 0
         } else {
             if let text = experience.afterFeeling!.text {
                 textView.text = text
@@ -53,10 +53,15 @@ class CustomFeelingViewController: UIViewController {
             if textView.text.isEmpty {
                 textView.becomeFirstResponder()
             }
-            charactersLabel.text = "\(textView.text.count)/\(maxNumberOfCharacters)"
-            placeholderLabel.isHidden = textView.text.count > 0
         }
-
+        
+        if let note = tmpNote {
+            textView.text = note
+        }
+        
+        charactersLabel.text = "\(textView.text.count)/\(maxNumberOfCharacters)"
+        placeholderLabel.isHidden = textView.text.count > 0
+        
         if shouldAddCancelButton {
             navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .done, target: self, action: #selector(cancelAction))
         }
@@ -77,6 +82,7 @@ class CustomFeelingViewController: UIViewController {
     }
     
     @objc func cancelAction() {
+        textView.resignFirstResponder()
         dismiss(animated: true, completion: nil)
     }
     

@@ -926,6 +926,7 @@
         <!--After Exercise View Controller-->
         <scene sceneID="1MX-eN-TxQ">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L1r-MD-4LS" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="AfterExerciseViewController" id="e9a-qO-RGa" customClass="AfterExerciseViewController" customModule="Stayt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="K7X-Wd-UUH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -944,7 +945,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="x8P-aE-h8f">
-                                <rect key="frame" x="10" y="158" width="355" height="499"/>
+                                <rect key="frame" x="10" y="158" width="355" height="439"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -967,10 +968,12 @@
                                                 <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="lFy-Vb-Pqf" secondAttribute="trailing" constant="10" id="Vk4-6C-NSA"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="lFy-Vb-Pqf" secondAttribute="bottom" constant="8" id="WSh-az-hjR"/>
                                                 <constraint firstItem="lFy-Vb-Pqf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Nkn-hT-Ypr" secondAttribute="leadingMargin" constant="10" id="sFa-kU-NcX"/>
-                                                <constraint firstItem="lFy-Vb-Pqf" firstAttribute="centerX" secondItem="Nkn-hT-Ypr" secondAttribute="centerX" id="tqi-L2-RMX"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="lFy-Vb-Pqf" firstAttribute="centerX" secondItem="Qjh-Cc-LUN" secondAttribute="centerX" id="KlS-dT-j55"/>
+                                        </constraints>
                                         <connections>
                                             <outlet property="label" destination="lFy-Vb-Pqf" id="B2D-PI-UwG"/>
                                         </connections>
@@ -981,33 +984,61 @@
                                     <outlet property="delegate" destination="e9a-qO-RGa" id="bqE-Ov-nRL"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aQr-2o-AdO">
+                                <rect key="frame" x="197.5" y="607" width="167.5" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="lVv-OD-ZiX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="tintColor" red="0.01199177653" green="0.95464175939999996" blue="0.95762783289999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Add note"/>
+                                <connections>
+                                    <action selector="addNoteAction:" destination="e9a-qO-RGa" eventType="touchUpInside" id="Cu1-V7-5lg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zAr-H7-AZB">
+                                <rect key="frame" x="10" y="607" width="167.5" height="50"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="tintColor" red="0.01199177653" green="0.95464175939999996" blue="0.95762783289999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Skip"/>
+                                <connections>
+                                    <action selector="skipAction:" destination="e9a-qO-RGa" eventType="touchUpInside" id="5Oh-Zq-FL5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="oJr-ha-Ktu" firstAttribute="trailing" secondItem="aQr-2o-AdO" secondAttribute="trailing" constant="10" id="45o-x1-0Gc"/>
                             <constraint firstItem="wGw-Jn-0wY" firstAttribute="top" secondItem="oJr-ha-Ktu" secondAttribute="top" constant="40" id="B8F-j6-wSJ"/>
-                            <constraint firstItem="oJr-ha-Ktu" firstAttribute="bottom" secondItem="x8P-aE-h8f" secondAttribute="bottom" constant="10" id="Exk-9Q-gRo"/>
+                            <constraint firstItem="zAr-H7-AZB" firstAttribute="height" secondItem="aQr-2o-AdO" secondAttribute="height" id="FJY-At-aeH"/>
                             <constraint firstItem="26t-NR-pfK" firstAttribute="top" secondItem="wGw-Jn-0wY" secondAttribute="bottom" constant="20" id="G6J-8U-lKQ"/>
                             <constraint firstItem="oJr-ha-Ktu" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="wGw-Jn-0wY" secondAttribute="trailing" constant="10" id="Q6Z-9h-Wnq"/>
                             <constraint firstItem="wGw-Jn-0wY" firstAttribute="centerX" secondItem="oJr-ha-Ktu" secondAttribute="centerX" id="SMR-vn-bjD"/>
                             <constraint firstItem="wGw-Jn-0wY" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="oJr-ha-Ktu" secondAttribute="leading" constant="10" id="XyG-Xh-cI9"/>
                             <constraint firstItem="26t-NR-pfK" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="oJr-ha-Ktu" secondAttribute="leading" constant="10" id="aL1-Ze-Mtt"/>
                             <constraint firstItem="x8P-aE-h8f" firstAttribute="top" secondItem="26t-NR-pfK" secondAttribute="bottom" constant="30" id="bQ5-l8-XyZ"/>
+                            <constraint firstItem="zAr-H7-AZB" firstAttribute="leading" secondItem="oJr-ha-Ktu" secondAttribute="leading" constant="10" id="cTh-ae-L0H"/>
+                            <constraint firstItem="aQr-2o-AdO" firstAttribute="top" secondItem="x8P-aE-h8f" secondAttribute="bottom" constant="10" id="gKA-uU-wTG"/>
                             <constraint firstItem="26t-NR-pfK" firstAttribute="centerX" secondItem="oJr-ha-Ktu" secondAttribute="centerX" id="iXv-mP-CdX"/>
                             <constraint firstItem="oJr-ha-Ktu" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="26t-NR-pfK" secondAttribute="trailing" constant="10" id="nFW-hZ-FXJ"/>
                             <constraint firstItem="oJr-ha-Ktu" firstAttribute="trailing" secondItem="x8P-aE-h8f" secondAttribute="trailing" constant="10" id="p6o-Yg-1lW"/>
+                            <constraint firstItem="oJr-ha-Ktu" firstAttribute="bottom" secondItem="aQr-2o-AdO" secondAttribute="bottom" constant="10" id="qxM-vF-tsN"/>
+                            <constraint firstItem="aQr-2o-AdO" firstAttribute="leading" secondItem="zAr-H7-AZB" secondAttribute="trailing" constant="20" id="vW1-qZ-a2R"/>
                             <constraint firstItem="x8P-aE-h8f" firstAttribute="leading" secondItem="oJr-ha-Ktu" secondAttribute="leading" constant="10" id="x5M-Kh-sgf"/>
+                            <constraint firstItem="oJr-ha-Ktu" firstAttribute="bottom" secondItem="zAr-H7-AZB" secondAttribute="bottom" constant="10" id="xT6-WU-WmP"/>
+                            <constraint firstItem="zAr-H7-AZB" firstAttribute="width" secondItem="aQr-2o-AdO" secondAttribute="width" id="z9s-JZ-jx4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oJr-ha-Ktu"/>
                     </view>
                     <connections>
+                        <outlet property="addNoteButton" destination="aQr-2o-AdO" id="iY0-gz-RaU"/>
                         <outlet property="firstMessageLabel" destination="wGw-Jn-0wY" id="ZYm-0k-Hwk"/>
                         <outlet property="secondMessageLabel" destination="26t-NR-pfK" id="y1i-Gq-3Sw"/>
                         <outlet property="tableView" destination="x8P-aE-h8f" id="Pzq-r0-DdQ"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="L1r-MD-4LS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1254" y="-922"/>
+            <point key="canvasLocation" x="1253.5999999999999" y="-922.48875562218893"/>
         </scene>
         <!--Custom Feeling View Controller-->
         <scene sceneID="SFf-y4-nJ5">
