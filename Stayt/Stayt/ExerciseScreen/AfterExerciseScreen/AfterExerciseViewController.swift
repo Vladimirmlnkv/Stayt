@@ -39,7 +39,7 @@ class AfterExerciseViewController: UIViewController {
         }
     }
     
-    fileprivate var options: [AfterFeelingType] = [.muchBetter, .aBitBetter, .noDifferent, .worse, .custom, .notSelected]
+    fileprivate var options: [AfterFeelingType] = [.muchBetter, .aBitBetter, .noDifferent, .worse]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,7 +56,7 @@ class AfterExerciseViewController: UIViewController {
     }
     
     @objc func doneButtonAction() {
-        let feeling = selectedFeeling ?? .notSelected
+        let feeling = selectedFeeling ?? .custom
         delegate.didPickFeeling(feeling, note: note)
     }
     

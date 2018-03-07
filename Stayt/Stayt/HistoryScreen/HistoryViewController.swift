@@ -88,7 +88,7 @@ class HistoryViewController: UIViewController, TimerDisplay {
                     if let afterFeelingText = experience.afterFeeling?.text, afterFeelingText.lowercased().contains(text.lowercased()) {
                         return true
                     }
-                    if experience.afterFeeling!.type != .notSelected {
+                    if experience.afterFeeling!.type != .custom {
                         return experience.afterFeeling!.type.title.lowercased().contains(text.lowercased())
                     }
                     return false
@@ -164,11 +164,15 @@ extension HistoryViewController: UITableViewDataSource {
         cell.exerciseLabel.text = experience.exerciseName
         cell.durationLabel.text = passiveStringDuration(from: experience.duration)
         cell.selectionStyle = .none
-        if let afterFeeling = experience.afterFeeling, afterFeeling.type != .notSelected {
+        if let afterFeeling = experience.afterFeeling {
             cell.feelingLabel.isHidden = false
-            cell.feelingLabel.text = "You felt: \(afterFeeling.type.title)"
-            if let text = afterFeeling.text {
-                cell.feelingLabel.text = cell.feelingLabel.text! + "\n\(text)"
+            if afterFeeling.type == .custom, let text = afterFeeling.text  {
+                cell.feelingLabel.text = text
+            } else {
+                cell.feelingLabel.text = "You felt: \(afterFeeling.type.title)"
+                if let text = afterFeeling.text {
+                    cell.feelingLabel.text = cell.feelingLabel.text! + "\n\(text)"
+                }
             }
         } else {
             cell.feelingLabel.isHidden = true

@@ -43,7 +43,7 @@ class CustomFeelingViewController: UIViewController {
             titleLabel.text = titleLabel.text! + " (\(experience.roundsCount) rounds)"
         }
         
-        if experience.afterFeeling == nil || experience.afterFeeling?.type == .notSelected {
+        if experience.afterFeeling == nil {
             feelingLabel.text = ""
         } else {
             feelingLabel.text = "You felt: \(experience.afterFeeling!.type.title)"

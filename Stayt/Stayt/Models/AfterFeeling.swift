@@ -9,7 +9,7 @@
 import RealmSwift
 
 enum AfterFeelingType: String {
-    case muchBetter, aBitBetter, noDifferent, worse, custom, notSelected
+    case muchBetter, aBitBetter, noDifferent, worse, custom
     
     var title: String {
         switch self {
@@ -21,10 +21,8 @@ enum AfterFeelingType: String {
             return "No different"
         case .worse:
             return "Worse"
-        case .custom:
-            return "Write your own version"
-        case .notSelected:
-            return "Prefer not to say"
+        default:
+            return ""
         }
     }
 }

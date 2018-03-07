@@ -21,7 +21,7 @@ class HistoryDataSource {
     func add(afterFeeling: String, for experience: Experience) {
         try! realm.write {
             var type: AfterFeelingType
-            if let feeling = experience.afterFeeling, feeling.type != .notSelected {
+            if let feeling = experience.afterFeeling {
                 type = feeling.type
             } else {
                 type = .custom
