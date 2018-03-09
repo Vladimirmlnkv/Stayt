@@ -13,9 +13,17 @@ class CurrentPackViewController: UIViewController {
     @IBOutlet var packNameLabel: UILabel!
     @IBOutlet var currentExerciseLabel: UILabel!
     @IBOutlet var dayLabel: UILabel!
+    @IBOutlet var startButton: UIButton!
     
     var exercisePack: ExercisePack!
     fileprivate var completedPackView: CompletedPackView?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        startButton.layer.borderWidth = 1.0
+        startButton.layer.borderColor = Colors.mainActiveColor.cgColor
+        startButton.layer.cornerRadius = 20
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
