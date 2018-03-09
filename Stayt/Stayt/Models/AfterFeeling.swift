@@ -9,18 +9,18 @@
 import RealmSwift
 
 enum AfterFeelingType: String {
-    case muchBetter, aBitBetter, noDifferent, worse, custom
+    case relaxed, calm, tired, energized, custom
     
     var title: String {
         switch self {
-        case .muchBetter:
-            return "Much better"
-        case .aBitBetter:
-            return "A bit better"
-        case .noDifferent:
-            return "No different"
-        case .worse:
-            return "Worse"
+        case .relaxed:
+            return "Relaxed"
+        case .calm:
+            return "Calm"
+        case .tired:
+            return "Tired"
+        case .energized:
+            return "Energized"
         default:
             return ""
         }

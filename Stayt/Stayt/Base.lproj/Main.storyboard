@@ -926,7 +926,6 @@
         <!--After Exercise View Controller-->
         <scene sceneID="1MX-eN-TxQ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="L1r-MD-4LS" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="AfterExerciseViewController" id="e9a-qO-RGa" customClass="AfterExerciseViewController" customModule="Stayt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="K7X-Wd-UUH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -938,8 +937,8 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How do you feel after doing it?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="26t-NR-pfK">
-                                <rect key="frame" x="56" y="104" width="263" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How do you feel now?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="26t-NR-pfK">
+                                <rect key="frame" x="92.5" y="104" width="190.5" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -984,14 +983,15 @@
                                     <outlet property="delegate" destination="e9a-qO-RGa" id="bqE-Ov-nRL"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aQr-2o-AdO">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aQr-2o-AdO">
                                 <rect key="frame" x="197.5" y="607" width="167.5" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="lVv-OD-ZiX"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="tintColor" red="0.01199177653" green="0.95464175939999996" blue="0.95762783289999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Add note"/>
+                                <state key="normal" title="Add note">
+                                    <color key="titleColor" red="0.01199177653" green="0.95464175939999996" blue="0.95762783289999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="addNoteAction:" destination="e9a-qO-RGa" eventType="touchUpInside" id="Cu1-V7-5lg"/>
                                 </connections>
@@ -1000,7 +1000,7 @@
                                 <rect key="frame" x="10" y="607" width="167.5" height="50"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="tintColor" red="0.01199177653" green="0.95464175939999996" blue="0.95762783289999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Skip"/>
+                                <state key="normal" title="Don't answer"/>
                                 <connections>
                                     <action selector="skipAction:" destination="e9a-qO-RGa" eventType="touchUpInside" id="5Oh-Zq-FL5"/>
                                 </connections>
@@ -1037,6 +1037,7 @@
                         <outlet property="tableView" destination="x8P-aE-h8f" id="Pzq-r0-DdQ"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L1r-MD-4LS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1253.5999999999999" y="-922.48875562218893"/>
         </scene>

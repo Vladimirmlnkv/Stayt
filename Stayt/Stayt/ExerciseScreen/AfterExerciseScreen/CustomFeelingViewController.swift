@@ -25,7 +25,10 @@ class CustomFeelingViewController: UIViewController {
     fileprivate var doneBarButtonItem: UIBarButtonItem!
     var delegate: CustomFeelingViewControllerDelegate!
     var experience: Experience!
+    
     var tmpNote: String?
+    var tmpFeeling: AfterFeelingType?
+    
     var shouldAddCancelButton = true
     
     override func viewDidLoad() {
@@ -54,6 +57,10 @@ class CustomFeelingViewController: UIViewController {
         
         if let note = tmpNote {
             textView.text = note
+        }
+        
+        if let feeling = tmpFeeling {
+            feelingLabel.text = "You felt: \(feeling.title)"
         }
         
         if textView.text.isEmpty {

@@ -108,6 +108,7 @@ extension ExerciseCoodinator: ExerciseViewModelCoordinationDelegate {
         historyManager.addExperience(roundsCount: roundsCount)
         UserSessionHandler.standart.setRecentExercise(exercise)
         afterExerciseVC = storyboard.instantiateViewController(withIdentifier: "AfterExerciseViewController") as! AfterExerciseViewController
+        afterExerciseVC.exerciseName = exercise.descriptionName
         let navC = UINavigationController(rootViewController: afterExerciseVC)
         afterExerciseVC.delegate = self
         exerciseVC.present(navC, animated: true, completion: nil)
@@ -136,6 +137,7 @@ extension ExerciseCoodinator: AfterExerciseViewControllerDelegate {
         vc.delegate = self
         vc.experience = historyManager.currentExperience()!
         vc.tmpNote = afterExerciseVC.note
+        vc.tmpFeeling = afterExerciseVC.selectedFeeling
         let navVC = UINavigationController(rootViewController: vc)
         afterExerciseVC.present(navVC, animated: true, completion: nil)
     }
@@ -150,8 +152,6 @@ extension ExerciseCoodinator: CustomFeelingViewControllerDelegate {
     func didEnter(feeling: String, for experience: Experience) {
         afterExerciseVC.note = feeling
         afterExerciseVC.dismiss(animated: true, completion: nil)
-//        historyManager.addAfterFeeling(type: .custom, text: feeling)
-//        dismiss()
     }
 
 }

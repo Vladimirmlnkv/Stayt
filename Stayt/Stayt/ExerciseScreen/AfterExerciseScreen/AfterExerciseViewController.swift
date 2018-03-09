@@ -23,8 +23,10 @@ class AfterExerciseViewController: UIViewController {
     
     fileprivate var doneBarButtonItem: UIBarButtonItem!
     
+    var exerciseName: String!
+    
     var delegate: AfterExerciseViewControllerDelegate!
-    fileprivate var selectedFeeling: AfterFeelingType?
+    var selectedFeeling: AfterFeelingType?
     var note: String? {
         didSet {
             if let n = note, !n.isEmpty {
@@ -38,14 +40,16 @@ class AfterExerciseViewController: UIViewController {
             }
         }
     }
-    
-    fileprivate var options: [AfterFeelingType] = [.muchBetter, .aBitBetter, .noDifferent, .worse]
+
+    fileprivate var options: [AfterFeelingType] = [.relaxed, .calm, .tired, .energized]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.barTintColor = UIColor.black
         navigationController?.navigationBar.tintColor = Colors.mainActiveColor
 
+        firstMessageLabel.text = "\(exerciseName!) completed!"
+        
         doneBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonAction))
         navigationItem.rightBarButtonItem = doneBarButtonItem
         doneBarButtonItem.isEnabled = false
