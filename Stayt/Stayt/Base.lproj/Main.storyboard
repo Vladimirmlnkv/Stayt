@@ -1000,7 +1000,9 @@
                                 <rect key="frame" x="10" y="607" width="167.5" height="50"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="tintColor" red="0.01199177653" green="0.95464175939999996" blue="0.95762783289999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Don't answer"/>
+                                <state key="normal" title="Skip">
+                                    <color key="titleColor" red="0.01199177653" green="0.95464175939999996" blue="0.95762783289999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="skipAction:" destination="e9a-qO-RGa" eventType="touchUpInside" id="5Oh-Zq-FL5"/>
                                 </connections>

@@ -9,7 +9,8 @@
 import UIKit
 
 protocol CustomFeelingViewControllerDelegate {
-    func didEnter(feeling: String, for experiene: Experience)
+    func didEnter(feeling: String)
+    func didPickFeeling(_ feeling: AfterFeelingType, note: String?)
 }
 
 class CustomFeelingViewController: UIViewController {
@@ -28,8 +29,6 @@ class CustomFeelingViewController: UIViewController {
     
     var tmpNote: String?
     var tmpFeeling: AfterFeelingType?
-    
-    var shouldAddCancelButton = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,13 +68,9 @@ class CustomFeelingViewController: UIViewController {
         
         charactersLabel.text = "\(textView.text.count)/\(maxNumberOfCharacters)"
         placeholderLabel.isHidden = textView.text.count > 0
-        
-        if shouldAddCancelButton {
-            navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .done, target: self, action: #selector(cancelAction))
-        }
 
-        doneBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneAction))
-        doneBarButtonItem.isEnabled = false
+        doneBarButtonItem = UIBarButtonItem(title: "Complete", style: .done, target: self, action: #selector(doneAction))
+        doneBarButtonItem.isEnabled = textView.text.count > 0
         navigationItem.rightBarButtonItem = doneBarButtonItem
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillShow, object: nil)
@@ -89,13 +84,16 @@ class CustomFeelingViewController: UIViewController {
         textView.resignFirstResponder()
     }
     
-    @objc func cancelAction() {
-        textView.resignFirstResponder()
-        dismiss(animated: true, completion: nil)
-    }
-    
     @objc func doneAction() {
-        delegate.didEnter(feeling: textView.text, for: experience)
+        var feeling: AfterFeelingType
+        if let tmpFeeling = tmpFeeling {
+            feeling = tmpFeeling
+        } else if let f = experience.afterFeeling?.type {
+            feeling = f
+        } else {
+            feeling = .custom
+        }
+        delegate.didPickFeeling(feeling, note: textView.text)
     }
     
     @objc func keyboardWillShow(_ notification: Notification) {
@@ -130,6 +128,7 @@ extension CustomFeelingViewController: UITextViewDelegate {
         charactersLabel.text = "\(textView.text.count)/\(maxNumberOfCharacters)"
         doneBarButtonItem.isEnabled = textView.text.count > 0
         placeholderLabel.isHidden = textView.text.count > 0
+        delegate.didEnter(feeling: textView.text)
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {

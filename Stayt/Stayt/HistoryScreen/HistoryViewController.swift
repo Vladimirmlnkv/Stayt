@@ -33,6 +33,7 @@ class HistoryViewController: UIViewController, TimerDisplay {
     }
     fileprivate let dataSource = HistoryDataSource()
     fileprivate let searchController = UISearchController(searchResultsController: nil)
+    fileprivate var selectedExperience: Experience?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,6 +72,7 @@ class HistoryViewController: UIViewController, TimerDisplay {
             }
         }
         historyItems = dataSource.getItems()
+        selectedExperience = nil
         tableView.reloadData()
     }
     
@@ -112,9 +114,13 @@ class HistoryViewController: UIViewController, TimerDisplay {
 
 extension HistoryViewController: CustomFeelingViewControllerDelegate {
     
-    func didEnter(feeling: String, for experience: Experience) {
-        dataSource.add(afterFeeling: feeling, for: experience)
-        navigationController?.popViewController(animated: true)
+    func didEnter(feeling: String) { }
+    
+    func didPickFeeling(_ feeling: AfterFeelingType, note: String?) {
+        if let selectedExperience = selectedExperience, let note = note {
+            dataSource.add(afterFeeling: note, for: selectedExperience)
+            navigationController?.popViewController(animated: true)
+        }
     }
     
 }
@@ -124,8 +130,8 @@ extension HistoryViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let vc = storyboard?.instantiateViewController(withIdentifier: "CustomFeelingViewController") as! CustomFeelingViewController
-        vc.experience = items[indexPath.section].experiences[indexPath.row]
-        vc.shouldAddCancelButton = false
+        selectedExperience = items[indexPath.section].experiences[indexPath.row]
+        vc.experience = selectedExperience!
         vc.delegate = self
         navigationController?.pushViewController(vc, animated: true)
     }

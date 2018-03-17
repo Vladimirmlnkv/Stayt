@@ -138,20 +138,22 @@ extension ExerciseCoodinator: AfterExerciseViewControllerDelegate {
         vc.experience = historyManager.currentExperience()!
         vc.tmpNote = afterExerciseVC.note
         vc.tmpFeeling = afterExerciseVC.selectedFeeling
-        let navVC = UINavigationController(rootViewController: vc)
-        afterExerciseVC.present(navVC, animated: true, completion: nil)
+        afterExerciseVC.navigationController?.pushViewController(vc, animated: true)
     }
     
     func skip() {
         dismiss()
     }
+    
+    func complete() {
+        
+    }
 }
 
 extension ExerciseCoodinator: CustomFeelingViewControllerDelegate {
     
-    func didEnter(feeling: String, for experience: Experience) {
+    func didEnter(feeling: String) {
         afterExerciseVC.note = feeling
-        afterExerciseVC.dismiss(animated: true, completion: nil)
     }
 
 }
