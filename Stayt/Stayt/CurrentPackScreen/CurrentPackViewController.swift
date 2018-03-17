@@ -48,7 +48,7 @@ class CurrentPackViewController: UIViewController {
     fileprivate func setupUI() {
         packNameLabel.text = exercisePack.name
         currentExerciseLabel.text = exercisePack.exercises[exercisePack.currentExerciseNumber].descriptionName
-        dayLabel.text = "Day \(exercisePack.currentExerciseNumber + 1) \\ \(exercisePack.exercises.count)"
+        dayLabel.text = "Day \(exercisePack.currentExerciseNumber + 1) of \(exercisePack.exercises.count)"
     }
 
     @IBAction func startButtonAction(_ sender: Any) {
