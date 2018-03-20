@@ -10,7 +10,7 @@ import UIKit
 
 protocol CustomFeelingViewControllerDelegate {
     func didEnter(feeling: String)
-    func didPickFeeling(_ feeling: AfterFeelingType, note: String?)
+    func didPickFeeling(_ feeling: Feeling, note: String?)
 }
 
 class CustomFeelingViewController: UIViewController {
@@ -28,7 +28,7 @@ class CustomFeelingViewController: UIViewController {
     var experience: Experience!
     
     var tmpNote: String?
-    var tmpFeeling: AfterFeelingType?
+    var tmpFeeling: Feeling?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +48,7 @@ class CustomFeelingViewController: UIViewController {
         if experience.afterFeeling == nil {
             feelingLabel.text = ""
         } else {
-            feelingLabel.text = "You felt: \(experience.afterFeeling!.type.title)"
+            feelingLabel.text = "You felt: \(experience.afterFeeling!.feeling.title!)"
             if let text = experience.afterFeeling?.text {
                 textView.text = text
             }
@@ -59,7 +59,7 @@ class CustomFeelingViewController: UIViewController {
         }
         
         if let feeling = tmpFeeling {
-            feelingLabel.text = "You felt: \(feeling.title)"
+            feelingLabel.text = "You felt: \(feeling.title!)"
         }
         
         if textView.text.isEmpty {
@@ -85,13 +85,13 @@ class CustomFeelingViewController: UIViewController {
     }
     
     @objc func doneAction() {
-        var feeling: AfterFeelingType
+        var feeling: Feeling
         if let tmpFeeling = tmpFeeling {
             feeling = tmpFeeling
-        } else if let f = experience.afterFeeling?.type {
+        } else if let f = experience.afterFeeling?.feeling {
             feeling = f
         } else {
-            feeling = .custom
+            feeling = Feeling(title: "")
         }
         delegate.didPickFeeling(feeling, note: textView.text)
     }

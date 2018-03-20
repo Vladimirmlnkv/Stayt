@@ -90,8 +90,8 @@ class HistoryViewController: UIViewController, TimerDisplay {
                     if let afterFeelingText = experience.afterFeeling?.text, afterFeelingText.lowercased().contains(text.lowercased()) {
                         return true
                     }
-                    if experience.afterFeeling!.type != .custom {
-                        return experience.afterFeeling!.type.title.lowercased().contains(text.lowercased())
+                    if experience.afterFeeling!.feeling.title != "" {
+                        return experience.afterFeeling!.feeling.title.lowercased().contains(text.lowercased())
                     }
                     return false
                 })
@@ -116,7 +116,7 @@ extension HistoryViewController: CustomFeelingViewControllerDelegate {
     
     func didEnter(feeling: String) { }
     
-    func didPickFeeling(_ feeling: AfterFeelingType, note: String?) {
+    func didPickFeeling(_ feeling: Feeling, note: String?) {
         if let selectedExperience = selectedExperience, let note = note {
             dataSource.add(afterFeeling: note, for: selectedExperience)
             navigationController?.popViewController(animated: true)
@@ -172,10 +172,10 @@ extension HistoryViewController: UITableViewDataSource {
         cell.selectionStyle = .none
         if let afterFeeling = experience.afterFeeling {
             cell.feelingLabel.isHidden = false
-            if afterFeeling.type == .custom, let text = afterFeeling.text  {
+            if afterFeeling.feeling.title == "", let text = afterFeeling.text  {
                 cell.feelingLabel.text = text
             } else {
-                cell.feelingLabel.text = "You felt: \(afterFeeling.type.title)"
+                cell.feelingLabel.text = "You felt: \(afterFeeling.feeling.title!)"
                 if let text = afterFeeling.text {
                     cell.feelingLabel.text = cell.feelingLabel.text! + "\n\(text)"
                 }

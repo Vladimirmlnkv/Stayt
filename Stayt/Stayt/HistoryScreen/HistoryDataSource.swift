@@ -20,13 +20,13 @@ class HistoryDataSource {
     
     func add(afterFeeling: String, for experience: Experience) {
         try! realm.write {
-            var type: AfterFeelingType
-            if let feeling = experience.afterFeeling {
-                type = feeling.type
+            var feeling: Feeling
+            if let f = experience.afterFeeling {
+                feeling = f.feeling
             } else {
-                type = .custom
+                feeling = Feeling(title: "")
             }
-            experience.afterFeeling = AfterFeeling(type: type, text: afterFeeling)
+            experience.afterFeeling = AfterFeeling(feeling: feeling, text: afterFeeling)
         }
     }
 }

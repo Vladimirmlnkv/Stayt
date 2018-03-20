@@ -8,37 +8,23 @@
 
 import RealmSwift
 
-enum AfterFeelingType: String {
-    case relaxed, calm, tired, energized, custom
+class AfterFeeling: Object {
     
-    var title: String {
-        switch self {
-        case .relaxed:
-            return "Relaxed"
-        case .calm:
-            return "Calm"
-        case .tired:
-            return "Tired"
-        case .energized:
-            return "Energized"
-        default:
-            return ""
-        }
+    @objc dynamic var feeling: Feeling!
+    @objc dynamic var text: String?
+
+    convenience init(feeling: Feeling, text: String?=nil) {
+        self.init()
+        self.feeling = feeling
+        self.text = text
     }
 }
 
-class AfterFeeling: Object {
+class Feeling: Object {
+    @objc dynamic var title: String!
     
-    @objc dynamic var rawType: String!
-    @objc dynamic var text: String?
-    
-    var type: AfterFeelingType {
-        return AfterFeelingType(rawValue: rawType)!
-    }
-    
-    convenience init(type: AfterFeelingType, text: String?=nil) {
+    convenience init(title: String) {
         self.init()
-        rawType = type.rawValue
-        self.text = text
+        self.title = title
     }
 }

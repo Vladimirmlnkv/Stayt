@@ -127,8 +127,8 @@ extension ExerciseCoodinator: ExerciseViewModelCoordinationDelegate {
 
 extension ExerciseCoodinator: AfterExerciseViewControllerDelegate {
     
-    func didPickFeeling(_ feeling: AfterFeelingType, note: String?) {
-        historyManager.addAfterFeeling(type: feeling, text: note)
+    func didPickFeeling(_ feeling: Feeling, note: String?) {
+        historyManager.addAfterFeeling(feeling: feeling, text: note)
         dismiss()
     }
     

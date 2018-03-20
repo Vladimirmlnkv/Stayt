@@ -9,7 +9,7 @@
 import UIKit
 
 protocol AfterExerciseViewControllerDelegate {
-    func didPickFeeling(_ feeling: AfterFeelingType, note: String?)
+    func didPickFeeling(_ feeling: Feeling, note: String?)
     func addNoteAction()
     func skip()
 }
@@ -26,7 +26,7 @@ class AfterExerciseViewController: UIViewController {
     var exerciseName: String!
     
     var delegate: AfterExerciseViewControllerDelegate!
-    var selectedFeeling: AfterFeelingType?
+    var selectedFeeling: Feeling?
     var note: String? {
         didSet {
             if let n = note, !n.isEmpty {
@@ -41,12 +41,17 @@ class AfterExerciseViewController: UIViewController {
         }
     }
 
-    fileprivate var options: [AfterFeelingType] = [.relaxed, .calm, .tired, .energized]
+    fileprivate var options = [Feeling]()// = [.relaxed, .calm, .tired, .energized]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.barTintColor = UIColor.black
         navigationController?.navigationBar.tintColor = Colors.mainActiveColor
+        
+        options = [ Feeling(title: "Relaxed"),
+                    Feeling(title: "Calm"),
+                    Feeling(title: "Tired"),
+                    Feeling(title: "Energized")]
 
         firstMessageLabel.text = "\(exerciseName!) completed!"
         
@@ -60,7 +65,7 @@ class AfterExerciseViewController: UIViewController {
     }
     
     @objc func doneButtonAction() {
-        let feeling = selectedFeeling ?? .custom
+        let feeling = selectedFeeling ?? Feeling(title: "")
         delegate.didPickFeeling(feeling, note: note)
     }
     
