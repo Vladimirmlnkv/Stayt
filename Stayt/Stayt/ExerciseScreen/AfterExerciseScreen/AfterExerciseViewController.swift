@@ -77,19 +77,23 @@ class AfterExerciseViewController: UIViewController {
 extension AfterExerciseViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return options.count
+        return options.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "AfterExerciseCell") as! AfterExerciseCell
-        cell.tintColor = Colors.mainActiveColor
-        if let f = selectedFeeling, options[indexPath.row] == f {
-            cell.accessoryType = .checkmark
+        if indexPath.row == options.count {
+            return tableView.dequeueReusableCell(withIdentifier: "CustomFeelingCell") as! CustomFeelingCell
         } else {
-            cell.accessoryType = .none
+            let cell = tableView.dequeueReusableCell(withIdentifier: "AfterExerciseCell") as! AfterExerciseCell
+            cell.tintColor = Colors.mainActiveColor
+            if let f = selectedFeeling, options[indexPath.row] == f {
+                cell.accessoryType = .checkmark
+            } else {
+                cell.accessoryType = .none
+            }
+            cell.label.text = options[indexPath.row].title
+            return cell
         }
-        cell.label.text = options[indexPath.row].title
-        return cell
     }
 }
 
@@ -97,22 +101,31 @@ extension AfterExerciseViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        var indexPathsToReload = [indexPath]
-        if let selected = selectedFeeling, let index = options.index(of: selected) {
-            indexPathsToReload.append(IndexPath(row: index, section: 0))
-        }
-        if selectedFeeling == options[indexPath.row] {
-            selectedFeeling = nil
-            if note == nil {
-                doneBarButtonItem.isEnabled = false
-            }
+        
+        if indexPath.row == options.count {
+            
+            let newFeelingView = NewFeelingView(frame: navigationController!.view.frame)
+            navigationController?.view.addSubview(newFeelingView)
+            newFeelingView.textField.becomeFirstResponder()
+            
         } else {
-            selectedFeeling = options[indexPath.row]
-            doneBarButtonItem.isEnabled = true
+            var indexPathsToReload = [indexPath]
+            if let selected = selectedFeeling, let index = options.index(of: selected) {
+                indexPathsToReload.append(IndexPath(row: index, section: 0))
+            }
+            if selectedFeeling == options[indexPath.row] {
+                selectedFeeling = nil
+                if note == nil {
+                    doneBarButtonItem.isEnabled = false
+                }
+            } else {
+                selectedFeeling = options[indexPath.row]
+                doneBarButtonItem.isEnabled = true
+            }
+            tableView.beginUpdates()
+            tableView.reloadRows(at: indexPathsToReload, with: .automatic)
+            tableView.endUpdates()
         }
-        tableView.beginUpdates()
-        tableView.reloadRows(at: indexPathsToReload, with: .automatic)
-        tableView.endUpdates()
     }
     
     func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
@@ -125,4 +138,10 @@ extension AfterExerciseViewController: UITableViewDelegate {
         cell!.backgroundColor = UIColor.clear
     }
     
+}
+
+extension AfterExerciseViewController: NewFeelingViewDelegate {
+    func didEnter(feeling: String) {
+        print(feeling)
+    }
 }

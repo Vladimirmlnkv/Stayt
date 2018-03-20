@@ -33,6 +33,7 @@
 		7E28949E204127C2005D2F22 /* RestView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E28949D204127C2005D2F22 /* RestView.xib */; };
 		7E2894A020412A93005D2F22 /* RestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E28949F20412A93005D2F22 /* RestView.swift */; };
 		7E2894A22041327F005D2F22 /* RestViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2894A12041327F005D2F22 /* RestViewHandler.swift */; };
+		7E29EBC2205E9D19009E7B63 /* CustomFeelingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E29EBC1205E9D19009E7B63 /* CustomFeelingCell.swift */; };
 		7E2C59FA203707B000018536 /* SingleExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2C59F9203707B000018536 /* SingleExerciseViewController.swift */; };
 		7E2C59FE2037FD6E00018536 /* SingleExerciseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2C59FD2037FD6E00018536 /* SingleExerciseViewModel.swift */; };
 		7E2C5A0120383EEA00018536 /* MultipleExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2C5A0020383EE900018536 /* MultipleExerciseViewController.swift */; };
@@ -60,6 +61,8 @@
 		7E85DE57203C6DD20052CFAA /* UserSessionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E85DE56203C6DD20052CFAA /* UserSessionHandler.swift */; };
 		7E85DE5A203C7C490052CFAA /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E85DE59203C7C490052CFAA /* AboutViewController.swift */; };
 		7E85DE5C203C80680052CFAA /* CopyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E85DE5B203C80680052CFAA /* CopyLabel.swift */; };
+		7E9182DE20615AF0001065D1 /* NewFeelingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E9182DD20615AF0001065D1 /* NewFeelingView.xib */; };
+		7E9182E020615C5A001065D1 /* NewFeelingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9182DF20615C5A001065D1 /* NewFeelingView.swift */; };
 		7EC1BBF320335593008DDB68 /* AfterFeeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC1BBF220335593008DDB68 /* AfterFeeling.swift */; };
 		7ED867AF204BCE5F00340051 /* DropDownDurationPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7ED867AE204BCE5F00340051 /* DropDownDurationPicker.xib */; };
 		7ED867B1204BCF2400340051 /* DropDownDurationPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED867B0204BCF2400340051 /* DropDownDurationPicker.swift */; };
@@ -102,6 +105,7 @@
 		7E28949D204127C2005D2F22 /* RestView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RestView.xib; sourceTree = "<group>"; };
 		7E28949F20412A93005D2F22 /* RestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestView.swift; sourceTree = "<group>"; };
 		7E2894A12041327F005D2F22 /* RestViewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestViewHandler.swift; sourceTree = "<group>"; };
+		7E29EBC1205E9D19009E7B63 /* CustomFeelingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFeelingCell.swift; sourceTree = "<group>"; };
 		7E2C59F9203707B000018536 /* SingleExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleExerciseViewController.swift; sourceTree = "<group>"; };
 		7E2C59FD2037FD6E00018536 /* SingleExerciseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleExerciseViewModel.swift; sourceTree = "<group>"; };
 		7E2C5A0020383EE900018536 /* MultipleExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleExerciseViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +133,8 @@
 		7E85DE56203C6DD20052CFAA /* UserSessionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionHandler.swift; sourceTree = "<group>"; };
 		7E85DE59203C7C490052CFAA /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		7E85DE5B203C80680052CFAA /* CopyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyLabel.swift; sourceTree = "<group>"; };
+		7E9182DD20615AF0001065D1 /* NewFeelingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewFeelingView.xib; sourceTree = "<group>"; };
+		7E9182DF20615C5A001065D1 /* NewFeelingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFeelingView.swift; sourceTree = "<group>"; };
 		7EC1BBF220335593008DDB68 /* AfterFeeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterFeeling.swift; sourceTree = "<group>"; };
 		7ED867AE204BCE5F00340051 /* DropDownDurationPicker.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DropDownDurationPicker.xib; sourceTree = "<group>"; };
 		7ED867B0204BCF2400340051 /* DropDownDurationPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownDurationPicker.swift; sourceTree = "<group>"; };
@@ -209,8 +215,10 @@
 		7E2035E2201C83F5005A6707 /* AfterExerciseScreen */ = {
 			isa = PBXGroup;
 			children = (
+				7E9182DC20615AE1001065D1 /* NewFeelingView */,
 				7E2035E3201C841D005A6707 /* AfterExerciseViewController.swift */,
 				7E2035E5201C8437005A6707 /* AfterExerciseCell.swift */,
+				7E29EBC1205E9D19009E7B63 /* CustomFeelingCell.swift */,
 				7E5AD2AD202ED2A800C08D77 /* CustomFeelingViewController.swift */,
 			);
 			path = AfterExerciseScreen;
@@ -355,6 +363,15 @@
 				7E85DE59203C7C490052CFAA /* AboutViewController.swift */,
 			);
 			path = AboutScreen;
+			sourceTree = "<group>";
+		};
+		7E9182DC20615AE1001065D1 /* NewFeelingView */ = {
+			isa = PBXGroup;
+			children = (
+				7E9182DD20615AF0001065D1 /* NewFeelingView.xib */,
+				7E9182DF20615C5A001065D1 /* NewFeelingView.swift */,
+			);
+			path = NewFeelingView;
 			sourceTree = "<group>";
 		};
 		7ED867AD204BCE3B00340051 /* DropDownDurationPicker */ = {
@@ -535,6 +552,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E9182DE20615AF0001065D1 /* NewFeelingView.xib in Resources */,
 				7EDC5994200E6C4100C33DFC /* LaunchScreen.storyboard in Resources */,
 				7E2035E1201C7FD4005A6707 /* meditationBell.mp3 in Resources */,
 				7E4BA0C920288B8A00C7C18A /* CenteredCell.xib in Resources */,
@@ -639,6 +657,7 @@
 				7E2C5A0120383EEA00018536 /* MultipleExerciseViewController.swift in Sources */,
 				7E363FEF20459807000F25A3 /* StageCell.swift in Sources */,
 				7E05A5FD2049B3B1002F5648 /* CompletedPackView.swift in Sources */,
+				7E29EBC2205E9D19009E7B63 /* CustomFeelingCell.swift in Sources */,
 				7E2C5A052038426000018536 /* MultipleExerciseViewModel.swift in Sources */,
 				7E10A53D203B06E20059AEF9 /* ExerciseSectionCollectionCell.swift in Sources */,
 				7E5AD2B12031FBEC00C08D77 /* ExerciseDescriptionViewController.swift in Sources */,
@@ -647,6 +666,7 @@
 				7EDB2E672014D16C00D77CB8 /* TimerDisplay.swift in Sources */,
 				7E85DE55203C4EF60052CFAA /* UserSession.swift in Sources */,
 				7ED867B3204BD5E000340051 /* DurationsOptionsMenuHandler.swift in Sources */,
+				7E9182E020615C5A001065D1 /* NewFeelingView.swift in Sources */,
 				7E4BA0D32029EAA500C7C18A /* HolderView.swift in Sources */,
 				7E24217D202B2FB000C03126 /* HistoryDataSource.swift in Sources */,
 				7E363FEC2045958C000F25A3 /* StagesDurationViewController.swift in Sources */,

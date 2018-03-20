@@ -977,6 +977,44 @@
                                             <outlet property="label" destination="lFy-Vb-Pqf" id="B2D-PI-UwG"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomFeelingCell" rowHeight="57" id="gf1-3o-BwK" customClass="CustomFeelingCell" customModule="Stayt" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="82" width="355" height="57"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gf1-3o-BwK" id="efu-T0-sOr">
+                                            <rect key="frame" x="0.0" y="0.0" width="355" height="56.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add your feeling" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LEA-KR-yVb">
+                                                    <rect key="frame" x="109.5" y="19" width="136" height="19"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h49-cP-SpH">
+                                                    <rect key="frame" x="71" y="13" width="30" height="30"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="SsL-7i-f1R"/>
+                                                        <constraint firstAttribute="width" constant="30" id="k2g-L5-QkX"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="h49-cP-SpH" firstAttribute="centerY" secondItem="efu-T0-sOr" secondAttribute="centerY" id="Dp0-V1-22p"/>
+                                                <constraint firstItem="LEA-KR-yVb" firstAttribute="top" secondItem="efu-T0-sOr" secondAttribute="topMargin" constant="8" id="Pla-e6-eoZ"/>
+                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="LEA-KR-yVb" secondAttribute="trailing" constant="10" id="R4H-vL-jVJ"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="LEA-KR-yVb" secondAttribute="bottom" constant="8" id="gZY-jq-y3C"/>
+                                                <constraint firstItem="LEA-KR-yVb" firstAttribute="centerX" secondItem="efu-T0-sOr" secondAttribute="centerX" id="yNK-EP-yAi"/>
+                                                <constraint firstItem="LEA-KR-yVb" firstAttribute="leading" secondItem="h49-cP-SpH" secondAttribute="trailing" constant="8" id="zpA-Dk-Gep"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="plusImage" destination="h49-cP-SpH" id="meP-Fx-e2W"/>
+                                            <outlet property="titleLabel" destination="LEA-KR-yVb" id="njZ-eX-Oqj"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="e9a-qO-RGa" id="ZC0-eS-OKB"/>
