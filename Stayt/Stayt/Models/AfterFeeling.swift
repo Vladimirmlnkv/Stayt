@@ -22,6 +22,7 @@ class AfterFeeling: Object {
 
 class Feeling: Object {
     @objc dynamic var title: String!
+    @objc dynamic var createdByUser = false
     
     convenience init(title: String) {
         self.init()

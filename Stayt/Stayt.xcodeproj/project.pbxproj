@@ -63,6 +63,7 @@
 		7E85DE5C203C80680052CFAA /* CopyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E85DE5B203C80680052CFAA /* CopyLabel.swift */; };
 		7E9182DE20615AF0001065D1 /* NewFeelingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E9182DD20615AF0001065D1 /* NewFeelingView.xib */; };
 		7E9182E020615C5A001065D1 /* NewFeelingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9182DF20615C5A001065D1 /* NewFeelingView.swift */; };
+		7E9182E220618B39001065D1 /* FeelingsDataSrouce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9182E120618B39001065D1 /* FeelingsDataSrouce.swift */; };
 		7EC1BBF320335593008DDB68 /* AfterFeeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC1BBF220335593008DDB68 /* AfterFeeling.swift */; };
 		7ED867AF204BCE5F00340051 /* DropDownDurationPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7ED867AE204BCE5F00340051 /* DropDownDurationPicker.xib */; };
 		7ED867B1204BCF2400340051 /* DropDownDurationPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED867B0204BCF2400340051 /* DropDownDurationPicker.swift */; };
@@ -135,6 +136,7 @@
 		7E85DE5B203C80680052CFAA /* CopyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyLabel.swift; sourceTree = "<group>"; };
 		7E9182DD20615AF0001065D1 /* NewFeelingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewFeelingView.xib; sourceTree = "<group>"; };
 		7E9182DF20615C5A001065D1 /* NewFeelingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFeelingView.swift; sourceTree = "<group>"; };
+		7E9182E120618B39001065D1 /* FeelingsDataSrouce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeelingsDataSrouce.swift; sourceTree = "<group>"; };
 		7EC1BBF220335593008DDB68 /* AfterFeeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterFeeling.swift; sourceTree = "<group>"; };
 		7ED867AE204BCE5F00340051 /* DropDownDurationPicker.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DropDownDurationPicker.xib; sourceTree = "<group>"; };
 		7ED867B0204BCF2400340051 /* DropDownDurationPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownDurationPicker.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 			children = (
 				7E9182DC20615AE1001065D1 /* NewFeelingView */,
 				7E2035E3201C841D005A6707 /* AfterExerciseViewController.swift */,
+				7E9182E120618B39001065D1 /* FeelingsDataSrouce.swift */,
 				7E2035E5201C8437005A6707 /* AfterExerciseCell.swift */,
 				7E29EBC1205E9D19009E7B63 /* CustomFeelingCell.swift */,
 				7E5AD2AD202ED2A800C08D77 /* CustomFeelingViewController.swift */,
@@ -684,6 +687,7 @@
 				7EDC59A2200E76E100C33DFC /* Activity.swift in Sources */,
 				7E4BA0D52029F08200C7C18A /* HolderViewHandler.swift in Sources */,
 				7EF969102046CF8900EF146D /* StagesCoordinator.swift in Sources */,
+				7E9182E220618B39001065D1 /* FeelingsDataSrouce.swift in Sources */,
 				7EDC599C200E75A400C33DFC /* MainViewController.swift in Sources */,
 				7E2894A22041327F005D2F22 /* RestViewHandler.swift in Sources */,
 			);

@@ -41,17 +41,15 @@ class AfterExerciseViewController: UIViewController {
         }
     }
 
-    fileprivate var options = [Feeling]()// = [.relaxed, .calm, .tired, .energized]
+    fileprivate var options = [Feeling]()
+    fileprivate let dataSource = FeelingsDataSrouce()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.barTintColor = UIColor.black
         navigationController?.navigationBar.tintColor = Colors.mainActiveColor
         
-        options = [ Feeling(title: "Relaxed"),
-                    Feeling(title: "Calm"),
-                    Feeling(title: "Tired"),
-                    Feeling(title: "Energized")]
+        options = dataSource.getFeelings()
 
         firstMessageLabel.text = "\(exerciseName!) completed!"
         
@@ -110,6 +108,7 @@ extension AfterExerciseViewController: UITableViewDelegate {
         if indexPath.row == options.count {
             
             let newFeelingView = NewFeelingView(frame: navigationController!.view.frame)
+            newFeelingView.delegate = self
             navigationController?.view.addSubview(newFeelingView)
             newFeelingView.textField.becomeFirstResponder()
             
@@ -147,6 +146,10 @@ extension AfterExerciseViewController: UITableViewDelegate {
 
 extension AfterExerciseViewController: NewFeelingViewDelegate {
     func didEnter(feeling: String) {
-        print(feeling)
+        dataSource.add(new: feeling)
+        options = dataSource.getFeelings()
+        selectedFeeling = options.last
+        doneBarButtonItem.isEnabled = true
+        tableView.reloadData()
     }
 }
