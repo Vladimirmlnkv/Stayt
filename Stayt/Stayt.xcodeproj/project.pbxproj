@@ -64,6 +64,8 @@
 		7E9182DE20615AF0001065D1 /* NewFeelingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E9182DD20615AF0001065D1 /* NewFeelingView.xib */; };
 		7E9182E020615C5A001065D1 /* NewFeelingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9182DF20615C5A001065D1 /* NewFeelingView.swift */; };
 		7E9182E220618B39001065D1 /* FeelingsDataSrouce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9182E120618B39001065D1 /* FeelingsDataSrouce.swift */; };
+		7EBA760D20655E4B003794C4 /* PackOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBA760C20655E4B003794C4 /* PackOverviewViewController.swift */; };
+		7EBA760F20655E6D003794C4 /* PackOverviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBA760E20655E6D003794C4 /* PackOverviewCell.swift */; };
 		7EC1BBF320335593008DDB68 /* AfterFeeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC1BBF220335593008DDB68 /* AfterFeeling.swift */; };
 		7ED867AF204BCE5F00340051 /* DropDownDurationPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7ED867AE204BCE5F00340051 /* DropDownDurationPicker.xib */; };
 		7ED867B1204BCF2400340051 /* DropDownDurationPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED867B0204BCF2400340051 /* DropDownDurationPicker.swift */; };
@@ -137,6 +139,8 @@
 		7E9182DD20615AF0001065D1 /* NewFeelingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewFeelingView.xib; sourceTree = "<group>"; };
 		7E9182DF20615C5A001065D1 /* NewFeelingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFeelingView.swift; sourceTree = "<group>"; };
 		7E9182E120618B39001065D1 /* FeelingsDataSrouce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeelingsDataSrouce.swift; sourceTree = "<group>"; };
+		7EBA760C20655E4B003794C4 /* PackOverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackOverviewViewController.swift; sourceTree = "<group>"; };
+		7EBA760E20655E6D003794C4 /* PackOverviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackOverviewCell.swift; sourceTree = "<group>"; };
 		7EC1BBF220335593008DDB68 /* AfterFeeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterFeeling.swift; sourceTree = "<group>"; };
 		7ED867AE204BCE5F00340051 /* DropDownDurationPicker.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DropDownDurationPicker.xib; sourceTree = "<group>"; };
 		7ED867B0204BCF2400340051 /* DropDownDurationPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownDurationPicker.swift; sourceTree = "<group>"; };
@@ -171,6 +175,7 @@
 		7E05A5F420498BFF002F5648 /* CurrentPackScreen */ = {
 			isa = PBXGroup;
 			children = (
+				7EBA760B20655E1F003794C4 /* PackOverviewScreen */,
 				7E05A5F520498CB1002F5648 /* CurrentPackViewController.swift */,
 				7E05A5FB2049B3A2002F5648 /* CompletedPackView */,
 			);
@@ -375,6 +380,15 @@
 				7E9182DF20615C5A001065D1 /* NewFeelingView.swift */,
 			);
 			path = NewFeelingView;
+			sourceTree = "<group>";
+		};
+		7EBA760B20655E1F003794C4 /* PackOverviewScreen */ = {
+			isa = PBXGroup;
+			children = (
+				7EBA760C20655E4B003794C4 /* PackOverviewViewController.swift */,
+				7EBA760E20655E6D003794C4 /* PackOverviewCell.swift */,
+			);
+			path = PackOverviewScreen;
 			sourceTree = "<group>";
 		};
 		7ED867AD204BCE3B00340051 /* DropDownDurationPicker */ = {
@@ -651,6 +665,7 @@
 				7E5AD2AE202ED2A800C08D77 /* CustomFeelingViewController.swift in Sources */,
 				7E10A545203B0A5C0059AEF9 /* BaseViewController.swift in Sources */,
 				7E85DE5C203C80680052CFAA /* CopyLabel.swift in Sources */,
+				7EBA760D20655E4B003794C4 /* PackOverviewViewController.swift in Sources */,
 				7E242176202B298800C03126 /* HistoryViewController.swift in Sources */,
 				7E05A5F620498CB1002F5648 /* CurrentPackViewController.swift in Sources */,
 				7EDC599F200E765C00C33DFC /* FeelingCell.swift in Sources */,
@@ -658,6 +673,7 @@
 				7E10A53A203B06850059AEF9 /* ExerciseSectionView.swift in Sources */,
 				7E3DAA29200F5A3D00E1B88C /* BorderedCircleView.swift in Sources */,
 				7E2C5A0120383EEA00018536 /* MultipleExerciseViewController.swift in Sources */,
+				7EBA760F20655E6D003794C4 /* PackOverviewCell.swift in Sources */,
 				7E363FEF20459807000F25A3 /* StageCell.swift in Sources */,
 				7E05A5FD2049B3B1002F5648 /* CompletedPackView.swift in Sources */,
 				7E29EBC2205E9D19009E7B63 /* CustomFeelingCell.swift in Sources */,
