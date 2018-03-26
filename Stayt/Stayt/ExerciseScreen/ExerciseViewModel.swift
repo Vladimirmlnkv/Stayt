@@ -107,11 +107,13 @@ class ExerciseViewModel: NSObject, AVAudioPlayerDelegate {
     
     func incrementCurrentExerciseInPack() {
         if exercisePack != nil {
-            try! mainRealm.write {
-                if exercisePack!.currentExerciseNumber < exercisePack!.exercises.count - 1 {
-                    exercisePack!.currentExerciseNumber += 1
-                } else {
-                    exercisePack!.isCompleted = true
+            if let index =  exercisePack!.exercises.index(of: exercise), index == exercisePack!.currentExerciseNumber {
+                try! mainRealm.write {
+                    if exercisePack!.currentExerciseNumber < exercisePack!.exercises.count - 1 {
+                        exercisePack!.currentExerciseNumber += 1
+                    } else {
+                        exercisePack!.isCompleted = true
+                    }
                 }
             }
         }

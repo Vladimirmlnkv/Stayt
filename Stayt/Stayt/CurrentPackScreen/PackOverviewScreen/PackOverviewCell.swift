@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol PackOverviewCellDelegate {
+    func didPressStartButton(for cell: PackOverviewCell)
+}
+
 class PackOverviewCell: UICollectionViewCell {
     
     @IBOutlet var dayLabel: UILabel!
@@ -16,8 +20,10 @@ class PackOverviewCell: UICollectionViewCell {
     @IBOutlet var startButton: UIButton!
     @IBOutlet var statusLabel: UILabel!
     
+    var delegate: PackOverviewCellDelegate!
+    
     @IBAction func startButtonAction(_ sender: Any) {
-        
+        delegate.didPressStartButton(for: self)
     }
 
 }

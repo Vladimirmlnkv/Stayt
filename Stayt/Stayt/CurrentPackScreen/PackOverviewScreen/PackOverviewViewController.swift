@@ -25,6 +25,16 @@ class PackOverviewViewController: UIViewController {
         collectionView.dataSource = self
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        collectionView.reloadData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        collectionView.scrollToItem(at: IndexPath(row: exercisePack.currentExerciseNumber, section: 0), at: .centeredHorizontally, animated: false)
+    }
+    
     fileprivate func indexOfMajorCell() -> Int {
         let itemWidth = cardWidth()
         let proportionalOffset = collectionView.contentOffset.x / itemWidth
@@ -64,6 +74,7 @@ extension PackOverviewViewController: UICollectionViewDataSource {
         let exercise = exercisePack.exercises[indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PackOverviewCell", for: indexPath) as! PackOverviewCell
         
+        cell.delegate = self
         cell.dayLabel.text = "Day \(indexPath.row + 1)"
         cell.exerciseLabel.text = exercise.descriptionName
         
@@ -71,7 +82,7 @@ extension PackOverviewViewController: UICollectionViewDataSource {
         
         if indexPath.row == exercisePack.currentExerciseNumber {
             cell.statusLabel.text = "Current day"
-            cell.startButton.setTitle("Start", for: .normal)
+            cell.startButton.setTitle("Begin", for: .normal)
             cell.statusImageView.image = #imageLiteral(resourceName: "circle")
             cell.startButton.isEnabled = true
         } else if indexPath.row < exercisePack.currentExerciseNumber {
@@ -86,6 +97,7 @@ extension PackOverviewViewController: UICollectionViewDataSource {
             cell.startButton.isEnabled = false
             cell.startButton.layer.borderColor = UIColor.lightGray.cgColor
         }
+        cell.statusImageView.tintColor = Colors.mainActiveColor
         
         cell.layer.cornerRadius = 10
         cell.startButton.layer.borderWidth = 1.0
@@ -129,6 +141,17 @@ extension PackOverviewViewController: UICollectionViewDelegate {
         } else {
             let indexPath = IndexPath(row: indexOfMajorCell, section: 0)
             collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        }
+    }
+    
+}
+
+extension PackOverviewViewController: PackOverviewCellDelegate {
+    
+    func didPressStartButton(for cell: PackOverviewCell) {
+        if let index = collectionView.indexPathForItem(at: cell.center) {
+            let coordinator = ExerciseCoodinator(exercise: exercisePack.exercises[index.row], presentingVC: self, exercisePack: exercisePack)
+            coordinator.start()
         }
     }
     

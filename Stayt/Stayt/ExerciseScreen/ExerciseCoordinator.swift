@@ -106,7 +106,6 @@ extension ExerciseCoodinator: ExerciseViewModelCoordinationDelegate {
     
     func exerciseFinished(roundsCount: Int) {
         historyManager.addExperience(roundsCount: roundsCount)
-        UserSessionHandler.standart.setRecentExercise(exercise)
         afterExerciseVC = storyboard.instantiateViewController(withIdentifier: "AfterExerciseViewController") as! AfterExerciseViewController
         afterExerciseVC.exerciseName = exercise.descriptionName
         let navC = UINavigationController(rootViewController: afterExerciseVC)
