@@ -15,11 +15,9 @@ class PackOverviewViewController: UIViewController {
     
     fileprivate var indexOfCellBeforeDragging = 0
     var exercisePack: ExercisePack!
-    var exerciseDataSource = ExerciseDataSource()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        exercisePack = exerciseDataSource.getBeginnerPack()
         titleLabel.text = exercisePack.name
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -32,7 +30,7 @@ class PackOverviewViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        collectionView.scrollToItem(at: IndexPath(row: exercisePack.currentExerciseNumber, section: 0), at: .centeredHorizontally, animated: false)
+        collectionView.scrollToItem(at: IndexPath(row: exercisePack.currentExerciseNumber, section: 0), at: .centeredHorizontally, animated: true)
     }
     
     fileprivate func indexOfMajorCell() -> Int {

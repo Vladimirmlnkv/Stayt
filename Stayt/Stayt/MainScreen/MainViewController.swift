@@ -28,7 +28,7 @@ class MainViewController: UIViewController {
     }
     
     @objc func currentPackScreenAction() {
-        let vc = storyboard?.instantiateViewController(withIdentifier: "CurrentPackViewController") as! CurrentPackViewController
+        let vc = storyboard?.instantiateViewController(withIdentifier: "PackOverviewViewController") as! PackOverviewViewController
         vc.exercisePack = exerciseDataSource.getBeginnerPack()
         navigationController?.pushViewController(vc, animated: true)
     }
