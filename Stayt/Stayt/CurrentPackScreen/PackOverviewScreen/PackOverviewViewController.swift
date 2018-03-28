@@ -86,12 +86,12 @@ extension PackOverviewViewController: UICollectionViewDataSource {
         } else if indexPath.row < exercisePack.currentExerciseNumber {
             cell.statusLabel.text = "Completed"
             cell.startButton.setTitle("Repeat", for: .normal)
-            cell.statusImageView.image = #imageLiteral(resourceName: "checkmark")
+            cell.statusImageView.image = #imageLiteral(resourceName: "checmark")
             cell.startButton.isEnabled = true
         } else {
             cell.statusLabel.text = "Locked"
             cell.startButton.setTitle("Locked", for: .normal)
-            cell.statusImageView.image = #imageLiteral(resourceName: "lock")
+            cell.statusImageView.image = #imageLiteral(resourceName: "locked-padlock")
             cell.startButton.isEnabled = false
             cell.startButton.layer.borderColor = UIColor.lightGray.cgColor
         }

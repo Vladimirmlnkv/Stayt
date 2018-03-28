@@ -1189,7 +1189,7 @@
                                                         <constraint firstAttribute="height" constant="50" id="uOS-kb-u4I"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
-                                                    <color key="tintColor" red="0.01199177653" green="0.95464175939999996" blue="0.95762783289999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="tintColor" red="0.011764705882352941" green="0.95294117647058818" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <state key="normal" title="Continue"/>
                                                     <connections>
                                                         <action selector="startButtonAction:" destination="KcW-gg-Vua" eventType="touchUpInside" id="UVA-6l-VoU"/>
