@@ -28,7 +28,7 @@ class MainCoordinator {
         } else {
             showMainScreen(animated: false)
         }
-        
+    
         window.makeKeyAndVisible()
     }
     
