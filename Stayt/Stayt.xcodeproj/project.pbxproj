@@ -67,6 +67,12 @@
 		7EBA760D20655E4B003794C4 /* PackOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBA760C20655E4B003794C4 /* PackOverviewViewController.swift */; };
 		7EBA760F20655E6D003794C4 /* PackOverviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBA760E20655E6D003794C4 /* PackOverviewCell.swift */; };
 		7EC1BBF320335593008DDB68 /* AfterFeeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC1BBF220335593008DDB68 /* AfterFeeling.swift */; };
+		7ECB5E51206E2A4D00A8E524 /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECB5E50206E2A4D00A8E524 /* OnboardingPageViewController.swift */; };
+		7ECB5E53206E526400A8E524 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECB5E52206E526400A8E524 /* MainCoordinator.swift */; };
+		7ED5C460206D5C3100031950 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7ED5C45F206D5C3100031950 /* Onboarding.storyboard */; };
+		7ED5C463206D62B100031950 /* IconedOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED5C462206D62B100031950 /* IconedOnboardingViewController.swift */; };
+		7ED5C465206D62D000031950 /* TextOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED5C464206D62D000031950 /* TextOnboardingViewController.swift */; };
+		7ED5C467206D62EB00031950 /* FinalOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED5C466206D62EB00031950 /* FinalOnboardingViewController.swift */; };
 		7ED867AF204BCE5F00340051 /* DropDownDurationPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7ED867AE204BCE5F00340051 /* DropDownDurationPicker.xib */; };
 		7ED867B1204BCF2400340051 /* DropDownDurationPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED867B0204BCF2400340051 /* DropDownDurationPicker.swift */; };
 		7ED867B3204BD5E000340051 /* DurationsOptionsMenuHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED867B2204BD5E000340051 /* DurationsOptionsMenuHandler.swift */; };
@@ -142,6 +148,12 @@
 		7EBA760C20655E4B003794C4 /* PackOverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackOverviewViewController.swift; sourceTree = "<group>"; };
 		7EBA760E20655E6D003794C4 /* PackOverviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackOverviewCell.swift; sourceTree = "<group>"; };
 		7EC1BBF220335593008DDB68 /* AfterFeeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterFeeling.swift; sourceTree = "<group>"; };
+		7ECB5E50206E2A4D00A8E524 /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
+		7ECB5E52206E526400A8E524 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		7ED5C45F206D5C3100031950 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		7ED5C462206D62B100031950 /* IconedOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconedOnboardingViewController.swift; sourceTree = "<group>"; };
+		7ED5C464206D62D000031950 /* TextOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextOnboardingViewController.swift; sourceTree = "<group>"; };
+		7ED5C466206D62EB00031950 /* FinalOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalOnboardingViewController.swift; sourceTree = "<group>"; };
 		7ED867AE204BCE5F00340051 /* DropDownDurationPicker.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DropDownDurationPicker.xib; sourceTree = "<group>"; };
 		7ED867B0204BCF2400340051 /* DropDownDurationPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownDurationPicker.swift; sourceTree = "<group>"; };
 		7ED867B2204BD5E000340051 /* DurationsOptionsMenuHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationsOptionsMenuHandler.swift; sourceTree = "<group>"; };
@@ -391,6 +403,18 @@
 			path = PackOverviewScreen;
 			sourceTree = "<group>";
 		};
+		7ED5C461206D628F00031950 /* OnboardingFlow */ = {
+			isa = PBXGroup;
+			children = (
+				7ED5C45F206D5C3100031950 /* Onboarding.storyboard */,
+				7ECB5E50206E2A4D00A8E524 /* OnboardingPageViewController.swift */,
+				7ED5C462206D62B100031950 /* IconedOnboardingViewController.swift */,
+				7ED5C464206D62D000031950 /* TextOnboardingViewController.swift */,
+				7ED5C466206D62EB00031950 /* FinalOnboardingViewController.swift */,
+			);
+			path = OnboardingFlow;
+			sourceTree = "<group>";
+		};
 		7ED867AD204BCE3B00340051 /* DropDownDurationPicker */ = {
 			isa = PBXGroup;
 			children = (
@@ -442,6 +466,7 @@
 		7EDC5988200E6C4100C33DFC /* Stayt */ = {
 			isa = PBXGroup;
 			children = (
+				7ED5C461206D628F00031950 /* OnboardingFlow */,
 				7EDC598D200E6C4100C33DFC /* Main.storyboard */,
 				7E242174202B297200C03126 /* HistoryScreen */,
 				7EDB2E682014D78700D77CB8 /* Sounds */,
@@ -453,6 +478,7 @@
 				7E05A5F420498BFF002F5648 /* CurrentPackScreen */,
 				7EDC5990200E6C4100C33DFC /* Assets.xcassets */,
 				7EDC5989200E6C4100C33DFC /* AppDelegate.swift */,
+				7ECB5E52206E526400A8E524 /* MainCoordinator.swift */,
 				7EDC5992200E6C4100C33DFC /* LaunchScreen.storyboard */,
 				7EDC5995200E6C4100C33DFC /* Info.plist */,
 			);
@@ -575,6 +601,7 @@
 				7E4BA0C920288B8A00C7C18A /* CenteredCell.xib in Resources */,
 				7E242178202B2AC900C03126 /* EmptyView.xib in Resources */,
 				7E05A5FA2049B1C3002F5648 /* CompletedPackView.xib in Resources */,
+				7ED5C460206D5C3100031950 /* Onboarding.storyboard in Resources */,
 				7E10A535203B02910059AEF9 /* ExerciseSectionView.xib in Resources */,
 				7EDC5991200E6C4100C33DFC /* Assets.xcassets in Resources */,
 				7E28949E204127C2005D2F22 /* RestView.xib in Resources */,
@@ -650,6 +677,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E242183202B3E0D00C03126 /* HistoryItemCell.swift in Sources */,
+				7ED5C463206D62B100031950 /* IconedOnboardingViewController.swift in Sources */,
 				7E10A533203AC6FA0059AEF9 /* Colors.swift in Sources */,
 				7E2035E4201C841D005A6707 /* AfterExerciseViewController.swift in Sources */,
 				7E4BA0CE20288DC000C7C18A /* DurationPickerViewController.swift in Sources */,
@@ -687,9 +715,11 @@
 				7ED867B3204BD5E000340051 /* DurationsOptionsMenuHandler.swift in Sources */,
 				7E9182E020615C5A001065D1 /* NewFeelingView.swift in Sources */,
 				7E4BA0D32029EAA500C7C18A /* HolderView.swift in Sources */,
+				7ECB5E51206E2A4D00A8E524 /* OnboardingPageViewController.swift in Sources */,
 				7E24217D202B2FB000C03126 /* HistoryDataSource.swift in Sources */,
 				7E363FEC2045958C000F25A3 /* StagesDurationViewController.swift in Sources */,
 				7E2894A020412A93005D2F22 /* RestView.swift in Sources */,
+				7ED5C467206D62EB00031950 /* FinalOnboardingViewController.swift in Sources */,
 				7E10A543203B09400059AEF9 /* ExerciseSection.swift in Sources */,
 				7E2C59FE2037FD6E00018536 /* SingleExerciseViewModel.swift in Sources */,
 				7E2035E8201C8598005A6707 /* ExerciseCoordinator.swift in Sources */,
@@ -697,6 +727,7 @@
 				7EDC598A200E6C4100C33DFC /* AppDelegate.swift in Sources */,
 				7E24217F202B2FC800C03126 /* HistoryItem.swift in Sources */,
 				7E85DE5A203C7C490052CFAA /* AboutViewController.swift in Sources */,
+				7ECB5E53206E526400A8E524 /* MainCoordinator.swift in Sources */,
 				7E67E34820132BB1009E084F /* Exercise.swift in Sources */,
 				7E2C5A07203867D300018536 /* ExerciseViewModel.swift in Sources */,
 				7E2035E6201C8437005A6707 /* AfterExerciseCell.swift in Sources */,
@@ -706,6 +737,7 @@
 				7E9182E220618B39001065D1 /* FeelingsDataSrouce.swift in Sources */,
 				7EDC599C200E75A400C33DFC /* MainViewController.swift in Sources */,
 				7E2894A22041327F005D2F22 /* RestViewHandler.swift in Sources */,
+				7ED5C465206D62D000031950 /* TextOnboardingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

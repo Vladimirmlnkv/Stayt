@@ -23,7 +23,7 @@ class ExerciseDataSource {
     
     fileprivate func initBeginnersPack() -> ExercisePack {
         
-        let day1Meditation = Exercise(name: ExerciseDescription.meditationFeelingName, description: ExerciseDescription.meditationDescription, descriptionName: "Benefits of Meditation", isGuided: false, activities: [Activity(name: "Relaxed", duration: 120, descriptionName: "Meditation", avaliableDurations: [60, 120, 240])])
+        let day1Meditation = Exercise(name: ExerciseDescription.meditationFeelingName, description: ExerciseDescription.meditationDescription, descriptionName: "Benefits Of Meditation", isGuided: false, activities: [Activity(name: "Relaxed", duration: 120, descriptionName: "Meditation", avaliableDurations: [60, 120, 240])])
         
         let rapidStage1 = ActivityStage(name: "Rapid breathing", duration: 45, avaliableDurations: [30, 45, 60])
         let outholdStage1 = ActivityStage(name: "Out/Hold", duration: 45, avaliableDurations: [30, 45, 60])

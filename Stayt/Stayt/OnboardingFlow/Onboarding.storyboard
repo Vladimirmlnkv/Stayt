@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1cs-Ec-GLc">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Onboarding Page View Controller-->
+        <scene sceneID="JBi-E0-QRF">
+            <objects>
+                <pageViewController storyboardIdentifier="OnboardingPageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="1cs-Ec-GLc" customClass="OnboardingPageViewController" customModule="Stayt" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3vP-Xq-zGK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-131" y="-243"/>
+        </scene>
+        <!--Iconed Onboarding View Controller-->
+        <scene sceneID="0LG-Xs-DHN">
+            <objects>
+                <viewController storyboardIdentifier="IconedOnboardingViewController" id="2x8-Pd-ubL" customClass="IconedOnboardingViewController" customModule="Stayt" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5hX-iJ-T9C">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Stayt_icon" translatesAutoresizingMaskIntoConstraints="NO" id="uQW-go-1LP">
+                                <rect key="frame" x="57.5" y="60" width="260" height="260"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="260" id="35d-QN-bAY"/>
+                                    <constraint firstAttribute="height" constant="260" id="p53-4h-e61"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Stayt!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BDF-Jp-i6r">
+                                <rect key="frame" x="96" y="328" width="183" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Simple app to change your state of mind" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w7s-a9-e3R">
+                                <rect key="frame" x="11.5" y="374.5" width="353.5" height="25.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Lml-bm-okV" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="BDF-Jp-i6r" secondAttribute="trailing" constant="10" id="1cr-WY-uPv"/>
+                            <constraint firstItem="uQW-go-1LP" firstAttribute="top" secondItem="Lml-bm-okV" secondAttribute="top" constant="40" id="6wg-YY-pTT"/>
+                            <constraint firstItem="Lml-bm-okV" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="w7s-a9-e3R" secondAttribute="trailing" constant="10" id="8nU-K7-DCM"/>
+                            <constraint firstItem="w7s-a9-e3R" firstAttribute="centerX" secondItem="5hX-iJ-T9C" secondAttribute="centerX" id="G3c-8d-ayR"/>
+                            <constraint firstItem="BDF-Jp-i6r" firstAttribute="centerX" secondItem="5hX-iJ-T9C" secondAttribute="centerX" id="bNp-2a-4PP"/>
+                            <constraint firstItem="BDF-Jp-i6r" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Lml-bm-okV" secondAttribute="leading" constant="10" id="epG-yA-w5Q"/>
+                            <constraint firstItem="uQW-go-1LP" firstAttribute="centerX" secondItem="5hX-iJ-T9C" secondAttribute="centerX" id="f2D-E7-zHp"/>
+                            <constraint firstItem="w7s-a9-e3R" firstAttribute="top" secondItem="BDF-Jp-i6r" secondAttribute="bottom" constant="20" id="hNp-88-HUN"/>
+                            <constraint firstItem="w7s-a9-e3R" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Lml-bm-okV" secondAttribute="leading" constant="10" id="yNk-IO-hwk"/>
+                            <constraint firstItem="BDF-Jp-i6r" firstAttribute="top" secondItem="uQW-go-1LP" secondAttribute="bottom" constant="8" id="zdV-XY-SBC"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Lml-bm-okV"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n6q-u7-HRE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-790" y="439"/>
+        </scene>
+        <!--Text Onboarding View Controller-->
+        <scene sceneID="9ut-9P-R8D">
+            <objects>
+                <viewController storyboardIdentifier="TextOnboardingViewController" id="Vdl-C9-osh" customClass="TextOnboardingViewController" customModule="Stayt" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="C5u-pO-R3T">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qye-KI-YLG">
+                                <rect key="frame" x="20" y="271" width="335" height="125.5"/>
+                                <string key="text">Stayt provides you with your own diary. Write your thought and ideas after doing exercises. Keep track of you exercises and see your progress.</string>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <constraints>
+                            <constraint firstItem="xn0-xF-fVM" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="qye-KI-YLG" secondAttribute="trailing" constant="20" id="2Oy-uU-LFV"/>
+                            <constraint firstItem="qye-KI-YLG" firstAttribute="centerY" secondItem="C5u-pO-R3T" secondAttribute="centerY" id="F42-FV-UK2"/>
+                            <constraint firstItem="qye-KI-YLG" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="xn0-xF-fVM" secondAttribute="leading" constant="20" id="Hk0-u7-9i6"/>
+                            <constraint firstItem="qye-KI-YLG" firstAttribute="centerX" secondItem="C5u-pO-R3T" secondAttribute="centerX" id="WDV-gM-SLs"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="xn0-xF-fVM"/>
+                    </view>
+                    <connections>
+                        <outlet property="titleLabel" destination="qye-KI-YLG" id="Rag-82-GFj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hgq-uh-Jfl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-132" y="438.53073463268368"/>
+        </scene>
+        <!--Final Onboarding View Controller-->
+        <scene sceneID="urS-wE-QmS">
+            <objects>
+                <viewController storyboardIdentifier="FinalOnboardingViewController" id="5qB-oJ-dBz" customClass="FinalOnboardingViewController" customModule="Stayt" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ozX-LI-dUa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enjoy your journey with Stayt!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SS2-wb-97M">
+                                <rect key="frame" x="39" y="320.5" width="297" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ugo-85-PVc">
+                                <rect key="frame" x="79.5" y="556" width="216" height="61"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <inset key="contentEdgeInsets" minX="30" minY="20" maxX="30" maxY="20"/>
+                                <state key="normal" title="Start Beginner Pack">
+                                    <color key="titleColor" red="0.01176470588" green="0.95294117649999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="startButtonAction:" destination="5qB-oJ-dBz" eventType="touchUpInside" id="pkS-qz-dvJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="bUy-eZ-rlL" firstAttribute="bottom" secondItem="ugo-85-PVc" secondAttribute="bottom" constant="50" id="5Oy-ed-JtZ"/>
+                            <constraint firstItem="bUy-eZ-rlL" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ugo-85-PVc" secondAttribute="trailing" constant="20" id="DCh-if-Msw"/>
+                            <constraint firstItem="bUy-eZ-rlL" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="SS2-wb-97M" secondAttribute="trailing" constant="20" id="FSn-fc-Qu2"/>
+                            <constraint firstItem="SS2-wb-97M" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="bUy-eZ-rlL" secondAttribute="leading" constant="20" id="iAN-mS-0AU"/>
+                            <constraint firstItem="SS2-wb-97M" firstAttribute="centerX" secondItem="ozX-LI-dUa" secondAttribute="centerX" id="kNk-Mo-zwy"/>
+                            <constraint firstItem="ugo-85-PVc" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="bUy-eZ-rlL" secondAttribute="leading" constant="20" id="nn7-UZ-dTG"/>
+                            <constraint firstItem="ugo-85-PVc" firstAttribute="centerX" secondItem="ozX-LI-dUa" secondAttribute="centerX" id="oQz-Bz-V2s"/>
+                            <constraint firstItem="SS2-wb-97M" firstAttribute="centerY" secondItem="ozX-LI-dUa" secondAttribute="centerY" id="qVx-GP-2rY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="bUy-eZ-rlL"/>
+                    </view>
+                    <connections>
+                        <outlet property="startButton" destination="ugo-85-PVc" id="6oG-E4-G4g"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SeS-5B-hB3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="530" y="439"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Stayt_icon" width="260" height="260"/>
+    </resources>
+</document>
