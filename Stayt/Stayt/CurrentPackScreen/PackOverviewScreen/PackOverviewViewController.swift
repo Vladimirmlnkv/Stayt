@@ -73,23 +73,20 @@ extension PackOverviewViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PackOverviewCell", for: indexPath) as! PackOverviewCell
         
         cell.delegate = self
-        cell.dayLabel.text = "Day \(indexPath.row + 1)"
+        cell.levelLabel.text = "Level \(indexPath.row + 1)"
         cell.exerciseLabel.text = exercise.descriptionName
         
         cell.startButton.layer.borderColor = Colors.mainActiveColor.cgColor
         
         if indexPath.row == exercisePack.currentExerciseNumber {
-            cell.statusLabel.text = "Current day"
             cell.startButton.setTitle("Begin", for: .normal)
             cell.statusImageView.image = #imageLiteral(resourceName: "circle")
             cell.startButton.isEnabled = true
         } else if indexPath.row < exercisePack.currentExerciseNumber {
-            cell.statusLabel.text = "Completed"
             cell.startButton.setTitle("Repeat", for: .normal)
             cell.statusImageView.image = #imageLiteral(resourceName: "checmark")
             cell.startButton.isEnabled = true
         } else {
-            cell.statusLabel.text = "Locked"
             cell.startButton.setTitle("Locked", for: .normal)
             cell.statusImageView.image = #imageLiteral(resourceName: "locked-padlock")
             cell.startButton.isEnabled = false

@@ -1195,7 +1195,7 @@
                                                         <action selector="startButtonAction:" destination="KcW-gg-Vua" eventType="touchUpInside" id="UVA-6l-VoU"/>
                                                     </connections>
                                                 </button>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark" translatesAutoresizingMaskIntoConstraints="NO" id="zkq-no-HXQ">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle" translatesAutoresizingMaskIntoConstraints="NO" id="zkq-no-HXQ">
                                                     <rect key="frame" x="296" y="15" width="35" height="35"/>
                                                     <color key="tintColor" red="0.01199177653" green="0.95464175939999996" blue="0.95762783289999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
@@ -1210,16 +1210,10 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vMs-Qh-XlN">
-                                                    <rect key="frame" x="125.5" y="209" width="96" height="58"/>
+                                                    <rect key="frame" x="125.5" y="226" width="96" height="24"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6xZ-cu-5eH">
-                                                            <rect key="frame" x="0.0" y="0.0" width="96" height="24"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
-                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meditation" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sKr-If-3jT">
-                                                            <rect key="frame" x="0.0" y="34" width="96" height="24"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="96" height="24"/>
                                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -1227,13 +1221,10 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstItem="sKr-If-3jT" firstAttribute="top" secondItem="6xZ-cu-5eH" secondAttribute="bottom" constant="10" id="3tu-gC-ANb"/>
                                                         <constraint firstAttribute="trailing" secondItem="sKr-If-3jT" secondAttribute="trailing" id="FPW-Yr-b3g"/>
-                                                        <constraint firstItem="6xZ-cu-5eH" firstAttribute="top" secondItem="vMs-Qh-XlN" secondAttribute="top" id="MN7-12-lyU"/>
                                                         <constraint firstItem="sKr-If-3jT" firstAttribute="leading" secondItem="vMs-Qh-XlN" secondAttribute="leading" id="MsF-9f-28k"/>
                                                         <constraint firstAttribute="bottom" secondItem="sKr-If-3jT" secondAttribute="bottom" id="PhA-UT-ymv"/>
-                                                        <constraint firstAttribute="trailing" secondItem="6xZ-cu-5eH" secondAttribute="trailing" id="bso-bb-v8Y"/>
-                                                        <constraint firstItem="6xZ-cu-5eH" firstAttribute="leading" secondItem="vMs-Qh-XlN" secondAttribute="leading" id="lfZ-HU-pDG"/>
+                                                        <constraint firstItem="sKr-If-3jT" firstAttribute="top" secondItem="vMs-Qh-XlN" secondAttribute="top" id="URb-CU-D7T"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -1254,11 +1245,10 @@
                                             <constraint firstItem="N5k-dk-wIq" firstAttribute="centerY" secondItem="zkq-no-HXQ" secondAttribute="centerY" id="kPa-BG-efu"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="dayLabel" destination="6xZ-cu-5eH" id="b3U-rK-qq1"/>
                                             <outlet property="exerciseLabel" destination="sKr-If-3jT" id="em0-73-vyb"/>
+                                            <outlet property="levelLabel" destination="N5k-dk-wIq" id="4vx-6y-hEN"/>
                                             <outlet property="startButton" destination="UaD-IM-iw8" id="xU9-JT-VZn"/>
                                             <outlet property="statusImageView" destination="zkq-no-HXQ" id="VvL-Ps-iOe"/>
-                                            <outlet property="statusLabel" destination="N5k-dk-wIq" id="VdF-KK-WT1"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -1462,7 +1452,7 @@
     </scenes>
     <resources>
         <image name="Stayt" width="500" height="500"/>
-        <image name="checkmark" width="32" height="32"/>
+        <image name="circle" width="32" height="32"/>
         <image name="cross" width="50" height="50"/>
         <image name="down-arrow" width="16" height="16"/>
         <image name="history" width="32" height="32"/>

@@ -62,7 +62,7 @@ class ExerciseDataSource {
         
         let description = "This begginer exercise pack is an intruduction to state changers. You'll be introduced to meditation, breathwork and arm holding. On day 10 you'll get to try a combo exercise that contains meditation, breathwork and arm holding. The goal here is to get comfortable doing state changers and see how they make you feel."
         
-        let beginnerPack = ExercisePack(name: "Beginner pack", exercises: [day1Meditation, day2Breathwork, day3ArmHolding, day4Meditation, day5Breathwork, day6ArmHolding, day7Meditation, day8Breathwork, day9ArmHolding, day10Combo], exerciseDescription: description)
+        let beginnerPack = ExercisePack(name: "Introduction pack", exercises: [day1Meditation, day2Breathwork, day3ArmHolding, day4Meditation, day5Breathwork, day6ArmHolding, day7Meditation, day8Breathwork, day9ArmHolding, day10Combo], exerciseDescription: description)
         try! realm.write {
             realm.add(beginnerPack)
         }

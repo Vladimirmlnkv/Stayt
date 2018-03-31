@@ -14,11 +14,11 @@ protocol PackOverviewCellDelegate {
 
 class PackOverviewCell: UICollectionViewCell {
     
-    @IBOutlet var dayLabel: UILabel!
     @IBOutlet var exerciseLabel: UILabel!
     @IBOutlet var statusImageView: UIImageView!
     @IBOutlet var startButton: UIButton!
-    @IBOutlet var statusLabel: UILabel!
+    @IBOutlet var levelLabel: UILabel!
+    
     
     var delegate: PackOverviewCellDelegate!
     

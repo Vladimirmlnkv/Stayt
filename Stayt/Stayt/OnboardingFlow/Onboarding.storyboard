@@ -114,10 +114,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ugo-85-PVc">
-                                <rect key="frame" x="79.5" y="556" width="216" height="61"/>
+                                <rect key="frame" x="66.5" y="556" width="242" height="61"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                 <inset key="contentEdgeInsets" minX="30" minY="20" maxX="30" maxY="20"/>
-                                <state key="normal" title="Start Beginner Pack">
+                                <state key="normal" title="Start Introduction Pack">
                                     <color key="titleColor" red="0.01176470588" green="0.95294117649999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
