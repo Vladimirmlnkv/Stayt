@@ -621,7 +621,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GCz-yb-wnI" customClass="DisclosureButton" customModule="Stayt" customModuleProvider="target">
-                                <rect key="frame" x="148" y="485" width="79" height="22"/>
+                                <rect key="frame" x="148" y="498.5" width="79" height="22"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="10 min" image="down-arrow">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -631,8 +631,8 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HX6-9k-g98">
-                                <rect key="frame" x="20" y="424" width="335" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="20" y="428.5" width="335" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -640,7 +640,7 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="rTV-KH-5j9" firstAttribute="trailing" secondItem="6Ec-rT-cgG" secondAttribute="trailing" id="27t-Mu-86J"/>
-                            <constraint firstItem="HX6-9k-g98" firstAttribute="top" secondItem="7g0-WE-BfM" secondAttribute="bottom" constant="15" id="KfL-CC-Xbm"/>
+                            <constraint firstItem="HX6-9k-g98" firstAttribute="top" secondItem="7g0-WE-BfM" secondAttribute="bottom" constant="20" id="KfL-CC-Xbm"/>
                             <constraint firstItem="rTV-KH-5j9" firstAttribute="trailing" secondItem="HX6-9k-g98" secondAttribute="trailing" constant="20" id="QAk-6w-QqQ"/>
                             <constraint firstItem="6Ec-rT-cgG" firstAttribute="leading" secondItem="rTV-KH-5j9" secondAttribute="leading" id="Qim-6m-mzx"/>
                             <constraint firstItem="6Ec-rT-cgG" firstAttribute="top" secondItem="rTV-KH-5j9" secondAttribute="top" constant="20" id="R2H-p3-OlU"/>
