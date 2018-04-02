@@ -20,6 +20,7 @@ class Exercise: Object {
     @objc dynamic var defaultRestTime: Int = 0
     let roundsRestTimes = List<Int>()
     @objc dynamic var allowsReorderActivities: Bool = false
+    @objc dynamic var shouldShowTutorialFirst: Bool = false
     
     convenience init (name: String, description: String, descriptionName: String, isGuided: Bool, activities: [Activity]) {
         self.init()

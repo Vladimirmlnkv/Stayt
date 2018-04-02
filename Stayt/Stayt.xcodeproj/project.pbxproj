@@ -64,6 +64,8 @@
 		7E9182DE20615AF0001065D1 /* NewFeelingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E9182DD20615AF0001065D1 /* NewFeelingView.xib */; };
 		7E9182E020615C5A001065D1 /* NewFeelingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9182DF20615C5A001065D1 /* NewFeelingView.swift */; };
 		7E9182E220618B39001065D1 /* FeelingsDataSrouce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9182E120618B39001065D1 /* FeelingsDataSrouce.swift */; };
+		7E9CE5D92072B08500F5DE58 /* VideoDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9CE5D82072B08500F5DE58 /* VideoDescriptionViewController.swift */; };
+		7E9CE5DB2072B1F000F5DE58 /* DescriptionPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9CE5DA2072B1F000F5DE58 /* DescriptionPageViewController.swift */; };
 		7EBA760D20655E4B003794C4 /* PackOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBA760C20655E4B003794C4 /* PackOverviewViewController.swift */; };
 		7EBA760F20655E6D003794C4 /* PackOverviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBA760E20655E6D003794C4 /* PackOverviewCell.swift */; };
 		7EC1BBF320335593008DDB68 /* AfterFeeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC1BBF220335593008DDB68 /* AfterFeeling.swift */; };
@@ -145,6 +147,8 @@
 		7E9182DD20615AF0001065D1 /* NewFeelingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewFeelingView.xib; sourceTree = "<group>"; };
 		7E9182DF20615C5A001065D1 /* NewFeelingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFeelingView.swift; sourceTree = "<group>"; };
 		7E9182E120618B39001065D1 /* FeelingsDataSrouce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeelingsDataSrouce.swift; sourceTree = "<group>"; };
+		7E9CE5D82072B08500F5DE58 /* VideoDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDescriptionViewController.swift; sourceTree = "<group>"; };
+		7E9CE5DA2072B1F000F5DE58 /* DescriptionPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionPageViewController.swift; sourceTree = "<group>"; };
 		7EBA760C20655E4B003794C4 /* PackOverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackOverviewViewController.swift; sourceTree = "<group>"; };
 		7EBA760E20655E6D003794C4 /* PackOverviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackOverviewCell.swift; sourceTree = "<group>"; };
 		7EC1BBF220335593008DDB68 /* AfterFeeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterFeeling.swift; sourceTree = "<group>"; };
@@ -373,6 +377,8 @@
 			isa = PBXGroup;
 			children = (
 				7E5AD2B02031FBEC00C08D77 /* ExerciseDescriptionViewController.swift */,
+				7E9CE5D82072B08500F5DE58 /* VideoDescriptionViewController.swift */,
+				7E9CE5DA2072B1F000F5DE58 /* DescriptionPageViewController.swift */,
 			);
 			path = ExerciseDescriptionScreen;
 			sourceTree = "<group>";
@@ -697,6 +703,7 @@
 				7E242176202B298800C03126 /* HistoryViewController.swift in Sources */,
 				7E05A5F620498CB1002F5648 /* CurrentPackViewController.swift in Sources */,
 				7EDC599F200E765C00C33DFC /* FeelingCell.swift in Sources */,
+				7E9CE5D92072B08500F5DE58 /* VideoDescriptionViewController.swift in Sources */,
 				7EC1BBF320335593008DDB68 /* AfterFeeling.swift in Sources */,
 				7E10A53A203B06850059AEF9 /* ExerciseSectionView.swift in Sources */,
 				7E3DAA29200F5A3D00E1B88C /* BorderedCircleView.swift in Sources */,
@@ -721,6 +728,7 @@
 				7E2894A020412A93005D2F22 /* RestView.swift in Sources */,
 				7ED5C467206D62EB00031950 /* FinalOnboardingViewController.swift in Sources */,
 				7E10A543203B09400059AEF9 /* ExerciseSection.swift in Sources */,
+				7E9CE5DB2072B1F000F5DE58 /* DescriptionPageViewController.swift in Sources */,
 				7E2C59FE2037FD6E00018536 /* SingleExerciseViewModel.swift in Sources */,
 				7E2035E8201C8598005A6707 /* ExerciseCoordinator.swift in Sources */,
 				7E05A5F8204990F0002F5648 /* ExercisePack.swift in Sources */,

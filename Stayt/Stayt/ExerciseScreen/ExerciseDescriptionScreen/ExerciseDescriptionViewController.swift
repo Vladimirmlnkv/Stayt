@@ -16,13 +16,14 @@ class ExerciseDescriptionViewController: UIViewController {
     var exerciseTitle: String!
     var exerciseDescription: String!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         titleLabel.text = exerciseTitle
         textView.text = exerciseDescription
-        
     }
-
+    
     @IBAction func dismissButtonAction(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }

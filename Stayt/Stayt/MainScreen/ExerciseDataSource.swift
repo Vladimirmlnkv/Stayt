@@ -24,6 +24,7 @@ class ExerciseDataSource {
     fileprivate func initBeginnersPack() -> ExercisePack {
         
         let day1Meditation = Exercise(name: ExerciseDescription.meditationFeelingName, description: ExerciseDescription.meditationDescription, descriptionName: "Benefits Of Meditation", isGuided: false, activities: [Activity(name: "Relaxed", duration: 120, descriptionName: "Meditation", avaliableDurations: [60, 120, 240])])
+        day1Meditation.shouldShowTutorialFirst = true
         
         let rapidStage1 = ActivityStage(name: "Rapid breathing", duration: 60, avaliableDurations: [60], allowsEditDuration: false)
         let outholdStage1 = ActivityStage(name: "Out/Hold", duration: 15, avaliableDurations: [15], allowsEditDuration: false)
@@ -31,8 +32,10 @@ class ExerciseDataSource {
         let stages1 = [rapidStage1, outholdStage1, inholdStage1]
         
         let day2Breathwork = Exercise(name: ExerciseDescription.breathWorkFeelingName, description: ExerciseDescription.breathWorkDescription, descriptionName: "Understanding Breathwork", isGuided: false, activities: [Activity(name: "Energized", duration: 120, descriptionName: "Breathwork", stages: stages1)])
+        day2Breathwork.shouldShowTutorialFirst = true
         
         let day3ArmHolding = Exercise(name: ExerciseDescription.armHoldFeelingName, description: ExerciseDescription.armHoldDescription, descriptionName: "Learning the Arm Hold", isGuided: false, activities: [Activity(name: "Motivated", duration: 120, descriptionName: "Arm holding", avaliableDurations: [60, 120, 240])])
+        day3ArmHolding.shouldShowTutorialFirst = true
         
         let day4Meditation = Exercise(name: ExerciseDescription.meditationFeelingName, description: ExerciseDescription.meditationDescription, descriptionName: "Basics of Meditation", isGuided: false, activities: [Activity(name: "Relaxed", duration: 240, descriptionName: "Meditation", avaliableDurations: [120, 240, 300])])
         

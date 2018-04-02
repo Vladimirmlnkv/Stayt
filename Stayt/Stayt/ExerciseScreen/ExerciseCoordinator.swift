@@ -25,6 +25,7 @@ class ExerciseCoodinator {
     fileprivate var exerciseVC: UIViewController!
     fileprivate let exercisePack: ExercisePack?
     fileprivate var menuHandler: DurationsOptionsMenuHandler?
+    fileprivate var tutorialVC: UIViewController?
     
     init(exercise: Exercise, presentingVC: UIViewController, exercisePack: ExercisePack?=nil) {
         self.exercise = exercise
@@ -34,18 +35,40 @@ class ExerciseCoodinator {
     }
     
     func start() {
+        if let pack = exercisePack {
+            if let index = pack.exercises.index(of: exercise), index == pack.currentExerciseNumber, exercise.shouldShowTutorialFirst {
+                showTutorialScreen()
+            } else {
+                showExerciseScreen(on: presentingVC)
+            }
+        } else {
+            showExerciseScreen(on: presentingVC)
+        }
+    }
+    
+    fileprivate func showTutorialScreen() {
+        let vc = storyboard.instantiateViewController(withIdentifier: "DescriptionPageViewController") as! DescriptionPageViewController
+        vc.exerciseTitle = exercise.descriptionName
+        vc.exerciseDescription = exercise.descriptionText
+        vc.shouldShowStartButton = true
+        vc.pageDelegate = self
+        tutorialVC = vc
+        presentingVC.present(vc, animated: true, completion: nil)
+    }
+    
+    fileprivate func showExerciseScreen(on parentVC: UIViewController) {
         if exercise.activities.count > 1 || exercise.allowsRounds || !exercise.activities.first!.stages.isEmpty {
             let exerciseVC = storyboard.instantiateViewController(withIdentifier: "MultipleExerciseViewController") as! MultipleExerciseViewController
             exerciseVC.viewModel = MultipleExerciseViewModel(exercise: exercise, coordinationDelegate: self, delegate: exerciseVC, exercisePack: exercisePack)
             delegate = exerciseVC.viewModel
             self.exerciseVC = exerciseVC
-            presentingVC.present(exerciseVC, animated: true, completion: nil)
+            parentVC.present(exerciseVC, animated: true, completion: nil)
         } else {
             let exerciseVC = storyboard.instantiateViewController(withIdentifier: "SingleExerciseViewController") as! SingleExerciseViewController
             let exerciseViewModel = SingleExerciseViewModel(exercise: exercise, coordinationDelegate: self, delegate: exerciseVC, exercisePack: exercisePack)
             exerciseVC.viewModel = exerciseViewModel
             self.exerciseVC = exerciseVC
-            presentingVC.present(exerciseVC, animated: true, completion: nil)
+            parentVC.present(exerciseVC, animated: true, completion: nil)
         }
     }
     
@@ -164,4 +187,12 @@ extension ExerciseCoodinator: StagesCoordinatorDelegate {
         delegate?.durationsUpdated()
         exerciseVC.dismiss(animated: true, completion: nil)
     }
+}
+
+extension ExerciseCoodinator: DescriptionPageViewControllerDelegate {
+    
+    func didPressStart() {
+        self.showExerciseScreen(on: tutorialVC!)
+    }
+    
 }

@@ -178,6 +178,14 @@
             </objects>
             <point key="canvasLocation" x="-195" y="568"/>
         </scene>
+        <!--Description Page View Controller-->
+        <scene sceneID="Mjk-eZ-KZf">
+            <objects>
+                <pageViewController storyboardIdentifier="DescriptionPageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="kRq-VH-7e3" customClass="DescriptionPageViewController" customModule="Stayt" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="51b-3V-qhg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="572" y="567"/>
+        </scene>
         <!--Exercise Description View Controller-->
         <scene sceneID="mCo-4u-fMn">
             <objects>
@@ -214,9 +222,9 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Vac-WM-9us" firstAttribute="bottom" secondItem="9lu-tX-HZS" secondAttribute="bottom" constant="20" id="1lJ-zK-Q8a"/>
                             <constraint firstItem="UIq-nk-khB" firstAttribute="top" secondItem="Gf2-P1-24H" secondAttribute="bottom" constant="20" id="D0o-K0-Tox"/>
                             <constraint firstItem="Gf2-P1-24H" firstAttribute="top" secondItem="Vac-WM-9us" secondAttribute="top" constant="20" id="Dg1-iW-djw"/>
-                            <constraint firstItem="Vac-WM-9us" firstAttribute="bottom" secondItem="9lu-tX-HZS" secondAttribute="bottom" constant="20" id="KYL-fT-MTR"/>
                             <constraint firstItem="9lu-tX-HZS" firstAttribute="top" secondItem="UIq-nk-khB" secondAttribute="bottom" constant="8" id="OFS-rx-jIx"/>
                             <constraint firstItem="Vac-WM-9us" firstAttribute="trailing" secondItem="9lu-tX-HZS" secondAttribute="trailing" constant="20" id="bcc-2Y-Rzx"/>
                             <constraint firstItem="UIq-nk-khB" firstAttribute="centerX" secondItem="Vac-WM-9us" secondAttribute="centerX" id="p0z-Ne-EcY"/>
@@ -232,7 +240,82 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8rA-UE-lwN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="572" y="567"/>
+            <point key="canvasLocation" x="572" y="1302"/>
+        </scene>
+        <!--Video Description View Controller-->
+        <scene sceneID="LzQ-DI-RRd">
+            <objects>
+                <viewController storyboardIdentifier="VideoDescriptionViewController" id="Gik-7Q-ZeQ" customClass="VideoDescriptionViewController" customModule="Stayt" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8px-Mo-NmC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Watch explanation video" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kt9-tj-nLE">
+                                <rect key="frame" x="65" y="100" width="245.5" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hl9-3B-ubm">
+                                <rect key="frame" x="93" y="566" width="189" height="61"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                <state key="normal" title="Start exercise">
+                                    <color key="titleColor" red="0.01176470588" green="0.95294117649999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="startButtonAction:" destination="Gik-7Q-ZeQ" eventType="touchUpInside" id="41T-d8-xLb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p6m-K0-ZuF">
+                                <rect key="frame" x="112" y="258" width="150" height="150"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="9RO-iq-z6T"/>
+                                    <constraint firstAttribute="height" constant="150" id="Awq-eZ-InU"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="play"/>
+                                <connections>
+                                    <action selector="videoButtonAction:" destination="Gik-7Q-ZeQ" eventType="touchUpInside" id="Cid-2F-b1M"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h3N-my-kba">
+                                <rect key="frame" x="325" y="40" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="9Lp-3t-a4A"/>
+                                    <constraint firstAttribute="width" constant="40" id="fFU-4U-D6L"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="cross"/>
+                                <connections>
+                                    <action selector="crossButtonAction:" destination="Gik-7Q-ZeQ" eventType="touchUpInside" id="Ezr-ee-3X4"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Kt9-tj-nLE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="WF4-TV-rXp" secondAttribute="leading" constant="20" id="4UQ-gD-YgK"/>
+                            <constraint firstItem="WF4-TV-rXp" firstAttribute="bottom" secondItem="Hl9-3B-ubm" secondAttribute="bottom" constant="40" id="KJz-UT-Srj"/>
+                            <constraint firstItem="WF4-TV-rXp" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Kt9-tj-nLE" secondAttribute="trailing" constant="20" id="Lh3-Qr-ybw"/>
+                            <constraint firstItem="Kt9-tj-nLE" firstAttribute="top" secondItem="h3N-my-kba" secondAttribute="bottom" constant="20" id="T3F-UV-fJR"/>
+                            <constraint firstItem="p6m-K0-ZuF" firstAttribute="centerY" secondItem="8px-Mo-NmC" secondAttribute="centerY" id="Tck-aP-Hw9"/>
+                            <constraint firstItem="p6m-K0-ZuF" firstAttribute="centerX" secondItem="8px-Mo-NmC" secondAttribute="centerX" id="ePV-qi-P9W"/>
+                            <constraint firstItem="WF4-TV-rXp" firstAttribute="trailing" secondItem="h3N-my-kba" secondAttribute="trailing" constant="10" id="ght-9L-f9a"/>
+                            <constraint firstItem="h3N-my-kba" firstAttribute="top" secondItem="WF4-TV-rXp" secondAttribute="top" constant="20" id="rXE-YJ-mHc"/>
+                            <constraint firstItem="Hl9-3B-ubm" firstAttribute="centerX" secondItem="8px-Mo-NmC" secondAttribute="centerX" id="toF-Mk-afT"/>
+                            <constraint firstItem="Kt9-tj-nLE" firstAttribute="centerX" secondItem="8px-Mo-NmC" secondAttribute="centerX" id="wCM-uU-03c"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="WF4-TV-rXp"/>
+                    </view>
+                    <connections>
+                        <outlet property="startButton" destination="Hl9-3B-ubm" id="k7C-DK-V3D"/>
+                        <outlet property="videoButton" destination="p6m-K0-ZuF" id="TUX-p0-ErW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uWi-ox-dQG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1254" y="1301"/>
         </scene>
         <!--Stayt-->
         <scene sceneID="jcg-dM-KHb">
@@ -787,7 +870,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ygo-jk-6zy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2826" y="675"/>
+            <point key="canvasLocation" x="3268" y="566"/>
         </scene>
         <!--Stages Duration View Controller-->
         <scene sceneID="t6v-Jw-46D">
@@ -1449,7 +1532,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LtD-43-0wB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2006" y="675"/>
+            <point key="canvasLocation" x="2449" y="566"/>
         </scene>
     </scenes>
     <resources>

@@ -14,6 +14,7 @@ class PackOverviewViewController: UIViewController {
     @IBOutlet var collectionView: UICollectionView!
     
     fileprivate var indexOfCellBeforeDragging = 0
+    fileprivate var coordinator: ExerciseCoodinator?
     var exercisePack: ExercisePack!
     
     override func viewDidLoad() {
@@ -145,8 +146,8 @@ extension PackOverviewViewController: PackOverviewCellDelegate {
     
     func didPressStartButton(for cell: PackOverviewCell) {
         if let index = collectionView.indexPathForItem(at: cell.center) {
-            let coordinator = ExerciseCoodinator(exercise: exercisePack.exercises[index.row], presentingVC: self, exercisePack: exercisePack)
-            coordinator.start()
+            coordinator = ExerciseCoodinator(exercise: exercisePack.exercises[index.row], presentingVC: self, exercisePack: exercisePack)
+            coordinator!.start()
         }
     }
     
