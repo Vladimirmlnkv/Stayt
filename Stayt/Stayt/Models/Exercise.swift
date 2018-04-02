@@ -16,6 +16,11 @@ class Exercise: Object {
     let activities = List<Activity>()
     @objc dynamic var isGuided: Bool = false
     
+    @objc dynamic var allowsRounds: Bool = false
+    @objc dynamic var defaultRestTime: Int = 0
+    let roundsRestTimes = List<Int>()
+    @objc dynamic var allowsReorderActivities: Bool = false
+    
     convenience init (name: String, description: String, descriptionName: String, isGuided: Bool, activities: [Activity]) {
         self.init()
         self.name = name

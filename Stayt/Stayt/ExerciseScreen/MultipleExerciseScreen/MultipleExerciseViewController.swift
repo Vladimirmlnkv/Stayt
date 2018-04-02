@@ -30,6 +30,13 @@ class MultipleExerciseViewController: UIViewController {
         titleLabel.text = viewModel.title
         roundsCountLabel.text = "\(viewModel.roundsCount)"
         decreaseRoundsButton.isEnabled = false
+        if !viewModel.allowsRounds {
+            roundsView.isHidden = true
+            roundsCountLabel.isHidden = true
+            increaseRoundsButton.isHidden = true
+            decreaseRoundsButton.isHidden = true
+            roundsTitleLabel.isHidden = true
+        }
         configureTableView()
     }
     

@@ -28,7 +28,7 @@ class StagesDurationViewController: UIViewController, TimerDisplay {
         tableView.tableFooterView = UIView()
         tableView.bounces = false
         
-        titleLabel.text = "\(exerciseName!) contains different stages. You can change duration for each stage"
+        titleLabel.text = "\(exerciseName!) contains different stages"
         
         navigationController?.navigationBar.tintColor = Colors.mainActiveColor
         navigationController?.navigationBar.barTintColor = UIColor.black
@@ -55,7 +55,11 @@ extension StagesDurationViewController: UITableViewDataSource {
         let stage = stages[indexPath.row]
         cell.nameLabel.text = stage.name
         cell.durationLabel.text = passiveStringDuration(from: stage.duration)
-        cell.accessoryType = .disclosureIndicator
+        if stage.allowsEditDuration {
+            cell.accessoryType = .disclosureIndicator
+        } else {
+            cell.accessoryType = .none
+        }
         
         return cell
     }
@@ -77,6 +81,10 @@ extension StagesDurationViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
         let cell  = tableView.cellForRow(at: indexPath)
         cell!.backgroundColor = UIColor.clear
+    }
+    
+    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        return stages[indexPath.row].allowsEditDuration
     }
     
 }

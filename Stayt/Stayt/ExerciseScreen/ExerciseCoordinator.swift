@@ -34,7 +34,7 @@ class ExerciseCoodinator {
     }
     
     func start() {
-        if exercise.activities.count > 1 || !exercise.activities.first!.stages.isEmpty {
+        if exercise.activities.count > 1 || exercise.allowsRounds || !exercise.activities.first!.stages.isEmpty {
             let exerciseVC = storyboard.instantiateViewController(withIdentifier: "MultipleExerciseViewController") as! MultipleExerciseViewController
             exerciseVC.viewModel = MultipleExerciseViewModel(exercise: exercise, coordinationDelegate: self, delegate: exerciseVC, exercisePack: exercisePack)
             delegate = exerciseVC.viewModel

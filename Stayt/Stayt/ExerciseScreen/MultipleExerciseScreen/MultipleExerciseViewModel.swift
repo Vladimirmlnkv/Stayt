@@ -63,8 +63,12 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
         }
     }
     
+    var allowsRounds: Bool {
+        return exercise.allowsRounds
+    }
+    
     var allowsReordering: Bool {
-        return exercise.activities.count > 1
+        return exercise.allowsReorderActivities
     }
     
     var activitiesCount: Int {
@@ -126,12 +130,13 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
     init(exercise: Exercise, coordinationDelegate: ExerciseViewModelCoordinationDelegate, delegate: MultipleExerciseViewModelDelegate, exercisePack: ExercisePack?) {
         super.init(exercise: exercise, coordinationDelegate: coordinationDelegate, exercisePack: exercisePack)
         self.delegate = delegate
-        
+        roundsRestTime = exercise.defaultRestTime
         updateBlock = { [weak self] time -> Void in
             guard let strongSelf = self else { return }
             
             let passedTime = Int64(time.value) / Int64(time.timescale)
             let remainingTime = strongSelf.currentTimeDuration! - Int(passedTime)
+
             strongSelf.remainingDuration = remainingTime
             if remainingTime == 0 {
                 strongSelf.playSound()
@@ -178,7 +183,9 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
                     }
                 }
             } else {
-                strongSelf.delegate?.realodRows(at: [strongSelf.currentActivityNumber!])
+                if strongSelf.currentActivityNumber! < strongSelf.exercise.activities.count {
+                    strongSelf.delegate?.realodRows(at: [strongSelf.currentActivityNumber!])
+                }
             }
         }
 
@@ -212,7 +219,7 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
                     }
                 }
             }
-            let viewModel = ActivityCellViewModel(isCompleted: isCompleted, allowsEditing: state == .initial, title: title, durationTitle: durationTitle, delegate: self, isCurrentActivity: isCurrentActivity)
+            let viewModel = ActivityCellViewModel(isCompleted: isCompleted, allowsEditing: (state == .initial && activity.allowsEditDuration), title: title, durationTitle: durationTitle, delegate: self, isCurrentActivity: isCurrentActivity)
             
             return viewModel
         }
@@ -318,7 +325,7 @@ extension MultipleExerciseViewModel: SingleActivityCellDelegate {
                 coordinationDelegate?.showStagesScreen(for: activity)
             }
         } else {
-            let allowedDurations = [0, 60, 120, 180]
+            let allowedDurations = Array(exercise.roundsRestTimes)
             coordinationDelegate?.showDurationPicker(with: "Rest time", currentDuration: roundsRestTime, allowedDurations: allowedDurations, completion: { (duration) in
                 self.roundsRestTime = duration
                 self.delegate?.reloadRestTime()
