@@ -37,7 +37,7 @@ class ExerciseCoodinator {
     func start() {
         if let pack = exercisePack {
             if let index = pack.exercises.index(of: exercise), index == pack.currentExerciseNumber, exercise.shouldShowTutorialFirst {
-                showTutorialScreen()
+                showTutorialScreen(on: presentingVC, shouldShowStartButton: true)
             } else {
                 showExerciseScreen(on: presentingVC)
             }
@@ -46,11 +46,11 @@ class ExerciseCoodinator {
         }
     }
     
-    fileprivate func showTutorialScreen() {
+    fileprivate func showTutorialScreen(on presentingVC: UIViewController, shouldShowStartButton: Bool) {
         let vc = storyboard.instantiateViewController(withIdentifier: "DescriptionPageViewController") as! DescriptionPageViewController
         vc.exerciseTitle = exercise.descriptionName
         vc.exerciseDescription = exercise.descriptionText
-        vc.shouldShowStartButton = true
+        vc.shouldShowStartButton = shouldShowStartButton
         vc.pageDelegate = self
         tutorialVC = vc
         presentingVC.present(vc, animated: true, completion: nil)
@@ -78,15 +78,28 @@ class ExerciseCoodinator {
         })
     }
     
+    fileprivate func showSingleInfoScreen() {
+        let vc = storyboard.instantiateViewController(withIdentifier: "ExerciseDescriptionViewController") as! ExerciseDescriptionViewController
+        vc.exerciseTitle = exercise.descriptionName
+        vc.exerciseDescription = exercise.descriptionText
+        exerciseVC.present(vc, animated: true, completion: nil)
+    }
 }
 
 extension ExerciseCoodinator: ExerciseViewModelCoordinationDelegate {
     
     func showInfoScreen() {
-        let vc = storyboard.instantiateViewController(withIdentifier: "ExerciseDescriptionViewController") as! ExerciseDescriptionViewController
-        vc.exerciseTitle = exercise.descriptionName
-        vc.exerciseDescription = exercise.descriptionText
-        exerciseVC.present(vc, animated: true, completion: nil)
+        
+        if let pack = exercisePack {
+            if let index = pack.exercises.index(of: exercise), index == pack.currentExerciseNumber, exercise.shouldShowTutorialFirst {
+                showTutorialScreen(on: exerciseVC, shouldShowStartButton: false)
+            } else {
+                showSingleInfoScreen()
+            }
+        } else {
+            showSingleInfoScreen()
+        }
+        
     }
     
     func dismiss(shouldConfirm: Bool, completion: @escaping () -> Void) {
