@@ -97,12 +97,12 @@ class ExerciseDataSource {
         
         let ex2 = Exercise(name: ExerciseDescription.breathWorkFeelingName, description: ExerciseDescription.breathWorkDescription, descriptionName: ExerciseDescription.breathWorkName, isGuided: false, activities: [Activity(name: "Energized", duration: 120, descriptionName: "Breathwork", stages: stages)])
         ex2.allowsRounds = true
-        ex2.roundsRestTimes.append(objectsIn: [60, 120, 300])
-        ex2.defaultRestTime = 60
+        ex2.roundsRestTimes.append(objectsIn: [0, 60, 120, 300])
         
         let ex3 = Exercise(name: ExerciseDescription.armHoldFeelingName, description: ExerciseDescription.armHoldDescription, descriptionName: ExerciseDescription.armHoldName, isGuided: false, activities: [Activity(name: "Motivated", duration: 120, descriptionName: "Arm holding")])
         ex3.allowsRounds = true
-        ex3.roundsRestTimes.append(objectsIn: [0 ,60, 120, 300])
+        ex3.roundsRestTimes.append(objectsIn: [60, 120, 300])
+        ex3.defaultRestTime = 60
         
         let rapidStage1 = ActivityStage(name: "Rapid breathing", duration: 60, avaliableDurations: [40, 50, 60, 70, 80, 90, 100, 110, 120])
         let outholdStage1 = ActivityStage(name: "Out/Hold", duration: 45, avaliableDurations: [30, 40, 45, 50, 60, 70, 80, 90, 100])
