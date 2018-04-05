@@ -23,7 +23,7 @@ class ExerciseDataSource {
     
     fileprivate func initBeginnersPack() -> ExercisePack {
         
-        let day1Meditation = Exercise(name: ExerciseDescription.meditationFeelingName, description: ExerciseDescription.meditationDescription, descriptionName: "Benefits Of Meditation", isGuided: false, activities: [Activity(name: "Relaxed", duration: 120, descriptionName: "Meditation", avaliableDurations: [60, 120, 240])])
+        let day1Meditation = Exercise(name: ExerciseDescription.meditationFeelingName, description: ExerciseDescription.meditationDescription, descriptionName: "Benefits Of Meditation", isGuided: true, activities: [Activity(name: "Relaxed", duration: 120, descriptionName: "Meditation", avaliableDurations: [60, 120, 240])])
         day1Meditation.shouldShowTutorialFirst = true
         
         let rapidStage1 = ActivityStage(name: "Rapid breathing", duration: 60, avaliableDurations: [60], allowsEditDuration: false)
@@ -31,35 +31,35 @@ class ExerciseDataSource {
         let inholdStage1 = ActivityStage(name: "In/Hold", duration: 15, avaliableDurations: [15], allowsEditDuration: false)
         let stages1 = [rapidStage1, outholdStage1, inholdStage1]
         
-        let day2Breathwork = Exercise(name: ExerciseDescription.breathWorkFeelingName, description: ExerciseDescription.breathWorkDescription, descriptionName: "Understanding Breathwork", isGuided: false, activities: [Activity(name: "Energized", duration: 120, descriptionName: "Breathwork", stages: stages1)])
+        let day2Breathwork = Exercise(name: ExerciseDescription.breathWorkFeelingName, description: ExerciseDescription.breathWorkDescription, descriptionName: "Understanding Breathwork", isGuided: true, activities: [Activity(name: "Energized", duration: 120, descriptionName: "Breathwork", stages: stages1)])
         day2Breathwork.shouldShowTutorialFirst = true
         
-        let day3ArmHolding = Exercise(name: ExerciseDescription.armHoldFeelingName, description: ExerciseDescription.armHoldDescription, descriptionName: "Learning the Arm Hold", isGuided: false, activities: [Activity(name: "Motivated", duration: 120, descriptionName: "Arm holding", avaliableDurations: [60, 120, 240])])
+        let day3ArmHolding = Exercise(name: ExerciseDescription.armHoldFeelingName, description: ExerciseDescription.armHoldDescription, descriptionName: "Learning the Arm Hold", isGuided: true, activities: [Activity(name: "Motivated", duration: 120, descriptionName: "Arm holding", avaliableDurations: [60, 120, 240])])
         day3ArmHolding.shouldShowTutorialFirst = true
         
-        let day4Meditation = Exercise(name: ExerciseDescription.meditationFeelingName, description: ExerciseDescription.meditationDescription, descriptionName: "Basics of Meditation", isGuided: false, activities: [Activity(name: "Relaxed", duration: 240, descriptionName: "Meditation", avaliableDurations: [120, 240, 300])])
+        let day4Meditation = Exercise(name: ExerciseDescription.meditationFeelingName, description: ExerciseDescription.meditationDescription, descriptionName: "Basics of Meditation", isGuided: true, activities: [Activity(name: "Relaxed", duration: 240, descriptionName: "Meditation", avaliableDurations: [120, 240, 300])])
         
         let rapidStage2 = ActivityStage(name: "Rapid breathing", duration: 60, avaliableDurations: [60], allowsEditDuration: false)
         let outholdStage2 = ActivityStage(name: "Out/Hold", duration: 30, avaliableDurations: [15, 30])
         let inholdStage2 = ActivityStage(name: "In/Hold", duration: 15, avaliableDurations: [15], allowsEditDuration: false)
         let stages2 = [rapidStage2, outholdStage2, inholdStage2]
         
-        let day5Breathwork = Exercise(name: ExerciseDescription.breathWorkFeelingName, description: ExerciseDescription.breathWorkDescription, descriptionName: "Breathwork Practice", isGuided: false, activities: [Activity(name: "Energized", duration: 120, descriptionName: "Breathwork", stages: stages2)])
+        let day5Breathwork = Exercise(name: ExerciseDescription.breathWorkFeelingName, description: ExerciseDescription.breathWorkDescription, descriptionName: "Breathwork Practice", isGuided: true, activities: [Activity(name: "Energized", duration: 120, descriptionName: "Breathwork", stages: stages2)])
         
-        let day6ArmHolding = Exercise(name: ExerciseDescription.armHoldFeelingName, description: ExerciseDescription.armHoldDescription, descriptionName: "Mindset for Armhold", isGuided: false, activities: [Activity(name: "Motivated", duration: 240, descriptionName: "Arm holding", avaliableDurations: [120, 240, 300])])
+        let day6ArmHolding = Exercise(name: ExerciseDescription.armHoldFeelingName, description: ExerciseDescription.armHoldDescription, descriptionName: "Mindset for Armhold", isGuided: true, activities: [Activity(name: "Motivated", duration: 240, descriptionName: "Arm holding", avaliableDurations: [120, 240, 300])])
         
-        let day7Meditation = Exercise(name: ExerciseDescription.meditationFeelingName, description: ExerciseDescription.meditationDescription, descriptionName: "Deep in Meditation", isGuided: false, activities: [Activity(name: "Relaxed", duration: 300, descriptionName: "Meditation", avaliableDurations: [120, 240, 300, 600])])
+        let day7Meditation = Exercise(name: ExerciseDescription.meditationFeelingName, description: ExerciseDescription.meditationDescription, descriptionName: "Deep in Meditation", isGuided: true, activities: [Activity(name: "Relaxed", duration: 300, descriptionName: "Meditation", avaliableDurations: [120, 240, 300, 600])])
         
         let rapidStage3 = ActivityStage(name: "Rapid breathing", duration: 60, avaliableDurations: [60], allowsEditDuration: false)
         let outholdStage3 = ActivityStage(name: "Out/Hold", duration: 45, avaliableDurations: [15, 30, 45])
         let inholdStage3 = ActivityStage(name: "In/Hold", duration: 15, avaliableDurations: [15])
         let stages3 = [rapidStage3, outholdStage3, inholdStage3]
         
-        let day8Breathwork = Exercise(name: ExerciseDescription.breathWorkFeelingName, description: ExerciseDescription.breathWorkDescription, descriptionName: "Fun with Breathwork", isGuided: false, activities: [Activity(name: "Energized", duration: 120, descriptionName: "Breathwork", stages: stages3)])
+        let day8Breathwork = Exercise(name: ExerciseDescription.breathWorkFeelingName, description: ExerciseDescription.breathWorkDescription, descriptionName: "Fun with Breathwork", isGuided: true, activities: [Activity(name: "Energized", duration: 120, descriptionName: "Breathwork", stages: stages3)])
         
-        let day9ArmHolding = Exercise(name: ExerciseDescription.armHoldFeelingName, description: ExerciseDescription.armHoldDescription, descriptionName: "Arm Hold Challenge", isGuided: false, activities: [Activity(name: "Motivated", duration: 300, descriptionName: "Arm holding", avaliableDurations: [120, 240, 300, 360])])
+        let day9ArmHolding = Exercise(name: ExerciseDescription.armHoldFeelingName, description: ExerciseDescription.armHoldDescription, descriptionName: "Arm Hold Challenge", isGuided: true, activities: [Activity(name: "Motivated", duration: 300, descriptionName: "Arm holding", avaliableDurations: [120, 240, 300, 360])])
         
-        let day10Combo = Exercise(name: "Combo", description: ExerciseDescription.blessingDescription, descriptionName: "Combo Session", isGuided: false, activities: [Activity(name: "Relaxed", duration: 180, descriptionName: "Meditation", allowsEditDuration: false),
+        let day10Combo = Exercise(name: "Combo", description: ExerciseDescription.blessingDescription, descriptionName: "Combo Session", isGuided: true, activities: [Activity(name: "Relaxed", duration: 180, descriptionName: "Meditation", allowsEditDuration: false),
                                                                                                                                                                                                                  Activity(name: "Energized", duration: 120, descriptionName: "Breathwork", stages: stages1, allowsEditDuration: false),
                                                                                                                                                                                                                  Activity(name: "Motivated", duration: 120, descriptionName: "Arm holding", allowsEditDuration: false),])
         
@@ -75,7 +75,7 @@ class ExerciseDataSource {
     
     func getExercises() -> [Exercise] {
         
-        let exersises = realm.objects(Exercise.self)
+        let exersises = realm.objects(Exercise.self).filter({!$0.isGuided})
         if exersises.isEmpty {
             return initialExercises()
         } else {

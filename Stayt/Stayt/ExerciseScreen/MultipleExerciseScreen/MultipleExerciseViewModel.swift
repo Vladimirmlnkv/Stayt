@@ -164,7 +164,10 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
                         strongSelf.delegate?.realodRows(at: [strongSelf.currentActivityNumber! - 1])
                         if strongSelf.currentRound < strongSelf.roundsCount {
                             if strongSelf.roundsRestTime == 0 {
-                                if strongSelf.shouldShowHolder {
+                                if exercise.activities.count == 1 {
+                                    strongSelf.player?.pause()
+                                    strongSelf.startNextRound()
+                                } else if strongSelf.shouldShowHolder {
                                     strongSelf.player?.pause()
                                     strongSelf.shouldShowHolder = false
                                     strongSelf.delegate?.showHolder(with: strongSelf, activity: exercise.activities[0])
@@ -256,6 +259,16 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
             shouldShowRestTime = false
         }
     }
+    
+    fileprivate func startNextRound() {
+        currentActivityNumber = 0
+        incrementCurrentRound()
+        currentTimeDuration = exercise.activities[currentActivityNumber!].duration
+        checkStages()
+        delegate?.reloadTableView()
+        player?.seek(to: kCMTimeZero)
+        player?.play()
+    }
 }
 
 extension MultipleExerciseViewModel: HolderViewHandlerDelegate {
@@ -263,19 +276,15 @@ extension MultipleExerciseViewModel: HolderViewHandlerDelegate {
     func holderDidFinish() {
         shouldShowHolder = true
         if currentActivityNumber == exercise.activities.count {
-            currentActivityNumber = 0
-            incrementCurrentRound()
-            currentTimeDuration = exercise.activities[currentActivityNumber!].duration
-            checkStages()
-            delegate?.reloadTableView()
+            startNextRound()
         } else {
             currentActivityNumber! += 1
             currentTimeDuration = exercise.activities[currentActivityNumber!].duration
             checkStages()
             delegate?.realodRows(at: [currentActivityNumber!, currentActivityNumber! - 1])
+            player?.seek(to: kCMTimeZero)
+            player?.play()
         }
-        player?.seek(to: kCMTimeZero)
-        player?.play()
     }
     
     fileprivate func checkStages() {
