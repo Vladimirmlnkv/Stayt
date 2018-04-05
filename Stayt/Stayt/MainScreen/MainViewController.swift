@@ -17,25 +17,11 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "small_question-mark"), style: .done, target: self, action: #selector(aboutAction))
-        navigationItem.leftBarButtonItem = leftBarButtonItem
         navigationController?.navigationBar.tintColor = UIColor.white
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "CP", style: .done, target: self, action: #selector(currentPackScreenAction))
         exercises = exerciseDataSource.getExercises()
         
         collectionView.delegate = self
         collectionView.dataSource = self
-    }
-    
-    @objc func currentPackScreenAction() {
-        let vc = storyboard?.instantiateViewController(withIdentifier: "PackOverviewViewController") as! PackOverviewViewController
-        vc.exercisePack = exerciseDataSource.getBeginnerPack()
-        navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    @objc func aboutAction() {
-        let aboutVC = storyboard!.instantiateViewController(withIdentifier: "AboutViewController")
-        present(aboutVC, animated: true, completion: nil)
     }
 
 }

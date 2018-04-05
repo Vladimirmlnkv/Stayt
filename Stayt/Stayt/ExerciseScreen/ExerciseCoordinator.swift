@@ -12,7 +12,13 @@ protocol ExerciseCoodinatorDelegate {
     func durationsUpdated()
 }
 
+protocol ExerciseCoodinatorCoordinationDelegate {
+    func didFinish()
+}
+
 class ExerciseCoodinator {
+    
+    var coordinationDelegate: ExerciseCoodinatorCoordinationDelegate?
     
     fileprivate let exercise: Exercise
     fileprivate let presentingVC: UIViewController
@@ -76,6 +82,7 @@ class ExerciseCoodinator {
         self.presentingVC.dismiss(animated: true, completion: {
             self.exerciseVC = nil
         })
+        coordinationDelegate?.didFinish()
     }
     
     fileprivate func showSingleInfoScreen() {
@@ -89,7 +96,6 @@ class ExerciseCoodinator {
 extension ExerciseCoodinator: ExerciseViewModelCoordinationDelegate {
     
     func showInfoScreen() {
-        
         if let pack = exercisePack {
             if let index = pack.exercises.index(of: exercise), index == pack.currentExerciseNumber, exercise.shouldShowTutorialFirst {
                 showTutorialScreen(on: exerciseVC, shouldShowStartButton: false)
@@ -99,7 +105,6 @@ extension ExerciseCoodinator: ExerciseViewModelCoordinationDelegate {
         } else {
             showSingleInfoScreen()
         }
-        
     }
     
     func dismiss(shouldConfirm: Bool, completion: @escaping () -> Void) {

@@ -25,7 +25,7 @@ class VideoDescriptionViewController: UIViewController {
         super.viewDidLoad()
         startButton.layer.borderWidth = 1.0
         startButton.layer.borderColor = Colors.mainActiveColor.cgColor
-        startButton.layer.cornerRadius = 10.0
+        startButton.layer.cornerRadius = 15.0
         
         if !shouldShowStartButton {
             startButton.isHidden = true

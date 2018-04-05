@@ -43,6 +43,10 @@ class PackOverviewViewController: UIViewController {
     fileprivate func cardWidth() -> CGFloat {
         return collectionView.frame.width - 60 - 10*2
     }
+    
+    @IBAction func dismissButtonAction(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
 }
 
 extension PackOverviewViewController: UICollectionViewDelegateFlowLayout {

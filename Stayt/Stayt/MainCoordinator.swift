@@ -13,6 +13,9 @@ class MainCoordinator {
     private let window: UIWindow
     private let shouldShowOnboardingKey = "shouldShowOnboarding"
     
+    fileprivate let exerciseCoordinatorKey = "exerciseCoordinatorKey"
+    fileprivate var coordinators = [String: Any]()
+    
     init(window: UIWindow) {
         self.window = window
     }
@@ -34,7 +37,11 @@ class MainCoordinator {
     
     private func showMainScreen(animated: Bool) {
         let sb = UIStoryboard(name: "Main", bundle: nil)
-        let mainVC = sb.instantiateInitialViewController()
+        let mainVC = sb.instantiateInitialViewController() as! UITabBarController
+        let firstNavVC = mainVC.viewControllers?.first! as! UINavigationController
+        let currentPackVC = firstNavVC.viewControllers.first as! CurrentPackViewController
+        currentPackVC.exerciseDataSource = ExerciseDataSource()
+        currentPackVC.delegate = self
         if animated {
             UIView.transition(with: window, duration: 0.5, options: .transitionFlipFromLeft, animations: {
                 self.window.rootViewController = mainVC
@@ -53,4 +60,23 @@ extension MainCoordinator: OnboardingPageViewControllerDelegate {
         showMainScreen(animated: true)
     }
     
+}
+
+extension MainCoordinator: CurrentPackViewControllerDelegate {
+    
+    func start(exercisePack: ExercisePack, presentingVC: UIViewController) {
+        let coordinator = ExerciseCoodinator(exercise: exercisePack.exercises[exercisePack.currentExerciseNumber], presentingVC: presentingVC, exercisePack: exercisePack)
+        coordinator.start()
+        coordinator.coordinationDelegate = self
+        coordinators[exerciseCoordinatorKey] = coordinator
+    }
+    
+}
+
+extension MainCoordinator: ExerciseCoodinatorCoordinationDelegate {
+    
+    func didFinish() {
+        coordinators[exerciseCoordinatorKey] = nil
+    }
+
 }
