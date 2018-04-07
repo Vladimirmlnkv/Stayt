@@ -16,6 +16,7 @@ class SingleExerciseViewController: UIViewController {
     @IBOutlet var remainingLabel: UILabel!
     
     @IBOutlet var durationButton: DisclosureButton!
+    @IBOutlet var circleView: AnimatedCircleView!
     
     var viewModel: SingleExerciseViewModel!
     
@@ -71,5 +72,17 @@ extension SingleExerciseViewController: SingleExerciseViewModelDelegate {
     
     func updatePlayButton(image newImage: UIImage) {
         playButton.setImage(newImage, for: .normal)
+    }
+    
+    func startProgressBar(with duration: Int) {
+        circleView.animateCircle(duration: Double(duration))
+    }
+    
+    func pauseProgressBar() {
+        circleView.stopAnimation()
+    }
+    
+    func resumeProgressBar() {
+        circleView.resumeAnimation()
     }
 }

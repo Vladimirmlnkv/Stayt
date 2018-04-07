@@ -15,6 +15,9 @@ protocol SingleExerciseViewModelDelegate: class {
     func showRemaining(with value: String)
     func disableUIAndHideRemaining()
     func updatePlayButton(image newImage: UIImage)
+    func startProgressBar(with duration: Int)
+    func pauseProgressBar()
+    func resumeProgressBar()
 }
 
 class SingleExerciseViewModel: ExerciseViewModel, TimerDisplay {
@@ -23,11 +26,14 @@ class SingleExerciseViewModel: ExerciseViewModel, TimerDisplay {
         didSet {
             if oldValue == .initial {
                 delegate?.showRemaining(with: stringDuration(from: currentTimeDuration!))
+                delegate?.startProgressBar(with: currentTimeDuration!)
             }
             if state == .play {
                 delegate?.updatePlayButton(image: #imageLiteral(resourceName: "pause"))
+                delegate?.resumeProgressBar()
             } else if state == .pause {
                 delegate?.updatePlayButton(image: #imageLiteral(resourceName: "play"))
+                delegate?.pauseProgressBar()
             } else if state == .done {
                 delegate?.updatePlayButton(image: #imageLiteral(resourceName: "play"))
                 delegate?.disableUIAndHideRemaining()

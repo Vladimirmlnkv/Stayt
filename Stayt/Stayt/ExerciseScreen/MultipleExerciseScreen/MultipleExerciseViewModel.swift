@@ -15,7 +15,7 @@ protocol MultipleExerciseViewModelDelegate: class {
     func disableUI()
     func reloadTableView()
     func realodRows(at indexes: [Int])
-    func showHolder(with delegate: HolderViewHandlerDelegate, activity: Activity)
+    func showHolder(with transitionTime: Int, delegate: HolderViewHandlerDelegate, activity: Activity)
     func showRestView(with restTime: Int, delegate: RestViewHandlerDelegate)
     func updateRoundsLabel(_ newValue: Int)
     func hideRoundsView()
@@ -25,6 +25,9 @@ protocol MultipleExerciseViewModelDelegate: class {
     func removeRestTimeRow()
     func showRestTimeRow()
     func reloadRestTime()
+    func startProgressBar(with duration: Int)
+    func pauseProgressBar()
+    func resumeProgressBar()
 }
 
 struct ActivityCellViewModel {
@@ -51,11 +54,15 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
                 } else {
                     delegate?.updateRoundsTitleLabel("")
                 }
+                let sessionDuration = exercise.activities.reduce(0) { $0 + $1.duration } + (exercise.activities.count - 1) * transitionTime
+                delegate?.startProgressBar(with: sessionDuration)
             }
             if state == .play {
                 delegate?.updatePlayButton(image: #imageLiteral(resourceName: "pause"))
+                delegate?.resumeProgressBar()
             } else if state == .pause {
                 delegate?.updatePlayButton(image: #imageLiteral(resourceName: "play"))
+                delegate?.pauseProgressBar()
             } else if state == .done {
                 delegate?.updatePlayButton(image: #imageLiteral(resourceName: "play"))
                 delegate?.disableUI()
@@ -92,6 +99,7 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
     fileprivate var shouldShowHolder = true
     fileprivate var shouldShowRestView = true
     
+    fileprivate let transitionTime = 5
     fileprivate var roundsRestTime = 0
     fileprivate var currentRound = 1 {
         didSet {
@@ -157,7 +165,7 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
                         if strongSelf.shouldShowHolder {
                             strongSelf.player?.pause()
                             strongSelf.shouldShowHolder = false
-                            strongSelf.delegate?.showHolder(with: strongSelf, activity: exercise.activities[strongSelf.currentActivityNumber! + 1])
+                            strongSelf.delegate?.showHolder(with: strongSelf.transitionTime, delegate: strongSelf, activity: exercise.activities[strongSelf.currentActivityNumber! + 1])
                         }
                     } else {
                         strongSelf.currentActivityNumber = strongSelf.exercise.activities.count
@@ -170,7 +178,7 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
                                 } else if strongSelf.shouldShowHolder {
                                     strongSelf.player?.pause()
                                     strongSelf.shouldShowHolder = false
-                                    strongSelf.delegate?.showHolder(with: strongSelf, activity: exercise.activities[0])
+                                    strongSelf.delegate?.showHolder(with: strongSelf.transitionTime, delegate: strongSelf, activity: exercise.activities[0])
                                 }
                             } else {
                                 if strongSelf.shouldShowRestView {

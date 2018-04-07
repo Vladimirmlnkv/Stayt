@@ -12,6 +12,7 @@
 		7E05A5F8204990F0002F5648 /* ExercisePack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E05A5F7204990F0002F5648 /* ExercisePack.swift */; };
 		7E05A5FA2049B1C3002F5648 /* CompletedPackView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E05A5F92049B1C3002F5648 /* CompletedPackView.xib */; };
 		7E05A5FD2049B3B1002F5648 /* CompletedPackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E05A5FC2049B3B1002F5648 /* CompletedPackView.swift */; };
+		7E0DB3A320768A4B002764FD /* AnimatedCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0DB3A220768A4B002764FD /* AnimatedCircleView.swift */; };
 		7E10A533203AC6FA0059AEF9 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E10A532203AC6FA0059AEF9 /* Colors.swift */; };
 		7E10A535203B02910059AEF9 /* ExerciseSectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E10A534203B02910059AEF9 /* ExerciseSectionView.xib */; };
 		7E10A537203B02E10059AEF9 /* ExerciseSectionCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E10A536203B02E10059AEF9 /* ExerciseSectionCollectionCell.xib */; };
@@ -95,6 +96,7 @@
 		7E05A5F7204990F0002F5648 /* ExercisePack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisePack.swift; sourceTree = "<group>"; };
 		7E05A5F92049B1C3002F5648 /* CompletedPackView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompletedPackView.xib; sourceTree = "<group>"; };
 		7E05A5FC2049B3B1002F5648 /* CompletedPackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedPackView.swift; sourceTree = "<group>"; };
+		7E0DB3A220768A4B002764FD /* AnimatedCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedCircleView.swift; sourceTree = "<group>"; };
 		7E10A532203AC6FA0059AEF9 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		7E10A534203B02910059AEF9 /* ExerciseSectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExerciseSectionView.xib; sourceTree = "<group>"; };
 		7E10A536203B02E10059AEF9 /* ExerciseSectionCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExerciseSectionCollectionCell.xib; sourceTree = "<group>"; };
@@ -333,6 +335,7 @@
 				7ED867AD204BCE3B00340051 /* DropDownDurationPicker */,
 				7E3DAA3C200FC1E500E1B88C /* UIViewExtentions.swift */,
 				7E242179202B2AF900C03126 /* EmptyView */,
+				7E0DB3A220768A4B002764FD /* AnimatedCircleView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -714,6 +717,7 @@
 				7E29EBC2205E9D19009E7B63 /* CustomFeelingCell.swift in Sources */,
 				7E2C5A052038426000018536 /* MultipleExerciseViewModel.swift in Sources */,
 				7E10A53D203B06E20059AEF9 /* ExerciseSectionCollectionCell.swift in Sources */,
+				7E0DB3A320768A4B002764FD /* AnimatedCircleView.swift in Sources */,
 				7E5AD2B12031FBEC00C08D77 /* ExerciseDescriptionViewController.swift in Sources */,
 				7E3DAA3D200FC1E500E1B88C /* UIViewExtentions.swift in Sources */,
 				7E85DE53203C40240052CFAA /* ExerciseDescription.swift in Sources */,

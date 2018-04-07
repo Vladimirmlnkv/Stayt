@@ -20,6 +20,7 @@ class MultipleExerciseViewController: UIViewController {
     @IBOutlet var decreaseRoundsButton: UIButton!
     @IBOutlet var roundsTitleLabel: UILabel!
     
+    @IBOutlet var circleView: AnimatedCircleView!
     
     var viewModel: MultipleExerciseViewModel!
     fileprivate var holderHandler: HolderViewHandler!
@@ -94,8 +95,8 @@ extension MultipleExerciseViewController: MultipleExerciseViewModelDelegate {
         tableView.endUpdates()
     }
     
-    func showHolder(with delegate: HolderViewHandlerDelegate, activity: Activity) {
-        holderHandler = HolderViewHandler(superView: view, delegate: delegate, activity: activity)
+    func showHolder(with transitionTime: Int, delegate: HolderViewHandlerDelegate, activity: Activity) {
+        holderHandler = HolderViewHandler(superView: view, delegate: delegate, activity: activity, transitionTime: transitionTime)
         holderHandler.start()
     }
     
@@ -143,6 +144,18 @@ extension MultipleExerciseViewController: MultipleExerciseViewModelDelegate {
         tableView.beginUpdates()
         tableView.reloadRows(at: [IndexPath(row: 0, section: 1)], with: .automatic)
         tableView.endUpdates()
+    }
+    
+    func startProgressBar(with duration: Int) {
+        circleView.animateCircle(duration: Double(duration))
+    }
+    
+    func pauseProgressBar() {
+        circleView.stopAnimation()
+    }
+    
+    func resumeProgressBar() {
+        circleView.resumeAnimation()
     }
 }
 

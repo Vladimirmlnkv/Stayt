@@ -24,10 +24,11 @@ class HolderViewHandler {
     fileprivate var holdSeconds = 5
     fileprivate var timeObserver: Any?
     
-    init(superView: UIView, delegate: HolderViewHandlerDelegate, activity: Activity) {
+    init(superView: UIView, delegate: HolderViewHandlerDelegate, activity: Activity, transitionTime: Int) {
         self.superView = superView
         self.delegate = delegate
         self.activity = activity
+        self.holdSeconds = transitionTime
     }
     
     func start() {
