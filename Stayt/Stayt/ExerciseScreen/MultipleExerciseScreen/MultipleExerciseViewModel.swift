@@ -54,7 +54,7 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
                 } else {
                     delegate?.updateRoundsTitleLabel("")
                 }
-                let sessionDuration = exercise.activities.reduce(0) { $0 + $1.duration } + (exercise.activities.count - 1) * transitionTime
+                let sessionDuration = exercise.activities.reduce(0) { $0 + $1.duration + ($1.stages.count > 0 ? $1.stages.count : 1) } + (exercise.activities.count - 1) * transitionTime + exercise.activities.count - 1
                 delegate?.startProgressBar(with: sessionDuration)
             }
             if state == .play {
