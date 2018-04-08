@@ -21,6 +21,7 @@ class AfterExerciseViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     @IBOutlet var addNoteButton: UIButton!
     
+    @IBOutlet var skipButton: UIButton!
     fileprivate var doneBarButtonItem: UIBarButtonItem!
     
     var exerciseName: String!
@@ -129,6 +130,13 @@ extension AfterExerciseViewController: UITableViewDelegate {
             tableView.beginUpdates()
             tableView.reloadRows(at: indexPathsToReload, with: .automatic)
             tableView.endUpdates()
+            if selectedFeeling == nil {
+                skipButton.isEnabled = true
+                skipButton.setTitleColor(Colors.mainActiveColor, for: .normal)
+            } else {
+                skipButton.isEnabled = false
+                skipButton.setTitleColor(.lightGray, for: .normal)
+            }
         }
     }
     

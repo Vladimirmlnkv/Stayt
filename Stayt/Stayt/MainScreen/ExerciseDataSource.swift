@@ -31,7 +31,7 @@ class ExerciseDataSource {
         let inholdStage1 = ActivityStage(name: "In/Hold", duration: 15, avaliableDurations: [15], allowsEditDuration: false)
         let stages1 = [rapidStage1, outholdStage1, inholdStage1]
         
-        let day2Breathwork = Exercise(name: ExerciseDescription.breathWorkFeelingName, description: ExerciseDescription.breathWorkDescription, descriptionName: "Understanding Breathwork", isGuided: true, activities: [Activity(name: "Energized", duration: 120, descriptionName: "Breathwork", stages: stages1)])
+        let day2Breathwork = Exercise(name: ExerciseDescription.breathWorkFeelingName, description: ExerciseDescription.breathWorkDescription, descriptionName: "Understanding Breathwork", isGuided: true, activities: [Activity(name: "Energized", duration: 90, descriptionName: "Breathwork", stages: stages1)])
         day2Breathwork.shouldShowTutorialFirst = true
         
         let day3ArmHolding = Exercise(name: ExerciseDescription.armHoldFeelingName, description: ExerciseDescription.armHoldDescription, descriptionName: "Learning the Arm Hold", isGuided: true, activities: [Activity(name: "Motivated", duration: 120, descriptionName: "Arm holding", avaliableDurations: [60, 120, 240])])
@@ -44,7 +44,7 @@ class ExerciseDataSource {
         let inholdStage2 = ActivityStage(name: "In/Hold", duration: 15, avaliableDurations: [15], allowsEditDuration: false)
         let stages2 = [rapidStage2, outholdStage2, inholdStage2]
         
-        let day5Breathwork = Exercise(name: ExerciseDescription.breathWorkFeelingName, description: ExerciseDescription.breathWorkDescription, descriptionName: "Breathwork Practice", isGuided: true, activities: [Activity(name: "Energized", duration: 120, descriptionName: "Breathwork", stages: stages2)])
+        let day5Breathwork = Exercise(name: ExerciseDescription.breathWorkFeelingName, description: ExerciseDescription.breathWorkDescription, descriptionName: "Breathwork Practice", isGuided: true, activities: [Activity(name: "Energized", duration: 105, descriptionName: "Breathwork", stages: stages2)])
         
         let day6ArmHolding = Exercise(name: ExerciseDescription.armHoldFeelingName, description: ExerciseDescription.armHoldDescription, descriptionName: "Mindset for Armhold", isGuided: true, activities: [Activity(name: "Motivated", duration: 240, descriptionName: "Arm holding", avaliableDurations: [120, 240, 300])])
         
@@ -60,7 +60,7 @@ class ExerciseDataSource {
         let day9ArmHolding = Exercise(name: ExerciseDescription.armHoldFeelingName, description: ExerciseDescription.armHoldDescription, descriptionName: "Arm Hold Challenge", isGuided: true, activities: [Activity(name: "Motivated", duration: 300, descriptionName: "Arm holding", avaliableDurations: [120, 240, 300, 360])])
         
         let day10Combo = Exercise(name: "Combo", description: ExerciseDescription.blessingDescription, descriptionName: "Combo Session", isGuided: true, activities: [Activity(name: "Relaxed", duration: 180, descriptionName: "Meditation", allowsEditDuration: false),
-                                                                                                                                                                                                                 Activity(name: "Energized", duration: 120, descriptionName: "Breathwork", stages: stages1, allowsEditDuration: false),
+                                                                                                                                                                                                                 Activity(name: "Energized", duration: 120, descriptionName: "Breathwork", stages: stages3, allowsEditDuration: false),
                                                                                                                                                                                                                  Activity(name: "Motivated", duration: 120, descriptionName: "Arm holding", allowsEditDuration: false),])
         
         let description = "This begginer exercise pack is an intruduction to state changers. You'll be introduced to meditation, breathwork and arm holding. On day 10 you'll get to try a combo exercise that contains meditation, breathwork and arm holding. The goal here is to get comfortable doing state changers and see how they make you feel."

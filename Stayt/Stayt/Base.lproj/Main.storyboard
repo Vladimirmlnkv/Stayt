@@ -113,7 +113,7 @@
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meditation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pqE-Lb-zuw">
                                                                     <rect key="frame" x="0.0" y="0.0" width="93" height="50"/>
                                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <color key="textColor" red="0.0" green="0.80000000000000004" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cYc-ew-r1d">
@@ -1164,6 +1164,7 @@
                         <outlet property="addNoteButton" destination="aQr-2o-AdO" id="iY0-gz-RaU"/>
                         <outlet property="firstMessageLabel" destination="wGw-Jn-0wY" id="ZYm-0k-Hwk"/>
                         <outlet property="secondMessageLabel" destination="26t-NR-pfK" id="y1i-Gq-3Sw"/>
+                        <outlet property="skipButton" destination="zAr-H7-AZB" id="SmY-bb-Bcr"/>
                         <outlet property="tableView" destination="x8P-aE-h8f" id="Pzq-r0-DdQ"/>
                     </connections>
                 </viewController>

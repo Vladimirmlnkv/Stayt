@@ -16,7 +16,7 @@ class FeelingsDataSrouce {
     
     init() {
         if realm.objects(Feeling.self).isEmpty {
-            let options = [ Feeling(title: "Relaxed"), Feeling(title: "Calm"), Feeling(title: "Tired"), Feeling(title: "Energized")]
+            let options = [ Feeling(title: "Relaxed"), Feeling(title: "Calm"), Feeling(title: "Energized"), Feeling(title: "Motivated")]
             try! realm.write {
                 realm.add(options)
             }
