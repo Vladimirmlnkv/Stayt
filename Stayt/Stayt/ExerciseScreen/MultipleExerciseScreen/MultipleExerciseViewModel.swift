@@ -28,6 +28,7 @@ protocol MultipleExerciseViewModelDelegate: class {
     func startProgressBar(with duration: Int)
     func pauseProgressBar()
     func resumeProgressBar()
+    func hideQuestionIcon()
 }
 
 struct ActivityCellViewModel {
@@ -49,6 +50,7 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
                 delegate?.setEditing(false)
                 delegate?.reloadTableView()
                 delegate?.hideRoundsView()
+                delegate?.hideQuestionIcon()
                 if roundsCount > 1 {
                     delegate?.updateRoundsTitleLabel("Round \(currentRound)/\(roundsCount)")
                 } else {

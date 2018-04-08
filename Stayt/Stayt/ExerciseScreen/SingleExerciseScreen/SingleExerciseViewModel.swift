@@ -18,6 +18,7 @@ protocol SingleExerciseViewModelDelegate: class {
     func startProgressBar(with duration: Int)
     func pauseProgressBar()
     func resumeProgressBar()
+    func hideQuestionIcon()
 }
 
 class SingleExerciseViewModel: ExerciseViewModel, TimerDisplay {
@@ -25,6 +26,7 @@ class SingleExerciseViewModel: ExerciseViewModel, TimerDisplay {
     override var state: ExerciseViewModelState {
         didSet {
             if oldValue == .initial {
+                delegate?.hideQuestionIcon()
                 delegate?.showRemaining(with: stringDuration(from: currentTimeDuration!))
                 delegate?.startProgressBar(with: currentTimeDuration!)
             }

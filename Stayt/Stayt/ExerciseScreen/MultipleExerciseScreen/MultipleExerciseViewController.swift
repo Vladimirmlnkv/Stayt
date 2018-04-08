@@ -19,6 +19,7 @@ class MultipleExerciseViewController: UIViewController {
     @IBOutlet var increaseRoundsButton: UIButton!
     @IBOutlet var decreaseRoundsButton: UIButton!
     @IBOutlet var roundsTitleLabel: UILabel!
+    @IBOutlet var infoButton: UIButton!
     
     @IBOutlet var circleView: AnimatedCircleView!
     
@@ -156,6 +157,14 @@ extension MultipleExerciseViewController: MultipleExerciseViewModelDelegate {
     
     func resumeProgressBar() {
         circleView.resumeAnimation()
+    }
+    
+    func hideQuestionIcon() {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.infoButton.alpha = 0
+        }) { _ in
+            self.infoButton.isHidden = true
+        }
     }
 }
 

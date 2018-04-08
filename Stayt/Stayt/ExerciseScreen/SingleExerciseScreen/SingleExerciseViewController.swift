@@ -15,6 +15,7 @@ class SingleExerciseViewController: UIViewController {
     
     @IBOutlet var remainingLabel: UILabel!
     
+    @IBOutlet var infoButton: UIButton!
     @IBOutlet var durationButton: DisclosureButton!
     @IBOutlet var circleView: AnimatedCircleView!
     
@@ -84,5 +85,13 @@ extension SingleExerciseViewController: SingleExerciseViewModelDelegate {
     
     func resumeProgressBar() {
         circleView.resumeAnimation()
+    }
+    
+    func hideQuestionIcon() {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.infoButton.alpha = 0
+        }) { _ in
+            self.infoButton.isHidden = true
+        }
     }
 }

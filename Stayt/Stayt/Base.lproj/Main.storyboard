@@ -615,6 +615,7 @@
                         <outlet property="circleView" destination="pd6-0Z-0ba" id="uVb-d2-mIQ"/>
                         <outlet property="decreaseRoundsButton" destination="Rk3-kd-Dv3" id="nlu-7f-ZEi"/>
                         <outlet property="increaseRoundsButton" destination="2YZ-oh-45L" id="woh-Lb-FLN"/>
+                        <outlet property="infoButton" destination="Jkf-nF-his" id="SQ0-l8-jwY"/>
                         <outlet property="playButton" destination="PdP-Xo-WRt" id="aFO-s8-G1I"/>
                         <outlet property="roundsCountLabel" destination="Rru-dD-Mvc" id="Sc9-Md-84p"/>
                         <outlet property="roundsTitleLabel" destination="lnh-Hx-dRe" id="Cqh-nY-Ero"/>
@@ -745,6 +746,7 @@
                     <connections>
                         <outlet property="circleView" destination="7g0-WE-BfM" id="6TJ-2u-cAS"/>
                         <outlet property="durationButton" destination="GCz-yb-wnI" id="cn5-5r-cbK"/>
+                        <outlet property="infoButton" destination="BbY-0Z-Wn4" id="EIi-v2-RMi"/>
                         <outlet property="playButton" destination="wPQ-aC-44Y" id="Alq-rF-7mm"/>
                         <outlet property="remainingLabel" destination="HX6-9k-g98" id="W7N-cb-BfX"/>
                         <outlet property="titleLabel" destination="gGi-IJ-vB0" id="2fM-kw-eao"/>
