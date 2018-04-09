@@ -136,13 +136,14 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
         }
     }
     
+    var changingStage = false
+    
     init(exercise: Exercise, coordinationDelegate: ExerciseViewModelCoordinationDelegate, delegate: MultipleExerciseViewModelDelegate, exercisePack: ExercisePack?) {
         super.init(exercise: exercise, coordinationDelegate: coordinationDelegate, exercisePack: exercisePack)
         self.delegate = delegate
         roundsRestTime = exercise.defaultRestTime
         updateBlock = { [weak self] time -> Void in
             guard let strongSelf = self else { return }
-            
             let passedTime = Int64(time.value) / Int64(time.timescale)
             let remainingTime = strongSelf.currentTimeDuration! - Int(passedTime)
 
@@ -150,17 +151,20 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
             if remainingTime == 0 {
                 strongSelf.playSound()
             }
-            if remainingTime == -1 {
+            
+            if remainingTime == -1 && !strongSelf.changingStage {
                 if let currentStageNumber = strongSelf.currentStage,
                         strongSelf.currentActivityNumber! <= exercise.activities.count - 1,
                         currentStageNumber < exercise.activities[strongSelf.currentActivityNumber!].stages.count - 1
                 {
+                    strongSelf.changingStage = true
                     strongSelf.currentStage! += 1
                     strongSelf.currentTimeDuration = exercise.activities[strongSelf.currentActivityNumber!].stages[strongSelf.currentStage!].duration
                     strongSelf.player?.pause()
                     strongSelf.player?.seek(to: kCMTimeZero)
                     strongSelf.player?.play()
                 } else {
+                    strongSelf.changingStage = false
                     strongSelf.currentStage = nil
                     if strongSelf.currentActivityNumber! < exercise.activities.count - 1 {
                         if strongSelf.shouldShowHolder {
@@ -195,6 +199,7 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
                     }
                 }
             } else {
+                strongSelf.changingStage = false
                 if strongSelf.currentActivityNumber! < strongSelf.exercise.activities.count {
                     strongSelf.delegate?.realodRows(at: [strongSelf.currentActivityNumber!])
                 }
