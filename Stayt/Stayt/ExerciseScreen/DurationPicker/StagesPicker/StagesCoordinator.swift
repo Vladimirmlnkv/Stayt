@@ -33,6 +33,7 @@ class StagesCoordinator {
         stagesVC = storyboard.instantiateViewController(withIdentifier: "StagesDurationViewController") as! StagesDurationViewController
         stagesVC.stages = Array(activity.stages)
         stagesVC.exerciseName = activity.descriptionName
+        stagesVC.titleText = activity.stagesTitle
         stagesVC.delegate = self
         let navC = UINavigationController(rootViewController: stagesVC)
         presentingVC.present(navC, animated: true, completion: nil)

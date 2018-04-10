@@ -19,6 +19,7 @@ class StagesDurationViewController: UIViewController, TimerDisplay {
     @IBOutlet var tableView: UITableView!
     var stages: [ActivityStage]!
     var exerciseName: String!
+    var titleText: String?
     weak var delegate: StagesDurationViewControllerDelegate?
 
     override func viewDidLoad() {
@@ -28,7 +29,12 @@ class StagesDurationViewController: UIViewController, TimerDisplay {
         tableView.tableFooterView = UIView()
         tableView.bounces = false
         
-        titleLabel.text = "\(exerciseName!) contains different stages"
+        if let text = titleText {
+            titleLabel.text = titleText
+        } else {
+            titleLabel.text = "\(exerciseName!) contains different stages"
+        }
+        
         
         navigationController?.navigationBar.tintColor = Colors.mainActiveColor
         navigationController?.navigationBar.barTintColor = UIColor.black

@@ -31,7 +31,10 @@ class ExerciseDataSource {
         let inholdStage1 = ActivityStage(name: "In/Hold", duration: 15, avaliableDurations: [15], allowsEditDuration: false)
         let stages1 = [rapidStage1, outholdStage1, inholdStage1]
         
-        let day2Breathwork = Exercise(name: ExerciseDescription.breathWorkFeelingName, description: ExerciseDescription.breathWorkDescription, descriptionName: "Understanding Breathwork", isGuided: true, activities: [Activity(name: "Energized", duration: 90, descriptionName: "Breathwork", stages: stages1)])
+        let breathworkActivity = Activity(name: "Energized", duration: 90, descriptionName: "Breathwork", stages: stages1)
+        breathworkActivity.stagesTitle = "Breathwork contains different stages. You'll be able to change their durations in next sessions of this pack"
+        
+        let day2Breathwork = Exercise(name: ExerciseDescription.breathWorkFeelingName, description: ExerciseDescription.breathWorkDescription, descriptionName: "Understanding Breathwork", isGuided: true, activities: [breathworkActivity])
         day2Breathwork.shouldShowTutorialFirst = true
         
         let day3ArmHolding = Exercise(name: ExerciseDescription.armHoldFeelingName, description: ExerciseDescription.armHoldDescription, descriptionName: "Learning the Arm Hold", isGuided: true, activities: [Activity(name: "Motivated", duration: 120, descriptionName: "Arm holding", avaliableDurations: [60, 120, 240])])

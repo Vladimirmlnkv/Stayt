@@ -9,22 +9,6 @@
 import Foundation
 import RealmSwift
 
-class ActivityStage: Object {
-    
-    @objc dynamic var name: String!
-    @objc dynamic var duration: Int = 0
-    let avaliableDurations = List<Int>()
-    @objc dynamic var allowsEditDuration: Bool = true
-    
-    convenience init(name: String, duration: Int, avaliableDurations: [Int], allowsEditDuration: Bool=true) {
-        self.init()
-        self.allowsEditDuration = allowsEditDuration
-        self.name = name
-        self.duration = duration
-        self.avaliableDurations.append(objectsIn: avaliableDurations)
-    }
-}
-
 class Activity: Object {
     @objc dynamic var name: String!
     @objc dynamic var duration: Int = 0
@@ -32,6 +16,7 @@ class Activity: Object {
     @objc dynamic var descriptionName: String!
     @objc dynamic var allowsEditDuration: Bool = true
     let stages = List<ActivityStage>()
+    @objc dynamic var stagesTitle: String?
     var durationString: String {
         return "\(duration / 60)"
     }
