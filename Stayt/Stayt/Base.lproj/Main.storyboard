@@ -490,6 +490,64 @@
                                             <outlet property="titleLabel" destination="BeE-tp-ftf" id="Bx4-1d-yVb"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="StagesActivityCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="StagesActivityCell" rowHeight="88" id="EJr-kQ-f7s" customClass="StagesActivityCell" customModule="Stayt" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="85" width="355" height="88"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EJr-kQ-f7s" id="dVW-HM-Jbg">
+                                            <rect key="frame" x="0.0" y="0.0" width="355" height="87.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Breathwork Stage 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GzR-kO-ZhG">
+                                                    <rect key="frame" x="15" y="19" width="152" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rapid breathing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Hn-RG-009">
+                                                    <rect key="frame" x="15" y="48" width="124.5" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MMB-KY-ZiS">
+                                                    <rect key="frame" x="259" y="33.5" width="46" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PiG-n7-lxS">
+                                                    <rect key="frame" x="325" y="39.5" width="10" height="10"/>
+                                                    <color key="backgroundColor" red="0.01176470588" green="0.95294117649999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="10" id="LQh-CT-OyM"/>
+                                                        <constraint firstAttribute="height" constant="10" id="ZfT-LK-Vg7"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="PiG-n7-lxS" firstAttribute="centerY" secondItem="dVW-HM-Jbg" secondAttribute="centerY" id="9u6-J3-Tny"/>
+                                                <constraint firstAttribute="trailing" secondItem="PiG-n7-lxS" secondAttribute="trailing" constant="20" id="LiZ-Ya-Kz1"/>
+                                                <constraint firstItem="MMB-KY-ZiS" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="0Hn-RG-009" secondAttribute="trailing" constant="10" id="M5C-3h-2DY"/>
+                                                <constraint firstItem="0Hn-RG-009" firstAttribute="top" secondItem="GzR-kO-ZhG" secondAttribute="bottom" constant="8" id="RuS-I7-P63"/>
+                                                <constraint firstItem="MMB-KY-ZiS" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="GzR-kO-ZhG" secondAttribute="trailing" constant="10" id="Skm-hM-6S7"/>
+                                                <constraint firstItem="MMB-KY-ZiS" firstAttribute="centerY" secondItem="dVW-HM-Jbg" secondAttribute="centerY" id="gZQ-Lb-Dec"/>
+                                                <constraint firstItem="GzR-kO-ZhG" firstAttribute="top" secondItem="dVW-HM-Jbg" secondAttribute="topMargin" constant="8" id="ggO-dv-QcE"/>
+                                                <constraint firstItem="0Hn-RG-009" firstAttribute="leading" secondItem="dVW-HM-Jbg" secondAttribute="leadingMargin" id="kRY-tF-PAL"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="0Hn-RG-009" secondAttribute="bottom" constant="8" id="mRI-sf-G9u"/>
+                                                <constraint firstItem="GzR-kO-ZhG" firstAttribute="leading" secondItem="dVW-HM-Jbg" secondAttribute="leadingMargin" id="v3d-zc-2eY"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="MMB-KY-ZiS" secondAttribute="trailing" constant="50" id="vIG-mG-CKe"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="activityNameLabe" destination="GzR-kO-ZhG" id="I6S-fP-QTo"/>
+                                            <outlet property="currentActivityView" destination="PiG-n7-lxS" id="f82-eO-mqU"/>
+                                            <outlet property="durationLabel" destination="MMB-KY-ZiS" id="6aO-S6-CYz"/>
+                                            <outlet property="stageNameLabel" destination="0Hn-RG-009" id="2f2-NH-Dpz"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pd6-0Z-0ba" customClass="AnimatedCircleView" customModule="Stayt" customModuleProvider="target">
@@ -626,7 +684,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vym-V5-cYX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="572" y="-161"/>
+            <point key="canvasLocation" x="572" y="-161.46926536731635"/>
         </scene>
         <!--Single Exercise View Controller-->
         <scene sceneID="thl-43-UQH">

@@ -183,9 +183,15 @@ extension MultipleExerciseViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SingleActivityCell") as! SingleActivityCell
-        cell.configure(with: viewModel.activityCellViewModel(for: indexPath))
-        return cell
+        if viewModel.activities[indexPath.row].stages.count > 0 && viewModel.currentActivityNumber == indexPath.row && indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "StagesActivityCell") as! StagesActivityCell
+            cell.configure(with: viewModel.activityCellViewModel(for: indexPath))
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "SingleActivityCell") as! SingleActivityCell
+            cell.configure(with: viewModel.activityCellViewModel(for: indexPath))
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {

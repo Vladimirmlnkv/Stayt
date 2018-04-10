@@ -35,6 +35,7 @@ struct ActivityCellViewModel {
     let isCompleted: Bool
     let allowsEditing: Bool
     let title: String
+    let subtitle: String?
     let durationTitle: String
     let delegate: SingleActivityCellDelegate
     let isCurrentActivity: Bool
@@ -212,7 +213,7 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
         
         if indexPath.section == 1 {
             let durationTitle = passiveStringDuration(from: roundsRestTime)
-            let viewModel = ActivityCellViewModel(isCompleted: false, allowsEditing: state == .initial, title: "Rounds rest time", durationTitle: durationTitle, delegate: self, isCurrentActivity: false)
+            let viewModel = ActivityCellViewModel(isCompleted: false, allowsEditing: state == .initial, title: "Rounds rest time", subtitle: nil, durationTitle: durationTitle, delegate: self, isCurrentActivity: false)
             
             return viewModel
         } else {
@@ -221,6 +222,7 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
             var durationTitle = passiveStringDuration(from: activity.duration)
             var isCurrentActivity = false
             var title = activity.descriptionName!
+            var subtitle: String?
             if let currentAcitivityNumber = currentActivityNumber {
                 isCompleted = currentAcitivityNumber > indexPath.row
                 if indexPath.row == currentAcitivityNumber {
@@ -232,11 +234,12 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
                     isCurrentActivity = true
                     if let stage = currentStage, !exercise.activities[currentAcitivityNumber].stages.isEmpty {
                         let stageName = exercise.activities[currentAcitivityNumber].stages[stage].name!
-                        title = stageName + " \(stage+1)/\(exercise.activities[currentAcitivityNumber].stages.count)"
+                        title += ": Stage \(stage+1)/\(exercise.activities[currentAcitivityNumber].stages.count)"
+                        subtitle = stageName
                     }
                 }
             }
-            let viewModel = ActivityCellViewModel(isCompleted: isCompleted, allowsEditing: (state == .initial && activity.allowsEditDuration), title: title, durationTitle: durationTitle, delegate: self, isCurrentActivity: isCurrentActivity)
+            let viewModel = ActivityCellViewModel(isCompleted: isCompleted, allowsEditing: (state == .initial && activity.allowsEditDuration), title: title, subtitle: subtitle, durationTitle: durationTitle, delegate: self, isCurrentActivity: isCurrentActivity)
             
             return viewModel
         }
