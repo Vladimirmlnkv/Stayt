@@ -81,7 +81,7 @@ extension PackOverviewViewController: UICollectionViewDataSource {
         cell.levelLabel.text = "Level \(indexPath.row + 1)"
         cell.exerciseLabel.text = exercise.descriptionName
         
-        cell.startButton.layer.borderColor = Colors.mainActiveColor.cgColor
+//        cell.startButton.layer.borderColor = Colors.mainActiveColor.cgColor
         
         if indexPath.row == exercisePack.currentExerciseNumber {
             cell.startButton.setTitle("Begin", for: .normal)
@@ -100,8 +100,8 @@ extension PackOverviewViewController: UICollectionViewDataSource {
         cell.statusImageView.tintColor = Colors.mainActiveColor
         
         cell.layer.cornerRadius = 10
-        cell.startButton.layer.borderWidth = 1.0
-        cell.startButton.layer.cornerRadius = 10
+//        cell.startButton.layer.borderWidth = 1.0
+//        cell.startButton.layer.cornerRadius = 10
         
         return cell
     }
