@@ -8,25 +8,25 @@
 
 import UIKit
 
-class DurationsOptionsMenuHandler: NSObject, UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate, TimerDisplay {
+class DurationsOptionsMenuHandler<T: Equatable>: NSObject, UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate, TimerDisplay {
     
     fileprivate var menuView: DropDownDurationPicker!
     fileprivate var mainMenuView: UIView!
     fileprivate var menuAlpha: CGFloat = 0.4
     
     fileprivate let superView: UIView
-    fileprivate let cellHeight: CGFloat = 50.0
+    fileprivate let cellHeight: CGFloat = 55.0
     
-    var currentDuration: Int?
-    var completion: ((Int) -> Void)!
+    var currentOption: T?
+    var completion: ((T) -> Void)!
     var titleText: String!
-    var durations: [Int] = [120, 300, 600]
+    var options: [T] = [T]()
     
-    init(superView: UIView, title: String, durations: [Int]?=nil) {
+    init(superView: UIView, title: String, options: [T]?=nil) {
         self.superView = superView
         self.titleText = title
-        if let durations = durations {
-            self.durations = durations
+        if let options = options {
+            self.options = options
         }
         super.init()
         self.setupMenuView()
@@ -36,7 +36,7 @@ class DurationsOptionsMenuHandler: NSObject, UITableViewDataSource, UITableViewD
     
     fileprivate func setupMenuView() {
         let textHeight = height(for: titleText, for: superView.frame.width - 20, font: UIFont.systemFont(ofSize: 20, weight: .semibold))
-        let menuHeight: CGFloat = cellHeight * CGFloat(durations.count) + textHeight + 20
+        let menuHeight: CGFloat = cellHeight * CGFloat(options.count) + textHeight + 20
         
         menuView = DropDownDurationPicker(frame: CGRect(x: 0, y: superView.frame.size.height + menuHeight, width: superView.frame.width, height: menuHeight))
         menuView.tableView.cellLayoutMarginsFollowReadableWidth = false
@@ -93,20 +93,24 @@ class DurationsOptionsMenuHandler: NSObject, UITableViewDataSource, UITableViewD
     //MARK: UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return durations.count
+        return options.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let duration = durations[indexPath.row]
+        let option = options[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "CenteredCell") as! CenteredCell
         cell.backgroundColor = UIColor.black
-        cell.label.text = passiveStringDuration(from: duration)
+        if option is Int {
+            cell.label.text = passiveStringDuration(from: option as! Int)
+        } else if option is String {
+            cell.label.text = option as! String
+        }
         cell.label.textColor = UIColor.white
         cell.tintColor = Colors.mainActiveColor
         cell.label.textAlignment = .center
         cell.label.font = UIFont.boldSystemFont(ofSize: 18)
         
-        if currentDuration == duration {
+        if let currentOption = currentOption, currentOption == option {
             cell.accessoryType = .checkmark
         } else {
             cell.accessoryType = .none
@@ -120,8 +124,8 @@ class DurationsOptionsMenuHandler: NSObject, UITableViewDataSource, UITableViewD
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         tableView.reloadData()
-        let duration = durations[indexPath.row]
+        let option = options[indexPath.row]
         hideMenu()
-        completion(duration)
+        completion(option)
     }
 }

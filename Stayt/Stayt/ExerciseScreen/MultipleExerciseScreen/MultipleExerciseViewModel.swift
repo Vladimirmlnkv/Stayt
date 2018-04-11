@@ -29,6 +29,7 @@ protocol MultipleExerciseViewModelDelegate: class {
     func pauseProgressBar()
     func resumeProgressBar()
     func hideQuestionIcon()
+    func setDifficulty(_ difficulty: String)
 }
 
 struct ActivityCellViewModel {
@@ -95,6 +96,14 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
         } else {
             return 1
         }
+    }
+    
+    var difficultyName: String? {
+        return exercise.selectedDifficulty?.name
+    }
+    
+    var shouldShowDifficulty: Bool {
+        return !exercise.difficulties.isEmpty
     }
 
     fileprivate var remainingDuration: Int?
@@ -260,6 +269,26 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
     func decreaseRounds() {
         if roundsCount > 1 {
             roundsCount -= 1
+        }
+    }
+    
+    func changeDifficulty() {
+        if let name = difficultyName {
+            coordinationDelegate?.showDifficultyPicker(with: name, completion: { difficulty in
+                try! mainRealm.write {
+                    self.exercise.selectedDifficulty = self.exercise.difficulties.filter({$0.name == difficulty}).first!
+                    for (i, activity) in self.exercise.activities.enumerated() {
+                        activity.duration = self.exercise.selectedDifficulty!.durations[i].duration
+                        if !activity.stages.isEmpty && !self.exercise.selectedDifficulty!.durations[i].stagesDurations.isEmpty {
+                            for (j, stageDuration) in self.exercise.selectedDifficulty!.durations[i].stagesDurations.enumerated() {
+                                activity.stages[j].duration = stageDuration
+                            }
+                        }
+                    }
+                }
+                self.delegate?.reloadTableView()
+                self.delegate?.setDifficulty(self.exercise.selectedDifficulty!.name)
+            })
         }
     }
     

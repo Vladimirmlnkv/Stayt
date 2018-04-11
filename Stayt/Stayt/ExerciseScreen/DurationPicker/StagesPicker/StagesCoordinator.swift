@@ -21,7 +21,7 @@ class StagesCoordinator {
     fileprivate let presentingVC: UIViewController
     fileprivate weak var delegate: StagesCoordinatorDelegate?
     fileprivate var stagesVC: StagesDurationViewController!
-    fileprivate var menuHandler: DurationsOptionsMenuHandler?
+    fileprivate var menuHandler: DurationsOptionsMenuHandler<Int>?
     
     init(activity: Activity, presentingVC: UIViewController, delegate: StagesCoordinatorDelegate) {
         self.activity = activity
@@ -55,8 +55,8 @@ extension StagesCoordinator: StagesDurationViewControllerDelegate {
         }
         
         if !stage.avaliableDurations.isEmpty && stage.avaliableDurations.count <= 4 {
-            menuHandler = DurationsOptionsMenuHandler(superView: stagesVC.navigationController!.view, title: title, durations: Array(stage.avaliableDurations))
-            menuHandler!.currentDuration = stage.duration
+            menuHandler = DurationsOptionsMenuHandler<Int>(superView: stagesVC.navigationController!.view, title: title, options: Array(stage.avaliableDurations))
+            menuHandler!.currentOption = stage.duration
             menuHandler!.completion = completion
             menuHandler!.showMenu()
         } else {

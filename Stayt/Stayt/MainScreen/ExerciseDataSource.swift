@@ -63,9 +63,27 @@ class ExerciseDataSource {
         
         let day9ArmHolding = Exercise(name: ExerciseDescription.armHoldFeelingName, description: ExerciseDescription.armHoldDescription, descriptionName: "Arm Hold Challenge", isGuided: true, activities: [Activity(name: "Motivated", duration: 300, descriptionName: "Arm holding", avaliableDurations: [120, 240, 300, 360])])
         
-        let day10Combo = Exercise(name: "Combo", description: ExerciseDescription.blessingDescription, descriptionName: "Combo Session", isGuided: true, activities: [Activity(name: "Relaxed", duration: 180, descriptionName: "Meditation", allowsEditDuration: false),
-                                                                                                                                                                                                                 Activity(name: "Energized", duration: 120, descriptionName: "Breathwork", stages: stages3, allowsEditDuration: false),
-                                                                                                                                                                                                                 Activity(name: "Motivated", duration: 120, descriptionName: "Arm holding", allowsEditDuration: false),])
+        let day10Combo = Exercise(name: "Combo", description: ExerciseDescription.blessingDescription, descriptionName: "Combo Session", isGuided: true, activities: [ Activity(name: "Motivated", duration: 120, descriptionName: "Arm holding", allowsEditDuration: false),                                                                                                                                                                                                                 Activity(name: "Energized", duration: 120, descriptionName: "Breathwork", stages: stages3, allowsEditDuration: false), Activity(name: "Relaxed", duration: 180, descriptionName: "Meditation", allowsEditDuration: false),])
+        
+        let difficulties = [
+            Difficulty(name: "Beginner", durations: [
+                DifficultyDuration(duration: 120),
+                DifficultyDuration(duration: 90, stagesDurations: [60, 15 ,15]),
+                DifficultyDuration(duration: 300)
+            ]),
+            Difficulty(name: "Intermediate", durations: [
+                DifficultyDuration(duration: 300),
+                DifficultyDuration(duration: 105, stagesDurations: [60, 30 ,15]),
+                DifficultyDuration(duration: 300)
+            ]),
+            Difficulty(name: "Advanced", durations: [
+                DifficultyDuration(duration: 600),
+                DifficultyDuration(duration: 120, stagesDurations: [60, 45 ,15]),
+                DifficultyDuration(duration: 600)
+            ])
+        ]
+        day10Combo.difficulties.append(objectsIn: difficulties)
+        day10Combo.selectedDifficulty = difficulties[1]
         
         let description = "This begginer exercise pack is an intruduction to state changers. You'll be introduced to meditation, breathwork and arm holding. On day 10 you'll get to try a combo exercise that contains meditation, breathwork and arm holding. The goal here is to get comfortable doing state changers and see how they make you feel."
         

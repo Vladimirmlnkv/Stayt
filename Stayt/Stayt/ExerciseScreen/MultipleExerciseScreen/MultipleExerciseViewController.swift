@@ -21,6 +21,10 @@ class MultipleExerciseViewController: UIViewController {
     @IBOutlet var roundsTitleLabel: UILabel!
     @IBOutlet var infoButton: UIButton!
     
+    @IBOutlet var difficultyLevelView: UIView!
+    @IBOutlet var difficultyButton: DisclosureButton!
+    @IBOutlet var difficultyTitle: UILabel!
+    
     @IBOutlet var circleView: AnimatedCircleView!
     
     var viewModel: MultipleExerciseViewModel!
@@ -32,6 +36,13 @@ class MultipleExerciseViewController: UIViewController {
         titleLabel.text = viewModel.title
         roundsCountLabel.text = "\(viewModel.roundsCount)"
         decreaseRoundsButton.isEnabled = false
+        if viewModel.shouldShowDifficulty {
+            difficultyLevelView.isHidden = false
+            difficultyButton.setTitle(viewModel.difficultyName, for: .normal)
+        } else {
+            difficultyLevelView.isHidden = true
+        }
+        
         if !viewModel.allowsRounds {
             roundsView.isHidden = true
             roundsCountLabel.isHidden = true
@@ -64,6 +75,10 @@ class MultipleExerciseViewController: UIViewController {
     
     @IBAction func increaseRoundsAction(_ sender: Any) {
         viewModel.increaseRounds()
+    }
+    
+    @IBAction func difficultyButtonAction(_ sender: Any) {
+        viewModel.changeDifficulty()
     }
     
     @IBAction func decreaseRoundsAction(_ sender: Any) {
@@ -165,6 +180,10 @@ extension MultipleExerciseViewController: MultipleExerciseViewModelDelegate {
         }) { _ in
             self.infoButton.isHidden = true
         }
+    }
+    
+    func setDifficulty(_ difficulty: String) {
+        difficultyButton.setTitle(difficulty, for: .normal)
     }
 }
 

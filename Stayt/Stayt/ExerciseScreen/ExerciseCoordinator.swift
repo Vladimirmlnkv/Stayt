@@ -30,7 +30,8 @@ class ExerciseCoodinator {
     fileprivate var delegate: ExerciseCoodinatorDelegate?
     fileprivate var exerciseVC: UIViewController!
     fileprivate let exercisePack: ExercisePack?
-    fileprivate var menuHandler: DurationsOptionsMenuHandler?
+    fileprivate var menuHandler: DurationsOptionsMenuHandler<Int>?
+    fileprivate var difficultyMenuHandler: DurationsOptionsMenuHandler<String>?
     fileprivate var tutorialVC: UIViewController?
     
     init(exercise: Exercise, presentingVC: UIViewController, exercisePack: ExercisePack?=nil) {
@@ -123,8 +124,8 @@ extension ExerciseCoodinator: ExerciseViewModelCoordinationDelegate {
     
     func showDurationPicker(with title: String, currentDuration: Int?, allowedDurations: [Int]?, completion: @escaping (Int) -> Void) {
         if let durations = allowedDurations, durations.count <= 4, !durations.isEmpty {
-            menuHandler = DurationsOptionsMenuHandler(superView: exerciseVC.view, title: title, durations: allowedDurations)
-            menuHandler!.currentDuration = currentDuration
+            menuHandler = DurationsOptionsMenuHandler<Int>(superView: exerciseVC.view, title: title, options: allowedDurations)
+            menuHandler!.currentOption = currentDuration
             menuHandler!.completion = completion
             menuHandler!.showMenu()
         } else {
@@ -137,6 +138,13 @@ extension ExerciseCoodinator: ExerciseViewModelCoordinationDelegate {
             }
             exerciseVC.present(durationPicker, animated: true, completion: nil)
         }
+    }
+    
+    func showDifficultyPicker(with selectedDifficulty: String, completion: @escaping (String) -> Void) {
+         difficultyMenuHandler = DurationsOptionsMenuHandler<String>(superView: exerciseVC.view, title: "Difficulty", options: ["Beginner", "Intermediate", "Advanced"])
+        difficultyMenuHandler!.currentOption = selectedDifficulty
+        difficultyMenuHandler!.completion = completion
+        difficultyMenuHandler!.showMenu()
     }
     
     func showStagesScreen(for activity: Activity) {

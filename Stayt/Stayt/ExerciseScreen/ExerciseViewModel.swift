@@ -14,6 +14,7 @@ protocol ExerciseViewModelCoordinationDelegate: class {
     func showInfoScreen()
     func dismiss(shouldConfirm: Bool, completion: @escaping () -> Void)
     func showDurationPicker(with title: String, currentDuration: Int?, allowedDurations: [Int]?, completion: @escaping (Int) -> Void)
+    func showDifficultyPicker(with selectedDifficulty: String, completion: @escaping (String) -> Void)
     func showStagesScreen(for activity: Activity)
     func exerciseFinished(roundsCount: Int)
     func endExecrise(with roundsCount: Int, completion: @escaping () -> Void)
