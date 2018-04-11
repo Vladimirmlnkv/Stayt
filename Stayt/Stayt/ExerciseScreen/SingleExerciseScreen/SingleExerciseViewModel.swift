@@ -60,14 +60,15 @@ class SingleExerciseViewModel: ExerciseViewModel, TimerDisplay {
                 let remainingTime = strongSelf.currentTimeDuration! - Int(passedTime)
 
                 if remainingTime == 0 {
-                    strongSelf.playSound()
-                }
-                if remainingTime == -1 {
-                    strongSelf.player?.pause()
                     strongSelf.state = .done
-                } else {
-                    strongSelf.delegate?.update(remaining: strongSelf.stringDuration(from: remainingTime))
+                    if !strongSelf.exercise.isGuided {
+                        strongSelf.player?.pause()
+                        strongSelf.playSound()
+                    } else {
+                        strongSelf.completeExercise()
+                    }
                 }
+                strongSelf.delegate?.update(remaining: strongSelf.stringDuration(from: remainingTime))
             }
         }
     }

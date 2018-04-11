@@ -50,24 +50,52 @@ class ExerciseViewModel: NSObject, AVAudioPlayerDelegate {
     
     func playButtonAction() {
         if state == .initial || state == .pause {
-            if currentTimeDuration == nil {
-                currentActivityNumber = 0
-                if !exercise.activities.first!.stages.isEmpty {
-                    currentStage = 0
-                    currentTimeDuration = exercise.activities.first!.stages.first!.duration
-                } else {
-                    currentTimeDuration = exercise.activities.first!.duration
-                }
-            }
-            state = .play
             if let player = player {
                 player.play()
             } else {
-                let soundPath = Bundle.main.path(forResource: "empty", ofType: "mp3")
+                var audioName = "empty"
+                if exercise.activities.first!.stages.isEmpty {
+                    let guidanceList = exercise.activities.first!.guidanceList
+                    if !guidanceList.isEmpty {
+                        if let guidance: Guidance = guidanceList.filter({$0.duration == self.exercise.activities.first!.duration}).first {
+                            audioName = guidance.fileName
+                        }
+                    }
+                } else {
+                    let guidanceList = exercise.activities.first!.stages.first!.guidanceList
+                    if !guidanceList.isEmpty {
+                        if let guidance: Guidance = guidanceList.filter({$0.duration == self.exercise.activities.first!.stages.first!.duration}).first {
+                            audioName = guidance.fileName
+                        }
+                    }
+                }
+                let soundPath = Bundle.main.path(forResource: audioName, ofType: "mp3")
                 let interval = CMTime(seconds: 1, preferredTimescale: 1)
                 try! AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, with: AVAudioSessionCategoryOptions.mixWithOthers)
                 try! AVAudioSession.sharedInstance().setActive(true)
                 player = AVPlayer(url: URL(fileURLWithPath: soundPath!))
+                
+                if exercise.isGuided {
+                    if currentTimeDuration == nil {
+                        currentActivityNumber = 0
+                        if !exercise.activities.first!.stages.isEmpty {
+                            currentStage = 0
+                        }
+                        currentTimeDuration = Int(player!.currentItem!.asset.duration.value) / Int(player!.currentItem!.asset.duration.timescale)
+                    }
+                } else {
+                    if currentTimeDuration == nil {
+                        currentActivityNumber = 0
+                        if !exercise.activities.first!.stages.isEmpty {
+                            currentStage = 0
+                            currentTimeDuration = exercise.activities.first!.stages.first!.duration
+                        } else {
+                            currentTimeDuration = exercise.activities.first!.duration
+                        }
+                    }
+                }
+                state = .play
+                
                 player!.addPeriodicTimeObserver(forInterval: interval, queue: DispatchQueue.main, using: updateBlock)
                 player!.play()
             }
@@ -90,9 +118,13 @@ class ExerciseViewModel: NSObject, AVAudioPlayerDelegate {
     
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully: Bool) {
         if state == .done {
-            incrementCurrentExerciseInPack()
-            coordinationDelegate?.exerciseFinished(roundsCount: 1)
+            completeExercise()
         }
+    }
+    
+    func completeExercise() {
+        incrementCurrentExerciseInPack()
+        coordinationDelegate?.exerciseFinished(roundsCount: 1)
     }
     
     func dismiss() {

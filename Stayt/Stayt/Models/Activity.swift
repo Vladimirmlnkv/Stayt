@@ -16,12 +16,14 @@ class Activity: Object {
     @objc dynamic var descriptionName: String!
     @objc dynamic var allowsEditDuration: Bool = true
     let stages = List<ActivityStage>()
+    let guidanceList = List<Guidance>()
+    
     @objc dynamic var stagesTitle: String?
     var durationString: String {
         return "\(duration / 60)"
     }
     
-    convenience init(name: String, duration: Int=600, descriptionName: String, stages: [ActivityStage]?=nil, avaliableDurations: [Int]?=nil, allowsEditDuration: Bool=true) {
+    convenience init(name: String, duration: Int=600, descriptionName: String, stages: [ActivityStage]?=nil, avaliableDurations: [Int]?=nil, allowsEditDuration: Bool=true, guidance: [Guidance]?=nil) {
         self.init()
         self.allowsEditDuration = allowsEditDuration
         self.name = name
@@ -32,6 +34,9 @@ class Activity: Object {
         }
         if let durations = avaliableDurations {
             self.avaliableDurations.append(objectsIn: durations)
+        }
+        if let guidance = guidance {
+            self.guidanceList.append(objectsIn: guidance)
         }
     }
 }

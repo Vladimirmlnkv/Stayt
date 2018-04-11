@@ -56,6 +56,10 @@
 		7E4BA0D52029F08200C7C18A /* HolderViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4BA0D42029F08200C7C18A /* HolderViewHandler.swift */; };
 		7E5105C4207C8B5800E0D5E4 /* ActivityStage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5105C3207C8B5800E0D5E4 /* ActivityStage.swift */; };
 		7E5105C6207C91FC00E0D5E4 /* StagesActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5105C5207C91FC00E0D5E4 /* StagesActivityCell.swift */; };
+		7E5105C8207D368A00E0D5E4 /* Guidance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5105C7207D368A00E0D5E4 /* Guidance.swift */; };
+		7E5105CE207D379000E0D5E4 /* level1twominutemeditation.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7E5105CB207D379000E0D5E4 /* level1twominutemeditation.mp3 */; };
+		7E5105CF207D379000E0D5E4 /* level1fourminutemeditation.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7E5105CC207D379000E0D5E4 /* level1fourminutemeditation.mp3 */; };
+		7E5105D0207D379000E0D5E4 /* level1oneminutemeditation.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7E5105CD207D379000E0D5E4 /* level1oneminutemeditation.mp3 */; };
 		7E5AD2AE202ED2A800C08D77 /* CustomFeelingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5AD2AD202ED2A800C08D77 /* CustomFeelingViewController.swift */; };
 		7E5AD2B12031FBEC00C08D77 /* ExerciseDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5AD2B02031FBEC00C08D77 /* ExerciseDescriptionViewController.swift */; };
 		7E67E34820132BB1009E084F /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E67E34720132BB1009E084F /* Exercise.swift */; };
@@ -142,6 +146,10 @@
 		7E4BA0D42029F08200C7C18A /* HolderViewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolderViewHandler.swift; sourceTree = "<group>"; };
 		7E5105C3207C8B5800E0D5E4 /* ActivityStage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityStage.swift; sourceTree = "<group>"; };
 		7E5105C5207C91FC00E0D5E4 /* StagesActivityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StagesActivityCell.swift; sourceTree = "<group>"; };
+		7E5105C7207D368A00E0D5E4 /* Guidance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Guidance.swift; sourceTree = "<group>"; };
+		7E5105CB207D379000E0D5E4 /* level1twominutemeditation.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = level1twominutemeditation.mp3; sourceTree = "<group>"; };
+		7E5105CC207D379000E0D5E4 /* level1fourminutemeditation.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = level1fourminutemeditation.mp3; sourceTree = "<group>"; };
+		7E5105CD207D379000E0D5E4 /* level1oneminutemeditation.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = level1oneminutemeditation.mp3; sourceTree = "<group>"; };
 		7E5AD2AD202ED2A800C08D77 /* CustomFeelingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFeelingViewController.swift; sourceTree = "<group>"; };
 		7E5AD2B02031FBEC00C08D77 /* ExerciseDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDescriptionViewController.swift; sourceTree = "<group>"; };
 		7E67E34720132BB1009E084F /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
@@ -381,6 +389,24 @@
 			path = Holder;
 			sourceTree = "<group>";
 		};
+		7E5105C9207D373600E0D5E4 /* IntroductionPack */ = {
+			isa = PBXGroup;
+			children = (
+				7E5105CA207D374400E0D5E4 /* level1 */,
+			);
+			path = IntroductionPack;
+			sourceTree = "<group>";
+		};
+		7E5105CA207D374400E0D5E4 /* level1 */ = {
+			isa = PBXGroup;
+			children = (
+				7E5105CC207D379000E0D5E4 /* level1fourminutemeditation.mp3 */,
+				7E5105CD207D379000E0D5E4 /* level1oneminutemeditation.mp3 */,
+				7E5105CB207D379000E0D5E4 /* level1twominutemeditation.mp3 */,
+			);
+			path = level1;
+			sourceTree = "<group>";
+		};
 		7E5AD2AF2031FBD800C08D77 /* ExerciseDescriptionScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -453,6 +479,7 @@
 		7EDB2E682014D78700D77CB8 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				7E5105C9207D373600E0D5E4 /* IntroductionPack */,
 				7E2035E0201C7FD4005A6707 /* meditationBell.mp3 */,
 				7E366B8D203DD9CE00A2297F /* empty.mp3 */,
 			);
@@ -519,6 +546,7 @@
 				7EDC59A1200E76E100C33DFC /* Activity.swift */,
 				7E5105C3207C8B5800E0D5E4 /* ActivityStage.swift */,
 				7E67E34720132BB1009E084F /* Exercise.swift */,
+				7E5105C7207D368A00E0D5E4 /* Guidance.swift */,
 				7EC1BBF220335593008DDB68 /* AfterFeeling.swift */,
 				7E85DE54203C4EF60052CFAA /* UserSession.swift */,
 				7E05A5F7204990F0002F5648 /* ExercisePack.swift */,
@@ -610,6 +638,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E5105D0207D379000E0D5E4 /* level1oneminutemeditation.mp3 in Resources */,
 				7E9182DE20615AF0001065D1 /* NewFeelingView.xib in Resources */,
 				7EDC5994200E6C4100C33DFC /* LaunchScreen.storyboard in Resources */,
 				7E2035E1201C7FD4005A6707 /* meditationBell.mp3 in Resources */,
@@ -618,12 +647,14 @@
 				7E05A5FA2049B1C3002F5648 /* CompletedPackView.xib in Resources */,
 				7ED5C460206D5C3100031950 /* Onboarding.storyboard in Resources */,
 				7E10A535203B02910059AEF9 /* ExerciseSectionView.xib in Resources */,
+				7E5105CF207D379000E0D5E4 /* level1fourminutemeditation.mp3 in Resources */,
 				7EDC5991200E6C4100C33DFC /* Assets.xcassets in Resources */,
 				7E28949E204127C2005D2F22 /* RestView.xib in Resources */,
 				7EDC598F200E6C4100C33DFC /* Main.storyboard in Resources */,
 				7ED867AF204BCE5F00340051 /* DropDownDurationPicker.xib in Resources */,
 				7E10A537203B02E10059AEF9 /* ExerciseSectionCollectionCell.xib in Resources */,
 				7E4BA0D12029E6E600C7C18A /* HolderView.xib in Resources */,
+				7E5105CE207D379000E0D5E4 /* level1twominutemeditation.mp3 in Resources */,
 				7E366B8E203DD9CF00A2297F /* empty.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -752,6 +783,7 @@
 				7E2C5A07203867D300018536 /* ExerciseViewModel.swift in Sources */,
 				7E2035E6201C8437005A6707 /* AfterExerciseCell.swift in Sources */,
 				7EDC59A2200E76E100C33DFC /* Activity.swift in Sources */,
+				7E5105C8207D368A00E0D5E4 /* Guidance.swift in Sources */,
 				7E4BA0D52029F08200C7C18A /* HolderViewHandler.swift in Sources */,
 				7EF969102046CF8900EF146D /* StagesCoordinator.swift in Sources */,
 				7E9182E220618B39001065D1 /* FeelingsDataSrouce.swift in Sources */,

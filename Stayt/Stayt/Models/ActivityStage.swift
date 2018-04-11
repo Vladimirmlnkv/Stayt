@@ -14,6 +14,7 @@ class ActivityStage: Object {
     @objc dynamic var name: String!
     @objc dynamic var duration: Int = 0
     let avaliableDurations = List<Int>()
+    let guidanceList = List<Guidance>()
     @objc dynamic var allowsEditDuration: Bool = true
     
     convenience init(name: String, duration: Int, avaliableDurations: [Int], allowsEditDuration: Bool=true) {
