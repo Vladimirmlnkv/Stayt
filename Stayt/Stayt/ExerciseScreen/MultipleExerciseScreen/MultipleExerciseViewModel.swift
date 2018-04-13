@@ -157,9 +157,12 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
             let passedTime = Int64(time.value) / Int64(time.timescale)
             let remainingTime = strongSelf.currentTimeDuration! - Int(passedTime)
 
-            strongSelf.remainingDuration = remainingTime
+            strongSelf.remainingDuration = Int(passedTime)
             
             if remainingTime == 0 && !strongSelf.changingStage {
+                if !exercise.isGuided {
+                    strongSelf.playSound()
+                }
                 if let currentStageNumber = strongSelf.currentStage,
                         strongSelf.currentActivityNumber! <= exercise.activities.count - 1,
                         currentStageNumber < exercise.activities[strongSelf.currentActivityNumber!].stages.count - 1
@@ -199,7 +202,9 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
                         } else {
                             strongSelf.pauseIfNeeded()
                             strongSelf.state = .done
-                            strongSelf.completeExercise()
+                            if exercise.isGuided {
+                                strongSelf.completeExercise()
+                            }
                         }
                     }
                 }
@@ -273,7 +278,7 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
                     if let d = remainingDuration {
                         durationTitle = stringDuration(from: d)
                     } else {
-                        durationTitle = stringDuration(from: currentTimeDuration!)
+                        durationTitle = stringDuration(from: 0)
                     }
                     isCurrentActivity = true
                     if let stage = currentStage, !exercise.activities[currentAcitivityNumber].stages.isEmpty {
@@ -335,8 +340,36 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
     }
     
     fileprivate func startProgressBar() {
-        let sessionDuration = exercise.activities.reduce(0) { $0 + $1.duration + ($1.stages.count > 0 ? $1.stages.count : 1) } + (exercise.activities.count - 1) * transitionTime + exercise.activities.count - 1
-        delegate?.startProgressBar(with: sessionDuration)
+        delegate?.startProgressBar(with: calculatePrgoressBarAnimationDuration())
+    }
+    
+    fileprivate func calculatePrgoressBarAnimationDuration() -> Int {
+        
+        if exercise.isGuided {
+            var duration = 0
+            for activity in exercise.activities {
+                if activity.stages.isEmpty {
+                    if let guidance = activity.guidanceList.filter({$0.duration == activity.duration}).first {
+                        duration += audioClipDuration(audioName: guidance.fileName)
+                    }
+                } else {
+                    for stage in activity.stages {
+                        if let guidance = stage.guidanceList.filter({$0.duration == stage.duration}).first {
+                            duration += audioClipDuration(audioName: guidance.fileName)
+                        }
+                    }
+                }
+            }
+            return duration
+        } else {
+            return exercise.activities.reduce(0) { $0 + $1.duration } + (exercise.activities.count - 1) * (transitionTime)
+        }
+    }
+    
+    fileprivate func audioClipDuration(audioName: String) -> Int {
+        let soundPath = Bundle.main.path(forResource: audioName, ofType: "mp3")
+        let tmpPlayer = AVPlayer(url: URL(fileURLWithPath: soundPath!))
+        return Int(tmpPlayer.currentItem!.asset.duration.value) / Int(tmpPlayer.currentItem!.asset.duration.timescale)
     }
     
     fileprivate func incrementCurrentRound() {

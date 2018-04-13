@@ -68,7 +68,7 @@ class SingleExerciseViewModel: ExerciseViewModel, TimerDisplay {
                         strongSelf.completeExercise()
                     }
                 }
-                strongSelf.delegate?.update(remaining: strongSelf.stringDuration(from: remainingTime))
+                strongSelf.delegate?.update(remaining: strongSelf.stringDuration(from: Int(passedTime)))
             }
         }
     }
