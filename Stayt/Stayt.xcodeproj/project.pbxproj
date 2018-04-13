@@ -59,6 +59,9 @@
 		7E5105C8207D368A00E0D5E4 /* Guidance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5105C7207D368A00E0D5E4 /* Guidance.swift */; };
 		7E5AD2AE202ED2A800C08D77 /* CustomFeelingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5AD2AD202ED2A800C08D77 /* CustomFeelingViewController.swift */; };
 		7E5AD2B12031FBEC00C08D77 /* ExerciseDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5AD2B02031FBEC00C08D77 /* ExerciseDescriptionViewController.swift */; };
+		7E5C90042080DCDE0010D705 /* Level3(4min).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7E5C90012080DCDD0010D705 /* Level3(4min).mp3 */; };
+		7E5C90052080DCDE0010D705 /* Level3(1min).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7E5C90022080DCDE0010D705 /* Level3(1min).mp3 */; };
+		7E5C90062080DCDE0010D705 /* Level3(2min).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7E5C90032080DCDE0010D705 /* Level3(2min).mp3 */; };
 		7E67E34820132BB1009E084F /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E67E34720132BB1009E084F /* Exercise.swift */; };
 		7E85DE53203C40240052CFAA /* ExerciseDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E85DE52203C40240052CFAA /* ExerciseDescription.swift */; };
 		7E85DE55203C4EF60052CFAA /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E85DE54203C4EF60052CFAA /* UserSession.swift */; };
@@ -152,6 +155,9 @@
 		7E5105C7207D368A00E0D5E4 /* Guidance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Guidance.swift; sourceTree = "<group>"; };
 		7E5AD2AD202ED2A800C08D77 /* CustomFeelingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFeelingViewController.swift; sourceTree = "<group>"; };
 		7E5AD2B02031FBEC00C08D77 /* ExerciseDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDescriptionViewController.swift; sourceTree = "<group>"; };
+		7E5C90012080DCDD0010D705 /* Level3(4min).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Level3(4min).mp3"; sourceTree = "<group>"; };
+		7E5C90022080DCDE0010D705 /* Level3(1min).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Level3(1min).mp3"; sourceTree = "<group>"; };
+		7E5C90032080DCDE0010D705 /* Level3(2min).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Level3(2min).mp3"; sourceTree = "<group>"; };
 		7E67E34720132BB1009E084F /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		7E85DE52203C40240052CFAA /* ExerciseDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDescription.swift; sourceTree = "<group>"; };
 		7E85DE54203C4EF60052CFAA /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
@@ -398,6 +404,7 @@
 		7E5105C9207D373600E0D5E4 /* IntroductionPack */ = {
 			isa = PBXGroup;
 			children = (
+				7E5C90002080DC070010D705 /* level3 */,
 				7E5105CA207D374400E0D5E4 /* level1 */,
 				7E8F5E8C208069CE003E5C29 /* level 2 */,
 			);
@@ -422,6 +429,16 @@
 				7E9CE5DA2072B1F000F5DE58 /* DescriptionPageViewController.swift */,
 			);
 			path = ExerciseDescriptionScreen;
+			sourceTree = "<group>";
+		};
+		7E5C90002080DC070010D705 /* level3 */ = {
+			isa = PBXGroup;
+			children = (
+				7E5C90012080DCDD0010D705 /* Level3(4min).mp3 */,
+				7E5C90022080DCDE0010D705 /* Level3(1min).mp3 */,
+				7E5C90032080DCDE0010D705 /* Level3(2min).mp3 */,
+			);
+			path = level3;
 			sourceTree = "<group>";
 		};
 		7E85DE58203C7C2D0052CFAA /* AboutScreen */ = {
@@ -663,13 +680,16 @@
 				7E4BA0C920288B8A00C7C18A /* CenteredCell.xib in Resources */,
 				7E8F5E9820806ABB003E5C29 /* Level1(2min).mp3 in Resources */,
 				7E242178202B2AC900C03126 /* EmptyView.xib in Resources */,
+				7E5C90062080DCDE0010D705 /* Level3(2min).mp3 in Resources */,
 				7E05A5FA2049B1C3002F5648 /* CompletedPackView.xib in Resources */,
+				7E5C90042080DCDE0010D705 /* Level3(4min).mp3 in Resources */,
 				7E8F5E9120806A2F003E5C29 /* Level2Part3.mp3 in Resources */,
 				7ED5C460206D5C3100031950 /* Onboarding.storyboard in Resources */,
 				7E10A535203B02910059AEF9 /* ExerciseSectionView.xib in Resources */,
 				7EDC5991200E6C4100C33DFC /* Assets.xcassets in Resources */,
 				7E28949E204127C2005D2F22 /* RestView.xib in Resources */,
 				7E8F5E9620806ABB003E5C29 /* Level1(1min).mp3 in Resources */,
+				7E5C90052080DCDE0010D705 /* Level3(1min).mp3 in Resources */,
 				7EDC598F200E6C4100C33DFC /* Main.storyboard in Resources */,
 				7ED867AF204BCE5F00340051 /* DropDownDurationPicker.xib in Resources */,
 				7E10A537203B02E10059AEF9 /* ExerciseSectionCollectionCell.xib in Resources */,

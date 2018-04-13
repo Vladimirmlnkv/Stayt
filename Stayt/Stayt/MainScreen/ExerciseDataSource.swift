@@ -41,7 +41,7 @@ class ExerciseDataSource {
         let day2Breathwork = Exercise(name: ExerciseDescription.breathWorkFeelingName, description: ExerciseDescription.breathWorkDescription, descriptionName: "Understanding Breathwork", isGuided: true, activities: [breathworkActivity])
         day2Breathwork.shouldShowTutorialFirst = true
         
-        let day3ArmHolding = Exercise(name: ExerciseDescription.armHoldFeelingName, description: ExerciseDescription.armHoldDescription, descriptionName: "Learning the Arm Hold", isGuided: true, activities: [Activity(name: "Motivated", duration: 120, descriptionName: "Arm holding", avaliableDurations: [60, 120, 240])])
+        let day3ArmHolding = Exercise(name: ExerciseDescription.armHoldFeelingName, description: ExerciseDescription.armHoldDescription, descriptionName: "Learning the Arm Hold", isGuided: true, activities: [Activity(name: "Motivated", duration: 120, descriptionName: "Arm holding", avaliableDurations: [60, 120, 240], guidance: [Guidance(duration: 60, fileName: "Level3(1min)"), Guidance(duration: 120, fileName: "Level3(2min)"), Guidance(duration: 240, fileName: "Level3(4min)")])])
         day3ArmHolding.shouldShowTutorialFirst = true
         
         let day4Meditation = Exercise(name: ExerciseDescription.meditationFeelingName, description: ExerciseDescription.meditationDescription, descriptionName: "Basics of Meditation", isGuided: true, activities: [Activity(name: "Relaxed", duration: 240, descriptionName: "Meditation", avaliableDurations: [120, 240, 300])])
