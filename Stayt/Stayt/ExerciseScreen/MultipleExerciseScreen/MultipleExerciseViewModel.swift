@@ -158,27 +158,21 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
             let remainingTime = strongSelf.currentTimeDuration! - Int(passedTime)
 
             strongSelf.remainingDuration = remainingTime
-            if remainingTime == 0 {
-                strongSelf.playSound()
-            }
             
-            if remainingTime == -1 && !strongSelf.changingStage {
+            if remainingTime == 0 && !strongSelf.changingStage {
                 if let currentStageNumber = strongSelf.currentStage,
                         strongSelf.currentActivityNumber! <= exercise.activities.count - 1,
                         currentStageNumber < exercise.activities[strongSelf.currentActivityNumber!].stages.count - 1
                 {
                     strongSelf.changingStage = true
                     strongSelf.currentStage! += 1
-                    strongSelf.currentTimeDuration = exercise.activities[strongSelf.currentActivityNumber!].stages[strongSelf.currentStage!].duration
-                    strongSelf.player?.pause()
-                    strongSelf.player?.seek(to: kCMTimeZero)
-                    strongSelf.player?.play()
+                    strongSelf.playNextAudio()
                 } else {
                     strongSelf.changingStage = false
                     strongSelf.currentStage = nil
                     if strongSelf.currentActivityNumber! < exercise.activities.count - 1 {
                         if strongSelf.shouldShowHolder {
-                            strongSelf.player?.pause()
+                            strongSelf.pauseIfNeeded()
                             strongSelf.shouldShowHolder = false
                             strongSelf.delegate?.showHolder(with: strongSelf.transitionTime, delegate: strongSelf, activity: exercise.activities[strongSelf.currentActivityNumber! + 1])
                         }
@@ -188,23 +182,24 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
                         if strongSelf.currentRound < strongSelf.roundsCount {
                             if strongSelf.roundsRestTime == 0 {
                                 if exercise.activities.count == 1 {
-                                    strongSelf.player?.pause()
+                                    strongSelf.pauseIfNeeded()
                                     strongSelf.startNextRound()
                                 } else if strongSelf.shouldShowHolder {
-                                    strongSelf.player?.pause()
+                                    strongSelf.pauseIfNeeded()
                                     strongSelf.shouldShowHolder = false
                                     strongSelf.delegate?.showHolder(with: strongSelf.transitionTime, delegate: strongSelf, activity: exercise.activities[0])
                                 }
                             } else {
                                 if strongSelf.shouldShowRestView {
-                                    strongSelf.player?.pause()
+                                    strongSelf.pauseIfNeeded()
                                     strongSelf.shouldShowRestView = false
                                     strongSelf.delegate?.showRestView(with: strongSelf.roundsRestTime, delegate: strongSelf)
                                 }
                             }
                         } else {
-                            strongSelf.player?.pause()
+                            strongSelf.pauseIfNeeded()
                             strongSelf.state = .done
+                            strongSelf.completeExercise()
                         }
                     }
                 }
@@ -215,7 +210,47 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
                 }
             }
         }
-
+    }
+    
+    func pauseIfNeeded() {
+        if !exercise.isGuided {
+            player?.pause()
+        }
+    }
+    
+    func playNextAudio() {
+        let currentActivity = exercise.activities[currentActivityNumber!]
+        if exercise.isGuided {
+            var audioName = ""
+            if !currentActivity.stages.isEmpty {
+                if currentStage == nil {
+                    currentStage = 0
+                }
+                let stage = exercise.activities[currentActivityNumber!].stages[currentStage!]
+                if let guidance = stage.guidanceList.filter({$0.duration == stage.duration}).first {
+                    audioName = guidance.fileName
+                }
+            } else {
+                if let guidance = currentActivity.guidanceList.filter({$0.duration == currentActivity.duration}).first {
+                    audioName = guidance.fileName
+                }
+            }
+            let soundPath = Bundle.main.path(forResource: audioName, ofType: "mp3")
+            player!.replaceCurrentItem(with: AVPlayerItem(url: URL(fileURLWithPath: soundPath!)))
+            currentTimeDuration = Int(player!.currentItem!.asset.duration.value) / Int(player!.currentItem!.asset.duration.timescale)
+        } else {
+            if !currentActivity.stages.isEmpty {
+                if currentStage == nil {
+                    currentStage = 0
+                }
+                currentTimeDuration = exercise.activities[currentActivityNumber!].stages[currentStage!].duration
+            } else {
+                currentTimeDuration = exercise.activities[currentActivityNumber!].duration
+            }
+            
+            player?.seek(to: kCMTimeZero)
+        }
+        player?.play()
     }
     
     func activityCellViewModel(for indexPath: IndexPath) -> ActivityCellViewModel {
@@ -314,11 +349,12 @@ class MultipleExerciseViewModel: ExerciseViewModel, TimerDisplay {
     fileprivate func startNextRound() {
         currentActivityNumber = 0
         incrementCurrentRound()
-        currentTimeDuration = exercise.activities[currentActivityNumber!].duration
+//        currentTimeDuration = exercise.activities[currentActivityNumber!].duration
         checkStages()
+//        player?.seek(to: kCMTimeZero)
+//        player?.play()
+        playNextAudio()
         delegate?.reloadTableView()
-        player?.seek(to: kCMTimeZero)
-        player?.play()
         startProgressBar()
     }
 }
@@ -331,11 +367,12 @@ extension MultipleExerciseViewModel: HolderViewHandlerDelegate {
             startNextRound()
         } else {
             currentActivityNumber! += 1
-            currentTimeDuration = exercise.activities[currentActivityNumber!].duration
             checkStages()
+            playNextAudio()
+//            currentTimeDuration = exercise.activities[currentActivityNumber!].duration
             delegate?.realodRows(at: [currentActivityNumber!, currentActivityNumber! - 1])
-            player?.seek(to: kCMTimeZero)
-            player?.play()
+//            player?.seek(to: kCMTimeZero)
+//            player?.play()
         }
     }
     
@@ -354,11 +391,12 @@ extension MultipleExerciseViewModel: RestViewHandlerDelegate {
         shouldShowRestView = true
         currentActivityNumber = 0
         incrementCurrentRound()
-        currentTimeDuration = exercise.activities[currentActivityNumber!].duration
+//        currentTimeDuration = exercise.activities[currentActivityNumber!].duration
         checkStages()
+        playNextAudio()
         delegate?.reloadTableView()
-        player?.seek(to: kCMTimeZero)
-        player?.play()
+//        player?.seek(to: kCMTimeZero)
+//        player?.play()
     }
     
     func didStop(completion: @escaping () -> Void) {

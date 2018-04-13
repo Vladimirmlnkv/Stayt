@@ -23,13 +23,16 @@ class ExerciseDataSource {
     
     fileprivate func initBeginnersPack() -> ExercisePack {
         
-        let day1Meditation = Exercise(name: ExerciseDescription.meditationFeelingName, description: ExerciseDescription.meditationDescription, descriptionName: "Benefits Of Meditation", isGuided: true, activities: [Activity(name: "Relaxed", duration: 120, descriptionName: "Meditation", avaliableDurations: [60, 120, 240], guidance: [Guidance(duration: 60, fileName: "level1oneminutemeditation"), Guidance(duration: 120, fileName: "level1twominutemeditation"), Guidance(duration: 240, fileName: "level1fourminutemeditation")])])
+        let day1Meditation = Exercise(name: ExerciseDescription.meditationFeelingName, description: ExerciseDescription.meditationDescription, descriptionName: "Benefits Of Meditation", isGuided: true, activities: [Activity(name: "Relaxed", duration: 120, descriptionName: "Meditation", avaliableDurations: [60, 120, 240], guidance: [Guidance(duration: 60, fileName: "Level1(1min)"), Guidance(duration: 120, fileName: "Level1(2min)"), Guidance(duration: 240, fileName: "Level1(4min)")])])
         
         day1Meditation.shouldShowTutorialFirst = true
 
         let rapidStage1 = ActivityStage(name: "Rapid breathing", duration: 60, avaliableDurations: [60], allowsEditDuration: false)
+        rapidStage1.guidanceList.append(Guidance(duration: 60, fileName: "Level2Part1"))
         let outholdStage1 = ActivityStage(name: "Out/Hold", duration: 15, avaliableDurations: [15], allowsEditDuration: false)
+        outholdStage1.guidanceList.append(Guidance(duration: 15, fileName: "Level2Part2"))
         let inholdStage1 = ActivityStage(name: "In/Hold", duration: 15, avaliableDurations: [15], allowsEditDuration: false)
+        inholdStage1.guidanceList.append(Guidance(duration: 15, fileName: "Level2Part3"))
         let stages1 = [rapidStage1, outholdStage1, inholdStage1]
         
         let breathworkActivity = Activity(name: "Energized", duration: 90, descriptionName: "Breathwork", stages: stages1)
