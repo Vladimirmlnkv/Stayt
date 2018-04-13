@@ -19,6 +19,10 @@ class PackOverviewCell: UICollectionViewCell {
     @IBOutlet var startButton: UIButton!
     @IBOutlet var levelLabel: UILabel!
     
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        startButton.layer.cornerRadius = startButton.frame.width / 2
+    }
     
     var delegate: PackOverviewCellDelegate!
     

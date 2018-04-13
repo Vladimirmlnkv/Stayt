@@ -80,12 +80,14 @@ extension PackOverviewViewController: UICollectionViewDataSource {
         cell.delegate = self
         cell.levelLabel.text = "Level \(indexPath.row + 1)"
         cell.exerciseLabel.text = exercise.descriptionName
-        
-//        cell.startButton.layer.borderColor = Colors.mainActiveColor.cgColor
+
+        cell.startButton.backgroundColor = Colors.mainActiveColor
+        cell.startButton.setTitleColor(UIColor.white, for: .normal)
+        cell.statusImageView.isHidden = false
         
         if indexPath.row == exercisePack.currentExerciseNumber {
-            cell.startButton.setTitle("Begin", for: .normal)
-            cell.statusImageView.image = #imageLiteral(resourceName: "circle")
+            cell.startButton.setTitle("Start", for: .normal)
+            cell.statusImageView.isHidden = true
             cell.startButton.isEnabled = true
         } else if indexPath.row < exercisePack.currentExerciseNumber {
             cell.startButton.setTitle("Repeat", for: .normal)
@@ -95,13 +97,11 @@ extension PackOverviewViewController: UICollectionViewDataSource {
             cell.startButton.setTitle("Locked", for: .normal)
             cell.statusImageView.image = #imageLiteral(resourceName: "locked-padlock")
             cell.startButton.isEnabled = false
-            cell.startButton.layer.borderColor = UIColor.lightGray.cgColor
+            cell.startButton.backgroundColor = UIColor.lightGray
         }
         cell.statusImageView.tintColor = Colors.mainActiveColor
         
         cell.layer.cornerRadius = 10
-//        cell.startButton.layer.borderWidth = 1.0
-//        cell.startButton.layer.cornerRadius = 10
         
         return cell
     }
