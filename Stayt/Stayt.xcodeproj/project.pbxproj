@@ -617,7 +617,6 @@
 				7EDC5983200E6C4100C33DFC /* Frameworks */,
 				7EDC5984200E6C4100C33DFC /* Resources */,
 				70BB4618CCA824C2CF59CDEA /* [CP] Embed Pods Frameworks */,
-				B7170D8F31683C452400B244 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -708,7 +707,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Stayt/Pods-Stayt-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Stayt/Pods-Stayt-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 			);
@@ -719,7 +718,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Stayt/Pods-Stayt-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Stayt/Pods-Stayt-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		AA2F64054973A5B491194C01 /* [CP] Check Pods Manifest.lock */ = {
@@ -738,21 +737,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B7170D8F31683C452400B244 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Stayt/Pods-Stayt-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

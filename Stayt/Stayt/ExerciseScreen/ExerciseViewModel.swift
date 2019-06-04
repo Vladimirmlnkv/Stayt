@@ -52,6 +52,7 @@ class ExerciseViewModel: NSObject, AVAudioPlayerDelegate {
     func playButtonAction() {
         if state == .initial || state == .pause {
             if let player = player {
+                state = .play
                 player.play()
             } else {
                 var audioName = "empty"
